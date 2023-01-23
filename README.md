@@ -1,6 +1,10 @@
 # klipper_firmware_builder
 Klipper Macro for build firmware forked from RatOS
 
+Installation
+- clone
+- add includes
+
 Action Items:
 - adjust scripts to remove RatOS path structure
 - add instructions os macro to enable shell-macros

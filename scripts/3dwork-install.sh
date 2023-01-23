@@ -5,27 +5,20 @@
 SYSTEMDDIR="/etc/systemd/system"
 PKGLIST="python3-numpy python3-matplotlib jq"
 
-source /home/pi/printer_data/config/RatOS/scripts/ratos-common.sh
+source /home/pi/printer_data/config/3dwork/scripts/ratos-common.sh
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 install_dependencies()
 {
-    report_status "Installing RatOS dependencies"
+    report_status "Installing 3Dwork dependencies"
     sudo apt-get update && sudo apt-get install -y $PKGLIST
-}
-
-install_printer_config()
-{
-    report_status "Copying printer configuration"
-    PRINTER_CFG="/home/pi/printer_data/config/printer.cfg"
-    tail -n +2 /home/pi/printer_data/config/RatOS/templates/initial-printer.template.cfg > $PRINTER_CFG
 }
 
 install_udev_rules()
 {
     report_status "Installing udev rules"
-    sudo ln -s /home/pi/printer_data/config/RatOS/boards/*/*.rules /etc/udev/rules.d/
+    sudo ln -s /home/pi/printer_data/config/3dwork/boards/*/*.rules /etc/udev/rules.d/
 }
 
 verify_ready()

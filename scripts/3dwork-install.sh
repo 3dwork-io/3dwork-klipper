@@ -5,7 +5,7 @@
 SYSTEMDDIR="/etc/systemd/system"
 PKGLIST="python3-numpy python3-matplotlib jq"
 
-source /home/pi/printer_data/config/3dwork/scripts/ratos-common.sh
+source /home/pi/printer_data/config/3dwork/scripts/3dwork-common.sh
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 

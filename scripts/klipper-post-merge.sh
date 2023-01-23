@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo /home/pi/printer_data/config/RatOS/scripts/klipper-mcu-update.sh
+sudo /home/pi/printer_data/config/3dwork/scripts/klipper-mcu-update.sh

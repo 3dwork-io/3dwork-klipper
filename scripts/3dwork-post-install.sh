@@ -1,8 +1,7 @@
 #!/bin/bash
 # This script install additional dependencies
-# for the v-core 3 klipper setup.
 
-source /home/pi/printer_data/config/RatOS/scripts/ratos-common.sh
+source /home/pi/printer_data/config/3dwork/scripts/3dwork-common.sh
 
 verify_ready()
 {
@@ -21,7 +20,7 @@ symlink_klippy_extensions()
 	then
 		echo $symlink_result | jq -r '.result.data.json'
 	else
-		echo "Failed to symlink klippy extensions. Is the RatOS configurator running?"
+		echo "Failed to symlink klippy extensions. Is the 3dwork configurator running?"
 		exit 1
 	fi
 }
@@ -35,7 +34,7 @@ symlink_moonraker_extensions()
 	then
 		echo $symlink_result | jq -r '.result.data.json'
 	else
-		echo "Failed to symlink moonraker extensions. Is the RatOS configurator running?"
+		echo "Failed to symlink moonraker extensions. Is the 3dwork configurator running?"
 		exit 1
 	fi
 }

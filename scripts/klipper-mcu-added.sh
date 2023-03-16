@@ -1,5 +1,5 @@
 #!/bin/sh
-logfile="/var/log/ratos.log"
+logfile="/var/log/3dwork.log"
 
 if [ -e /tmp/printer ]; then
     echo "RESTART" > /tmp/printer

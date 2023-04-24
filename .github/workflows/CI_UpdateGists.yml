@@ -1,1 +1,15 @@
+name: CI - Update Gists from Repository
+on: push
 
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: fe225e1667da13557c270b7e5b73db10
+          file_path: macros/start_print.cfg
+          file_type: binary

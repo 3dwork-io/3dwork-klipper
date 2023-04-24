@@ -6,10 +6,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Deploy
+      - name: Creating start_print.cfg Gist
         uses: exuanbo/actions-deploy-gist@v1
         with:
           token: ${{ secrets.TOKEN }}
           gist_id: fe225e1667da13557c270b7e5b73db10
           file_path: macros/start_print.cfg
+          file_type: binary
+          
+      - name: Creating end_print.cfg Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: 1fe5c57b40c09a9d0095d027ffc0f5d7
+          file_path: macros/end_print.cfg
           file_type: binary

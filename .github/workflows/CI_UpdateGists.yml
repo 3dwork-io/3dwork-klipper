@@ -77,3 +77,11 @@ jobs:
           gist_id: 54da6658a58624ecff466afaebfc7004
           file_path: macros/resume.cfg
           file_type: binary 
+
+      - name: Creating cancel.cfg Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: 7755e06ccbbbf7029983745ceb43651a
+          file_path: macros/cancel.cfg
+          file_type: binary 

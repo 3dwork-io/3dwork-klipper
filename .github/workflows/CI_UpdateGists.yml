@@ -53,3 +53,13 @@ jobs:
           gist_id: 2f9b36e9628b67ca8b527c39b8ad1992
           file_path: macros/change_filament.cfg
           file_type: binary
+          
+      - name: Creating move_park.cfg Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: 8d93aec3888d361fdcdc77a8ce0faad7
+          file_path: macros/move_park.cfg
+          file_type: binary          
+          
+          

@@ -78,10 +78,10 @@ jobs:
           file_path: macros/resume.cfg
           file_type: binary 
 
-      - name: Creating cancel.cfg Gist
+      - name: Creating cancel_print.cfg Gist
         uses: exuanbo/actions-deploy-gist@v1
         with:
           token: ${{ secrets.TOKEN }}
           gist_id: 7755e06ccbbbf7029983745ceb43651a
-          file_path: macros/cancel.cfg
+          file_path: macros/cancel_print.cfg
           file_type: binary 

@@ -37,3 +37,11 @@ jobs:
           gist_id: 194649a9314f8adfceb51ae8b2e80b7b
           file_path: macros/test_speed.cfg
           file_type: binary
+
+      - name: Creating var_globals.cfg Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: d218917893ba4ba539ce6a0b96499b4b
+          file_path: macros/var_globals.cfg
+          file_type: binary

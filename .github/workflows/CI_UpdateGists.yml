@@ -60,6 +60,12 @@ jobs:
           token: ${{ secrets.TOKEN }}
           gist_id: 8d93aec3888d361fdcdc77a8ce0faad7
           file_path: macros/move_park.cfg
-          file_type: binary          
+          file_type: binary
           
-          
+      - name: Creating pause.cfg Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: c730e8f064f8515efcb87cf9d34ae774
+          file_path: macros/pause.cfg
+          file_type: binary 

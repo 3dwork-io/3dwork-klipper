@@ -68,4 +68,12 @@ jobs:
           token: ${{ secrets.TOKEN }}
           gist_id: c730e8f064f8515efcb87cf9d34ae774
           file_path: macros/pause.cfg
+          file_type: binary
+          
+      - name: Creating resume.cfg Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: 54da6658a58624ecff466afaebfc7004
+          file_path: macros/resume.cfg
           file_type: binary 

@@ -29,3 +29,11 @@ jobs:
           gist_id: 2bb27e5547ecca823c17435cbaf49849
           file_path: macros/test_kinematics.cfg
           file_type: binary
+          
+      - name: Creating test_speed.cfg Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: 194649a9314f8adfceb51ae8b2e80b7b
+          file_path: macros/test_speed.cfg
+          file_type: binary

@@ -45,3 +45,11 @@ jobs:
           gist_id: d218917893ba4ba539ce6a0b96499b4b
           file_path: macros/var_globals.cfg
           file_type: binary
+
+      - name: Creating change_filament.cfg Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: 2f9b36e9628b67ca8b527c39b8ad1992
+          file_path: macros/change_filament.cfg
+          file_type: binary

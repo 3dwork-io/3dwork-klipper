@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Add timestamp
         run: |
           now=$(date +"%Y%m%d%H")
           find macros -type f -exec sed -i "1i # Last modified: ${now}" {} \;
           
-      - uses: actions/checkout@v3
+#      - uses: actions/checkout@v3
       - name: Creating start_print.cfg Gist
         uses: exuanbo/actions-deploy-gist@v1
         with:

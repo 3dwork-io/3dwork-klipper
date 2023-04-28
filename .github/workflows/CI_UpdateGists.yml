@@ -11,11 +11,12 @@ jobs:
       - name: Add timestamp
         run: |
           now=$(date +"%Y%m%d%H")
-          sed -i "1i # Last modified: ${now}" macros/cancel_print.cfg
+          timestamp="#v_${now}"
+          sed -i "1i # Last modified: ${timestamp}" macros/cancel_print.cfg
           
       - name: Commit changes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.COMMIT_TOKEN }}
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"

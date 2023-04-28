@@ -11,24 +11,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
-      - name: Get list of modified files
-        run: |
-          git diff --name-only HEAD^..HEAD > modified_files.txt
-          grep -Ff file_list.txt modified_files.txt > filtered_files.txt
 
       - name: Add timestamp
         run: |
-          now=$(date +"%Y%m%d%H%M")
-          while read p; do
-            sed -i "1i # Last modified: ${timestamp}" "$p"
-          done < filtered_files.txt
-          
-      - name: Stage changes
-        run: |
-          git reset filtered_files.txt
-          git reset modified_files.txt
-          git add .
+          now=$(date +"%Y%m%d%H")
+          find macros -type f -exec sed -i "1i # Last modified: ${now}" {} \;
           
       - name: Commit changes
         run: |

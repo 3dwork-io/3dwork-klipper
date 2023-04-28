@@ -18,7 +18,15 @@ jobs:
           timestamp="# Current Version v_${now}"
           find macros -type f -exec sed -i "0s/^.*$/${timestamp}/" {} \;
           
-#      - uses: actions/checkout@v3
+      - name: Commit changes
+        run: |
+          git config --global user.name "alienboyxp"
+          git config --global user.email "jrodriguez@qitec.net"
+          git add .
+          git commit -m "Added timestamp to files"
+          git push "https://${{ github.actor }}:${{ secrets.COMMIT_TOKEN }}@github.com/${{ github.repository }}.git"
+          
+      - uses: actions/checkout@v3
       - name: Creating start_print.cfg Gist
         uses: exuanbo/actions-deploy-gist@v1
         with:

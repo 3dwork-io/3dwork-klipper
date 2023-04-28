@@ -14,7 +14,7 @@ jobs:
         
       - name: Get list of modified files
         run: |
-          git diff --name-only --diff-filter=d HEAD~1..HEAD > modified_files.txt
+          git diff --name-only HEAD~2..HEAD > modified_files.txt
           grep -Ff file_list.txt modified_files.txt > filtered_files.txt
 
       - name: Add timestamp

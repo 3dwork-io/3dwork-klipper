@@ -13,13 +13,13 @@ jobs:
           now=$(date +"%Y%m%d%H")
           sed -i "1i # Last modified: ${now}" macros/cancel_print.cfg
           
-      - name: Commit & Push 
-        uses: Andro999b/push@v1.3
-        with:
-          github_token: ${{ secrets.COMMIT_TOKEN }}
-          branch: main
-          force: true
-          message: 'Updated macros timestamps'
+      - name: Commit changes
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git add .
+          git commit -m "Added timestamp to files"
+          git push "https://${{ github.actor }}:${{ secrets.COMMIT_TOKEN }}@github.com/${{ github.repository }}.git"
           
       - uses: actions/checkout@v3
       - name: Creating start_print.cfg Gist

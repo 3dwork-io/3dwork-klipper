@@ -14,8 +14,9 @@ jobs:
 
       - name: Add timestamp
         run: |
-          now=$(date +"%Y%m%d%H")
-          find macros -type f -exec sed -i "1i # Last modified: ${now}" {} \;
+          now=$(date +"%Y%m%d%H%M")
+          timestamp="# Current Version v_${now}"
+          find macros -type f -exec sed -i "0s/^.*$/${timestamp}/" {} \;
           
 #      - uses: actions/checkout@v3
       - name: Creating start_print.cfg Gist

@@ -16,7 +16,7 @@ jobs:
         run: |
           now=$(date +"%Y%m%d%H%M")
           timestamp="# Current Version v_${now}"
-          find macros -type f -exec sed -i "0s/^.*$/${timestamp}/" {} \;
+          find macros -type f -exec sed -i "1s/^.*$/${timestamp}/" {} \;
           
       - name: Commit changes
         run: |

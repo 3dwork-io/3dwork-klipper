@@ -5,6 +5,21 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Add timestamp
+        run: |
+          now=$(date +"%Y%m%d%H")
+          sed -i "1i # Last modified: ${now}" macros/cancel_print.cfg
+          
+      - name: Commit changes
+        run: |
+          git config --global user.name "3DworkBOT"
+          git config --global user.email "jrodriguez@qitec.net"
+          git commit -am "Added timestamp to macro files"
+          git push
+          
       - uses: actions/checkout@v3
       - name: Creating start_print.cfg Gist
         uses: exuanbo/actions-deploy-gist@v1

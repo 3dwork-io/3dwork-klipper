@@ -9,7 +9,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout code for timestamp
         uses: actions/checkout@v3
 
       - name: Add timestamp
@@ -26,7 +26,9 @@ jobs:
           git commit -m "Added timestamp to files"
           git push "https://${{ github.actor }}:${{ secrets.COMMIT_TOKEN }}@github.com/${{ github.repository }}.git"
           
-      - uses: actions/checkout@v3
+      - name: Checkout code for Gist
+        uses: actions/checkout@v3
+        
       - name: Creating start_print.cfg Gist
         uses: exuanbo/actions-deploy-gist@v1
         with:

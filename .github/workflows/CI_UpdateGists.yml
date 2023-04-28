@@ -15,7 +15,7 @@ jobs:
           
       - name: Commit changes
         run: |
-          git config --global user.name "3DworkBOT"
+          git config --global user.name "alienboyxp"
           git config --global user.email "jrodriguez@qitec.net"
           git commit -am "Added timestamp to macro files"
           git push

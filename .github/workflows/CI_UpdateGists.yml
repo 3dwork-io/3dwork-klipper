@@ -15,7 +15,7 @@ jobs:
       - name: Add timestamp
         run: |
           now=$(date +"%Y%m%d%H")
-          sed -i "1i # Last modified: ${now}" macros/cancel_print.cfg
+          sed -i "1i # Last modified: v.${now}" macros/cancel_print.cfg
           
       - name: Commit changes
         run: |

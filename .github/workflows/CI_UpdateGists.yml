@@ -13,7 +13,7 @@ jobs:
           now=$(date +"%Y%m%d%H")
           sed -i "1i # Last modified: ${now}" macros/cancel_print.cfg
           
-      - name: Commit & Push
+      - name: Commit & Push 
         uses: Andro999b/push@v1.3
         with:
           github_token: ${{ secrets.COMMIT_TOKEN }}

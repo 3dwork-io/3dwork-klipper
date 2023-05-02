@@ -1,5 +1,6 @@
-# klipper_firmware_builder
-Klipper Macro for build firmware forked from RatOS
+# 3Dwork - Klipper
+A set of macros, configs, scripts to simplify Klipper usage.
+![example workflow](https://github.com/3dwork-io/3dwork-klipper/actions/workflows/CI_UpdateGists.yml/badge.svg)
 
 Installation
 - clone

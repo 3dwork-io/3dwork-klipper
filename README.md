@@ -8,7 +8,7 @@ A set of macros, configs, scripts to simplify Klipper usage.
 SSH into the Pi and run the following commands:
 <pre>
 cd ~/printer_data/config
-git clone [https://github.com/Turge08/print_area_bed_mesh.git](https://github.com/3dwork-io/3dwork-klipper.git)
+git clone https://github.com/3dwork-io/3dwork-klipper.git
 </pre>
 
 ### 2. Update Moonraker for easy updating

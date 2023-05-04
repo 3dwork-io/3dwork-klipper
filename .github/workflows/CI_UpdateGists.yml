@@ -24,12 +24,13 @@ jobs:
 
       - name: Add timestamp
         with:
+          format: YYYYMMDD-HH
           utcOffset: "+02:00"
+        env:
+          NOW: "${{ steps.time.outputs.time }}"
         run: |
-          now=$(date +"%Y%m%d%H%M")
-          timestamp="# Current Version v_${now}"
+          timestamp="# Current Version v_${NOW}"
           find macros -type f ! -name "print_area_bed_mesh.cfg" -exec sed -i "1s/^.*$/${timestamp}/" {} \;
-
           
       - name: Commit changes
         run: |

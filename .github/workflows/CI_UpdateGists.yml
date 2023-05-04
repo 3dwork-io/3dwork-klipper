@@ -12,16 +12,17 @@ jobs:
       - name: Checkout code for 3dwork-klipper
         uses: actions/checkout@v3
         
-      - name: Checkout code print_area_bed_mesh
-        uses: actions/checkout@v3
+      - name: wget
+        uses: wei/wget@v1
         with:
-          repository: Turge08/print_area_bed_mesh
+          args: -O print_area_bed_mesh.cfg -P ./macros/ https://raw.githubusercontent.com/Turge08/print_area_bed_mesh/master/print_area_bed_mesh.cfg
 
       - name: Add timestamp
         run: |
           now=$(date +"%Y%m%d%H%M")
           timestamp="# Current Version v_${now}"
-          find macros -type f -exec sed -i "1s/^.*$/${timestamp}/" {} \;
+          find macros -type f ! -name "print_area_bed_mesh.cfg" -exec sed -i "1s/^.*$/${timestamp}/" {} \;
+
           
       - name: Commit changes
         run: |

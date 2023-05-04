@@ -14,7 +14,9 @@ jobs:
 
       - name: Get list of modified files
         id: modified-files
-        run: echo "::set-output name=files::$(git diff --name-only HEAD^ HEAD)"
+        run: |
+          echo "::set-output name=files::$(git diff --name-only HEAD^ HEAD)"
+          echo $file
       
       - name: Add timestamp to modified files
         run: |

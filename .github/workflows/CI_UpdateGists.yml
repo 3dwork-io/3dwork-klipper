@@ -20,17 +20,11 @@ jobs:
         uses: wei/wget@v1
         with:
           args: -P ./macros/ https://raw.githubusercontent.com/Turge08/print_area_bed_mesh/master/print_area_bed_mesh.cfg     
-      - name: Get Time
-        id: time
-        uses: nanzm/get-time-action@v1.1
-        with:
-          timeZone: 2
-          format: "%Y%m%d%H%M"
+
       - name: Add timestamp
-        env:
-          TIME: "${{ steps.time.outputs.time }}"
         run: |
-          timestamp="# Current Version v_" + $TIME
+          now=$(date +"%Y%m%d%H%M")
+          timestamp="# Current Version v_${now}"
           find macros -type f ! -name "print_area_bed_mesh.cfg" -exec sed -i "1s/^.*$/${timestamp}/" {} \;
           
       - name: Commit changes

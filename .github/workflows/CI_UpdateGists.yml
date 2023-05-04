@@ -25,7 +25,7 @@ jobs:
         uses: nanzm/get-time-action@v1.1
         with:
           timezone: Europe/Madrid
-          format: 'YYYYMMDD-HHmm'
+          format: 'YYYY.MM.DD-HH:mm'
       - name: Add timestamp
         env:
           TIME: "${{ steps.time.outputs.time }}"

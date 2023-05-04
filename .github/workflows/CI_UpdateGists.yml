@@ -24,7 +24,7 @@ jobs:
         id: time
         uses: nanzm/get-time-action@v1.1
         with:
-          timezone: Europe/Madrid
+          timezone: 2
           format: 'YYYY.MM.DD-HH:mm'
       - name: Add timestamp
         env:

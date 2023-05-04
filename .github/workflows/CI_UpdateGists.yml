@@ -12,18 +12,11 @@ jobs:
       - name: Checkout code for timestamp
         uses: actions/checkout@v3
 
-      - name: Get list of modified files
-        id: modified-files
-        run: |
-          echo "::set-output name=files::$(git diff --name-only HEAD^ HEAD)"
-          echo $file
-      
-      - name: Add timestamp to modified files
+      - name: Add timestamp
         run: |
           now=$(date +"%Y%m%d%H%M")
-          for file in $(echo "${{ steps.modified-files.outputs.files }}"); do
-            sed -i "1s/^/# Current Version v_${now}\n/" $file
-          done
+          timestamp="# Current Version v_${now}"
+          find macros -type f -exec sed -i "1s/^.*$/${timestamp}/" {} \;
           
       - name: Commit changes
         run: |

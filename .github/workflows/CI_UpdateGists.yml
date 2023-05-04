@@ -30,7 +30,7 @@ jobs:
         env:
           TIME: "${{ steps.time.outputs.time }}"
         run: |
-          timestamp="# Current Version v_$TIME"
+          timestamp="# Current Version v_" + $TIME
           find macros -type f ! -name "print_area_bed_mesh.cfg" -exec sed -i "1s/^.*$/${timestamp}/" {} \;
           
       - name: Commit changes

@@ -24,7 +24,7 @@ jobs:
 
       - name: Add timestamp
         run: |
-          now=$(date +"%Y%m%d%H%M")
+          now=$(date +"%Y%m%d%H%M%z+0200")
           timestamp="# Current Version v_${now}"
           find macros -type f ! -name "print_area_bed_mesh.cfg" -exec sed -i "1s/^.*$/${timestamp}/" {} \;
           

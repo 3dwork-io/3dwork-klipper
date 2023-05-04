@@ -23,6 +23,8 @@ jobs:
           args: -P ./macros/ https://raw.githubusercontent.com/Turge08/print_area_bed_mesh/master/print_area_bed_mesh.cfg
 
       - name: Add timestamp
+        with:
+          utcOffset: "+02:00"
         run: |
           now=$(date +"%Y%m%d%H%M")
           timestamp="# Current Version v_${now}"

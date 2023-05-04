@@ -9,8 +9,13 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code for timestamp
+      - name: Checkout code for 3dwork-klipper
         uses: actions/checkout@v3
+        
+      - name: Checkout code print_area_bed_mesh
+        uses: actions/checkout@v3
+        with:
+          repository: Turge08/print_area_bed_mesh
 
       - name: Add timestamp
         run: |

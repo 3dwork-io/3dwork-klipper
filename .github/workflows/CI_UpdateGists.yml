@@ -15,7 +15,7 @@ jobs:
       - name: Remove print_area_bed_mesh.cfg
         uses: JesseTG/rm@v1.0.3
         with:
-          path: /macros/print_area_bed_mesh.cfg
+          path: ./macros/print_area_bed_mesh.cfg
         
       - name: wget
         uses: wei/wget@v1

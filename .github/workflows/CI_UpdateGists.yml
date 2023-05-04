@@ -12,10 +12,15 @@ jobs:
       - name: Checkout code for 3dwork-klipper
         uses: actions/checkout@v3
         
+      - name: Remove print_area_bed_mesh.cfg
+        uses: JesseTG/rm@v1.0.3
+        with:
+          path: /macros/print_area_bed_mesh.cfg
+        
       - name: wget
         uses: wei/wget@v1
         with:
-          args: -c -P ./macros/ https://raw.githubusercontent.com/Turge08/print_area_bed_mesh/master/print_area_bed_mesh.cfg
+          args: -P ./macros/ https://raw.githubusercontent.com/Turge08/print_area_bed_mesh/master/print_area_bed_mesh.cfg
 
       - name: Add timestamp
         run: |

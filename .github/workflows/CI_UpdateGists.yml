@@ -15,7 +15,7 @@ jobs:
       - name: wget
         uses: wei/wget@v1
         with:
-          args: -O print_area_bed_mesh.cfg -P ./macros/ https://raw.githubusercontent.com/Turge08/print_area_bed_mesh/master/print_area_bed_mesh.cfg
+          args: -P ./macros/ https://raw.githubusercontent.com/Turge08/print_area_bed_mesh/master/print_area_bed_mesh.cfg
 
       - name: Add timestamp
         run: |

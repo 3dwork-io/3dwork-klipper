@@ -117,3 +117,11 @@ jobs:
           gist_id: 7755e06ccbbbf7029983745ceb43651a
           file_path: macros/cancel_print.cfg
           file_type: binary 
+      
+      - name: Creating macros_config_pid.cfg Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: cc85203280134fe433f7dfd7f1416720
+          file_path: macros/macros_config_pid.cfg
+          file_type: binary

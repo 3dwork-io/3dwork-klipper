@@ -125,3 +125,11 @@ jobs:
           gist_id: cc85203280134fe433f7dfd7f1416720
           file_path: macros/macros_config_pid.cfg
           file_type: binary
+
+      - name: Creating pause_at_layer.cfg Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: 1cc0e0f0006bed2f22d17846a276db60
+          file_path: macros/pause_at_layer.cfg
+          file_type: binary

@@ -33,3 +33,21 @@ Action Items:
 - adjust scripts to remove RatOS path structure
 - add instructions os macro to enable shell-macros
 - shell-macros/compile_binaries parametrization to launch desired board
+
+## Configure Macro Options
+
+###1. Go to macros/macros_var_globals.cfg and copy macro GLOBAL_VARS to your printer.cfg, please copy after the include added previously!!!
+
+<pre>
+#####
+# CONFIGURATION VARIABLES
+#####
+[gcode_macro GLOBAL_VARS]
+...
+...
+...
+gcode:
+    ECHO_GLOBAL_VARS
+</pre>
+
+###2. Configure the different variables from the macro as you need, read comments on macro variables for more information

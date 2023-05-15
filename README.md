@@ -36,7 +36,7 @@ Action Items:
 
 ## Configure Macro Options
 
-###1. Go to macros/macros_var_globals.cfg and copy macro GLOBAL_VARS to your printer.cfg, please copy after the include added previously!!!
+### 1. Go to macros/macros_var_globals.cfg and copy macro GLOBAL_VARS to your printer.cfg, please copy after the include added previously!!!
 
 <pre>
 #####
@@ -50,4 +50,4 @@ gcode:
     ECHO_GLOBAL_VARS
 </pre>
 
-###2. Configure the different variables from the macro as you need, read comments on macro variables for more information
+### 2. Configure the different variables from the macro as you need, read comments on macro variables for more information

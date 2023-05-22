@@ -21,19 +21,19 @@ jobs:
 ##        with:
 ##          args: -P ./macros/ https://raw.githubusercontent.com/Turge08/print_area_bed_mesh/master/print_area_bed_mesh.cfg     
 
-      - name: Add timestamp
-        run: |
-          now=$(date +"%Y%m%d%H%M")
-          timestamp="# Current Version v_${now}"
-          find macros -type f ! -name "print_area_bed_mesh.cfg" -exec sed -i "1s/^.*$/${timestamp}/" {} \;
+##      - name: Add timestamp
+##        run: |
+##          now=$(date +"%Y%m%d%H%M")
+##          timestamp="# Current Version v_${now}"
+##          find macros -type f ! -name "print_area_bed_mesh.cfg" -exec sed -i "1s/^.*$/${timestamp}/" {} \;
           
-      - name: Commit changes
-        run: |
-          git config --global user.name "alienboyxp"
-          git config --global user.email "jrodriguez@qitec.net"
-          git add .
-          git commit -m "Added timestamp to files"
-          git push "https://${{ github.actor }}:${{ secrets.COMMIT_TOKEN }}@github.com/${{ github.repository }}.git"
+##      - name: Commit changes
+##        run: |
+##          git config --global user.name "alienboyxp"
+##          git config --global user.email "jrodriguez@qitec.net"
+##          git add .
+##          git commit -m "Added timestamp to files"
+##          git push "https://${{ github.actor }}:${{ secrets.COMMIT_TOKEN }}@github.com/${{ github.repository }}.git"
           
       - name: Checkout code for Gist
         uses: actions/checkout@v3

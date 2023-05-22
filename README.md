@@ -26,7 +26,6 @@ NOTE: You must perform step #1 at least once or Moonraker will generate an error
 From Fluidd/Mainsail, edit printer.cfg and add:
 <pre>
 [include 3dwork-klipper/macros/macros_*.cfg]
-[include 3dwork-klipper/macros/print_area_bed_mesh.cfg]
 </pre>
 
 Action Items:

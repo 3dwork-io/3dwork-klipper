@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script install additional dependencies
 
-source /home/pi/printer_data/config/3dwork/scripts/3dwork-common.sh
+source /home/pi/printer_data/config/3dwork-klipper/scripts/3dwork-common.sh
 
 verify_ready()
 {

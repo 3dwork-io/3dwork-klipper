@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Store the names of all folders in the /boards directory
-folders=$(ls -d /home/pi/printer_data/config/3dwork/boards/*/)
+folders=$(ls -d /home/pi/printer_data/config/3dwork-klipper/boards/*/)
 
 # Create a JSON object with the folder names
 json_data='{"boards":['

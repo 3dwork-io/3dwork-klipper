@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-cp -f /home/pi/printer_data/config/RatOS/boards/btt-skr-3-ez/firmware.config /home/pi/klipper/.config
+cp -f /home/pi/printer_data/config/3dwork-klipper/boards/znp-robin-nano-dw-v2/firmware.config /home/pi/klipper/.config
 pushd /home/pi/klipper
 make olddefconfig
 make clean
@@ -16,8 +16,8 @@ then
     mkdir /home/pi/printer_data/config/firmware_binaries
     chown pi:pi /home/pi/printer_data/config/firmware_binaries
 fi
-cp -f /home/pi/klipper/out/klipper.bin /home/pi/printer_data/config/firmware_binaries/firmware-btt-skr-3-ez.bin
-chown pi:pi /home/pi/printer_data/config/firmware_binaries/firmware-btt-skr-3-ez.bin
+cp -f /home/pi/klipper/out/klipper.bin /home/pi/printer_data/config/firmware_binaries/firmware-znp-robin-nano-dw-v2.bin
+chown pi:pi /home/pi/printer_data/config/firmware_binaries/firmware-znp-robin-nano-dw-v2.bin
 
 # Reset ownership
 chown pi:pi -R /home/pi/klipper

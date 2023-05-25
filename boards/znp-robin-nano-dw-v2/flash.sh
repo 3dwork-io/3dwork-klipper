@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MCU=/dev/btt-skr-3-ez
+MCU=/dev/znp-robin-nano-dw-v2
 if [ "$EUID" -ne 0 ]
   then echo "ERROR: Please run as root"
   exit

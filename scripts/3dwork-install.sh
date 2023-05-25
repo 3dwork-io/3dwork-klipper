@@ -4,7 +4,7 @@
 SYSTEMDDIR="/etc/systemd/system"
 PKGLIST="python3-numpy python3-matplotlib jq"
 
-source /home/pi/printer_data/config/3dwork/scripts/3dwork-common.sh
+source /home/pi/printer_data/config/3dwork-klipper/scripts/3dwork-common.sh
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
@@ -17,7 +17,7 @@ install_dependencies()
 install_udev_rules()
 {
     report_status "Installing udev rules"
-    sudo ln -s /home/pi/printer_data/config/3dwork/boards/*/*.rules /etc/udev/rules.d/
+    sudo ln -s /home/pi/printer_data/config/3dwork-klipper/boards/*/*.rules /etc/udev/rules.d/
 }
 
 verify_ready()

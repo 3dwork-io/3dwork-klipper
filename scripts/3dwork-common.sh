@@ -36,17 +36,17 @@ register_klippy_extension() {
 install_hooks()
 {
     report_status "Installing git hooks"
-	if [[ ! -e /home/pi/printer_data/config/3dwork/.git/hooks/post-merge ]]
+	if [[ ! -e /home/pi/printer_data/config/3dwork-klipper/.git/hooks/post-merge ]]
 	then
- 	   ln -s /home/pi/printer_data/config/3dwork/scripts/3dwork-post-merge.sh /home/pi/printer_data/config/3dwork/.git/hooks/post-merge
+ 	   ln -s /home/pi/printer_data/config/3dwork-klipper/scripts/3dwork-post-merge.sh /home/pi/printer_data/config/3dwork-klipper/.git/hooks/post-merge
 	fi
 	if [[ ! -e /home/pi/klipper/.git/hooks/post-merge ]]
 	then
- 	   ln -s /home/pi/printer_data/config/3dwork/scripts/klipper-post-merge.sh /home/pi/klipper/.git/hooks/post-merge
+ 	   ln -s /home/pi/printer_data/config/3dwork-klipper/scripts/klipper-post-merge.sh /home/pi/klipper/.git/hooks/post-merge
 	fi
 	if [[ ! -e /home/pi/moonraker/.git/hooks/post-merge ]]
 	then
- 	   ln -s /home/pi/printer_data/config/3dwork/scripts/moonraker-post-merge.sh /home/pi/moonraker/.git/hooks/post-merge
+ 	   ln -s /home/pi/printer_data/config/3dwork-klipper/scripts/moonraker-post-merge.sh /home/pi/moonraker/.git/hooks/post-merge
 	fi
 }
 
@@ -65,9 +65,9 @@ ensure_sudo_command_whitelisting()
 	fi
 	touch /tmp/030-3dwork-githooks
 	cat << '#EOF' > /tmp/030-3dwork-githooks
-pi  ALL=(ALL) NOPASSWD: /home/pi/printer_data/config/3dwork/scripts/3dwork-update.sh
-pi  ALL=(ALL) NOPASSWD: /home/pi/printer_data/config/3dwork/scripts/klipper-mcu-update.sh
-pi  ALL=(ALL) NOPASSWD: /home/pi/printer_data/config/3dwork/scripts/moonraker-update.sh
+pi  ALL=(ALL) NOPASSWD: /home/pi/printer_data/config/3dwork-klipper/scripts/3dwork-update.sh
+pi  ALL=(ALL) NOPASSWD: /home/pi/printer_data/config/3dwork-klipper/scripts/klipper-mcu-update.sh
+pi  ALL=(ALL) NOPASSWD: /home/pi/printer_data/config/3dwork-klipper/scripts/moonraker-update.sh
 #EOF
 
 	$sudo chown root:root /tmp/030-3dwork-githooks
@@ -79,7 +79,7 @@ pi  ALL=(ALL) NOPASSWD: /home/pi/printer_data/config/3dwork/scripts/moonraker-up
 	then
 		touch /tmp/031-3dwork-change-hostname
 		cat << '#EOF' > /tmp/031-3dwork-change-hostname
-pi  ALL=(ALL) NOPASSWD: /home/pi/printer_data/config/3dwork/scripts/change-hostname-as-root.sh
+pi  ALL=(ALL) NOPASSWD: /home/pi/printer_data/config/3dwork-klipper/scripts/change-hostname-as-root.sh
 #EOF
 
 		$sudo chown root:root /tmp/031-3dwork-change-hostname

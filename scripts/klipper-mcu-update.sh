@@ -149,7 +149,7 @@ update_znp_robin_nano_dw_v2() {
     if [[ -h "/dev/znp_robin_nano_dw_v2" ]]
     then
         echo "ZNP Robin Nano DW v2 detected"
-        /home/pi/printer_data/config/3dwork-klipper/boards/znp_robin_nano_dw_v2/make-and-flash-mcu.sh
+        /home/pi/printer_data/config/3dwork-klipper/boards/znp-robin-nano-dw-v2/make-and-flash-mcu.sh
     fi
 }
 

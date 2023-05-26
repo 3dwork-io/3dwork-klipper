@@ -145,6 +145,14 @@ update_btt_skr_3() {
     fi
 }
 
+update_znp_robin_nano_dw_v2() {
+    if [[ -h "/dev/znp_robin_nano_dw_v2" ]]
+    then
+        echo "ZNP Robin Nano DW v2 detected"
+        /home/pi/printer_data/config/3dwork-klipper/boards/znp_robin_nano_dw_v2/make-and-flash-mcu.sh
+    fi
+}
+
 echo "##### Flashing connected MCU's"
 flash_result=$(curl --fail --silent -X POST 'http://localhost:3000/configure/api/trpc/mcu.flash-all-connected' -H 'content-type: application/json')
 configurator_success=$?
@@ -172,6 +180,7 @@ else
     update_mellow_fly_sht_42
     update_mellow_fly_sht_36
     update_btt_skr_mini_e3_30
+    update_znp_robin_nano_dw_v2
 fi
 
 echo "##### Symlinking registered klippy extensions"

@@ -154,7 +154,7 @@ compile_btt_skr_3() {
 }
 
 compile_znp_robin_nano_dw_v2() {
-    echo "Compiling firmware for SKR 3"
+    echo "Compiling firmware for ZNP Robin Nano DW v2"
     cp -f /home/pi/printer_data/config/3dwork-klipper/boards/znp-robin-nano-dw-v2/firmware.config /home/pi/klipper/.config
     make olddefconfig
     make clean

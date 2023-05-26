@@ -174,25 +174,39 @@ fi
 
 pushd /home/pi/klipper
 
-# Run make scripts for the supported boards.
-compile_octopus_pro_446
-compile_octopus_pro_429
-compile_btt_octopus_11
-compile_btt_octopus_11_407
-compile_fysetc_spider
-compile_skr_pro_12
-compile_skr_2_429
-compile_btt_ebb42_10
-compile_btt_ebb36_10
-compile_btt_ebb42_11
-compile_btt_ebb36_11
-compile_btt_ebb42_12
-compile_btt_ebb36_12
-compile_mellow_fly_sht_42
-compile_mellow_fly_sht_36
-compile_btt_skr_mini_e3_30
-compile_btt_skr_3
-compile_znp_robin_nano_dw_v2
+
+# Check the parameter and call the corresponding compilation function
+if [ -z "$1" ]; then
+    # If no parameter is provided, compile firmware for all boards
+    # Run make scripts for the supported boards.
+    compile_octopus_pro_446
+    compile_octopus_pro_429
+    compile_btt_octopus_11
+    compile_btt_octopus_11_407
+    compile_fysetc_spider
+    compile_skr_pro_12
+    compile_skr_2_429
+    compile_btt_ebb42_10
+    compile_btt_ebb36_10
+    compile_btt_ebb42_11
+    compile_btt_ebb36_11
+    compile_btt_ebb42_12
+    compile_btt_ebb36_12
+    compile_mellow_fly_sht_42
+    compile_mellow_fly_sht_36
+    compile_btt_skr_mini_e3_30
+    compile_btt_skr_3
+    compile_znp_robin_nano_dw_v2
+else
+    compile_function="compile_$1"
+    if declare -f "$compile_function" >/dev/null; then
+        eval "$compile_function"
+    else
+        echo "Invalid board selection: $1"
+        exit 1
+    fi
+fi
+
 chown pi:pi /home/pi/printer_data/config/firmware_binaries/*.bin
 
 popd

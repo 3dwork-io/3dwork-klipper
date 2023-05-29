@@ -133,3 +133,13 @@ jobs:
           gist_id: 1cc0e0f0006bed2f22d17846a276db60
           file_path: macros/pause_at_layer.cfg
           file_type: binary
+          
+      - name: Creating 3dwork-autocommit.sh Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: 23dc0ed2c7a4279957b74ec6dc587bb4
+          file_path: scripts/3dwork-autocommit.sh
+          file_type: binary
+          
+          

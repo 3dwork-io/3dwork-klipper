@@ -40,7 +40,7 @@ register_gcode_shell_command()
 set -e
 
 verify_ready
-install_printer_config
+#install_printer_config
 install_udev_rules
 install_hooks
 install_dependencies

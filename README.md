@@ -48,5 +48,5 @@ Action Items:
 gcode:
     ECHO_GLOBAL_VARS
 </pre>
-
+ 
 ### 2. Configure the different variables from the macro as you need, read comments on macro variables for more information

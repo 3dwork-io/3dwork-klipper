@@ -306,7 +306,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% endloss %}
 
 {% hint style="info" %}
-Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they replace them with the values ​​configured in the profile**of impression.
+Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**of impression.
 
 In the following links you can find a list of these for:[**Prusa Slicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -395,7 +395,7 @@ It is important that we have in our[start gcode of our laminator](../empezamos/c
 
 #### purged
 
-An important phase of our start of printing is a correct purging of our nozzle to avoid remains of filament or that these could damage our printing at some point. Below you have the variables that intervene in this process:
+An important phase of our start of printing is a correct purging of our nozzle to avoid filament remains or that these could damage our printing at some point. Below you have the variables that intervene in this process:
 
 | Variable                               | Description                                                                                                                                                                                                                                                                                                                                                                                         | Possible values                                                        | Default value       |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------- |
@@ -440,7 +440,7 @@ Making the most of our machine so that it self-levels and ensuring that our mach
 
 **Z-TILT is basically a process that helps us align our Z motors with respect to our X (Cartesian) or XY (CoreXY) axis/gantry.**. With this**we ensure that we always have our Z aligned perfectly and precisely and automatically**.
 
-| Variable                  | Descripción                                                                    | Possible values | Default value |
+| Variable                  | Description                                                                    | Possible values | Default value |
 | ------------------------- | ------------------------------------------------------------------------------ | --------------- | ------------- |
 | variable_calibrate_z_tilt | Allows, if enabled in our Klipper configuration, the Z-Tilt adjustment process | True / False    | False         |
 
@@ -468,7 +468,7 @@ Normally, it will be what we will have to adjust, to make adjustments to the var
 
 Simply, what we have to do is paste the content of the macro\[gcode_macro GLOBAL_VARS] that we can find in macros/macros_was_globals.cfg in our printer.cfg.
 
-Os recordamos lo comentado anteriormente de como procesa Klipper las configuraciones de forma secuencial, por lo que es aconsejable pegarlo después de los includes que os comentamos [here](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
+We remind you of what we mentioned previously about how Klipper processes the configurations sequentially, so it is advisable to paste it after the includes that we mentioned.[here](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
 We will have something like this (it is just a visual example):
 

@@ -27,7 +27,7 @@ git clone https://github.com/3dwork-io/3dwork-klipper.git
 
 Bei Neuinstallationen:
 
-Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, die es uns ermöglichen, die Makros in unserem Bundle zu verwenden, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
+Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, sodass wir die Makros in unserem Bundle verwenden können, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
 
 -   Wir stellen sicher, dass wir unsere haben[Host als zweite MCU](raspberry-como-segunda-mcu.md)
 -   Als nächstes fügen wir eine Printer.cfg hinzu. Denken Sie daran, dass diese Schritte für eine Neuinstallation gelten, bei der Sie keine Printer.cfg haben und das Makro zum Erstellen von Firmware starten möchten, wie das, das Sie unten sehen können:
@@ -173,7 +173,7 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 
     {% endint %}
 
-{% Tabs %}
+{% tabs %}
 {% tab title="Bigtreetech" %}
 | Elektronik | Parametername zur Verwendung im Makro |
 \| ------------------- \| ----------------------------------- \|
@@ -182,7 +182,7 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 | Octopus v1.1 | Oktopus_11 |
 | Octopus v1.1 (407) | Oktopus_11_407 |
 | SKR Pro v1.2 | skr_Profi_12 |
-| 3 SEK | Übrigens_skr_3 |
+| SKR 3 | Übrigens_skr_3 |
 | SKR 2 (429) | skr_2_429 |
 | SKR Mini E3 v3 | Übrigens_skr_Mini_ez_30              |
 
@@ -243,7 +243,7 @@ Da unsere Makros dynamisch sind, extrahieren sie bestimmte Informationen aus uns
 
 -   **Starten Sie den Gcode START_DRUCKEN**, unter Verwendung von Platzhaltern, um Filament- und Betttemperaturwerte dynamisch zu übergeben:
 
-{% tabs %}
+{% Tabs %}
 {% tab title="PrusaSlicer-SuperSlicer" %}**Prusa-Schneider**
 
 ```gcode
@@ -306,7 +306,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% Endverlust %}
 
 {% hint style="info" %}
-Los**Platzhalter sind „Aliase“ oder Variablen, die die Laminatoren verwenden, damit sie diese bei der Generierung des Gcodes durch die im Profil konfigurierten Werte ersetzen**des Eindrucks.
+Los**Platzhalter sind „Aliase“ oder Variablen, die die Laminatoren verwenden, damit sie bei der Generierung des GCodes durch die im Profil konfigurierten Werte ersetzt werden**des Eindrucks.
 
 Unter den folgenden Links finden Sie eine Liste davon für:[**Prusa-Schneider**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(zusätzlich zu den oben genannten),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)Und[**Behandlung**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -327,7 +327,7 @@ Um diese an unsere Maschine anzupassen, verwenden wir die Variablen, die wir in 
 
 #### Nachrichten-/Benachrichtigungssprache
 
-Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variablen können wir es anpassen:
+Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variable können wir es anpassen:
 
 <table><thead><tr><th width="189">Variable</th><th width="247">Descripción</th><th width="163">Valores posibles</th><th>Valor por defecto</th></tr></thead><tbody><tr><td>variable_language</td><td>Nos permite seleccionar el idioma de las notificaciones. En el caso de no estar bien definido se usará en (inglés)</td><td>es / en</td><td>es</td></tr></tbody></table>
 
@@ -362,7 +362,7 @@ Satz von Variablen, die sich auf den Referenzierungsprozess beziehen.
 
 #### Heizung
 
-Variablen im Zusammenhang mit dem Aufheizprozess unserer Maschine.
+Variablen im Zusammenhang mit dem Heizprozess unserer Maschine.
 
 | Variable                                      | Beschreibung                                                                                            | Mögliche Werte | Standardwert |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
@@ -407,17 +407,17 @@ Eine wichtige Phase unseres Druckstarts ist das korrekte Spülen unserer Düse, 
 
 #### Laden/Entladen des Filaments
 
-In diesem Fall erleichtert diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
+In diesem Fall erleichtert uns diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
 
-| Variable                                    | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Mögliche Werte | Standardwert |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| Variable_Filament_entladen_Länge            | Wie viel mm das Filament zurückgezogen werden muss, passen Sie an Ihre Maschine an, normalerweise das Maß von Ihrer Düse bis zu den Zahnrädern Ihres Extruders, wobei ein zusätzlicher Spielraum hinzukommt.                                                                                                                                                                                                                                                        | Nummer         | 130          |
-| Variable_Filament_entladen_Geschwindigkeit  | Filamentrückzugsgeschwindigkeit in mm/s. Normalerweise wird eine langsame Geschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                                                | Nummer         | 5            |
-| Variable_Filament_Belastung_Länge           | Abstand in mm zum Laden des neuen Filaments... sowie variabel_Filament_entladen_Für die Länge verwenden wir die Messung von Ihrem Getriebe bis zum Extruder und fügen einen zusätzlichen Spielraum hinzu. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel gespült werden soll. Normalerweise können Sie ihm einen größeren Spielraum als den vorherigen Wert geben, um sicherzustellen, dass der Die Extrusion des vorherigen Filaments ist sauber. | Nummer         | 150          |
-| Variable_Filament_Belastung_Geschwindigkeit | Filamentladegeschwindigkeit in mm/s, normalerweise wird eine höhere Geschwindigkeit als die Entladegeschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                       | Nummer         | 10           |
+| Variable                                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Mögliche Werte | Standardwert |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| Variable_Filament_entladen_Länge           | Wie viel mm das Filament zurückgezogen werden muss, passen Sie an Ihre Maschine an, normalerweise das Maß von Ihrer Düse bis zu den Zahnrädern Ihres Extruders, wobei ein zusätzlicher Spielraum hinzukommt.                                                                                                                                                                                                                                                        | Nummer         | 130          |
+| Variable_Filament_entladen_Geschwindigkeit | Filamentrückzugsgeschwindigkeit in mm/s. Normalerweise wird eine langsame Geschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                                                | Nummer         | 5            |
+| Variable_Filament_Belastung_Länge          | Abstand in mm zum Laden des neuen Filaments... sowie variabel_Filament_entladen_Für die Länge verwenden wir die Messung von Ihrem Getriebe bis zum Extruder und fügen einen zusätzlichen Spielraum hinzu. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel gespült werden soll. Normalerweise können Sie ihm einen größeren Spielraum als den vorherigen Wert geben, um sicherzustellen, dass der Die Extrusion des vorherigen Filaments ist sauber. | Nummer         | 150          |
+| Variable_Filament_Belastung_speed          | Filamentladegeschwindigkeit in mm/s, normalerweise wird eine höhere Geschwindigkeit als die Entladegeschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                       | Nummer         | 10           |
 
 {% hint style="warning" %}
-Eine weitere notwendige Einstellung für Ihren Abschnitt\[extruder] se indique el [<mark style="color:green;">**max_extrudieren_nur_Distanz**</mark>](https://www.klipper3d.org/Config_Reference.html#extruder)...der empfohlene Wert ist normalerweise >101 (falls nicht definiert, verwenden Sie 50), um beispielsweise typische Extruder-Kalibrierungstests zu ermöglichen. \\
+Eine weitere notwendige Einstellung für Ihren Abschnitt\[Extruder] zeigt an[<mark style="color:green;">**max_extrudieren_nur_Distanz**</mark>](https://www.klipper3d.org/Config_Reference.html#extruder)...der empfohlene Wert ist normalerweise >101 (falls nicht definiert, verwenden Sie 50), um beispielsweise typische Extruder-Kalibrierungstests zu ermöglichen. \\
 Sie sollten den Wert basierend auf dem, was zuvor über den Test oder die Konfiguration Ihres Geräts erwähnt wurde, anpassen**Variable_Filament_entladen_Länge**ICH**Variable_Filament_Belastung_Länge**,
 {% endint %}
 
@@ -505,7 +505,7 @@ Die drei Punkte (...) in den vorherigen Beispielen sollen lediglich darauf hinwe
 
 #### Anpassen von Makros
 
-Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie wir bereits erwähnt haben, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
+Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie bereits erwähnt, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
 
 Wir haben zwei Gruppen von Makros:
 
@@ -517,11 +517,11 @@ Wir haben zwei Gruppen von Makros:
 
 **ENDE_DRUCKEN**
 
-| Makroname                                  | Beschreibung                                                                                          |
-| ------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
-| \_BENUTZER_ENDE_DRUCKEN_VOR_HEIZUNGEN_AUS  | Es wird vor dem Ausschalten der Heizungen ausgeführt_ENDE_DRUCKEN_VOR_HEIZUNGEN_AUS                   |
-| \_BENUTZER_ENDE_DRUCKEN_NACH_HEIZUNGEN_AUS | Es wird ausgeführt, nachdem die Heizungen vorher ausgeschaltet wurden_ENDE_DRUCKEN_NACH_HEIZUNGEN_AUS |
-| \_BENUTZER_ENDE_DRUCKEN_PARK               | Es wird ausgeführt, bevor der Kopf geparkt wird_ENDE_DRUCKEN_PARK                                     |
+| Makroname                                   | Beschreibung                                                                                          |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| \_BENUTZER_ENDE_DRUCKEN_VOR_HEIZUNGEN_AUS   | Es wird vor dem Ausschalten der Heizungen ausgeführt_ENDE_DRUCKEN_VOR_HEIZUNGEN_AUS                   |
+| \_BENUTZER_ENDE_DRUCKEN_AFTER_HEIZUNGEN_AUS | Es wird ausgeführt, nachdem die Heizungen vorher ausgeschaltet wurden_ENDE_DRUCKEN_NACH_HEIZUNGEN_AUS |
+| \_BENUTZER_ENDE_DRUCKEN_PARK                | Es wird ausgeführt, bevor der Kopf geparkt wird_ENDE_DRUCKEN_PARK                                     |
 
 **DRUCKEN_GRUNDLAGEN**
 
@@ -594,7 +594,7 @@ Wir können denselben Prozess mit jedem Parameter verwenden, den wir anpassen m�
 
 #### Anpassen der Pin-Konfiguration
 
-Wir werden genau wie zuvor vorgehen und in unserem Bereich USER OVERRIDES die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
+Wir werden genauso vorgehen wie zuvor, in unserem Bereich USER OVERRIDES werden wir die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
 
 Im folgenden Beispiel werden wir den Pin unseres elektronischen Lüfters (Controllers) anpassen_Ventilator), um ihn einem anderen als dem Standard-Lüfter zuzuweisen:
 

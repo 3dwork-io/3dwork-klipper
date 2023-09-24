@@ -103,13 +103,13 @@ Depuis Mainsail/Fluidd nous éditerons notre moonraker.conf (il doit être à la
 [include 3dwork-klipper/moonraker.conf]
 ```
 
-{% indice style="avertissement" %}<mark style="color:orange;">**Pensez à faire l'étape d'installation au préalable sinon Moonraker générera une erreur et ne pourra pas démarrer.**</mark>
+{% indice style="avertissement" %}<mark style="color:orange;">**Pensez à faire l'étape d'installation au préalable, sinon Moonraker générera une erreur et ne pourra pas démarrer.**</mark>
 
 **En revanche, si le répertoire de votre configuration Klipper est personnalisé, pensez à ajuster le chemin en fonction de votre installation.**{% finint %}
 
 ## Macro
 
-Nous avons toujours dit que RatOS est l'une des meilleures distributions Klipper, avec prise en charge des modules Raspberry et CB1, en grande partie grâce à ses configurations modulaires et à ses excellentes macros.
+Nous avons toujours commenté que RatOS est l'une des meilleures distributions Klipper, avec prise en charge des modules Raspberry et CB1, en grande partie grâce à ses configurations modulaires et à ses excellentes macros.
 
 Quelques macros ajoutées qui nous seront utiles :
 
@@ -131,7 +131,7 @@ Quelques macros ajoutées qui nous seront utiles :
 <table><thead><tr><th width="170">Macro</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>START_PRINT</strong></td><td>Nos permitirá poder iniciar nuestras impresiones de una forma segura y al estilo Klipper. Dentro de esta encontraremos algunas funciones interesantes como:<br>- precalentado de nozzle inteligente en el caso de contar con sensor probe<br>- posibilidad de uso de z-tilt mediante variable<br>- mallado de cama adaptativo, forzado o desde una malla guardada<br>- línea de purga personalizable entre normal, línea de purgado adaptativa o gota de purgado<br>- macro segmentada para poder personalizarse tal como os mostraremos más adelante</td></tr><tr><td><strong>END_PRINT</strong></td><td>Macro de fin de impresión donde también disponemos de segmentación para poder personalizar nuestra macro. También contamos con aparcado dinámico del cabezal.</td></tr></tbody></table>
 
 -   **Cadre de lit adaptatif**Grâce à la polyvalence de Klipper, nous pouvons faire des choses qui semblent aujourd'hui impossibles... un processus important pour l'impression est d'avoir un maillage d'écarts par rapport à notre lit qui nous permet de les corriger pour avoir une parfaite adhérence des premières couches. \\
-    À de nombreuses reprises, nous effectuons ce maillage avant l'impression pour nous assurer qu'il fonctionne correctement et cela se fait sur toute la surface de notre lit.
+    À de nombreuses reprises, nous effectuons ce maillage avant l'impression pour nous assurer qu'il fonctionne correctement et cela se fait sur toute la surface de notre lit.\\
     Avec le maillage de lit adaptatif, cela se fera dans la zone d'impression, ce qui le rend beaucoup plus précis que la méthode traditionnelle... dans les captures d'écran suivantes, nous verrons les différences entre un maillage traditionnel et un maillage adaptatif.\\![](<../../.gitbook/assets/image (6) (12) (1).png>)![](<../../.gitbook/assets/image (2) (1) (4).png>)
 
 ### **Macros de gestion des filaments**
@@ -221,7 +221,7 @@ Quelques macros ajoutées qui nous seront utiles :
 
 Depuis notre interface, Mainsail/Fluidd, nous allons éditer notre imprimante.cfg et ajouter :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
     ## 3Dwork standard macros
     [include 3dwork-klipper/macros/macros_*.cfg]
@@ -306,7 +306,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% de perte finale %}
 
 {% indice style="info" %}
-Los**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils les remplacent par les valeurs configurées dans le profil**d'impression.
+Los**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils soient remplacés par les valeurs configurées dans le profil**d'impression.
 
 Dans les liens suivants, vous pouvez en trouver une liste pour :[**Trancheuse Prusa**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(en plus de ceux ci-dessus),[**Studio Bambou**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)et[**Traitement**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -347,10 +347,10 @@ Il est conseillé de configurer votre plastifieuse pour utiliser l'extrusion rel
 
 Pour gérer les vitesses utilisées dans les macros.
 
-| Variable                      | Description                       | Valeurs possibles | Valeur par défaut |   |
-| ----------------------------- | --------------------------------- | ----------------- | ----------------- | - |
-| variable_macro_voyage_vitesse | Vitesse de transfert              | numérique         | 150               |   |
-| variable_macro_z_vitesse      | Vitesse de transfert pour l'axe Z | numérique         | 15                |   |
+| Variable                      | Description                       | Valores posibles | Valeur par défaut |   |
+| ----------------------------- | --------------------------------- | ---------------- | ----------------- | - |
+| variable_macro_voyage_vitesse | Vitesse de transfert              | numérique        | 150               |   |
+| variable_macro_Avec_vitesse   | Vitesse de transfert pour l'axe Z | numérique        | 15                |   |
 
 #### Retour à destination
 
@@ -370,8 +370,8 @@ Variables liées au processus de chauffage de notre machine.
 | variable_Préchauffer_extrudeuse_temp.                 | Température de préchauffage de la buse                                                           | numérique         | 150               |
 | variable_commencer_imprimer_chaleur_chambre_lit_temp. | Température du lit pendant le processus de chauffage de notre enceinte                           | numérique         | 100               |
 
-{% hint style="success" %}
-Beneficios de utilizar el precalentado del nozzle:
+{% indice style="succès" %}
+Avantages de l'utilisation d'une buse préchauffée :
 
 -   Cela nous laisse du temps supplémentaire pour que le lit puisse atteindre sa température de manière uniforme.
 -   Si nous utilisons un capteur inductif sans compensation de température, cela permettra à nos mesures d'être plus cohérentes et précises.
@@ -382,7 +382,7 @@ Beneficios de utilizar el precalentado del nozzle:
 
 Pour contrôler le processus de mise à niveau, nous disposons de variables qui peuvent être très utiles. Par exemple, nous pouvons contrôler le type de nivellement que nous souhaitons utiliser en créant toujours un nouveau maillage, en chargeant un maillage précédemment stocké ou en utilisant un maillage adaptatif.
 
-| Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Valeurs possibles                                                   | Valeur par défaut |
+| Variable                        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Valeurs possibles                                                   | Valeur par défaut |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------- |
 | variable_étalonner_lit_engrener | <p>Cela nous permet de sélectionner le type de maillage que nous utiliserons dans notre START_PRINT :<br>- nouveau maillage, il maillera chaque impression<br>- storemesh, chargera un maillage stocké et n'effectuera pas le sondage du lit<br>- adaptatif, il fera un nouveau maillage mais adapté à la zone d'impression, améliorant souvent nos premières couches<br>- nomesh, au cas où nous n'aurions pas de capteur ou si nous utilisons un maillage pour ignorer le processus</p> | <p>nouveau maillage / maillage stocké / adaptatif /<br>des noms</p> | adaptative        |
 | variable_lit_engrener_profil    | Le nom utilisé pour notre maillage stocké                                                                                                                                                                                                                                                                                                                                                                                                                                                 | texte                                                               | défaut            |
@@ -395,7 +395,7 @@ Il est important que nous ayons dans notre[démarrer le gcode de notre plastifie
 
 #### purgé
 
-Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filament ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
+Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filaments ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
 
 | Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                           | Valeurs possibles                                                                   | Valeur par défaut              |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------ |
@@ -427,7 +427,7 @@ Dans certains processus de notre imprimante, comme en pause, il est conseillé d
 
 | Variable                                      | Description                                                                                                                                                                                                                                                                                                               | Valeurs possibles                  | Valeur par défaut |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ----------------- |
-| variable_commencer_imprimer_parc_dans         | Emplacement où garer la tête pendant le préchauffage.                                                                                                                                                                                                                                                                     | <p>dos /<br>centre /<br>devant</p> | dos               |
+| variable_commencer_imprimer_parc_dans         | Emplacement où garer la tête pendant le préchauffage.                                                                                                                                                                                                                                                                     | <p>dos /<br>centre /<br>front</p>  | dos               |
 | variable_commencer_imprimer_parc_Avec_hauteur | Hauteur Z pendant le préchauffage                                                                                                                                                                                                                                                                                         | nombre                             | 50                |
 | variable_fin_imprimer_parc_dans               | Emplacement où garer la tête lors de la fin ou de l’annulation d’une impression.                                                                                                                                                                                                                                          | <p>dos /<br>centre /<br>devant</p> | dos               |
 | variable_fin_imprimer_parc_Avec_houblon       | Distance à monter en Z en fin d'impression.                                                                                                                                                                                                                                                                               | nombre                             | 20                |
@@ -563,7 +563,7 @@ Tout comme nous vous conseillons de créer une section dans votre imprimante.cfg
 
 Dans l'exemple suivant, nous verrons comment dans notre cas nous souhaitons personnaliser les paramètres de notre nivellement de lit (lit_mesh) en ajustant les points de sonde_count) par rapport à la configuration que nous avons par défaut dans les configurations de notre module Klipper :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
 ```django
 ### 3Dwork Klipper Includes
@@ -598,7 +598,7 @@ Nous procéderons exactement comme nous l'avons fait précédemment, dans notre 
 
 Dans l'exemple suivant, nous allons personnaliser quelle est la broche de notre ventilateur électronique (contrôleur_ventilateur) pour l'attribuer à un autre que celui par défaut :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
 ```django
 ### 3Dwork Klipper Includes

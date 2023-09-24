@@ -4,11 +4,9 @@ description: Paquete de macros, configuraciones y otras utilidades para Klipper
 
 # 3Dwork Klipper Bundle
 
-{% hint style="danger" %}
-<mark style="color:red;">**GUÍA EN PROCESO!!! Aunque las macros son totalmente funcionales estas están en continuo desarrollo.**</mark>&#x20;
-
-<mark style="color:orange;">**Úsalas bajo tu propia responsabilidad!!!**</mark>
-{% endhint %}
+> [!WARNING]
+> **GUÍA EN PROCESO!!! Aunque las macros son totalmente funcionales estas están en continuo desarrollo.**
+> **Úsalas bajo tu propia responsabilidad!!!**</mark>
 
 Desde **3Dwork** hemos recopilado y ajustando un conjunto de macros, configuraciones de máquinas y electrónicas, así como otras herramientas para una gestión sencilla y potente de Klipper.&#x20;
 

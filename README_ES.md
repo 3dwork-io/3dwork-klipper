@@ -25,11 +25,9 @@ cd ~/printer_data/config
 git clone https://github.com/3dwork-io/3dwork-klipper.git
 ```
 
-{% hint style="warning" %}
-En el caso que el directorio de tu configuración de Klipper esté personalizado recuerda ajustar el primer comando de forma adecuada a tu instalación.
-{% endhint %}
+> [!WARNING]
+> En el caso que el directorio de tu configuración de Klipper esté personalizado recuerda ajustar el primer comando de forma adecuada a tu instalación.
 
-{% hint style="info" %}
 En nuevas instalaciones:
 
 Dado que Klipper no permite el acceso a las macros hasta que no tiene un printer.cfg correcto y conecta con una MCU podemos "engañar" a Klipper con los siguientes pasos que nos van a permitir utilizar las macros de nuestro bundle para, por ejemplo, lanzar la macro de compilación firmware Klipper si usamos una electrónica compatible:

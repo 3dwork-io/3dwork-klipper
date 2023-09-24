@@ -27,3 +27,7 @@ jobs:
         uses: dephraiim/translate-readme@main
         with:
           LANG: de
+      - name: Adding README - Italian
+        uses: dephraiim/translate-readme@main
+        with:
+          LANG: it

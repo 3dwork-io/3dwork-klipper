@@ -130,7 +130,7 @@ Some added macros that will be useful to us:
 
 <table><thead><tr><th width="170">Macro</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>START_PRINT</strong></td><td>Nos permitirá poder iniciar nuestras impresiones de una forma segura y al estilo Klipper. Dentro de esta encontraremos algunas funciones interesantes como:<br>- precalentado de nozzle inteligente en el caso de contar con sensor probe<br>- posibilidad de uso de z-tilt mediante variable<br>- mallado de cama adaptativo, forzado o desde una malla guardada<br>- línea de purga personalizable entre normal, línea de purgado adaptativa o gota de purgado<br>- macro segmentada para poder personalizarse tal como os mostraremos más adelante</td></tr><tr><td><strong>END_PRINT</strong></td><td>Macro de fin de impresión donde también disponemos de segmentación para poder personalizar nuestra macro. También contamos con aparcado dinámico del cabezal.</td></tr></tbody></table>
 
--   **Adaptive bed mesh**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations from our bed that allows us to correct these to have perfect adhesion of the first layers. \\
+-   **Adaptive bed mesh**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations in our bed that allows us to correct these to have perfect adhesion of the first layers. \\
     On many occasions we do this meshing before printing to ensure that it works correctly and this is done on the entire surface of our bed.\\
     With adaptive bed meshing, this will be done in the printing area, making it much more precise than the traditional method... in the following screenshots we will see the differences between a traditional mesh and an adaptive one.\\![](<../../.gitbook/assets/image (6) (12) (1).png>)![](<../../.gitbook/assets/image (2) (1) (4).png>)
 
@@ -182,7 +182,7 @@ Some added macros that will be useful to us:
 | Octopus v1.1       | octopus_11                         |
 | Octopus v1.1 (407) | octopus_11_407 |
 | SKR Pro v1.2 | skr_pro_12 |
-| SEK 3 | btt_skr_3 |
+| SKR 3 | btt_skr_3 |
 | SKR 2 (429) | skr_2_429 |
 | SKR Mini E3 v3 | btt_skr_mini_ez_30              |
 
@@ -395,7 +395,7 @@ It is important that we have in our[start gcode of our laminator](../empezamos/c
 
 #### purged
 
-An important phase of our start of printing is a correct purging of our nozzle to avoid filament remains or that these could damage our printing at some point. Below you have the variables that intervene in this process:
+An important phase of our start of printing is a correct purging of our nozzle to avoid remains of filament or that these could damage our printing at some point. Below you have the variables that intervene in this process:
 
 | Variable                               | Description                                                                                                                                                                                                                                                                                                                                                                                         | Possible values                                                        | Default value       |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------- |
@@ -555,7 +555,7 @@ When used as a module, 3Dwork configurations CANNOT be edited directly from the 
 That is why it is very important to understand how Klipper works and how to customize our modules to your machine.
 {% endhint %}
 
-As we explained them in "[customizing macros](3dwork-klipper-bundle.md#personalizando-macros)"We will use the same process to adjust parameters or pins to fit our needs.
+As we explained in "[customizing macros](3dwork-klipper-bundle.md#personalizando-macros)"We will use the same process to adjust parameters or pins to fit our needs.
 
 #### Customizing parameters
 

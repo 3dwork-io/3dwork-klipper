@@ -109,7 +109,7 @@ Depuis Mainsail/Fluidd nous éditerons notre moonraker.conf (il doit être à la
 
 ## Macro
 
-Nous avons toujours commenté que RatOS est l'une des meilleures distributions Klipper, avec prise en charge des modules Raspberry et CB1, en grande partie grâce à ses configurations modulaires et à ses excellentes macros.
+Nous avons toujours dit que RatOS est l'une des meilleures distributions Klipper, avec prise en charge des modules Raspberry et CB1, en grande partie grâce à ses configurations modulaires et à ses excellentes macros.
 
 Quelques macros ajoutées qui nous seront utiles :
 
@@ -182,7 +182,7 @@ Quelques macros ajoutées qui nous seront utiles :
 | Poulpe v1.1 | pieuvre_11 |
 | Poulpe v1.1 (407) | pieuvre_11_407 |
 | SKR Pro v1.2 | skr_pro_12 |
-| 3 SKR | btt_skr_3 |
+| 3 SEK | btt_skr_3 |
 | 2 SKR (429) | skr_2_429 |
 | SKR Mini E3 v3 | btt_skr_mini_ez_30              |
 
@@ -347,10 +347,10 @@ Il est conseillé de configurer votre plastifieuse pour utiliser l'extrusion rel
 
 Pour gérer les vitesses utilisées dans les macros.
 
-| Variable                      | Description                       | Valores posibles | Valeur par défaut |   |
-| ----------------------------- | --------------------------------- | ---------------- | ----------------- | - |
-| variable_macro_voyage_vitesse | Vitesse de transfert              | numérique        | 150               |   |
-| variable_macro_Avec_vitesse   | Vitesse de transfert pour l'axe Z | numérique        | 15                |   |
+| Variable                      | Description                       | Valeurs possibles | Valeur par défaut |   |
+| ----------------------------- | --------------------------------- | ----------------- | ----------------- | - |
+| variable_macro_voyage_vitesse | Vitesse de transfert              | numérique         | 150               |   |
+| variable_macro_Avec_vitesse   | Vitesse de transfert pour l'axe Z | numérique         | 15                |   |
 
 #### Retour à destination
 
@@ -382,7 +382,7 @@ Avantages de l'utilisation d'une buse préchauffée :
 
 Pour contrôler le processus de mise à niveau, nous disposons de variables qui peuvent être très utiles. Par exemple, nous pouvons contrôler le type de nivellement que nous souhaitons utiliser en créant toujours un nouveau maillage, en chargeant un maillage précédemment stocké ou en utilisant un maillage adaptatif.
 
-| Variable                        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Valeurs possibles                                                   | Valeur par défaut |
+| Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Valeurs possibles                                                   | Valeur par défaut |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------- |
 | variable_étalonner_lit_engrener | <p>Cela nous permet de sélectionner le type de maillage que nous utiliserons dans notre START_PRINT :<br>- nouveau maillage, il maillera chaque impression<br>- storemesh, chargera un maillage stocké et n'effectuera pas le sondage du lit<br>- adaptatif, il fera un nouveau maillage mais adapté à la zone d'impression, améliorant souvent nos premières couches<br>- nomesh, au cas où nous n'aurions pas de capteur ou si nous utilisons un maillage pour ignorer le processus</p> | <p>nouveau maillage / maillage stocké / adaptatif /<br>des noms</p> | adaptative        |
 | variable_lit_engrener_profil    | Le nom utilisé pour notre maillage stocké                                                                                                                                                                                                                                                                                                                                                                                                                                                 | texte                                                               | défaut            |
@@ -395,7 +395,7 @@ Il est important que nous ayons dans notre[démarrer le gcode de notre plastifie
 
 #### purgé
 
-Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filaments ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
+Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filament ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
 
 | Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                           | Valeurs possibles                                                                   | Valeur par défaut              |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------ |
@@ -427,7 +427,7 @@ Dans certains processus de notre imprimante, comme en pause, il est conseillé d
 
 | Variable                                      | Description                                                                                                                                                                                                                                                                                                               | Valeurs possibles                  | Valeur par défaut |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ----------------- |
-| variable_commencer_imprimer_parc_dans         | Emplacement où garer la tête pendant le préchauffage.                                                                                                                                                                                                                                                                     | <p>dos /<br>centre /<br>front</p>  | dos               |
+| variable_commencer_imprimer_parc_dans         | Emplacement où garer la tête pendant le préchauffage.                                                                                                                                                                                                                                                                     | <p>dos /<br>centre /<br>devant</p> | dos               |
 | variable_commencer_imprimer_parc_Avec_hauteur | Hauteur Z pendant le préchauffage                                                                                                                                                                                                                                                                                         | nombre                             | 50                |
 | variable_fin_imprimer_parc_dans               | Emplacement où garer la tête lors de la fin ou de l’annulation d’une impression.                                                                                                                                                                                                                                          | <p>dos /<br>centre /<br>devant</p> | dos               |
 | variable_fin_imprimer_parc_Avec_houblon       | Distance à monter en Z en fin d'impression.                                                                                                                                                                                                                                                                               | nombre                             | 20                |
@@ -466,7 +466,7 @@ C'est pourquoi il est très important de comprendre le fonctionnement de Klipper
 
 Normalement, ce sera ce que nous devrons ajuster, faire des ajustements aux variables que nous avons par défaut dans notre module**Vos excuses**para Falaises.
 
-Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBALE_VARS] que l'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
+Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBAL_VARS] que l'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
 
 Nous vous rappelons ce que nous avons mentionné précédemment sur la façon dont Klipper traite les configurations de manière séquentielle, il est donc conseillé de le coller après les inclusions que nous avons mentionnées.[ici](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
@@ -500,7 +500,7 @@ Les trois points (...) dans les exemples précédents ont simplement pour but d'
 {% indice style="info" %}
 
 -   Nous vous conseillons d'ajouter des commentaires comme vous le voyez dans le cas précédent pour identifier ce que fait chaque section.
--   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBALE_Année]
+-   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBAL_Année]
     {% finint %}
 
 #### Personnalisation des macros

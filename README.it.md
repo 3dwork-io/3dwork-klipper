@@ -130,7 +130,7 @@ Alcune macro aggiunte che ci saranno utili:
 
 <table><thead><tr><th width="170">Macro</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>START_PRINT</strong></td><td>Nos permitirá poder iniciar nuestras impresiones de una forma segura y al estilo Klipper. Dentro de esta encontraremos algunas funciones interesantes como:<br>- precalentado de nozzle inteligente en el caso de contar con sensor probe<br>- posibilidad de uso de z-tilt mediante variable<br>- mallado de cama adaptativo, forzado o desde una malla guardada<br>- línea de purga personalizable entre normal, línea de purgado adaptativa o gota de purgado<br>- macro segmentada para poder personalizarse tal como os mostraremos más adelante</td></tr><tr><td><strong>END_PRINT</strong></td><td>Macro de fin de impresión donde también disponemos de segmentación para poder personalizar nuestra macro. También contamos con aparcado dinámico del cabezal.</td></tr></tbody></table>
 
--   **Rete da letto adattiva**Grazie alla versatilità di Klipper possiamo fare cose che oggi sembrano impossibili... un processo importante per la stampa è avere una rete di deviazioni nel nostro letto che ci permette di correggerle per avere una perfetta adesione dei primi strati. \\
+-   **Rete da letto adattiva**Grazie alla versatilità di Klipper possiamo fare cose che oggi sembrano impossibili... un processo importante per la stampa è avere una rete di deviazioni dal nostro letto che ci permette di correggerle per avere una perfetta adesione dei primi strati. \\
     In molte occasioni eseguiamo questo meshing prima della stampa per assicurarci che funzioni correttamente e questo viene fatto su tutta la superficie del nostro letto.\\
     Con il meshing del letto adattivo, questo verrà fatto nell'area di stampa, rendendolo molto più preciso rispetto al metodo tradizionale... negli screenshot seguenti vedremo le differenze tra una mesh tradizionale e una adattiva.\\![](<../../.gitbook/assets/image (6) (12) (1).png>)![](<../../.gitbook/assets/image (2) (1) (4).png>)
 
@@ -158,7 +158,7 @@ Alcune macro aggiunte che ci saranno utili:
 {% suggerimento stile="avviso" %}**IMPORTANTE!!!**
 
 -   Questi script sono preparati per funzionare su un sistema Raspbian con utente pi, se non è il tuo caso dovrai adattarlo.
--   I firmware vengono generati per l'utilizzo con una connessione USB, che è sempre quella consigliata. Inoltre, il punto di montaggio USB è sempre lo stesso, quindi la configurazione della connessione MCU non cambierà se vengono generati con la nostra macro/script.
+-   I firmware sono generati per l'utilizzo con una connessione USB, che è sempre quella che consigliamo. Inoltre, il punto di montaggio USB è sempre lo stesso, quindi la configurazione della connessione MCU non cambierà se vengono generati con la nostra macro/script.
 -   **Affinché Klipper possa eseguire le macro della shell, è necessario installare un'estensione, grazie al compagno**[**arcoseno**](https://github.com/Arksine)**, che lo consente.**
 
         <mark style="color:green;">**Dependiendo de la distro de Klipper usada pueden venir ya habilitadas.**</mark>
@@ -234,7 +234,7 @@ Dalla nostra interfaccia, Mainsail/Fluidd, modificheremo il nostro print.cfg e a
 È importante aggiungere queste righe alla fine del nostro file di configurazione... appena sopra la sezione in modo che se ci sono macro nel nostro cfg o include verranno sovrascritte dalle nostre :\\#\*# &lt;------------------------------- SALVA_CONFIGURAZIONE ----------------------->
 {% suggerimento finale %}
 
-{% stile suggerimento="avviso" %}
+{% suggerimento stile="avviso" %}
 Le macro normali sono state separate da**shell delle macro**dato che**Per abilitarli è necessario eseguire manualmente ulteriori passaggi, oltre a quelli attualmente in fase di test.**E**Potrebbero richiedere autorizzazioni aggiuntive per assegnare autorizzazioni di esecuzione per le quali non sono state indicate le istruzioni poiché stanno tentando di automatizzare.**\\<mark style="color:red;">**Se li usi è a tuo rischio e pericolo.**</mark>{% finale %}
 
 ### Configurazione della nostra plastificatrice
@@ -282,7 +282,7 @@ START_PRINT EXTRUDER_TEMP=[nozzle_temperature_initial_layer] BED_TEMP=[first_lay
 START_PRINT EXTRUDER_TEMP={material_print_temperature_layer_0} BED_TEMP={material_bed_temperature_layer_0} PRINT_MIN=%MINX%,%MINY% PRINT_MAX=%MAXX%,%MAXY%
 ```
 
-{% stile suggerimento="avviso" %}
+{% suggerimento stile="avviso" %}
 Dovremo installare il plugin[**Plug-in post-processo (di Frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)dal menù_**Aiuto/Mostra**_configuration Folder... copiaremos el script del link anterior dentro de la carpeta script. \\
 Reiniciamos Cura e iremos a_**Estensioni/Post elaborazione/Modifica G-Code**_e selezioneremo_**Dimensioni di stampa mesh**_,
 {% finale %}
@@ -306,7 +306,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% perdita %}
 
 {% suggerimento stile="informazioni" %}
-Los**i placeholder sono degli "alias" o variabili che i laminatori utilizzano in modo che durante la generazione del gcode li sostituiscano con i valori configurati nel profilo**di impressione.
+Los**i placeholder sono "alias" o variabili che i laminatori utilizzano in modo che durante la generazione del gcode vengano sostituiti dai valori configurati nel profilo**di impressione.
 
 Nei seguenti link è possibile trovarne un elenco per:[**Affettatrice Prusa**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(oltre a quelli sopra),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)E[**Cura**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -387,7 +387,7 @@ Per controllare il processo di livellamento abbiamo variabili che possono essere
 | variabile_calibrare_letto_maglia | <p>Ci consente di selezionare il tipo di mesh che utilizzeremo nel nostro START_PRINT:<br>- nuova mesh, mesherà ogni stampa<br>- storedmesh, caricherà una mesh memorizzata e non eseguirà il sondaggio del letto<br>- adattivo, creerà una nuova mesh ma adattata all'area di stampa, spesso migliorando i nostri primi strati<br>- nomesh, nel caso in cui non disponiamo di un sensore o utilizziamo la mesh per saltare il processo</p> | <p>nevmesh / storedmesh / adattivo /<br>nomi</p> | adattivo          |
 | variabile_letto_maglia_profilo   | Il nome utilizzato per la nostra mesh archiviata                                                                                                                                                                                                                                                                                                                                                                                            | testo                                            | predefinito       |
 
-{% stile suggerimento="avviso" %}
+{% suggerimento stile="avviso" %}
 Ti consigliamo di utilizzare il livellamento adattivo poiché adatterà sempre la mesh alla dimensione della nostra stampa, consentendoti di avere un'area della mesh regolata.
 
 È importante che abbiamo nel nostro[avvia il gcode della nostra plastificatrice](../empezamos/configuracion-klipper-en-laminadores.md#configurando-nuestro-laminador-para-usar-nustras-macros-start_print-y-end_print), nella chiamata al nostro START_STAMPA, STAMPA valori_MAX e STAMPA_Uomo.
@@ -395,7 +395,7 @@ Ti consigliamo di utilizzare il livellamento adattivo poiché adatterà sempre l
 
 #### epurato
 
-Una fase importante del nostro inizio stampa è un corretto spurgo dei nostri ugelli per evitare che restino filamenti o che questi possano prima o poi danneggiare la nostra stampa. Di seguito sono riportate le variabili che intervengono in questo processo:
+Una fase importante del nostro inizio stampa è un corretto spurgo del nostro ugello per evitare resti di filamento o che questi possano prima o poi danneggiare la nostra stampa. Di seguito sono riportate le variabili che intervengono in questo processo:
 
 | Variabile                                    | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                          | Valori possibili                                                                  | Valore di default       |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------- |
@@ -416,7 +416,7 @@ In questo caso, questo gruppo di variabili ci faciliterà la gestione del carica
 | variabile_filamento_carico_lunghezza    | Distanza in mm per caricare il nuovo filamento... oltre che in variabile_filamento_scaricare_lunghezza utilizzeremo la misura dal tuo ingranaggio all'estrusore aggiungendo un margine extra, in questo caso questo valore extra dipenderà da quanto vuoi che venga spurgato... normalmente puoi dargli più margine rispetto al valore precedente per assicurarti che il l'estrusione del filamento precedente sia pulita. | numero           | 150               |
 | variabile_filamento_carico_velocità     | Velocità di caricamento del filamento in mm/sec, normalmente viene utilizzata una velocità maggiore rispetto alla velocità di scarico.                                                                                                                                                                                                                                                                                     | numero           | 10                |
 
-{% stile suggerimento="avviso" %}
+{% suggerimento stile="avviso" %}
 Un'altra impostazione necessaria per la tua sezione\[estrusore] indica il[<mark style="color:green;">**massimo_estrudere_soltanto_distanza**</mark>](https://www.klipper3d.org/Config_Reference.html#extruder)...il valore consigliabile è solitamente >101 (se non definito, utilizzare 50) per consentire, ad esempio, tipici test di calibrazione dell'estrusore. \\
 Dovresti modificare il valore in base a quanto menzionato in precedenza sul test o sulla configurazione del tuo**variabile_filamento_scaricare_lunghezza**IO**variabile_filamento_carico_lunghezza**,
 {% finale %}
@@ -438,7 +438,7 @@ In alcuni processi della nostra stampante, come la pausa, è consigliabile parch
 
 Sfruttare al massimo la nostra macchina affinché si autolivella e garantire che la nostra macchina sia sempre nelle migliori condizioni è fondamentale.
 
-**Z-TILT è fondamentalmente un processo che ci aiuta ad allineare i nostri motori Z rispetto al nostro asse/gantry X (cartesiano) o XY (CoreXY).**. Con questo**ci assicuriamo che la nostra Z sia sempre allineata in modo perfetto, preciso e automatico**.
+**Z-TILT è fondamentalmente un processo che ci aiuta ad allineare i nostri motori Z rispetto al nostro asse/gantry X (cartesiano) o XY (CoreXY).**. Con questo**ci assicuriamo di avere sempre la nostra Z allineata perfettamente, in modo preciso e automatico**.
 
 | Variabile                         | Descrizione                                                                                   | Valori possibili | Valore di default |
 | --------------------------------- | --------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
@@ -493,7 +493,7 @@ variable_language: "es"                         # Possible values: "en", "es"
 #*#
 </code></pre>
 
-{% stile suggerimento="avviso" %}
+{% suggerimento stile="avviso" %}
 I tre punti (...) negli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 
@@ -517,11 +517,11 @@ Abbiamo due gruppi di macro:
 
 **FINE_STAMPA**
 
-| Nome della macro                               | Descrizione                                                                                      |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| \_UTENTE_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO | Viene eseguito prima di spegnere i riscaldatori, prima_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO     |
-| \_UTENTE_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO  | Viene eseguito dopo lo spegnimento dei riscaldatori, prima_FINE_STAMPA_AFTER_RISCALDATORI_SPENTO |
-| \_UTENTE_FINE_STAMPA_PARCO                     | Viene eseguito prima che la testa sia parcheggiata, prima_FINE_STAMPA_PARCO                      |
+| Nome della macro                               | Descrizione                                                                                     |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| \_UTENTE_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO | Viene eseguito prima di spegnere i riscaldatori, prima_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO    |
+| \_UTENTE_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO  | Viene eseguito dopo lo spegnimento dei riscaldatori, prima_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO |
+| \_UTENTE_FINE_STAMPA_PARCO                     | Viene eseguito prima che la testa sia parcheggiata, prima_FINE_STAMPA_PARCO                     |
 
 **STAMPA_BASI**
 
@@ -561,7 +561,7 @@ Come abbiamo spiegato in "[personalizzazione delle macro](3dwork-klipper-bundle.
 
 Così come ti consigliamo di creare una sezione nel tuo print.cfg chiamata USER OVERRIDES, posizionata dopo gli include delle nostre configurazioni, per poter regolare e personalizzare qualsiasi parametro utilizzato in esse.
 
-Nell'esempio seguente vedremo come nel nostro caso ci interessa personalizzare i parametri del nostro livellamento letto (bed_mesh) regolando i punti della sonda_count) rispetto alla configurazione che abbiamo di default nelle configurazioni del nostro modulo Klipper:
+Nell'esempio seguente vedremo come nel nostro caso siamo interessati a personalizzare i parametri del nostro livellamento del letto (bed_mesh) regolando i punti della sonda_count) rispetto alla configurazione che abbiamo di default nelle configurazioni del nostro modulo Klipper:
 
 {% titolo codice="printer.cfg" %}
 
@@ -586,7 +586,7 @@ probe_count: 11,11
 
 {%endcode%}
 
-{% stile suggerimento="avviso" %}
+{% suggerimento stile="avviso" %}
 I tre punti (...) negli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 
@@ -625,6 +625,6 @@ pin: PA8
 
 {%endcode%}
 
-{% stile suggerimento="avviso" %}
+{% suggerimento stile="avviso" %}
 I tre punti (...) negli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}

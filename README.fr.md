@@ -124,14 +124,14 @@ Quelques macros ajoutées qui nous seront utiles :
 | **ANNULER_IMPRIMER**                                                                   | Ce qui permet d'utiliser le reste des macros pour effectuer correctement une annulation d'impression.                                                                                                                                                                   |
 
 -   **En pause lors du changement de calque**, des macros très intéressantes qui nous permettent de mettre en pause un calque ou de lancer une commande au démarrage du calque suivant. \\![](<../../.gitbook/assets/image (6) (5) (1) (2).png>)![](<../../.gitbook/assets/image (1) (1) (8).png>)\\
-    De plus, un autre avantage d'eux est qu'ils sont intégrés à Mainsail, nous aurons donc de nouvelles fonctions dans notre interface utilisateur comme vous pouvez le voir ci-dessous :\\![](<../../.gitbook/assets/image (3) (15).png>)![](<../../.gitbook/assets/image (29) (1) (2).png>)
+    De plus, un autre avantage est qu'ils sont intégrés à Mainsail, nous aurons donc de nouvelles fonctions dans notre interface utilisateur, comme vous pouvez le voir ci-dessous :\\![](<../../.gitbook/assets/image (3) (15).png>)![](<../../.gitbook/assets/image (29) (1) (2).png>)
 
 ### **Macros de gestion d'impression**
 
 <table><thead><tr><th width="170">Macro</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>START_PRINT</strong></td><td>Nos permitirá poder iniciar nuestras impresiones de una forma segura y al estilo Klipper. Dentro de esta encontraremos algunas funciones interesantes como:<br>- precalentado de nozzle inteligente en el caso de contar con sensor probe<br>- posibilidad de uso de z-tilt mediante variable<br>- mallado de cama adaptativo, forzado o desde una malla guardada<br>- línea de purga personalizable entre normal, línea de purgado adaptativa o gota de purgado<br>- macro segmentada para poder personalizarse tal como os mostraremos más adelante</td></tr><tr><td><strong>END_PRINT</strong></td><td>Macro de fin de impresión donde también disponemos de segmentación para poder personalizar nuestra macro. También contamos con aparcado dinámico del cabezal.</td></tr></tbody></table>
 
 -   **Cadre de lit adaptatif**Grâce à la polyvalence de Klipper, nous pouvons faire des choses qui semblent aujourd'hui impossibles... un processus important pour l'impression est d'avoir un maillage d'écarts par rapport à notre lit qui nous permet de les corriger pour avoir une parfaite adhérence des premières couches. \\
-    À de nombreuses reprises, nous effectuons ce maillage avant l'impression pour nous assurer qu'il fonctionne correctement et cela se fait sur toute la surface de notre lit.
+    À de nombreuses reprises, nous effectuons ce maillage avant l'impression pour nous assurer qu'il fonctionne correctement et cela se fait sur toute la surface de notre lit.\\
     Avec le maillage de lit adaptatif, cela se fera dans la zone d'impression, ce qui le rend beaucoup plus précis que la méthode traditionnelle... dans les captures d'écran suivantes, nous verrons les différences entre un maillage traditionnel et un maillage adaptatif.\\![](<../../.gitbook/assets/image (6) (12) (1).png>)![](<../../.gitbook/assets/image (2) (1) (4).png>)
 
 ### **Macros de gestion des filaments**
@@ -221,7 +221,7 @@ Quelques macros ajoutées qui nous seront utiles :
 
 Depuis notre interface, Mainsail/Fluidd, nous allons éditer notre imprimante.cfg et ajouter :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
     ## 3Dwork standard macros
     [include 3dwork-klipper/macros/macros_*.cfg]
@@ -395,7 +395,7 @@ Il est important que nous ayons dans notre[démarrer le gcode de notre plastifie
 
 #### purgé
 
-Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filaments ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
+Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filament ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
 
 | Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                           | Valeurs possibles                                                                   | Valeur par défaut              |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------ |
@@ -466,7 +466,7 @@ C'est pourquoi il est très important de comprendre le fonctionnement de Klipper
 
 Normalement, ce sera ce que nous devrons ajuster, faire des ajustements aux variables que nous avons par défaut dans notre module**Vos excuses**para Falaises.
 
-Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBALE_VARS] que l'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
+Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBAL_VARS] que l'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
 
 Nous vous rappelons ce que nous avons mentionné précédemment sur la façon dont Klipper traite les configurations de manière séquentielle, il est donc conseillé de le coller après les inclusions que nous avons mentionnées.[ici](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
@@ -500,12 +500,12 @@ Les trois points (...) dans les exemples précédents ont simplement pour but d'
 {% indice style="info" %}
 
 -   Nous vous conseillons d'ajouter des commentaires comme vous le voyez dans le cas précédent pour identifier ce que fait chaque section.
--   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBALE_Année]
+-   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBAL_Année]
     {% finint %}
 
 #### Personnalisation des macros
 
-Les macros ont été configurées de manière modulaire afin de pouvoir être facilement ajustées. Comme nous l'avons mentionné précédemment, si nous voulons les ajuster, nous devrons procéder de la même manière que pour les variables, copier la macro en question dans notre imprimante.cfg (ou une autre inclusion de notre choix) et nous assurer qu'elle est après l'inclusion où nous avons ajouté notre module 3Dwork pour Klipper.
+Les macros ont été configurées de manière modulaire afin de pouvoir être facilement ajustées. Comme nous l'avons mentionné précédemment, si nous voulons les ajuster, nous devrons procéder de la même manière que pour les variables, copier la macro en question dans notre imprimante.cfg (ou une autre inclusion de notre choix) et nous assurer qu'elle est bien après l'inclusion où nous avons ajouté notre module 3Dwork pour Klipper.
 
 Nous avons deux groupes de macros :
 
@@ -563,7 +563,7 @@ Tout comme nous vous conseillons de créer une section dans votre imprimante.cfg
 
 Dans l'exemple suivant, nous verrons comment dans notre cas nous souhaitons personnaliser les paramètres de notre nivellement de lit (lit_mesh) en ajustant les points de sonde_count) par rapport à la configuration que nous avons par défaut dans les configurations de notre module Klipper :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
 ```django
 ### 3Dwork Klipper Includes
@@ -598,7 +598,7 @@ Nous procéderons exactement comme nous l'avons fait précédemment, dans notre 
 
 Dans l'exemple suivant, nous allons personnaliser quelle est la broche de notre ventilateur électronique (contrôleur_ventilateur) pour l'attribuer à un autre que celui par défaut :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
 ```django
 ### 3Dwork Klipper Includes

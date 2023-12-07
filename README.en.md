@@ -14,7 +14,7 @@
 
 <summary>Changelog</summary>
 
-12/07/2023 - Added support to automate the creation of Bigtreetech SKR 1.4 Turbo and Manta M8P/M4P firmware
+12/07/2023 - Added support to automate the creation of Bigtreetech electronic firmware
 
 </details>
 
@@ -133,7 +133,7 @@ Some added macros that will be useful to us:
 | Macro                                                                                  | Description                                                                                                                                                                                                                 |
 | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **MAYBE_HOME**                                                                         | It allows us to optimize the homing process only by performing it on those axes that are not homing.                                                                                                                        |
-| **PAUSE**                                                                              | Using the related variables, it allows us to manage a pause with a more versatile head parking than normal macros.                                                                                                          |
+| **PAUSE**                                                                              | Through the related variables it allows us to manage a pause with a more versatile head parking than normal macros.                                                                                                         |
 | <p><strong>SET_PAUSE_AT_LAYER</strong><br><strong>SET_PAUSE_AT_NEXT_LAYER</strong></p> | <p>A very useful macro that Mainsail integrates into its UI to be able to pause on demand in a specific layer... in case we forgot when laminating.<br>We also have another one to execute the pause on the next layer.</p> |
 | **RESUME**                                                                             | Improved since it allows us to detect if our nozzle is not at the extrusion temperature in order to solve it before it shows an error and damages our printing.                                                             |
 | **CANCEL_PRINT**                                                                       | Which allows the use of the rest of the macros to perform a print cancellation correctly.                                                                                                                                   |
@@ -205,8 +205,8 @@ This set of macros, created by[Garethky](https://github.com/garethky), they will
 
 On the other hand we have some**requirements to implement it**<mark style="color:orange;">**(it will try to add in the PRINT logic_START of the bundle in the future by activating this function by variable and creating a previous and subsequent user macro to be able to enter user events)**</mark>:
 
--   the use of\[save_variables], in our case we will use~/variables.cfg to store the variables and that is already inside the cfg of these macros. \\
-    This will automatically create a variables file for us_build_sheets.cfg where it will save our variables on disk.
+-   the use of\[save_variables], in our case we will use~/variables.cfg para almacenar las variables y que ya esta dentro del cfg de estas macros. \\
+    Esto nos creará automáticamente un fichero variables_build_sheets.cfg where it will save our variables on disk.
 
 {% code title="Example of variables config file" %}
 
@@ -230,7 +230,7 @@ SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
 APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 ```
 
-On the other hand, it is interesting to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
+On the other hand, it is interesting to be able to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
 
 {% hint style="warning" %}
 It is important that the value in NAME="xxxx" matches the name we gave when installing our printing surface
@@ -301,7 +301,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | <p><strong>PID_ALL</strong><br><strong>PID_EXTRUDER</strong><br><strong>PID_BED</strong></p> | These macros, where we can pass the temperatures to the PID in the form of parameters, will allow us to perform the temperature calibration in an extremely simple way.                                                                             |
 | <p><strong>TEST_SPEED</strong><br><strong>TEST_SPEED_DELTA</strong></p>                      | Companion's original macro[Ellis](https://github.com/AndrewEllis93)They will allow us in a fairly simple way to test the speed at which we can move our machine precisely and without loss of steps.                                                |
 
--   **Compiled firmware for supported electronics**, to facilitate the process of creating and maintaining our Klipper firmware for our MCUs we have the COMPILE macro_FIRMWARE that when executed, we can use our electronics as a parameter to do only this, Klipper will compile for all the electronics supported by our bundle:\\![](<../../.gitbook/assets/image (1540).png>)\\
+-   **Compiled firmware for supported electronics**, para facilitar el proceso de creación y mantenimiento de nuestro firmware Klipper para nuestras MCU contamos con la macro COMPILE_FIRMWARE that when executed, we can use our electronics as a parameter to do only this, Klipper will compile for all the electronics supported by our bundle:\\![](<../../.gitbook/assets/image (1540).png>)\\
     We will find these easily accessible from our web UI in the firmware directory_binaries in our MACHINE tab (if we use Mainsail):\\![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)\\
     Below is the list of supported electronics:
 
@@ -323,19 +323,29 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 
     {% endint %}
 
-{% tabs %}
-{% tab title="Bigtreetech" %}
+{%tabs%}
+{%tab title="Bigtreetech"%}
 | Electronics | Parameter name to use in macro |
 \| ------------------ \| ----------------------------------- \|
-| M4P Blanket | MTB_manta_m4p                       |
-| Manta M8P          | btt_manta_m8p                       |
-| Octopus Pro (446)  | octopus_pro_446                   |
-| Octopus Pro (429)  | octopus_pro_429                   |
-| Octopus v1.1       | octopus_11                         |
-| Octopus v1.1 (407) | octopus_11_407 |
+| Blanket E3 EZ | btt-from-e3ez |
+| Blanket M4P | btt-from-m4p |
+| Blanket M4P v2.2 | btt-from-m4p-22 |
+| Blanket M8P | btt-from-m8p |
+| Blanket M8P v1.1 | btt-from-m8p-11 |
+| Octopus Max EZ | btt-octopus-max-ez |
+| Octopus Pro (446) | btt-octopus-pro-446 |
+| Octopus Pro (429) | btt-octopus-pro-429 |
+| Octopus Pro (H723) | btt-octopus-pro-h723 |
+| Octopus v1.1 | btt-octopus-11 |
+| Octopus v1.1 (407) | btt-octopus-11-407 |
 | SKR Pro v1.2 | skr_pro_12 |
 | SEK 3 | btt_skr_3 |
-| SKR 2 (429) | skr_2_429 |
+| SKR 3 (H723) | btt-skr-3-h723 |
+| SKR 3 EZ | btt-skr-3-ez |
+| SKR 3 EZ (H723) | btt-skr-3-ez-h723 |
+| SEK 2 (429) | btt-skr-2-429 |
+| SKR 2 (407) | btt-skr-2-407 |
+| SKR RAT | btt-skrat-10 |
 | SKR 1.4 Turbo | btt-skr-14-turbo |
 | SKR Mini E3 v3 | btt_skr_mini_ez_30              |
 
@@ -384,7 +394,7 @@ From our interface, Mainsail/Fluidd, we will edit our printer.cfg and add:
 {%endcode%}
 
 {% hint style="info" %}
-It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours:\\#\*# &lt;---------------------- SAVE_CONFIG ---------------------->
+It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours :\\#\*# &lt;---------------------- SAVE_CONFIG ---------------------->
 {% endhint %}
 
 {% hint style="warning" %}
@@ -459,11 +469,11 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% endloss %}
 
 {% hint style="info" %}
-Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they replace them with the values ​​configured in the profile**of impression.
+Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**of impression.
 
 In the following links you can find a list of these for:[**Prusa Slicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
-The use of these allows our macros to be dynamic.
+El uso de estos permiten que nuestras macros sean dinámicas.
 {% endhint %}
 
 -   **gcode the final END_PRINT**, in this case by not using placeholders it is common to all laminators
@@ -548,19 +558,19 @@ It is important that we have in our[start gcode of our laminator](../empezamos/c
 
 #### purged
 
-An important phase of our start of printing is a correct purging of our nozzle to avoid remains of filament or that these could damage our printing at some point. Below you have the variables that intervene in this process:
+An important phase of our start of printing is a correct purging of our nozzle to avoid filament remains or that these could damage our printing at some point. Below you have the variables that intervene in this process:
 
-| Variable                               | Description                                                                                                                                                                                                                                                                                                                                                                                         | Possible values                                                       | Default value       |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------- |
-| variable_nozzle_priming                | <p>We can choose between different purging options:<br>- primeline will draw the typical purge line<br>- primelineadaptative will generate a purge line that adapts to the area of ​​the printed part using variable_nozzle_priming_objectdistance as a margin<br>- primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove</p> | <p>primeline /</p><p>primelineadaptive /<br>prime blob /<br>False</p> | adaptive primelines |
-| variable_nozzle_priming_objectdistance | If we use adaptive bleed line it will be the margin to be used between the bleed line and the printed object                                                                                                                                                                                                                                                                                        | numeric                                                               | 5                   |
-| variable_nozzle_prime_start_x          | <p>Where we want to locate our purge line:<br>- min will do it at X=0 (plus a small safety margin)<br>- max will do so at X=max (minus a small safety margin)<br>- number will be the X coordinate where to locate the purge</p>                                                                                                                                                                    | <p>min /<br>max /<br>number</p>                                       | max                 |
-| variable_nozzle_prime_start_y          | <p>Where we want to locate our purge line:<br>- min will do it at Y=0 (plus a small safety margin)<br>- max will do so at Y=max (minus a small safety margin)<br>- number will be the Y coordinate where to locate the purge</p>                                                                                                                                                                    | <p>min /<br>max /<br>number</p>                                       | min                 |
-| variable_nozzle_prime_direction        | <p>The address of our line or drop:<br>- backwards the head will move to the front of the printer<br>- forwards will move to the back<br>- auto will go towards the center depending on variable_nozzle_prime_start_y</p>                                                                                                                                                                           | <p>auto /<br>forwards /<br>backwards</p>                              | auto                |
+| Variable                               | Description                                                                                                                                                                                                                                                                                                                                                                                         | Possible values                                                        | Default value       |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------- |
+| variable_nozzle_priming                | <p>We can choose between different purging options:<br>- primeline will draw the typical purge line<br>- primelineadaptative will generate a purge line that adapts to the area of ​​the printed part using variable_nozzle_priming_objectdistance as a margin<br>- primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove</p> | <p>prime line /</p><p>primelineadaptive /<br>prime blob /<br>False</p> | adaptive primelines |
+| variable_nozzle_priming_objectdistance | If we use adaptive bleed line it will be the margin to be used between the bleed line and the printed object                                                                                                                                                                                                                                                                                        | numeric                                                                | 5                   |
+| variable_nozzle_prime_start_x          | <p>Where we want to locate our purge line:<br>- min will do it at X=0 (plus a small safety margin)<br>- max will do so at X=max (minus a small safety margin)<br>- number will be the X coordinate where to locate the purge</p>                                                                                                                                                                    | <p>min /<br>max /<br>number</p>                                        | max                 |
+| variable_nozzle_prime_start_y          | <p>Where we want to locate our purge line:<br>- min will do it at Y=0 (plus a small safety margin)<br>- max will do so at Y=max (minus a small safety margin)<br>- number will be the Y coordinate where to locate the purge</p>                                                                                                                                                                    | <p>min /<br>max /<br>number</p>                                        | min                 |
+| variable_nozzle_prime_direction        | <p>The address of our line or drop:<br>- backwards the head will move to the front of the printer<br>- forwards will move to the back<br>- auto will go towards the center depending on variable_nozzle_prime_start_y</p>                                                                                                                                                                           | <p>auto /<br>forwards /<br>backwards</p>                               | auto                |
 
 #### Filament loading/unloading
 
-In this case, this group of variables will facilitate the management of loading and unloading our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
+In this case, this group of variables will make it easier for us to manage the loading and unloading of our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
 
 | Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                        | Possible values | Default value |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |

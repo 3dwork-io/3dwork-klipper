@@ -118,7 +118,7 @@ Quelques macros ajoutées qui nous seront utiles :
 | Macro                                                                                  | Description                                                                                                                                                                                                                                                             |
 | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **PEUT ÊTRE_MAISON**                                                                   | Cela nous permet d'optimiser le processus de référencement uniquement en l'exécutant sur les axes qui ne sont pas référencés.                                                                                                                                           |
-| **PAUSE**                                                                              | Grâce aux variables associées, cela nous permet de gérer une pause avec un stationnement de tête plus polyvalent que les macros normales.                                                                                                                               |
+| **PAUSE**                                                                              | En utilisant les variables associées, cela nous permet de gérer une pause avec un stationnement de tête plus polyvalent que les macros normales.                                                                                                                        |
 | <p><strong>SET_PAUSE_AT_LAYER</strong><br><strong>SET_PAUSE_AT_NEXT_LAYER</strong></p> | <p>Une macro très utile que Mainsail intègre dans son UI pour pouvoir faire une pause à la demande dans un calque spécifique... au cas où nous l'aurions oublié lors du laminage.<br>Nous en avons également un autre pour exécuter la pause sur le calque suivant.</p> |
 | **CONTINUER**                                                                          | Amélioré car il nous permet de détecter si notre buse n'est pas à la température d'extrusion afin de le résoudre avant qu'elle ne montre une erreur et n'endommage notre impression.                                                                                    |
 | **ANNULER_IMPRIMER**                                                                   | Ce qui permet d'utiliser le reste des macros pour effectuer correctement une annulation d'impression.                                                                                                                                                                   |
@@ -131,7 +131,7 @@ Quelques macros ajoutées qui nous seront utiles :
 <table><thead><tr><th width="170">Macro</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>START_PRINT</strong></td><td>Nos permitirá poder iniciar nuestras impresiones de una forma segura y al estilo Klipper. Dentro de esta encontraremos algunas funciones interesantes como:<br>- precalentado de nozzle inteligente en el caso de contar con sensor probe<br>- posibilidad de uso de z-tilt mediante variable<br>- mallado de cama adaptativo, forzado o desde una malla guardada<br>- línea de purga personalizable entre normal, línea de purgado adaptativa o gota de purgado<br>- macro segmentada para poder personalizarse tal como os mostraremos más adelante</td></tr><tr><td><strong>END_PRINT</strong></td><td>Macro de fin de impresión donde también disponemos de segmentación para poder personalizar nuestra macro. También contamos con aparcado dinámico del cabezal.</td></tr></tbody></table>
 
 -   **Cadre de lit adaptatif**Grâce à la polyvalence de Klipper, nous pouvons faire des choses qui semblent aujourd'hui impossibles... un processus important pour l'impression est d'avoir un maillage d'écarts par rapport à notre lit qui nous permet de les corriger pour avoir une parfaite adhérence des premières couches. \\
-    À de nombreuses reprises, nous effectuons ce maillage avant l'impression pour nous assurer qu'il fonctionne correctement et cela se fait sur toute la surface de notre lit.\\
+    À de nombreuses reprises, nous effectuons ce maillage avant l'impression pour nous assurer qu'il fonctionne correctement et cela se fait sur toute la surface de notre lit.
     Avec le maillage de lit adaptatif, cela se fera dans la zone d'impression, ce qui le rend beaucoup plus précis que la méthode traditionnelle... dans les captures d'écran suivantes, nous verrons les différences entre un maillage traditionnel et un maillage adaptatif.\\![](<../../.gitbook/assets/image (6) (12) (1).png>)![](<../../.gitbook/assets/image (2) (1) (4).png>)
 
 ### **Macros de gestion des filaments**
@@ -306,7 +306,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% de perte finale %}
 
 {% indice style="info" %}
-Los**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils soient remplacés par les valeurs configurées dans le profil**d'impression.
+Los**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils les remplacent par les valeurs configurées dans le profil**d'impression.
 
 Dans les liens suivants, vous pouvez en trouver une liste pour :[**Trancheuse Prusa**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(en plus de ceux ci-dessus),[**Studio Bambou**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)et[**Traitement**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -407,7 +407,7 @@ Une phase importante de notre démarrage d'impression est une purge correcte de 
 
 #### Chargement/déchargement de filaments
 
-Dans ce cas, ce groupe de variables nous permettra de gérer plus facilement le chargement et le déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
+Dans ce cas, ce groupe de variables facilitera la gestion du chargement et du déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
 
 | Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        | Valeurs possibles | Valeur par défaut |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
@@ -466,7 +466,7 @@ C'est pourquoi il est très important de comprendre le fonctionnement de Klipper
 
 Normalement, ce sera ce que nous devrons ajuster, faire des ajustements aux variables que nous avons par défaut dans notre module**Vos excuses**para Falaises.
 
-Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBAL_VARS] que l'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
+Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBALE_VARS] que l'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
 
 Nous vous rappelons ce que nous avons mentionné précédemment sur la façon dont Klipper traite les configurations de manière séquentielle, il est donc conseillé de le coller après les inclusions que nous avons mentionnées.[ici](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
@@ -500,7 +500,7 @@ Les trois points (...) dans les exemples précédents ont simplement pour but d'
 {% indice style="info" %}
 
 -   Nous vous conseillons d'ajouter des commentaires comme vous le voyez dans le cas précédent pour identifier ce que fait chaque section.
--   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBAL_Année]
+-   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBALE_Année]
     {% finint %}
 
 #### Personnalisation des macros

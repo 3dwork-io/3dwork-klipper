@@ -205,8 +205,8 @@ This set of macros, created by[Garethky](https://github.com/garethky), they will
 
 On the other hand we have some**requirements to implement it**<mark style="color:orange;">**(it will try to add in the PRINT logic_START of the bundle in the future by activating this function by variable and creating a previous and subsequent user macro to be able to enter user events)**</mark>:
 
--   the use of\[save_variables], in our case we will use~/variables.cfg para almacenar las variables y que ya esta dentro del cfg de estas macros. \\
-    Esto nos creará automáticamente un fichero variables_build_sheets.cfg where it will save our variables on disk.
+-   the use of\[save_variables], in our case we will use~/variables.cfg to store the variables and that is already inside the cfg of these macros. \\
+    This will automatically create a variables file for us_build_sheets.cfg where it will save our variables on disk.
 
 {% code title="Example of variables config file" %}
 
@@ -301,7 +301,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | <p><strong>PID_ALL</strong><br><strong>PID_EXTRUDER</strong><br><strong>PID_BED</strong></p> | These macros, where we can pass the temperatures to the PID in the form of parameters, will allow us to perform the temperature calibration in an extremely simple way.                                                                             |
 | <p><strong>TEST_SPEED</strong><br><strong>TEST_SPEED_DELTA</strong></p>                      | Companion's original macro[Ellis](https://github.com/AndrewEllis93)They will allow us in a fairly simple way to test the speed at which we can move our machine precisely and without loss of steps.                                                |
 
--   **Compiled firmware for supported electronics**, para facilitar el proceso de creación y mantenimiento de nuestro firmware Klipper para nuestras MCU contamos con la macro COMPILE_FIRMWARE that when executed, we can use our electronics as a parameter to do only this, Klipper will compile for all the electronics supported by our bundle:\\![](<../../.gitbook/assets/image (1540).png>)\\
+-   **Compiled firmware for supported electronics**, to facilitate the process of creating and maintaining our Klipper firmware for our MCUs we have the COMPILE macro_FIRMWARE that when executed, we can use our electronics as a parameter to do only this, Klipper will compile for all the electronics supported by our bundle:\\![](<../../.gitbook/assets/image (1540).png>)\\
     We will find these easily accessible from our web UI in the firmware directory_binaries in our MACHINE tab (if we use Mainsail):\\![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)\\
     Below is the list of supported electronics:
 
@@ -473,7 +473,7 @@ Los**placeholders are "aliases" or variables that the laminators use so that whe
 
 In the following links you can find a list of these for:[**Prusa Slicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
-El uso de estos permiten que nuestras macros sean dinámicas.
+The use of these allows our macros to be dynamic.
 {% endhint %}
 
 -   **gcode the final END_PRINT**, in this case by not using placeholders it is common to all laminators

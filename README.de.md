@@ -309,7 +309,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 
 -   Diese Skripte sind für die Arbeit auf einem Raspbian-System mit Pi-Benutzer vorbereitet. Wenn dies nicht der Fall ist, müssen Sie sie anpassen.
 -   Die Firmwares werden für die Verwendung mit einer USB-Verbindung generiert, was wir immer empfehlen. Darüber hinaus ist der USB-Montagepunkt immer derselbe, sodass sich Ihre MCU-Verbindungskonfiguration nicht ändert, wenn sie mit unserem Makro/Skript generiert werden.
--   **Para que Klipper pueda ejecutar shell macros se ha de instalar una extensión, gracias al compañero**[**Arkussinus**](https://github.com/Arksine)**, das erlaubt es.**
+-   **Damit Klipper Shell-Makros ausführen kann, muss dank des Companion eine Erweiterung installiert werden**[**Arkussinus**](https://github.com/Arksine)**, das erlaubt es.**
 
         <mark style="color:green;">**Dependiendo de la distro de Klipper usada pueden venir ya habilitadas.**</mark>
 
@@ -338,7 +338,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | Octopus Pro (H723) | btt-octopus-pro-h723 |
 | Octopus v1.1 | btt-octopus-11 |
 | Octopus v1.1 (407) | btt-octopus-11-407 |
-| SKR Pro v1.2 | skr_Profi_12 |
+| SKR Pro v1.2 | skr_pro_12 |
 | 3 SEK | Übrigens_skr_3 |
 | SKR 3 (H723) | btt-skr-3-h723 |
 | SKR 3 EZ | btt-skr-3-ez |
@@ -527,11 +527,11 @@ Satz von Variablen, die sich auf den Referenzierungsprozess beziehen.
 
 Variablen im Zusammenhang mit dem Heizprozess unserer Maschine.
 
-| Variable                                      | Beschreibung                                                                                            | Mögliche Werte | Valor por defecto |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------- | ----------------- |
-| Variable_Vorwärmen_Extruder                   | Ermöglicht das Vorheizen der Düse auf die in der Variable angegebene Temperatur_Vorwärmen_Extruder_Temp | Wahr falsch    | WAHR              |
-| Variable_Vorwärmen_Extruder_Temp              | Temperatur der Düsenvorwärmung                                                                          | numerisch      | 150               |
-| Variable_Start_drucken_Hitze_Kammer_Bett_Temp | Betttemperatur während des Aufheizvorgangs unseres Gehäuses                                             | numerisch      | 100               |
+| Variable                                      | Beschreibung                                                                                            | Mögliche Werte | Standardwert |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| Variable_Vorwärmen_Extruder                   | Ermöglicht das Vorheizen der Düse auf die in der Variable angegebene Temperatur_Vorwärmen_Extruder_Temp | Wahr falsch    | WAHR         |
+| Variable_Vorwärmen_Extruder_Temp              | Temperatur der Düsenvorwärmung                                                                          | numerisch      | 150          |
+| Variable_Start_drucken_Hitze_Kammer_Bett_Temp | Betttemperatur während des Aufheizvorgangs unseres Gehäuses                                             | numerisch      | 100          |
 
 {% hint style="success" %}
 Vorteile der Verwendung einer vorgeheizten Düse:
@@ -678,7 +678,7 @@ Wir haben zwei Gruppen von Makros:
 
 <table><thead><tr><th width="400">Nombre Macro</th><th>Descripción</th></tr></thead><tbody><tr><td>_USER_START_PRINT_HEAT_CHAMBER</td><td>Se ejecuta justo después que nuestro cerramiento empiece a calentar, si CHAMBER_TEMP se pasa como parámetro a nuestro START_PRINT</td></tr><tr><td>_USER_START_PRINT_BEFORE_HOMING</td><td>Se ejecuta antes del homing inicial de inicio de impresión</td></tr><tr><td>_USER_START_PRINT_AFTER_HEATING_BED</td><td>Se ejecuta al llegar nuestra cama a su temperatura, antes de _START_PRINT_AFTER_HEATING_BED</td></tr><tr><td>_USER_START_PRINT_BED_MESH</td><td>Se lanza antes de _START_PRINT_BED_MESH</td></tr><tr><td>_USER_START_PRINT_PARK</td><td>Se lanza antes de _START_PRINT_PARK</td></tr><tr><td>_USER_START_PRINT_AFTER_HEATING_EXTRUDER</td><td>Se lanza antes de _START_PRINT_AFTER_HEATING_EXTRUDER</td></tr></tbody></table>
 
-**ENDE_PRINT**
+**ENDE_DRUCKEN**
 
 | Makroname                                  | Beschreibung                                                                                          |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------- |

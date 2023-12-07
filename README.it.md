@@ -221,7 +221,7 @@ build_sheet textured_pei = {'name': 'Textured PEI', 'offset': -0.160000000000000
 {%endcode%}
 
 -   dobbiamo includere una chiamata a APPLICARE_COSTRUIRE_FOGLIO_REGOLAZIONE nella nostra STAMPA_INIZIA per poter applicare lo ZOffset della superficie selezionata
--   È importante che per la macro precedente, APPLY_COSTRUIRE_FOGLIO_REGOLAZIONE, per funzionare correttamente dobbiamo aggiungere un SET_CODICE G_OFFSET Z=0.0 subito prima di chiamare APPLY_COSTRUIRE_FOGLIO_REGOLAZIONE
+-   È importante che per la macro precedente, APPLY_COSTRUIRE_SHEET_REGOLAZIONE, per funzionare correttamente dobbiamo aggiungere un SET_CODICE G_OFFSET Z=0.0 subito prima di chiamare APPLY_COSTRUIRE_FOGLIO_REGOLAZIONE
 
 ```django
 # Load build sheet

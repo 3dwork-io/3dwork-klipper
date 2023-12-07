@@ -4,9 +4,21 @@ description: Paquete de macros, configuraciones y otras utilidades para Klipper
 
 # 3Dwork Klipper Bundle
 
-> [!WARNING]
-> **GUÍA EN PROCESO!!! Aunque las macros son totalmente funcionales estas están en continuo desarrollo.**
-> **Úsalas bajo tu propia responsabilidad!!!**</mark>
+[![](<../../.gitbook/assets/image (1986).png>) - English](https://klipper-3dwork-io.translate.goog/klipper/mejoras/3dwork-klipper-bundle?\_x\_tr\_sl=es&\_x\_tr\_tl=en&\_x\_tr\_hl=es&\_x\_tr\_pto=wapp)
+
+{% hint style="danger" %}
+<mark style="color:red;">**GUÍA EN PROCESO!!! Aunque las macros son totalmente funcionales estas están en continuo desarrollo.**</mark>&#x20;
+
+<mark style="color:orange;">**Úsalas bajo tu propia responsabilidad!!!**</mark>
+{% endhint %}
+
+<details>
+
+<summary>Changelog</summary>
+
+07/12/2023 - Añadido soporte para automatizar la creación de firmware Bigtreetech SKR 1.4 Turbo y Manta M8P/M4P
+
+</details>
 
 Desde **3Dwork** hemos recopilado y ajustando un conjunto de macros, configuraciones de máquinas y electrónicas, así como otras herramientas para una gestión sencilla y potente de Klipper.&#x20;
 
@@ -25,9 +37,11 @@ cd ~/printer_data/config
 git clone https://github.com/3dwork-io/3dwork-klipper.git
 ```
 
-> [!WARNING]
-> En el caso que el directorio de tu configuración de Klipper esté personalizado recuerda ajustar el primer comando de forma adecuada a tu instalación.
+{% hint style="warning" %}
+En el caso que el directorio de tu configuración de Klipper esté personalizado recuerda ajustar el primer comando de forma adecuada a tu instalación.
+{% endhint %}
 
+{% hint style="info" %}
 En nuevas instalaciones:
 
 Dado que Klipper no permite el acceso a las macros hasta que no tiene un printer.cfg correcto y conecta con una MCU podemos "engañar" a Klipper con los siguientes pasos que nos van a permitir utilizar las macros de nuestro bundle para, por ejemplo, lanzar la macro de compilación firmware Klipper si usamos una electrónica compatible:
@@ -129,9 +143,9 @@ Algunas macros añadidas que nos van a ser de utilidad:
 | **CANCEL\_PRINT**                                                                       | Que permite el uso del resto de macros para realizar una cancelación de impresiónn correctamente.                                                                                                                                                    |
 
 * **Pausado en cambio de capa**, unas macros muy interesantes que nos permiten hacer un pausado programado en una capa o lanzar un comando al iniciar la siguiente capa. \
-  ![](<../../.gitbook/assets/image (6) (5) (1) (2).png>)![](<../../.gitbook/assets/image (1) (1) (8).png>)\
+  ![](<../../.gitbook/assets/image (143).png>)![](<../../.gitbook/assets/image (1003).png>)\
   Además otra ventaja de ellas es que están integradas con Mainsail con lo que tendremos nuevas funciones en nuestra UI como podéis ver a continuación:\
-  ![](<../../.gitbook/assets/image (3) (15).png>)![](<../../.gitbook/assets/image (29) (1) (2).png>)
+  ![](<../../.gitbook/assets/image (725).png>)![](<../../.gitbook/assets/image (1083).png>)
 
 ### **Macros de gestión de impresión**
 
@@ -140,15 +154,146 @@ Algunas macros añadidas que nos van a ser de utilidad:
 * **Mallado de cama adaptativo**, gracias a la versatilidad de Klipper podemos hacer cosas que a día de hoy parecen imposibles... un proceso importante para la impresion es tener un mallado de desviaciones de nuestra cama que nos permita corregir estas para tener una adherencia de primeras capas perfecta. \
   En muchas ocasiones hacemos este mallado antes de las impresiones para asegurarnos que funcione correctamente y este se hace en toda la superficie de nuestra cama.\
   Con el mallado de cama adaptativo esta se va a realizar en la zona de impresión haciendo que sea mucho más precisa que el método tradicional... en las siguientes capturas veremos las diferencias de una malla tradicional y una adaptativa.\
-  ![](<../../.gitbook/assets/image (6) (12) (1).png>)![](<../../.gitbook/assets/image (2) (1) (4).png>)
+  ![](<../../.gitbook/assets/image (1220).png>)![](<../../.gitbook/assets/image (348).png>)
 
 ### **Macros de gestión de filamento**
+
+Conjunto de macros que nos van a permitir gestionar diferentes acciones con nuestro filamento como la carga o descarga de este.
 
 | Macro                | Descripción                                                                                                          |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | **M600**             | Nos va a permitir compatibilidad con el gcode M600 normalmente usado en los laminadores para el cambio de filamento. |
 | **UNLOAD\_FILAMENT** | Configurable mediante las variables nos va a permitir una descarga de filamentos asistida.                           |
 | **LOAD\_FILAMENT**   | Igual que la anterior pero relacionada con la carga del filamento.                                                   |
+
+### <mark style="color:orange;">**Macros de gestión de bobinas de filamentos (Spoolman)**</mark>
+
+{% hint style="warning" %}
+**SECCIÓN EN PROCESO!!!**
+{% endhint %}
+
+[**Spoolman**](https://github.com/Donkie/Spoolman) es un gestor de bobinas de filamento que se integra en Moonraker y que nos permite gestionar nuestro stock y disponibilidad de filamentos.
+
+<figure><img src="../../.gitbook/assets/image (1990).png" alt=""><figcaption></figcaption></figure>
+
+No vamos a entrar en la instalación y configuración de este dado que es relativamente sencillo utilizando las [**instrucciones de su Github**](https://github.com/Donkie/Spoolman)**,** en cualquier caso **os aconsejamos utilizar Docker** por simplicidad y recordad **activar la configuración en Moonraker** requerida:
+
+{% code title="moonraker.conf" %}
+```django
+[spoolman]
+server: http://192.168.0.123:7912
+#   URL to the Spoolman instance. This parameter must be provided.
+sync_rate: 5
+#   The interval, in seconds, between sync requests with the
+#   Spoolman server.  The default is 5.
+```
+{% endcode %}
+
+| Macro                | Descripción                                           |
+| -------------------- | ----------------------------------------------------- |
+| SET\_ACTIVE\_SPOOL   | Nos permite indicar cual es el ID de la bobina a usar |
+| CLEAR\_ACTIVE\_SPOOL | Nos permite resetear la bobina activa                 |
+
+Lo ideal en cada caso sería el añadir en nuestro laminador, **en los gcodes de filamentos para cada bobina la llamada a esta**, y recuerda **cambiar el ID de esta una vez consumida** para poder llevar un control de lo que resta de filamento en la misma!!!
+
+<figure><img src="../../.gitbook/assets/image (1991).png" alt=""><figcaption></figcaption></figure>
+
+### <mark style="color:orange;">**Macros de gestión de superficies de impresión**</mark>
+
+{% hint style="warning" %}
+**SECCIÓN EN PROCESO!!!**
+{% endhint %}
+
+Suele ser normal que contemos con diferentes superficies de impresión dependiendo del acabado que queramos tener o el tipo de filamento.&#x20;
+
+Este conjunto de macros, creadas por [Garethky](https://github.com/garethky), van a permitirnos tener tener un control de estas y en especial el ajuste correcto de ZOffset en cada una de ellas al estilo que contamos en máquinas Prusa. A continuación podéis ver algunas de sus funciones:
+
+* podremos almacenar el numero de superficies de impresión que queramos, teniendo cada una un nombre único
+* cada superficie de impresión va a tener un ZOffset propio
+* si realizamos ajustes de Z durante una impresión (Babystepping) desde nuestro Klipper este cambio se va a almacentar en la superficie habilitada en ese momento
+
+Por otro lado tenemos algunos **requerimientos para implementarlo **<mark style="color:orange;">**(se intentará agregar en la lógica del PRINT\_START del bundle en un futuro activando por variable esta función y creando una macro de usuario previa y posterior para poder meter eventos de usuario)**</mark>:
+
+* se necesita el uso de \[save\_variables], en nuestro caso usaremos \~/variables.cfg para almacenar las variables y que ya esta dentro del cfg de estas macros. \
+  Esto nos creará automáticamente un fichero variables\_build\_sheets.cfg donde guardara nuestras variables en disco.
+
+{% code title="Example of variables config file" %}
+```django
+[Variables]
+build_sheet flat = {'name': 'flat', 'offset': 0.0}
+build_sheet installed = 'build_sheet textured_pei'
+build_sheet smooth_pei = {'name': 'Smooth PEI', 'offset': -0.08999999999999997}
+build_sheet textured_pei = {'name': 'Textured PEI', 'offset': -0.16000000000000003}
+```
+{% endcode %}
+
+* deberemos incluis una llamada a APPLY\_BUILD\_SHEET\_ADJUSTMENT en nuestro PRINT\_START para poder aplicar el ZOffset de la superficie seleccionada
+* es importante que para que la macro anterior, APPLY\_BUILD\_SHEET\_ADJUSTMENT, funcione correctamente hemos de añadir un SET\_GCODE\_OFFSET Z=0.0 justo antes de llamar a APPLY\_BUILD\_SHEET\_ADJUSTMENT
+
+```django
+# Load build sheet
+SHOW_BUILD_SHEET                ; show loaded build sheet on console
+SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
+APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
+```
+
+Por otro lado es interesante poder disponer de unas macros para activar una superficie u otra o incluso pasarlo como parámetro desde nuestro laminador para con diferentes perfiles de impresora o de filamento poder cargar una u otra de forma automática:
+
+{% hint style="warning" %}
+Es importante que el valor en NAME="xxxx" coincida con el nombre que dimos a la hora de instalar nuestra superficie de impresión
+{% endhint %}
+
+{% code title="printer.cfg or include cfg" %}
+```django
+## Every Build Plate you want to use needs an Install Macro
+[gcode_macro INSTALL_TEXTURED_SHEET]
+gcode:
+    INSTALL_BUILD_SHEET NAME="Textured PEI"
+
+[gcode_macro INSTALL_SMOOTH_SHEET]
+gcode:
+    INSTALL_BUILD_SHEET NAME="Smooth PEI"
+    
+[gcode_macro INSTALL_SMOOTH_GAROLITE_SHEET]
+gcode:
+    INSTALL_BUILD_SHEET NAME="Smooth Garolite"
+```
+{% endcode %}
+
+También en el caso de contar con KlipperScreen podremos añadir un menú específico para poder gestionar la carga de las diferentes superficies, donde incluiremos una llamada a las macros anteriormente creadas para la carga de cada superficie:
+
+{% code title="~/printer_data/config/KlipperScreen.conf" %}
+```django
+[menu __main actions build_sheets]
+name: Build Sheets
+icon: bed-level
+
+[menu __main actions build_sheets smooth_pei]
+name: Smooth PEI
+method: printer.gcode.script
+params: {"script":"INSTALL_SMOOTH_PEI_SHEET"}
+
+[menu __main actions build_sheets textured_pei]
+name: Textured PEI
+method: printer.gcode.script
+params: {"script":"INSTALL_TEXTURED_PEI_SHEET"}
+
+[menu __main actions build_sheets smooth_garolite]
+name: Smooth Garolite
+method: printer.gcode.script
+params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
+```
+{% endcode %}
+
+| Macro                           | Descripción |
+| ------------------------------- | ----------- |
+| INSTALL\_BUILD\_SHEET           |             |
+| SHOW\_BUILD\_SHEET              |             |
+| SHOW\_BUILD\_SHEETS             |             |
+| SET\_BUILD\_SHEET\_OFFSET       |             |
+| RESET\_BUILD\_SHEET\_OFFSET     |             |
+| SET\_GCODE\_OFFSET              |             |
+| APPLY\_BUILD\_SHEET\_ADJUSTMENT |             |
 
 ### **Macros de configuración de máquina**
 
@@ -160,7 +305,7 @@ Algunas macros añadidas que nos van a ser de utilidad:
 | <p><strong>TEST_SPEED</strong><br><strong>TEST_SPEED_DELTA</strong></p>                      | Macro original del compañero [Ellis](https://github.com/AndrewEllis93) nos van a permitir de una forma bastante sencilla testear la velocidad a la que podemos mover nuestra máquina de una forma precisa y sin pérdida de pasos.                     |
 
 * **Compilado de firmware para electronicas soportadas**, para facilitar el proceso de creación y mantenimiento de nuestro firmware Klipper para nuestras MCU contamos con la macro COMPILE\_FIRMWARE que al ejecutarla, podemos usar como parámetro nuestra electrónica para hacer solamente esta, compilará Klipper para todas las electrónicas soportadas por nuestro bundle:\
-  ![](<../../.gitbook/assets/image (7) (5) (1).png>)\
+  ![](<../../.gitbook/assets/image (1540).png>)\
   Encontraremos estas accesibles de forma sencilla desde nuestra UI web en el directorio firmware\_binaries en nuestra pestaña MACHINE (si usamos Mainsail):\
   ![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)\
   A continuación tenéis la lista de electrónicas soportadas:
@@ -174,7 +319,7 @@ Algunas macros añadidas que nos van a ser de utilidad:
 
     <mark style="color:green;">**Dependiendo de la distro de Klipper usada pueden venir ya habilitadas.**</mark>
 
-    ![](<../../.gitbook/assets/image (1179).png>)
+    ![](<../../.gitbook/assets/image (770).png>)
 
     La forma más sencilla es usando [**Kiauh**](../instalacion/#instalando-kiauh) donde encontraremos en una de sus opciones la posibilidad de instalar esta extensión:
 
@@ -187,6 +332,8 @@ Algunas macros añadidas que nos van a ser de utilidad:
 {% tab title="Bigtreetech" %}
 | Electrónica        | Nombre de parámetro a usar en macro |
 | ------------------ | ----------------------------------- |
+| Manta M4P          | btt\_manta\_m4p                       |
+| Manta M8P          | btt\_manta\_m8p                       |
 | Octopus Pro (446)  | octopus\_pro\_446                   |
 | Octopus Pro (429)  | octopus\_pro\_429                   |
 | Octopus v1.1       | octopus\_11                         |
@@ -194,6 +341,7 @@ Algunas macros añadidas que nos van a ser de utilidad:
 | SKR Pro v1.2       | skr\_pro\_12                        |
 | SKR 3              | btt\_skr\_3                         |
 | SKR 2 (429)        | skr\_2\_429                         |
+| SKR 1.4 Turbo      | btt-skr-14-turbo                    |
 | SKR Mini E3 v3     | btt\_skr\_mini\_e3\_30              |
 
 | Toolhead (CAN) | Nombre de parámetro a usar en macro |
@@ -275,7 +423,7 @@ SET_PRINT_STATS_INFO TOTAL_LAYER=[total_layer_count] ; Provide layer information
 START_PRINT EXTRUDER_TEMP=[first_layer_temperature[initial_extruder]] BED_TEMP=[first_layer_bed_temperature] CHAMBER=[chamber_temperature] PRINT_MIN={first_layer_print_min[0]},{first_layer_print_min[1]} PRINT_MAX={first_layer_print_max[0]},{first_layer_print_max[1]}
 ```
 
-![Ejemplo para PrusaSlicer/SuperSlicer](<../../.gitbook/assets/image (210).png>)
+![Ejemplo para PrusaSlicer/SuperSlicer](<../../.gitbook/assets/image (1104).png>)
 {% endtab %}
 
 {% tab title="Bambu Studio/OrcaSlicer" %}
@@ -286,7 +434,7 @@ SET_PRINT_STATS_INFO TOTAL_LAYER=[total_layer_count] ; Provide layer information
 START_PRINT EXTRUDER_TEMP=[nozzle_temperature_initial_layer] BED_TEMP=[first_layer_bed_temperature] CHAMBER=[chamber_temperature] PRINT_MIN={first_layer_print_min[0]},{first_layer_print_min[1]} PRINT_MAX={first_layer_print_max[0]},{first_layer_print_max[1]}
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1760).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Cura" %}
@@ -454,7 +602,7 @@ Aprovechar al máximo nuestra máquina para que esta se autonivele y facilitar q
 
 #### Skew
 
-El uso de [SKEW](../../guias-impresion-3d/calibracion\_3d.md#7.-pasos-ejes) para la corrección o ajuste preciso de nuestras impresoras es extremadamente aconsejable si tenemos desviaciones en nuestras impresiones. Usando la siguiente variable podemos permitir el uso en nuestras macros:
+El uso de [SKEW](broken-reference) para la corrección o ajuste preciso de nuestras impresoras es extremadamente aconsejable si tenemos desviaciones en nuestras impresiones. Usando la siguiente variable podemos permitir el uso en nuestras macros:
 
 | Variable                | Descripción                                                                                                                                                                                                    | Valores posibles | Valor por defecto |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |

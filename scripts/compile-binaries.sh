@@ -1,5 +1,23 @@
 #!/bin/bash
 
+compile_btt-manta-m4p() {
+    echo "Compiling firmware for BTT Manta M4P"
+    cp -f /home/pi/printer_data/config/3dwork-klipper/boards/btt-manta-m4p/firmware.config /home/pi/klipper/.config
+    make olddefconfig
+    make clean
+    make
+    cp /home/pi/klipper/out/klipper.bin /home/pi/printer_data/config/firmware_binaries/firmware-btt-manta-m4p.bin
+}
+
+compile_btt-manta-m8p() {
+    echo "Compiling firmware for BTT Manta M8P"
+    cp -f /home/pi/printer_data/config/3dwork-klipper/boards/btt-manta-m8p/firmware.config /home/pi/klipper/.config
+    make olddefconfig
+    make clean
+    make
+    cp /home/pi/klipper/out/klipper.bin /home/pi/printer_data/config/firmware_binaries/firmware-btt-manta-m8p.bin
+}
+
 compile_octopus_pro_446() {
     echo "Compiling firmware for BTT Octopus Pro 446"
     cp -f /home/pi/printer_data/config/3dwork-klipper/boards/btt-octopus-pro-446/firmware.config /home/pi/klipper/.config
@@ -188,6 +206,8 @@ pushd /home/pi/klipper
 if [ -z "$1" ]; then
     # If no parameter is provided, compile firmware for all boards
     # Run make scripts for the supported boards.
+    compile_btt-manta-m4p
+    compile_btt-manta-m8p
     compile_octopus_pro_446
     compile_octopus_pro_429
     compile_btt_octopus_11

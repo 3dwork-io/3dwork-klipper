@@ -338,7 +338,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | Octopus Pro (H723) | btt-octopus-pro-h723 |
 | Octopus v1.1 | btt-octopus-11 |
 | Octopus v1.1 (407) | btt-octopus-11-407 |
-| SKR Pro v1.2 | skr_pro_12 |
+| SKR Pro v1.2 | skr_Profi_12 |
 | 3 SEK | Übrigens_skr_3 |
 | SKR 3 (H723) | btt-skr-3-h723 |
 | SKR 3 EZ | btt-skr-3-ez |

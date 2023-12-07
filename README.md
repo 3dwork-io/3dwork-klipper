@@ -16,7 +16,7 @@ description: Paquete de macros, configuraciones y otras utilidades para Klipper
 
 <summary>Changelog</summary>
 
-07/12/2023 - Añadido soporte para automatizar la creación de firmware Bigtreetech SKR 1.4 Turbo y Manta M8P/M4P
+07/12/2023 - Añadido soporte para automatizar la creación de firmware electrónicas Bigtreetech&#x20;
 
 </details>
 
@@ -332,15 +332,25 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 {% tab title="Bigtreetech" %}
 | Electrónica        | Nombre de parámetro a usar en macro |
 | ------------------ | ----------------------------------- |
-| Manta M4P          | btt\_manta\_m4p                       |
-| Manta M8P          | btt\_manta\_m8p                       |
-| Octopus Pro (446)  | octopus\_pro\_446                   |
-| Octopus Pro (429)  | octopus\_pro\_429                   |
-| Octopus v1.1       | octopus\_11                         |
-| Octopus v1.1 (407) | octopus\_11\_407                    |
+| Manta E3 EZ        | btt-manta-e3ez                      |
+| Manta M4P          | btt-manta-m4p                       |
+| Manta M4P v2.2     | btt-manta-m4p-22                    |
+| Manta M8P          | btt-manta-m8p                       |
+| Manta M8P v1.1     | btt-manta-m8p-11                    |
+| Octopus Max EZ     | btt-octopus-max-ez                  |
+| Octopus Pro (446)  | btt-octopus-pro-446                 |
+| Octopus Pro (429)  | btt-octopus-pro-429                 |
+| Octopus Pro (H723) | btt-octopus-pro-h723                |
+| Octopus v1.1       | btt-octopus-11                      |
+| Octopus v1.1 (407) | btt-octopus-11-407                  |
 | SKR Pro v1.2       | skr\_pro\_12                        |
 | SKR 3              | btt\_skr\_3                         |
-| SKR 2 (429)        | skr\_2\_429                         |
+| SKR 3 (H723)       | btt-skr-3-h723                      |
+| SKR 3 EZ           | btt-skr-3-ez                        |
+| SKR 3 EZ (H723)    | btt-skr-3-ez-h723                   |
+| SKR 2 (429)        | btt-skr-2-429                       |
+| SKR 2 (407)        | btt-skr-2-407                       |
+| SKR RAT            | btt-skrat-10                        |
 | SKR 1.4 Turbo      | btt-skr-14-turbo                    |
 | SKR Mini E3 v3     | btt\_skr\_mini\_e3\_30              |
 

@@ -153,6 +153,15 @@ compile_btt_skr_3() {
     cp /home/pi/klipper/out/klipper.bin /home/pi/printer_data/config/firmware_binaries/firmware-btt-skr-3.bin
 }
 
+compile_btt-skr-14-turbo() {
+    echo "Compiling firmware for SKR 1.4 Turbo"
+    cp -f /home/pi/printer_data/config/3dwork-klipper/boards/btt-skr-14-turbo/firmware.config /home/pi/klipper/.config
+    make olddefconfig
+    make clean
+    make
+    cp /home/pi/klipper/out/klipper.bin /home/pi/printer_data/config/firmware_binaries/firmware-btt-skr-14-turbo.bin
+}
+
 compile_znp_robin_nano_dw_v2() {
     echo "Compiling firmware for ZNP Robin Nano DW v2"
     cp -f /home/pi/printer_data/config/3dwork-klipper/boards/znp-robin-nano-dw-v2/firmware.config /home/pi/klipper/.config
@@ -196,6 +205,7 @@ if [ -z "$1" ]; then
     compile_mellow_fly_sht_36
     compile_btt_skr_mini_e3_30
     compile_btt_skr_3
+    compile_btt-skr-14-turbo
     compile_znp_robin_nano_dw_v2
 else
     compile_function="compile_$1"

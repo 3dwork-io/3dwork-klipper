@@ -4,7 +4,19 @@
 
 # 3Dwork Clipper Bundle
 
-> [!WARNING]**GUIDE IN PROCESS!!! Although the macros are fully functional, they are under continuous development.****Use them at your own risk!!!**</mark>
+[![](<../../.gitbook/assets/image (1986).png>)- English](https://klipper-3dwork-io.translate.goog/klipper/mejoras/3dwork-klipper-bundle?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp)
+
+{% hint style="danger" %}<mark style="color:red;">**GUIDE IN PROCESS!!! Although the macros are fully functional, they are under continuous development.**</mark>
+
+<mark style="color:orange;">**Use them at your own risk!!!**</mark>{% endint %}
+
+<details>
+
+<summary>Changelog</summary>
+
+12/07/2023 - Added support to automate the creation of Bigtreetech SKR 1.4 Turbo and Manta M8P/M4P firmware
+
+</details>
 
 From**Your excuses**We have compiled and fine-tuned a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
 
@@ -23,8 +35,11 @@ cd ~/printer_data/config
 git clone https://github.com/3dwork-io/3dwork-klipper.git
 ```
 
-> [!WARNING]If your Klipper configuration directory is customized, remember to adjust the first command appropriately for your installation.
+{% hint style="warning" %}
+If your Klipper configuration directory is customized, remember to adjust the first command appropriately for your installation.
+{% endhint %}
 
+{% hint style="info" %}
 In new installations:
 
 Since Klipper does not allow access to macros until it has a correct printer.cfg and connects to an MCU, we can "trick" Klipper with the following steps that will allow us to use the macros in our bundle to, for example, launch the Klipper firmware compilation macro if we use compatible electronics:
@@ -118,13 +133,13 @@ Some added macros that will be useful to us:
 | Macro                                                                                  | Description                                                                                                                                                                                                                 |
 | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **MAYBE_HOME**                                                                         | It allows us to optimize the homing process only by performing it on those axes that are not homing.                                                                                                                        |
-| **PAUSE**                                                                              | Using the related variables, it allows us to manage a pause with a more versatile head parking than normal macros.                                                                                                          |
+| **PAUSE**                                                                              | Through the related variables it allows us to manage a pause with a more versatile head parking than normal macros.                                                                                                         |
 | <p><strong>SET_PAUSE_AT_LAYER</strong><br><strong>SET_PAUSE_AT_NEXT_LAYER</strong></p> | <p>A very useful macro that Mainsail integrates into its UI to be able to pause on demand in a specific layer... in case we forgot when laminating.<br>We also have another one to execute the pause on the next layer.</p> |
 | **RESUME**                                                                             | Improved since it allows us to detect if our nozzle is not at the extrusion temperature in order to solve it before it shows an error and damages our printing.                                                             |
 | **CANCEL_PRINT**                                                                       | Which allows the use of the rest of the macros to perform a print cancellation correctly.                                                                                                                                   |
 
--   **Paused on layer change**, some very interesting macros that allow us to pause a layer or launch a command when starting the next layer. \\![](<../../.gitbook/assets/image (6) (5) (1) (2).png>)![](<../../.gitbook/assets/image (1) (1) (8).png>)\\
-    Additionally, another advantage of them is that they are integrated with Mainsail, so we will have new functions in our UI as you can see below:\\![](<../../.gitbook/assets/image (3) (15).png>)![](<../../.gitbook/assets/image (29) (1) (2).png>)
+-   **Paused on layer change**, some very interesting macros that allow us to pause a layer or launch a command when starting the next layer. \\![](<../../.gitbook/assets/image (143).png>)![](<../../.gitbook/assets/image (1003).png>)\\
+    Additionally, another advantage of them is that they are integrated with Mainsail, so we will have new functions in our UI as you can see below:\\![](<../../.gitbook/assets/image (725).png>)![](<../../.gitbook/assets/image (1083).png>)
 
 ### **Print management macros**
 
@@ -132,15 +147,150 @@ Some added macros that will be useful to us:
 
 -   **Adaptive bed mesh**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations from our bed that allows us to correct these to have perfect adhesion of the first layers. \\
     On many occasions we do this meshing before printing to ensure that it works correctly and this is done on the entire surface of our bed.\\
-    With adaptive bed meshing, this will be done in the printing area, making it much more precise than the traditional method... in the following screenshots we will see the differences between a traditional mesh and an adaptive one.\\![](<../../.gitbook/assets/image (6) (12) (1).png>)![](<../../.gitbook/assets/image (2) (1) (4).png>)
+    With adaptive bed meshing, this will be done in the printing area, making it much more precise than the traditional method... in the following screenshots we will see the differences between a traditional mesh and an adaptive one.\\![](<../../.gitbook/assets/image (1220).png>)![](<../../.gitbook/assets/image (348).png>)
 
 ### **Filament management macros**
+
+Set of macros that will allow us to manage different actions with our filament, such as loading or unloading it.
 
 | Macro               | Description                                                                                         |
 | ------------------- | --------------------------------------------------------------------------------------------------- |
 | **M600**            | It will allow us compatibility with the M600 gcode normally used in laminators for filament change. |
 | **UNLOAD_FILAMENT** | Configurable through the variables, it will allow us for assisted filament discharge.               |
 | **LOAD_FILAMENT**   | Same as the previous one but related to the filament load.                                          |
+
+### <mark style="color:orange;">**Filament spool management macros (Spoolman)**</mark>
+
+{% hint style="warning" %}**SECTION IN PROCESS!!!**{% endint %}
+
+[**Spoolman**](https://github.com/Donkie/Spoolman)is a filament spool manager that is integrated into Moonraker and that allows us to manage our filament stock and availability.
+
+<figure><img src="../../.gitbook/assets/image (1990).png" alt=""><figcaption></figcaption></figure>
+
+We are not going to go into the installation and configuration of this since it is relatively simple using the[**instructions from your Github**](https://github.com/Donkie/Spoolman)**,**in any case**we advise you to use Docker**for simplicity and remember**activate settings in Moonraker**required:
+
+{% code title="moonraker.conf" %}
+
+```django
+[spoolman]
+server: http://192.168.0.123:7912
+#   URL to the Spoolman instance. This parameter must be provided.
+sync_rate: 5
+#   The interval, in seconds, between sync requests with the
+#   Spoolman server.  The default is 5.
+```
+
+{%endcode%}
+
+| Macro              | Description                                                 |
+| ------------------ | ----------------------------------------------------------- |
+| SET_ACTIVE_SPOOL   | It allows us to indicate which is the ID of the coil to use |
+| CLEAR_ACTIVE_SPOOL | It allows us to reset the active coil                       |
+
+The ideal in each case would be to add to our laminator,**in the filament gcodes for each coil the call to this**, and remember**change its ID once consumed**to be able to keep track of what remains of filament in it!!!
+
+<figure><img src="../../.gitbook/assets/image (1991).png" alt=""><figcaption></figcaption></figure>
+
+### <mark style="color:orange;">**Print surface management macros**</mark>
+
+{% hint style="warning" %}**SECTION IN PROCESS!!!**{% endint %}
+
+It is usually normal that we have different printing surfaces depending on the finish we want to have or the type of filament.
+
+This set of macros, created by[Garethky](https://github.com/garethky), they will allow us to have control of these and especially the correct adjustment of ZOffset in each of them in the style that we have in Prusa machines. Below you can see some of its functions:
+
+-   We can store the number of printing surfaces we want, each one having a unique name
+-   each printing surface will have its own ZOffset
+-   If we make Z adjustments during a print (Babystepping) from our Klipper, this change will be stored in the surface enabled at that moment
+
+On the other hand we have some**requirements to implement it**<mark style="color:orange;">**(it will try to add in the PRINT logic_START of the bundle in the future by activating this function by variable and creating a previous and subsequent user macro to be able to enter user events)**</mark>:
+
+-   the use of\[save_variables], in our case we will use~/variables.cfg to store the variables and that is already inside the cfg of these macros. \\
+    This will automatically create a variables file for us_build_sheets.cfg where it will save our variables on disk.
+
+{% code title="Example of variables config file" %}
+
+```django
+[Variables]
+build_sheet flat = {'name': 'flat', 'offset': 0.0}
+build_sheet installed = 'build_sheet textured_pei'
+build_sheet smooth_pei = {'name': 'Smooth PEI', 'offset': -0.08999999999999997}
+build_sheet textured_pei = {'name': 'Textured PEI', 'offset': -0.16000000000000003}
+```
+
+{%endcode%}
+
+-   we must include a call to APPLY_BUILD_SHEET_ADJUSTMENT in our PRINT_START to be able to apply the ZOffset of the selected surface
+-   It is important that for the previous macro, APPLY_BUILD_SHEET_ADJUSTMENT, to work correctly we have to add a SET_GCODE_OFFSET Z=0.0 just before calling APPLY_BUILD_SHEET_ADJUSTMENT
+
+```django
+# Load build sheet
+SHOW_BUILD_SHEET                ; show loaded build sheet on console
+SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
+APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
+```
+
+On the other hand, it is interesting to be able to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
+
+{% hint style="warning" %}
+It is important that the value in NAME="xxxx" matches the name we gave when installing our printing surface
+{% endhint %}
+
+{% code title="printer.cfg or include cfg" %}
+
+```django
+## Every Build Plate you want to use needs an Install Macro
+[gcode_macro INSTALL_TEXTURED_SHEET]
+gcode:
+    INSTALL_BUILD_SHEET NAME="Textured PEI"
+
+[gcode_macro INSTALL_SMOOTH_SHEET]
+gcode:
+    INSTALL_BUILD_SHEET NAME="Smooth PEI"
+    
+[gcode_macro INSTALL_SMOOTH_GAROLITE_SHEET]
+gcode:
+    INSTALL_BUILD_SHEET NAME="Smooth Garolite"
+```
+
+{%endcode%}
+
+Also in the case of having KlipperScreen we can add a specific menu to manage the loading of the different surfaces, where we will include a call to the macros previously created for the loading of each surface:
+
+{% code title="~/printer_data/config/KlipperScreen.conf" %}
+
+```django
+[menu __main actions build_sheets]
+name: Build Sheets
+icon: bed-level
+
+[menu __main actions build_sheets smooth_pei]
+name: Smooth PEI
+method: printer.gcode.script
+params: {"script":"INSTALL_SMOOTH_PEI_SHEET"}
+
+[menu __main actions build_sheets textured_pei]
+name: Textured PEI
+method: printer.gcode.script
+params: {"script":"INSTALL_TEXTURED_PEI_SHEET"}
+
+[menu __main actions build_sheets smooth_garolite]
+name: Smooth Garolite
+method: printer.gcode.script
+params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
+```
+
+{%endcode%}
+
+| Macro                        | Description |
+| ---------------------------- | ----------- |
+| INSTALL_BUILD_SHEET          |             |
+| SHOW_BUILD_SHEET             |             |
+| SHOW_BUILD_SHEETS            |             |
+| SET_BUILD_SHEET_OFFSET       |             |
+| RESET_BUILD_SHEET_OFFSET     |             |
+| SET_GCODE_OFFSET             |             |
+| APPLY_BUILD_SHEET_ADJUSTMENT |             |
 
 ### **Machine configuration macros**
 
@@ -151,7 +301,7 @@ Some added macros that will be useful to us:
 | <p><strong>PID_ALL</strong><br><strong>PID_EXTRUDER</strong><br><strong>PID_BED</strong></p> | These macros, where we can pass the temperatures to the PID in the form of parameters, will allow us to perform the temperature calibration in an extremely simple way.                                                                             |
 | <p><strong>TEST_SPEED</strong><br><strong>TEST_SPEED_DELTA</strong></p>                      | Companion's original macro[Ellis](https://github.com/AndrewEllis93)They will allow us in a fairly simple way to test the speed at which we can move our machine precisely and without loss of steps.                                                |
 
--   **Compiled firmware for supported electronics**, to facilitate the process of creating and maintaining our Klipper firmware for our MCUs we have the COMPILE macro_FIRMWARE that when executed, we can use our electronics as a parameter to do only this, Klipper will compile for all the electronics supported by our bundle:\\![](<../../.gitbook/assets/image (7) (5) (1).png>)\\
+-   **Compiled firmware for supported electronics**, to facilitate the process of creating and maintaining our Klipper firmware for our MCUs we have the COMPILE macro_FIRMWARE that when executed, we can use our electronics as a parameter to do only this, Klipper will compile for all the electronics supported by our bundle:\\![](<../../.gitbook/assets/image (1540).png>)\\
     We will find these easily accessible from our web UI in the firmware directory_binaries in our MACHINE tab (if we use Mainsail):\\![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)\\
     Below is the list of supported electronics:
 
@@ -163,7 +313,7 @@ Some added macros that will be useful to us:
 
         <mark style="color:green;">**Dependiendo de la distro de Klipper usada pueden venir ya habilitadas.**</mark>
 
-        ![](<../../.gitbook/assets/image (1179).png>)
+        ![](<../../.gitbook/assets/image (770).png>)
 
         La forma más sencilla es usando [**Kiauh**](../instalacion/#instalando-kiauh) donde encontraremos en una de sus opciones la posibilidad de instalar esta extensión:
 
@@ -177,13 +327,16 @@ Some added macros that will be useful to us:
 {% tab title="Bigtreetech" %}
 | Electronics | Parameter name to use in macro |
 \| ------------------ \| ----------------------------------- \|
-| Octopus Pro (446) | octopus_pro_446                   |
+| M4P Blanket | MTB_manta_m4p                       |
+| Manta M8P          | btt_manta_m8p                       |
+| Octopus Pro (446)  | octopus_pro_446                   |
 | Octopus Pro (429)  | octopus_pro_429                   |
 | Octopus v1.1       | octopus_11                         |
 | Octopus v1.1 (407) | octopus_11_407 |
 | SKR Pro v1.2 | skr_pro_12 |
 | SEK 3 | btt_skr_3 |
 | SKR 2 (429) | skr_2_429 |
+| SKR 1.4 Turbo | btt-skr-14-turbo |
 | SKR Mini E3 v3 | btt_skr_mini_ez_30              |
 
 | Toolhead (CAN) | Parameter name to use in macro |
@@ -231,7 +384,7 @@ From our interface, Mainsail/Fluidd, we will edit our printer.cfg and add:
 {%endcode%}
 
 {% hint style="info" %}
-It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours:\\#\*# &lt;---------------------- SAVE_CONFIG ---------------------->
+It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours :\\#\*# &lt;---------------------- SAVE_CONFIG ---------------------->
 {% endhint %}
 
 {% hint style="warning" %}
@@ -262,7 +415,7 @@ SET_PRINT_STATS_INFO TOTAL_LAYER=[total_layer_count] ; Provide layer information
 START_PRINT EXTRUDER_TEMP=[first_layer_temperature[initial_extruder]] BED_TEMP=[first_layer_bed_temperature] CHAMBER=[chamber_temperature] PRINT_MIN={first_layer_print_min[0]},{first_layer_print_min[1]} PRINT_MAX={first_layer_print_max[0]},{first_layer_print_max[1]}
 ```
 
-![Ejemplo para PrusaSlicer/SuperSlicer](<../../.gitbook/assets/image (210).png>){% end loss %}
+![Ejemplo para PrusaSlicer/SuperSlicer](<../../.gitbook/assets/image (1104).png>){% end loss %}
 
 {% tab title="Bambu Studio/OrcaSlicer" %}
 
@@ -273,7 +426,7 @@ SET_PRINT_STATS_INFO TOTAL_LAYER=[total_layer_count] ; Provide layer information
 START_PRINT EXTRUDER_TEMP=[nozzle_temperature_initial_layer] BED_TEMP=[first_layer_bed_temperature] CHAMBER=[chamber_temperature] PRINT_MIN={first_layer_print_min[0]},{first_layer_print_min[1]} PRINT_MAX={first_layer_print_max[0]},{first_layer_print_max[1]}
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1760).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Cura" %}
@@ -306,7 +459,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% endloss %}
 
 {% hint style="info" %}
-Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they replace them with the values ​​configured in the profile**of impression.
+Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**of impression.
 
 In the following links you can find a list of these for:[**Prusa Slicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -382,10 +535,10 @@ Benefits of using preheated nozzle:
 
 To control the leveling process we have variables that can be very useful. For example, we can control the type of leveling we want to use by always creating a new mesh, loading a previously stored one, or using adaptive meshing.
 
-| Variable                    | Description                                                                                                                                                                                                                                                                                                                                                                                 | Possible values                                     | Valor por defecto |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ----------------- |
-| variable_calibrate_bed_mesh | <p>It allows us to select what type of mesh we will use in our START_PRINT:<br>- new mesh, it will mesh each print<br>- storedmesh, will load a stored mesh and will not perform the bed poll<br>- adaptive, it will make a new mesh but adapted to the printing area, often improving our first layers<br>- nomesh, in case we do not have a sensor or we use mesh to skip the process</p> | <p>new mesh / stored mesh / adaptive /<br>names</p> | adaptive          |
-| variable_bed_mesh_profile   | The name used for our stored mesh                                                                                                                                                                                                                                                                                                                                                           | text                                                | default           |
+| Variable                    | Description                                                                                                                                                                                                                                                                                                                                                                                 | Possible values                                     | Default value |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ------------- |
+| variable_calibrate_bed_mesh | <p>It allows us to select what type of mesh we will use in our START_PRINT:<br>- new mesh, it will mesh each print<br>- storedmesh, will load a stored mesh and will not perform the bed poll<br>- adaptive, it will make a new mesh but adapted to the printing area, often improving our first layers<br>- nomesh, in case we do not have a sensor or we use mesh to skip the process</p> | <p>new mesh / stored mesh / adaptive /<br>names</p> | adaptive      |
+| variable_bed_mesh_profile   | The name used for our stored mesh                                                                                                                                                                                                                                                                                                                                                           | text                                                | default       |
 
 {% hint style="warning" %}
 We advise you to use adaptive leveling since it will always adjust the mesh to the size of our print, allowing you to have an adjusted mesh area.
@@ -395,19 +548,19 @@ It is important that we have in our[start gcode of our laminator](../empezamos/c
 
 #### purged
 
-An important phase of our start of printing is a correct purging of our nozzle to avoid remains of filament or that these could damage our printing at some point. Below you have the variables that intervene in this process:
+An important phase of our start of printing is a correct purging of our nozzle to avoid filament remains or that these could damage our printing at some point. Below you have the variables that intervene in this process:
 
-| Variable                               | Description                                                                                                                                                                                                                                                                                                                                                                                         | Possible values                                                       | Default value       |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------- |
-| variable_nozzle_priming                | <p>We can choose between different purging options:<br>- primeline will draw the typical purge line<br>- primelineadaptative will generate a purge line that adapts to the area of ​​the printed part using variable_nozzle_priming_objectdistance as a margin<br>- primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove</p> | <p>primeline /</p><p>primelineadaptive /<br>prime blob /<br>False</p> | adaptive primelines |
-| variable_nozzle_priming_objectdistance | If we use adaptive bleed line it will be the margin to be used between the bleed line and the printed object                                                                                                                                                                                                                                                                                        | numeric                                                               | 5                   |
-| variable_nozzle_prime_start_x          | <p>Where we want to locate our purge line:<br>- min will do it at X=0 (plus a small safety margin)<br>- max will do so at X=max (minus a small safety margin)<br>- number will be the X coordinate where to locate the purge</p>                                                                                                                                                                    | <p>min /<br>max /<br>number</p>                                       | max                 |
-| variable_nozzle_prime_start_y          | <p>Where we want to locate our purge line:<br>- min will do it at Y=0 (plus a small safety margin)<br>- max will do so at Y=max (minus a small safety margin)<br>- number will be the Y coordinate where to locate the purge</p>                                                                                                                                                                    | <p>min /<br>max /<br>number</p>                                       | min                 |
-| variable_nozzle_prime_direction        | <p>The address of our line or drop:<br>- backwards the head will move to the front of the printer<br>- forwards will move to the back<br>- auto will go towards the center depending on variable_nozzle_prime_start_y</p>                                                                                                                                                                           | <p>auto /<br>forwards /<br>backwards</p>                              | auto                |
+| Variable                               | Description                                                                                                                                                                                                                                                                                                                                                                                         | Possible values                                                        | Default value       |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------- |
+| variable_nozzle_priming                | <p>We can choose between different purging options:<br>- primeline will draw the typical purge line<br>- primelineadaptative will generate a purge line that adapts to the area of ​​the printed part using variable_nozzle_priming_objectdistance as a margin<br>- primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove</p> | <p>prime line /</p><p>primelineadaptive /<br>prime blob /<br>False</p> | adaptive primelines |
+| variable_nozzle_priming_objectdistance | If we use adaptive bleed line it will be the margin to be used between the bleed line and the printed object                                                                                                                                                                                                                                                                                        | numeric                                                                | 5                   |
+| variable_nozzle_prime_start_x          | <p>Where we want to locate our purge line:<br>- min will do it at X=0 (plus a small safety margin)<br>- max will do so at X=max (minus a small safety margin)<br>- number will be the X coordinate where to locate the purge</p>                                                                                                                                                                    | <p>min /<br>max /<br>number</p>                                        | max                 |
+| variable_nozzle_prime_start_y          | <p>Where we want to locate our purge line:<br>- min will do it at Y=0 (plus a small safety margin)<br>- max will do so at Y=max (minus a small safety margin)<br>- number will be the Y coordinate where to locate the purge</p>                                                                                                                                                                    | <p>min /<br>max /<br>number</p>                                        | min                 |
+| variable_nozzle_prime_direction        | <p>The address of our line or drop:<br>- backwards the head will move to the front of the printer<br>- forwards will move to the back<br>- auto will go towards the center depending on variable_nozzle_prime_start_y</p>                                                                                                                                                                           | <p>auto /<br>forwards /<br>backwards</p>                               | auto                |
 
 #### Filament loading/unloading
 
-In this case, this group of variables will facilitate the management of loading and unloading our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
+In this case, this group of variables will make it easier for us to manage the loading and unloading of our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
 
 | Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                        | Possible values | Default value |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |
@@ -446,7 +599,7 @@ Making the most of our machine so that it self-levels and ensuring that our mach
 
 #### Skew
 
-The use of[SKEW](../../guias-impresion-3d/calibracion_3d.md#7.-pasos-ejes)For the correction or precise adjustment of our printers it is extremely advisable if we have deviations in our prints. Using the following variable we can allow the use in our macros:
+The use of[SKEW](broken-reference)For the correction or precise adjustment of our printers it is extremely advisable if we have deviations in our prints. Using the following variable we can allow the use in our macros:
 
 | Variable              | Description                                                                                                                                                                                                | Possible values | Default value   |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | --------------- |
@@ -464,7 +617,7 @@ That is why it is very important to understand how Klipper works and how to cust
 
 #### **Customizing variables**
 
-Normally, it will be what we will have to adjust, to make adjustments to the variables that we have by default in our module**Your excuses** para Klipper.
+Normally, it will be what we will have to adjust, to make adjustments to the variables that we have by default in our module**Your excuses**para Cliffs.
 
 Simply, what we have to do is paste the content of the macro\[gcode_macro GLOBAL_VARS] that we can find in macros/macros_was_globals.cfg in our printer.cfg.
 

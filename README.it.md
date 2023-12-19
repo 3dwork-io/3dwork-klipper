@@ -110,7 +110,7 @@ Con questo possiamo avviare Klipper per darci accesso alle nostre macro.
 
 ### Usa Moonraker per essere sempre aggiornato
 
-Grazie a Moonraker possiamo utilizzare il suo aggiornamento_manager per poter rimanere aggiornato sui miglioramenti che potremmo introdurre in futuro.
+Gracias a Moonraker podemos usar su update_manager per poter rimanere aggiornato sui miglioramenti che potremmo introdurre in futuro.
 
 Da Mainsail/Fluidd modificheremo il nostro moonraker.conf (dovrebbe essere alla stessa altezza del vostro Printer.cfg) e aggiungeremo alla fine del file di configurazione:
 

@@ -153,11 +153,11 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 
 Eine Reihe von Makros, die es uns ermöglichen, verschiedene Aktionen mit unserem Filament zu verwalten, wie zum Beispiel das Laden oder Entladen.
 
-| Makro                  | Beschreibung                                                                                                                        |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **M600**               | Dies ermöglicht uns die Kompatibilität mit dem M600-Gcode, der normalerweise in Laminatoren für den Filamentwechsel verwendet wird. |
-| **ENTLADEN_FILAMENT**  | Über die Variablen konfigurierbar, ermöglicht es uns eine unterstützte Filamententladung.                                           |
-| **BELASTUNG_FILAMENT** | Wie das vorherige, jedoch bezogen auf die Filamentlast.                                                                             |
+| Makro                  | Beschreibung                                                                                                         |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **M600**               | Nos va a permitir compatibilidad con el gcode M600 normalmente usado en los laminadores para el cambio de filamento. |
+| **ENTLADEN_FILAMENT**  | Über die Variablen konfigurierbar, ermöglicht es uns eine unterstützte Filamententladung.                            |
+| **BELASTUNG_FILAMENT** | Wie das vorherige, jedoch bezogen auf die Filamentlast.                                                              |
 
 ### <mark style="color:orange;">**Makros zur Filamentspulenverwaltung (Spoolman)**</mark>
 
@@ -230,7 +230,7 @@ SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
 APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 ```
 
-Andererseits ist es interessant, Makros zu haben, um die eine oder andere Oberfläche zu aktivieren oder sie sogar als Parameter von unserem Laminator zu übergeben, damit wir bei unterschiedlichen Drucker- oder Filamentprofilen die eine oder andere automatisch laden können:
+Andererseits ist es interessant, über Makros verfügen zu können, um die eine oder andere Oberfläche zu aktivieren oder sie sogar als Parameter von unserem Laminator zu übergeben, sodass wir bei unterschiedlichen Drucker- oder Filamentprofilen die eine oder andere automatisch laden können:
 
 {% hint style="warning" %}
 Es ist wichtig, dass der Wert in NAME="xxxx" mit dem Namen übereinstimmt, den wir bei der Installation unserer Druckoberfläche angegeben haben
@@ -255,7 +255,7 @@ gcode:
 
 {%endcode%}
 
-Wenn KlipperScreen vorhanden ist, können wir auch ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in das wir einen Aufruf der Makros einfügen, die zuvor für das Laden jeder Oberfläche erstellt wurden:
+Auch wenn wir über KlipperScreen verfügen, können wir ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in das wir einen Aufruf der zuvor für das Laden jeder Oberfläche erstellten Makros einfügen:
 
 {% code title="~/printer_data/config/KlipperScreen.conf" %}
 
@@ -339,7 +339,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | Octopus v1.1 | btt-octopus-11 |
 | Octopus v1.1 (407) | btt-octopus-11-407 |
 | SKR Pro v1.2 | skr_Profi_12 |
-| 3 SEK | Übrigens_skr_3 |
+| SKR 3 | Übrigens_skr_3 |
 | SKR 3 (H723) | btt-skr-3-h723 |
 | SKR 3 EZ | btt-skr-3-ez |
 | SKR 3 EZ (H723) | btt-skr-3-ez-h723 |
@@ -382,7 +382,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 
 ### Hinzufügen von 3Dwork-Makros zu unserer Installation
 
-Über unsere Schnittstelle Mainsail/Fluidd bearbeiten wir unsere Printer.cfg und fügen Folgendes hinzu:
+Über unsere Schnittstelle „Mainsail/Fluidd“ bearbeiten wir unsere Datei „printer.cfg“ und fügen Folgendes hinzu:
 
 {% code title="printer.cfg" %}
 
@@ -406,7 +406,7 @@ Da unsere Makros dynamisch sind, extrahieren sie bestimmte Informationen aus uns
 
 -   **Starten Sie den Gcode START_DRUCKEN**, unter Verwendung von Platzhaltern, um Filament- und Betttemperaturwerte dynamisch zu übergeben:
 
-{% Tabs %}
+{% tabs %}
 {% tab title="PrusaSlicer-SuperSlicer" %}**Prusa-Schneider**
 
 ```gcode
@@ -446,7 +446,7 @@ START_PRINT EXTRUDER_TEMP={material_print_temperature_layer_0} BED_TEMP={materia
 ```
 
 {% hint style="warning" %}
-Wir müssen das Plugin installieren[**Post Process Plugin (von frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)aus dem Menü_**Hilfe/Anzeigen**_Konfigurationsordner... wir kopieren das Skript vom vorherigen Link in den Skriptordner. \\
+Wir müssen das Plugin installieren[**Post Process Plugin (von frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)aus dem Menü_**Hilfe/Anzeigen**_Konfigurationsordner... Wir kopieren das Skript vom vorherigen Link in den Skriptordner. \\
 Wir starten Cura neu und gehen zu_**Erweiterungen/Nachbearbeitung/G-Code ändern**_und wir werden auswählen_**Mesh-Druckgröße**_,
 {% endint %}
 {% indtab %}
@@ -560,13 +560,13 @@ Es ist wichtig, dass wir in unserem[Start-Gcode unseres Laminators](../empezamos
 
 Eine wichtige Phase unseres Druckstarts ist das korrekte Spülen unserer Düse, um zu verhindern, dass Filamentreste zurückbleiben oder dass diese unseren Druck irgendwann beschädigen könnten. Nachfolgend finden Sie die Variablen, die in diesen Prozess eingreifen:
 
-| Variable                                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                  | Mögliche Werte                                                        | Standardwert        |
-| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------- |
-| Variable_Düse_Grundierung                  | <p>Wir können zwischen verschiedenen Spüloptionen wählen:<br>- primeline zeichnet die typische Reinigungslinie<br>- primelineadaptative generiert eine Spüllinie, die sich an die Fläche des gedruckten Teils anpasst, wobei variable_nozzle_priming_objectdistance als Rand verwendet wird<br>- Mit Primeblob werfen wir einen Tropfen Filament in eine Ecke unseres Bettes, sehr effektiv zum Reinigen der Düse und leicht zu entfernen</p> | <p>Hauptlinie /</p><p>primelineadaptiv /<br>primeblob /<br>FALSCH</p> | adaptive Primlinien |
-| Variable_Düse_Grundierung_Objektentfernung | Wenn wir eine adaptive Beschnittlinie verwenden, ist dies der Rand, der zwischen der Beschnittlinie und dem gedruckten Objekt verwendet werden soll                                                                                                                                                                                                                                                                                           | numerisch                                                             | 5                   |
-| Variable_Düse_Primzahl_Start_X             | <p>Wo wir unsere Spülleitung platzieren möchten:<br>- min wird es bei X=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei X=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die X-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                  | max                 |
-| Variable_Düse_Primzahl_Start_Und           | <p>Wo wir unsere Spülleitung platzieren möchten:<br>- min wird es bei Y=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei Y=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die Y-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                  | Mindest             |
-| Variable_Düse_Primzahl_Richtung            | <p>Die Adresse unserer Leitung oder Zustellung:<br>- Nach hinten bewegt sich der Kopf zur Vorderseite des Druckers<br>- Vorwärts bewegt sich nach hinten<br>- Auto bewegt sich abhängig von variable_nozzle_prime_start_y zur Mitte</p>                                                                                                                                                                                                       | <p>automatisch /<br>vorwärts /<br>rückwärts</p>                       | Auto                |
+| Variable                                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                  | Mögliche Werte                                                       | Standardwert        |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------- |
+| Variable_Düse_Grundierung                  | <p>Wir können zwischen verschiedenen Spüloptionen wählen:<br>- primeline zeichnet die typische Reinigungslinie<br>- primelineadaptative generiert eine Spüllinie, die sich an die Fläche des gedruckten Teils anpasst, wobei variable_nozzle_priming_objectdistance als Rand verwendet wird<br>- Mit Primeblob werfen wir einen Tropfen Filament in eine Ecke unseres Bettes, sehr effektiv zum Reinigen der Düse und leicht zu entfernen</p> | <p>Primeline /</p><p>primelineadaptiv /<br>primeblob /<br>FALSCH</p> | adaptive Primlinien |
+| Variable_Düse_Grundierung_Objektentfernung | Wenn wir eine adaptive Beschnittlinie verwenden, ist dies der Rand, der zwischen der Beschnittlinie und dem gedruckten Objekt verwendet werden soll                                                                                                                                                                                                                                                                                           | numerisch                                                            | 5                   |
+| Variable_Düse_Primzahl_Start_X             | <p>Wo wir unsere Spülleitung platzieren möchten:<br>- min wird es bei X=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei X=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die X-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                 | max                 |
+| Variable_Düse_Primzahl_Start_Und           | <p>Wo wir unsere Spülleitung platzieren möchten:<br>- min wird es bei Y=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei Y=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die Y-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                 | Mindest             |
+| Variable_Düse_Primzahl_Richtung            | <p>Die Adresse unserer Leitung oder Zustellung:<br>- Nach hinten bewegt sich der Kopf zur Vorderseite des Druckers<br>- Vorwärts bewegt sich nach hinten<br>- Auto bewegt sich abhängig von variable_nozzle_prime_start_y zur Mitte</p>                                                                                                                                                                                                       | <p>automatisch /<br>vorwärts /<br>rückwärts</p>                      | Auto                |
 
 #### Laden/Entladen des Filaments
 

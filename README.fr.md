@@ -556,7 +556,7 @@ Nous vous conseillons d'utiliser le nivellement adaptatif puisqu'il ajustera tou
 Il est important que nous ayons dans notre[démarrer le gcode de notre plastifieuse](../empezamos/configuracion-klipper-en-laminadores.md#configurando-nuestro-laminador-para-usar-nustras-macros-start_print-y-end_print), dans l'appel à notre START_IMPRIMER, IMPRIMER les valeurs_MAX et IMPRIMER_Homme.
 {% finint %}
 
-#### purgé
+#### Purgado
 
 Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filaments ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
 

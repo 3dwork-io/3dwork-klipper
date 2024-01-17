@@ -139,7 +139,7 @@ Quelques macros ajoutées qui nous seront utiles :
 | **ANNULER_IMPRIMER**                                                                   | Ce qui permet d'utiliser le reste des macros pour effectuer correctement une annulation d'impression.                                                                                                                                                                   |
 
 -   **En pause lors du changement de calque**, des macros très intéressantes qui nous permettent de mettre en pause un calque ou de lancer une commande au démarrage du calque suivant. \\![](<../../.gitbook/assets/image (143).png>)![](<../../.gitbook/assets/image (1003).png>)\\
-    De plus, un autre avantage d'eux est qu'ils sont intégrés à Mainsail, nous aurons donc de nouvelles fonctions dans notre interface utilisateur comme vous pouvez le voir ci-dessous :\\![](<../../.gitbook/assets/image (725).png>)![](<../../.gitbook/assets/image (1083).png>)
+    De plus, un autre avantage est qu'ils sont intégrés à Mainsail, nous aurons donc de nouvelles fonctions dans notre interface utilisateur, comme vous pouvez le voir ci-dessous :\\![](<../../.gitbook/assets/image (725).png>)![](<../../.gitbook/assets/image (1083).png>)
 
 ### **Macros de gestion d'impression**
 
@@ -221,7 +221,7 @@ build_sheet textured_pei = {'name': 'Textured PEI', 'offset': -0.160000000000000
 {%endcode%}
 
 -   nous devons inclure un appel à postuler_CONSTRUIRE_FEUILLE_AJUSTEMENT dans notre PRINT_START pour pouvoir appliquer le ZOffset de la surface sélectionnée
--   Il est important que pour la macro précédente, APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT, pour fonctionner correctement il faut ajouter un SET_CODE GCO_OFFSET Z=0.0 juste avant d'appeler APPLY_CONSTRUIRE_FEUILLE_AJUSTEMENT
+-   Il est important que pour la macro précédente, APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT, pour fonctionner correctement il faut ajouter un SET_CODEG_OFFSET Z=0.0 juste avant d'appeler APPLY_CONSTRUIRE_FEUILLE_AJUSTEMENT
 
 ```django
 # Load build sheet
@@ -233,7 +233,7 @@ APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 Par contre, il est intéressant d'avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
 
 {% indice style="avertissement" %}
-Il est important que la valeur dans NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.
+Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.
 {% indice de fin %}
 
 {% code title="printer.cfg ou inclure cfg" %}
@@ -289,7 +289,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | MONTRER_CONSTRUIRE_FEUILLES                |             |
 | ENSEMBLE_CONSTRUIRE_FEUILLE_COMPENSER      |             |
 | RÉINITIALISER_CONSTRUIRE_FEUILLE_COMPENSER |             |
-| ENSEMBLE_CODE GCO_COMPENSER                |             |
+| ENSEMBLE_CODEG_COMPENSER                   |             |
 | APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT    |             |
 
 ### **Macros de configuration des machines**
@@ -384,7 +384,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 
 Depuis notre interface, Mainsail/Fluidd, nous allons éditer notre imprimante.cfg et ajouter :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
     ## 3Dwork standard macros
     [include 3dwork-klipper/macros/macros_*.cfg]
@@ -512,7 +512,7 @@ Pour gérer les vitesses utilisées dans les macros.
 
 | Variable                      | Description                       | Valeurs possibles | Valeur par défaut |   |
 | ----------------------------- | --------------------------------- | ----------------- | ----------------- | - |
-| variable_macro_voyage_vitesse | Vitesse de transfert              | numérique         | 150               |   |
+| variable_macro_travel_vitesse | Vitesse de transfert              | numérique         | 150               |   |
 | variable_macro_Avec_vitesse   | Vitesse de transfert pour l'axe Z | numérique         | 15                |   |
 
 #### Retour à destination
@@ -570,7 +570,7 @@ Une phase importante de notre démarrage d'impression est une purge correcte de 
 
 #### Chargement/déchargement de filaments
 
-Dans ce cas, ce groupe de variables nous permettra de gérer plus facilement le chargement et le déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
+Dans ce cas, ce groupe de variables facilitera la gestion du chargement et du déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
 
 | Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        | Valeurs possibles | Valeur par défaut |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
@@ -688,12 +688,12 @@ Nous avons deux groupes de macros :
 
 **IMPRIMER_LES BASES**
 
-| Nombre Macro                      | Description                      |
-| --------------------------------- | -------------------------------- |
-| \_UTILISATEUR_PAUSE_COMMENCER     | Se ejecuta al inicio de un PAUSE |
-| \_UTILISATEUR_PAUSE_FIN           | Exécuté à la fin d'une PAUSE     |
-| \_UTILISATEUR_CONTINUER_COMMENCER | Exécuté au début d'un RESUME     |
-| \_UTILISATEUR_CONTINUER_FIN       | Exécuté à la fin d'un CV         |
+| Nombre Macro                      | Description                  |
+| --------------------------------- | ---------------------------- |
+| \_UTILISATEUR_PAUSE_COMMENCER     | Exécuté au début d'une PAUSE |
+| \_UTILISATEUR_PAUSE_FIN           | Exécuté à la fin d'une PAUSE |
+| \_UTILISATEUR_CONTINUER_COMMENCER | Exécuté au début d'un RESUME |
+| \_UTILISATEUR_CONTINUER_FIN       | Exécuté à la fin d'un CV     |
 
 -   Les macros internes sont des macros permettant de diviser la macro principale en processus et sont importantes pour cela. Il est conseillé que si des ajustements sont nécessaires, ils soient copiés tels quels.
 
@@ -726,7 +726,7 @@ Tout comme nous vous conseillons de créer une section dans votre imprimante.cfg
 
 Dans l'exemple suivant, nous verrons comment dans notre cas nous souhaitons personnaliser les paramètres de notre nivellement de lit (lit_mesh) en ajustant les points de sonde_count) par rapport à la configuration que nous avons par défaut dans les configurations de notre module Klipper :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
 ```django
 ### 3Dwork Klipper Includes
@@ -761,7 +761,7 @@ Nous procéderons exactement comme nous l'avons fait précédemment, dans notre 
 
 Dans l'exemple suivant, nous allons personnaliser quelle est la broche de notre ventilateur électronique (contrôleur_ventilateur) pour l'attribuer à un autre que celui par défaut :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
 ```django
 ### 3Dwork Klipper Includes

@@ -302,13 +302,13 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | <p><strong>TEST DI VELOCITÀ</strong><br><strong>TEST_SPEED_DELTA</strong></p>                 | La macro originale del compagno[Ellis](https://github.com/AndrewEllis93)Ci permetteranno in modo abbastanza semplice di testare la velocità con cui possiamo muovere la nostra macchina con precisione e senza perdita di passi.                              |
 
 -   **Firmware compilato per l'elettronica supportata**, per facilitare il processo di creazione e manutenzione del firmware Klipper per i nostri MCU abbiamo la macro COMPILE_FIRMWARE che una volta eseguito, possiamo usare la nostra elettronica come parametro. Per fare solo questo, Klipper compilerà per tutta l'elettronica supportata dal nostro bundle:\\![](<../../.gitbook/assets/image (1540).png>)\\
-    Encontraremos estas accesibles de forma sencilla desde nuestra UI web en el directorio firmware_binari nella nostra scheda MACCHINA (se usiamo la randa):\\![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)\\
+    Li troveremo facilmente accessibili dalla nostra interfaccia utente web nella directory del firmware_binari nella nostra scheda MACCHINA (se usiamo la randa):\\![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)\\
     Di seguito è riportato l'elenco dei dispositivi elettronici supportati:
 
 {% suggerimento stile="avviso" %}**IMPORTANTE!!!**
 
 -   Questi script sono preparati per funzionare su un sistema Raspbian con utente pi, se non è il tuo caso dovrai adattarlo.
--   I firmware sono generati per l'utilizzo con una connessione USB, che è sempre quella che consigliamo. Inoltre, il punto di montaggio USB è sempre lo stesso, quindi la configurazione della connessione MCU non cambierà se vengono generati con la nostra macro/script.
+-   I firmware vengono generati per l'utilizzo con una connessione USB, che è sempre quella consigliata. Inoltre, il punto di montaggio USB è sempre lo stesso, quindi la configurazione della connessione MCU non cambierà se vengono generati con la nostra macro/script.
 -   **Affinché Klipper possa eseguire le macro della shell, è necessario installare un'estensione, grazie al compagno**[**arcoseno**](https://github.com/Arksine)**, che lo consente.**
 
         <mark style="color:green;">**Dependiendo de la distro de Klipper usada pueden venir ya habilitadas.**</mark>
@@ -564,13 +564,13 @@ Una fase importante del nostro inizio stampa è un corretto spurgo dei nostri ug
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------- |
 | variabile_ugello_adescamento                 | <p>Possiamo scegliere tra diverse opzioni di spurgo:<br>- primeline disegnerà la tipica linea di spurgo<br>- primelineadaptative genererà una linea di spurgo che si adatta all'area della parte stampata utilizzando variable_nozzle_priming_objectdistance come margine<br>- primeblob metterà una goccia di filamento in un angolo del nostro letto, molto efficace per pulire l'ugello e facile da rimuovere</p> | <p>linea principale /</p><p>primelineadaptive /<br>blob principale /<br>Falso</p> | linee primarie adattive |
 | variabile_ugello_adescamento_oggettodistanza | Se utilizziamo la linea al vivo adattiva sarà il margine da utilizzare tra la linea al vivo e l'oggetto stampato                                                                                                                                                                                                                                                                                                     | numerico                                                                          | 5                       |
-| variable_ugello_primo_inizio_X               | <p>Dove vogliamo posizionare la nostra linea di spurgo:<br>- min lo farà a X=0 (più un piccolo margine di sicurezza)<br>- max lo farà a X=max (meno un piccolo margine di sicurezza)<br>- il numero sarà la coordinata X dove localizzare lo spurgo</p>                                                                                                                                                              | <p>minimo/<br>massimo /<br>numero</p>                                             | massimo                 |
+| variabile_ugello_primo_inizio_X              | <p>Dove vogliamo posizionare la nostra linea di spurgo:<br>- min lo farà a X=0 (più un piccolo margine di sicurezza)<br>- max lo farà a X=max (meno un piccolo margine di sicurezza)<br>- il numero sarà la coordinata X dove localizzare lo spurgo</p>                                                                                                                                                              | <p>minimo/<br>massimo /<br>numero</p>                                             | massimo                 |
 | variabile_ugello_primo_inizio_E              | <p>Dove vogliamo posizionare la nostra linea di spurgo:<br>- min lo farà a Y=0 (più un piccolo margine di sicurezza)<br>- max lo farà a Y=max (meno un piccolo margine di sicurezza)<br>- il numero sarà la coordinata Y dove localizzare lo spurgo</p>                                                                                                                                                              | <p>minimo/<br>massimo /<br>numero</p>                                             | min                     |
 | variabile_ugello_primo_direzione             | <p>L'indirizzo della nostra linea o drop:<br>- all'indietro la testa si sposterà davanti alla stampante<br>- Gli attaccanti si sposteranno dietro<br>- l'auto andrà verso il centro a seconda di variable_nozzle_prime_start_y</p>                                                                                                                                                                                   | <p>auto /<br>avanti /<br>indietro</p>                                             | auto                    |
 
 #### Carico/scarico filamento
 
-In questo caso, questo gruppo di variabili ci faciliterà la gestione del caricamento e dello scaricamento del nostro filamento utilizzato in emulazione dell'M600, ad esempio, o quando si lanciano le macro di caricamento e scaricamento del filamento:
+In questo caso, questo gruppo di variabili faciliterà la gestione del caricamento e dello scaricamento del nostro filamento utilizzato in emulazione dell'M600, ad esempio, o quando si lanciano le macro di caricamento e scaricamento del filamento:
 
 | Variabile                               | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                | Valori possibili | Valore di default |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
@@ -601,13 +601,13 @@ In alcuni processi della nostra stampante, come la pausa, è consigliabile parch
 
 Sfruttare al massimo la nostra macchina affinché si autolivella e garantire che la nostra macchina sia sempre nelle migliori condizioni è fondamentale.
 
-**Z-TILT básicamente es un proceso que nos ayuda a alinear nuestros motores de Z con respecto a nuestro eje/gantry X (cartesiana) o XY (CoreXY)**. Con questo**ci assicuriamo che la nostra Z sia sempre allineata in modo perfetto, preciso e automatico**.
+**Z-TILT è fondamentalmente un processo che ci aiuta ad allineare i nostri motori Z rispetto al nostro asse/gantry X (cartesiano) o XY (CoreXY).**. Con questo**ci assicuriamo di avere sempre la nostra Z allineata perfettamente, in modo preciso e automatico**.
 
 | Variabile                         | Descrizione                                                                                   | Valori possibili | Valore di default |
 | --------------------------------- | --------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
 | variabile_calibrare_Con_inclinare | Permette, se abilitato nella nostra configurazione Klipper, il processo di regolazione Z-Tilt | Vero falso       | Falso             |
 
-#### Skew
+#### Storto
 
 L'impiego di[STORTO](broken-reference)Per la correzione o la regolazione precisa delle nostre stampanti è estremamente consigliabile se riscontriamo deviazioni nelle nostre stampe. Utilizzando la seguente variabile possiamo consentirne l'utilizzo nelle nostre macro:
 
@@ -631,9 +631,9 @@ Normalmente, sarà ciò che dovremo aggiustare, per apportare modifiche alle var
 
 Semplicemente, quello che dobbiamo fare è incollare il contenuto della macro\[gcode_macro GLOBALE_VARS] che possiamo trovare in macro/macros_era_globals.cfg nel nostro Printer.cfg.
 
-Ti ricordiamo quanto accennato in precedenza riguardo al modo in cui Klipper elabora le configurazioni in sequenza, quindi è consigliabile incollarlo dopo gli include di cui abbiamo parlato.[Qui](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
+Ti ricordiamo quanto accennato in precedenza su come Klipper elabora le configurazioni in sequenza, quindi è consigliabile incollarlo dopo gli include di cui abbiamo parlato.[Qui](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
-Nos quedará algo así (solo es un ejemplo visual):
+Avremo qualcosa del genere (è solo un esempio visivo):
 
 <pre class="language-django"><code class="lang-django">### 3Dwork Klipper Includes
 [include 3dwork-klipper/macros/macros_*.cfg]
@@ -680,7 +680,7 @@ Abbiamo due gruppi di macro:
 
 **FINE_STAMPA**
 
-| Nombre Macro                                   | Descrizione                                                                                     |
+| Nome della macro                               | Descrizione                                                                                     |
 | ---------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | \_UTENTE_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO | Viene eseguito prima di spegnere i riscaldatori, prima_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO    |
 | \_UTENTE_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO  | Viene eseguito dopo lo spegnimento dei riscaldatori, prima_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO |

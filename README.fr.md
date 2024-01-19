@@ -133,20 +133,20 @@ Quelques macros ajoutées qui nous seront utiles :
 | Macro                                                                                  | Description                                                                                                                                                                                                                                                             |
 | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **PEUT ÊTRE_MAISON**                                                                   | Cela nous permet d'optimiser le processus de référencement uniquement en l'exécutant sur les axes qui ne sont pas référencés.                                                                                                                                           |
-| **PAUSE**                                                                              | Grâce aux variables associées, cela nous permet de gérer une pause avec un stationnement de tête plus polyvalent que les macros normales.                                                                                                                               |
+| **PAUSE**                                                                              | En utilisant les variables associées, cela nous permet de gérer une pause avec un stationnement de tête plus polyvalent que les macros normales.                                                                                                                        |
 | <p><strong>SET_PAUSE_AT_LAYER</strong><br><strong>SET_PAUSE_AT_NEXT_LAYER</strong></p> | <p>Une macro très utile que Mainsail intègre dans son UI pour pouvoir faire une pause à la demande dans un calque spécifique... au cas où nous l'aurions oublié lors du laminage.<br>Nous en avons également un autre pour exécuter la pause sur le calque suivant.</p> |
 | **CONTINUER**                                                                          | Amélioré car il nous permet de détecter si notre buse n'est pas à la température d'extrusion afin de le résoudre avant qu'elle ne montre une erreur et n'endommage notre impression.                                                                                    |
 | **ANNULER_IMPRIMER**                                                                   | Ce qui permet d'utiliser le reste des macros pour effectuer correctement une annulation d'impression.                                                                                                                                                                   |
 
 -   **En pause lors du changement de calque**, des macros très intéressantes qui nous permettent de mettre en pause un calque ou de lancer une commande au démarrage du calque suivant. \\![](<../../.gitbook/assets/image (143).png>)![](<../../.gitbook/assets/image (1003).png>)\\
-    De plus, un autre avantage d'eux est qu'ils sont intégrés à Mainsail, nous aurons donc de nouvelles fonctions dans notre interface utilisateur comme vous pouvez le voir ci-dessous :\\![](<../../.gitbook/assets/image (725).png>)![](<../../.gitbook/assets/image (1083).png>)
+    De plus, un autre avantage est qu'ils sont intégrés à Mainsail, nous aurons donc de nouvelles fonctions dans notre interface utilisateur, comme vous pouvez le voir ci-dessous :\\![](<../../.gitbook/assets/image (725).png>)![](<../../.gitbook/assets/image (1083).png>)
 
 ### **Macros de gestion d'impression**
 
 <table><thead><tr><th width="170">Macro</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>START_PRINT</strong></td><td>Nos permitirá poder iniciar nuestras impresiones de una forma segura y al estilo Klipper. Dentro de esta encontraremos algunas funciones interesantes como:<br>- precalentado de nozzle inteligente en el caso de contar con sensor probe<br>- posibilidad de uso de z-tilt mediante variable<br>- mallado de cama adaptativo, forzado o desde una malla guardada<br>- línea de purga personalizable entre normal, línea de purgado adaptativa o gota de purgado<br>- macro segmentada para poder personalizarse tal como os mostraremos más adelante</td></tr><tr><td><strong>END_PRINT</strong></td><td>Macro de fin de impresión donde también disponemos de segmentación para poder personalizar nuestra macro. También contamos con aparcado dinámico del cabezal.</td></tr></tbody></table>
 
 -   **Cadre de lit adaptatif**Grâce à la polyvalence de Klipper, nous pouvons faire des choses qui semblent aujourd'hui impossibles... un processus important pour l'impression est d'avoir un maillage d'écarts par rapport à notre lit qui nous permet de les corriger pour avoir une parfaite adhérence des premières couches. \\
-    À de nombreuses reprises, nous effectuons ce maillage avant l'impression pour nous assurer qu'il fonctionne correctement et cela se fait sur toute la surface de notre lit.\\
+    À de nombreuses reprises, nous effectuons ce maillage avant l'impression pour nous assurer qu'il fonctionne correctement et cela se fait sur toute la surface de notre lit.
     Avec le maillage de lit adaptatif, cela se fera dans la zone d'impression, ce qui le rend beaucoup plus précis que la méthode traditionnelle... dans les captures d'écran suivantes, nous verrons les différences entre un maillage traditionnel et un maillage adaptatif.\\![](<../../.gitbook/assets/image (1220).png>)![](<../../.gitbook/assets/image (348).png>)
 
 ### **Macros de gestion des filaments**
@@ -206,7 +206,7 @@ Cet ensemble de macros, créé par[Garethky](https://github.com/garethky), ils n
 D'un autre côté, nous avons quelques**exigences pour le mettre en œuvre**<mark style="color:orange;">**(il essaiera d'ajouter la logique PRINT_START du bundle dans le futur en activant cette fonction par variable et en créant une macro utilisateur précédente et suivante pour pouvoir saisir les événements utilisateur)**</mark>:
 
 -   l'utilisation de\[sauvegarder_variables], dans notre cas nous utiliserons~/variables.cfg pour stocker les variables et cela se trouve déjà dans le cfg de ces macros. \\
-    Cela créera automatiquement un fichier de variables pour nous_construire_sheet.cfg où il enregistrera nos variables sur le disque.
+    Cela créera automatiquement un fichier de variables pour nous_construire_sheet.cfg où il sauvegardera nos variables sur le disque.
 
 {% code title="Exemple de fichier de configuration de variables" %}
 
@@ -221,7 +221,7 @@ build_sheet textured_pei = {'name': 'Textured PEI', 'offset': -0.160000000000000
 {%endcode%}
 
 -   nous devons inclure un appel à postuler_CONSTRUIRE_FEUILLE_AJUSTEMENT dans notre PRINT_START pour pouvoir appliquer le ZOffset de la surface sélectionnée
--   Il est important que pour la macro précédente, APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT, pour fonctionner correctement il faut ajouter un SET_CODE GCO_OFFSET Z=0.0 juste avant d'appeler APPLY_CONSTRUIRE_FEUILLE_AJUSTEMENT
+-   Il est important que pour la macro précédente, APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT, pour fonctionner correctement il faut ajouter un SET_CODEG_OFFSET Z=0.0 juste avant d'appeler APPLY_CONSTRUIRE_FEUILLE_AJUSTEMENT
 
 ```django
 # Load build sheet
@@ -230,7 +230,7 @@ SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
 APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 ```
 
-Par contre, il est intéressant d'avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
+Par contre, il est intéressant de pouvoir avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
 
 {% indice style="avertissement" %}
 Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.
@@ -289,7 +289,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | MONTRER_CONSTRUIRE_FEUILLES                |             |
 | ENSEMBLE_CONSTRUIRE_FEUILLE_COMPENSER      |             |
 | RÉINITIALISER_CONSTRUIRE_FEUILLE_COMPENSER |             |
-| ENSEMBLE_CODE GCO_COMPENSER                |             |
+| ENSEMBLE_CODEG_COMPENSER                   |             |
 | APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT    |             |
 
 ### **Macros de configuration des machines**
@@ -302,7 +302,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | <p><strong>TEST_VITESSE</strong><br><strong>TEST_SPEED_DELTA</strong></p>                      | Macro originale du compagnon[Élise](https://github.com/AndrewEllis93)Ils nous permettront de manière assez simple de tester la vitesse à laquelle nous pouvons déplacer notre machine avec précision et sans perte de pas.                                                                   |
 
 -   **Firmware compilé pour les appareils électroniques pris en charge**, pour faciliter le processus de création et de maintenance de notre firmware Klipper pour nos MCU, nous avons la macro COMPILE_FIRMWARE qui, une fois exécuté, nous pouvons utiliser notre électronique comme paramètre pour faire uniquement cela, Klipper compilera pour toute l'électronique prise en charge par notre bundle :\\![](<../../.gitbook/assets/image (1540).png>)\\
-    Nous les trouverons facilement accessibles depuis notre interface Web dans le répertoire du firmware.\_binaires dans notre onglet MACHINE (si nous utilisons Grand-voile) :\\![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)\\
+    Nous les trouverons facilement accessibles depuis notre interface Web dans le répertoire du firmware_binaires dans notre onglet MACHINE (si nous utilisons Grand-voile) :\\![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)\\
     Vous trouverez ci-dessous la liste des appareils électroniques pris en charge :
 
 {% indice style="avertissement" %}**IMPORTANTE!!!**
@@ -339,7 +339,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | Poulpe v1.1 | btt-octopus-11 |
 | Poulpe v1.1 (407) | btt-octopus-11-407 |
 | SKR Pro v1.2 | skr_pro_12 |
-| 3 SEK | btt_skr_3 |
+| 3 SKR | btt_skr_3 |
 | SKR3 (H723) | btt-skr-3-h723 |
 | SKR 3EZ | btt-skr-3-ez |
 | SKR 3EZ (H723) | btt-skr-3-ez-h723 |
@@ -469,7 +469,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% de perte finale %}
 
 {% indice style="info" %}
-Los**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils soient remplacés par les valeurs configurées dans le profil**d'impression.
+Los**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils les remplacent par les valeurs configurées dans le profil**d'impression.
 
 Dans les liens suivants, vous pouvez en trouver une liste pour :[**Trancheuse Prusa**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(en plus de ceux ci-dessus),[**Studio Bambou**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)et[**Traitement**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -558,7 +558,7 @@ Il est important que nous ayons dans notre[démarrer le gcode de notre plastifie
 
 #### purgé
 
-Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filaments ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
+Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filament ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
 
 | Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                           | Valeurs possibles                                                                   | Valeur par défaut              |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------ |
@@ -570,7 +570,7 @@ Une phase importante de notre démarrage d'impression est une purge correcte de 
 
 #### Chargement/déchargement de filaments
 
-Dans ce cas, ce groupe de variables nous permettra de gérer plus facilement le chargement et le déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
+Dans ce cas, ce groupe de variables facilitera la gestion du chargement et du déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
 
 | Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        | Valeurs possibles | Valeur par défaut |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
@@ -629,7 +629,7 @@ C'est pourquoi il est très important de comprendre le fonctionnement de Klipper
 
 Normalement, ce sera ce que nous devrons ajuster, faire des ajustements aux variables que nous avons par défaut dans notre module**Vos excuses**para Falaises.
 
-Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBAL_VARS] que l'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
+Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBALE_VARS] que l'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
 
 Nous vous rappelons ce que nous avons mentionné précédemment sur la façon dont Klipper traite les configurations de manière séquentielle, il est donc conseillé de le coller après les inclusions que nous avons mentionnées.[ici](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
@@ -663,7 +663,7 @@ Les trois points (...) dans les exemples précédents ont simplement pour but d'
 {% indice style="info" %}
 
 -   Nous vous conseillons d'ajouter des commentaires comme vous le voyez dans le cas précédent pour identifier ce que fait chaque section.
--   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBAL_Année]
+-   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBALE_Année]
     {% finint %}
 
 #### Personnalisation des macros

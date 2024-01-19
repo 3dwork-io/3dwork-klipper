@@ -133,7 +133,7 @@ Alcune macro aggiunte che ci saranno utili:
 | Macro                                                                                  | Descrizione                                                                                                                                                                                                                                                                             |
 | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **FORSE_CASA**                                                                         | Ci consente di ottimizzare il processo di homing solo eseguendolo su quegli assi che non sono in homing.                                                                                                                                                                                |
-| **PAUSA**                                                                              | Utilizzando le relative variabili, ci permette di gestire una pausa con un parcheggio della testa più versatile rispetto alle normali macro.                                                                                                                                            |
+| **PAUSA**                                                                              | Attraverso le relative variabili ci permette di gestire una pausa con un parcheggio della testa più versatile rispetto alle normali macro.                                                                                                                                              |
 | <p><strong>SET_PAUSE_AT_LAYER</strong><br><strong>SET_PAUSE_AT_NEXT_LAYER</strong></p> | <p>Una macro molto utile che Mainsail integra nella sua interfaccia utente per poter mettere in pausa su richiesta in un livello specifico... nel caso ce ne fossimo dimenticati durante la laminazione.<br>Ne abbiamo anche un altro per eseguire la pausa sul livello successivo.</p> |
 | **RIPRENDERE**                                                                         | Migliorato poiché ci permette di rilevare se il nostro ugello non è alla temperatura di estrusione per risolverlo prima che mostri un errore e danneggi la nostra stampa.                                                                                                               |
 | **ANNULLA_STAMPA**                                                                     | Ciò consente l'utilizzo del resto delle macro per eseguire correttamente un annullamento di stampa.                                                                                                                                                                                     |
@@ -230,7 +230,7 @@ SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
 APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 ```
 
-D'altra parte, è interessante poter avere macro per attivare una superficie o un'altra o addirittura passarla come parametro dal nostro laminatore in modo che con diversi profili di stampante o filamento possiamo caricare l'una o l'altra automaticamente:
+D'altra parte, è interessante avere delle macro per attivare questa o quella superficie o addirittura passarla come parametro dal nostro laminatore in modo che con diversi profili di stampante o filamento possiamo caricare l'una o l'altra automaticamente:
 
 {% suggerimento stile="avviso" %}
 È importante che il valore in NAME="xxxx" corrisponda al nome che abbiamo assegnato durante l'installazione della nostra superficie di stampa
@@ -299,7 +299,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | **COMPILARE_FIRMWARE**                                                                        | <p>Con questa macro possiamo compilare il firmware di Klipper in modo semplice, avere il firmware accessibile dalla UI per una maggiore semplicità e poterlo applicare alla nostra elettronica.<br>Qui hai maggiori dettagli sull'elettronica supportata.</p> |
 | **CALCOLARE_LETTO_MAGLIA**                                                                    | Una macro estremamente utile per calcolare l'area della nostra mesh perché a volte può essere un processo complicato.                                                                                                                                         |
 | <p><strong>PID_ALL</strong><br><strong>PID_ESTRUSORE</strong><br><strong>PID_BED</strong></p> | Queste macro, dove potremo passare le temperature al PID sotto forma di parametri, ci permetteranno di eseguire la calibrazione della temperatura in modo estremamente semplice.                                                                              |
-| <p><strong>TEST DI VELOCITÀ</strong><br><strong>TEST_SPEED_DELTA</strong></p>                 | La macro originale di Companion[Ellis](https://github.com/AndrewEllis93)Ci permetteranno in modo abbastanza semplice di testare la velocità con cui possiamo muovere la nostra macchina con precisione e senza perdita di passi.                              |
+| <p><strong>TEST DI VELOCITÀ</strong><br><strong>TEST_SPEED_DELTA</strong></p>                 | La macro originale del compagno[Ellis](https://github.com/AndrewEllis93)Ci permetteranno in modo abbastanza semplice di testare la velocità con cui possiamo muovere la nostra macchina con precisione e senza perdita di passi.                              |
 
 -   **Firmware compilato per l'elettronica supportata**, per facilitare il processo di creazione e manutenzione del firmware Klipper per i nostri MCU abbiamo la macro COMPILE_FIRMWARE che una volta eseguito, possiamo usare la nostra elettronica come parametro. Per fare solo questo, Klipper compilerà per tutta l'elettronica supportata dal nostro bundle:\\![](<../../.gitbook/assets/image (1540).png>)\\
     Li troveremo facilmente accessibili dalla nostra interfaccia utente web nella directory del firmware_binari nella nostra scheda MACCHINA (se usiamo la randa):\\![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)\\
@@ -308,7 +308,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 {% suggerimento stile="avviso" %}**IMPORTANTE!!!**
 
 -   Questi script sono preparati per funzionare su un sistema Raspbian con utente pi, se non è il tuo caso dovrai adattarlo.
--   I firmware sono generati per l'utilizzo con una connessione USB, che è sempre quella che consigliamo. Inoltre, il punto di montaggio USB è sempre lo stesso, quindi la configurazione della connessione MCU non cambierà se vengono generati con la nostra macro/script.
+-   I firmware vengono generati per l'utilizzo con una connessione USB, che è sempre quella consigliata. Inoltre, il punto di montaggio USB è sempre lo stesso, quindi la configurazione della connessione MCU non cambierà se vengono generati con la nostra macro/script.
 -   **Affinché Klipper possa eseguire le macro della shell, è necessario installare un'estensione, grazie al compagno**[**arcoseno**](https://github.com/Arksine)**, che lo consente.**
 
         <mark style="color:green;">**Dependiendo de la distro de Klipper usada pueden venir ya habilitadas.**</mark>
@@ -339,7 +339,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | Polpo v1.1 | btt-polpo-11 |
 | Polpo v1.1 (407) | btt-polpo-11-407 |
 | SKR Pro v1.2 | scr_pro_12|
-| SKR 3 | btt_scr_3|
+| 3 corone svedesi | btt_scr_3|
 | SKR3 (H723) | btt-skr-3-h723 |
 | SKR3EZ | btt-skr-3-ez |
 | SKR 3 EZ (H723) | btt-skr-3-ez-h723 |
@@ -469,7 +469,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% perdita %}
 
 {% suggerimento stile="informazioni" %}
-Los**i placeholder sono degli "alias" o variabili che i laminatori utilizzano in modo che durante la generazione del gcode li sostituiscano con i valori configurati nel profilo**di impressione.
+Los**i placeholder sono "alias" o variabili che i laminatori utilizzano in modo che durante la generazione del gcode vengano sostituiti dai valori configurati nel profilo**di impressione.
 
 Nei seguenti link è possibile trovarne un elenco per:[**Affettatrice Prusa**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(oltre a quelli sopra),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)E[**Cura**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -558,7 +558,7 @@ Ti consigliamo di utilizzare il livellamento adattivo poiché adatterà sempre l
 
 #### epurato
 
-Una fase importante del nostro inizio stampa è un corretto spurgo del nostro ugello per evitare resti di filamento o che questi possano prima o poi danneggiare la nostra stampa. Di seguito sono riportate le variabili che intervengono in questo processo:
+Una fase importante del nostro inizio stampa è un corretto spurgo dei nostri ugelli per evitare che restino filamenti o che questi possano prima o poi danneggiare la nostra stampa. Di seguito sono riportate le variabili che intervengono in questo processo:
 
 | Variabile                                    | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                          | Valori possibili                                                                  | Valore di default       |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------- |
@@ -570,7 +570,7 @@ Una fase importante del nostro inizio stampa è un corretto spurgo del nostro ug
 
 #### Carico/scarico filamento
 
-In questo caso, questo gruppo di variabili faciliterà la gestione del caricamento e dello scaricamento del nostro filamento utilizzato in emulazione dell'M600, ad esempio, o quando si lanciano le macro di caricamento e scaricamento del filamento:
+In questo caso, questo gruppo di variabili ci faciliterà la gestione del caricamento e dello scaricamento del nostro filamento utilizzato in emulazione dell'M600, ad esempio, o quando si lanciano le macro di caricamento e scaricamento del filamento:
 
 | Variabile                               | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                | Valori possibili | Valore di default |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
@@ -631,7 +631,7 @@ Normalmente, sarà ciò che dovremo aggiustare, per apportare modifiche alle var
 
 Semplicemente, quello che dobbiamo fare è incollare il contenuto della macro\[gcode_macro GLOBALE_VARS] che possiamo trovare in macro/macros_era_globals.cfg nel nostro Printer.cfg.
 
-Ti ricordiamo quanto accennato in precedenza su come Klipper elabora le configurazioni in sequenza, quindi è consigliabile incollarlo dopo gli include di cui abbiamo parlato.[Qui](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
+Ti ricordiamo quanto accennato in precedenza riguardo al modo in cui Klipper elabora le configurazioni in sequenza, quindi è consigliabile incollarlo dopo gli include di cui abbiamo parlato.[Qui](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
 Avremo qualcosa del genere (è solo un esempio visivo):
 

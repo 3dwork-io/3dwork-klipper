@@ -159,7 +159,7 @@ Eine Reihe von Makros, die es uns ermöglichen, verschiedene Aktionen mit unsere
 | **ENTLADEN_FILAMENT**  | Über die Variablen konfigurierbar, ermöglicht es uns eine unterstützte Filamententladung.                                           |
 | **BELASTUNG_FILAMENT** | Wie das vorherige, jedoch bezogen auf die Filamentlast.                                                                             |
 
-### <mark style="color:orange;">**Makros zur Filamentspulenverwaltung (Spoolman)**</mark>
+### <mark style="color:orange;">**Macros de gestión de bobinas de filamentos (Spoolman)**</mark>
 
 {% hint style="warning" %}**ABSCHNITT IN BEARBEITUNG!!!**{% endint %}
 
@@ -255,7 +255,7 @@ gcode:
 
 {%endcode%}
 
-Auch wenn wir über KlipperScreen verfügen, können wir ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in das wir einen Aufruf der zuvor für das Laden jeder Oberfläche erstellten Makros einfügen:
+Wenn KlipperScreen vorhanden ist, können wir auch ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in das wir einen Aufruf der Makros einfügen, die zuvor für das Laden jeder Oberfläche erstellt wurden:
 
 {% code title="~/printer_data/config/KlipperScreen.conf" %}
 
@@ -301,7 +301,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | <p><strong>PID_ALL</strong><br><strong>PID_EXTRUDER</strong><br><strong>PID_BED</strong></p> | Mithilfe dieser Makros, mit denen wir die Temperaturen in Form von Parametern an den PID übergeben können, können wir die Temperaturkalibrierung auf äußerst einfache Weise durchführen.                                                                                  |
 | <p><strong>TESTGESCHWINDIGKEIT</strong><br><strong>TEST_SPEED_DELTA</strong></p>             | Das Originalmakro des Companion[Ellis](https://github.com/AndrewEllis93)Sie werden es uns auf relativ einfache Weise ermöglichen, die Geschwindigkeit zu testen, mit der wir unsere Maschine präzise und ohne Schrittverluste bewegen können.                             |
 
--   **Kompilierte Firmware für unterstützte Elektronik**Um den Prozess der Erstellung und Wartung unserer Klipper-Firmware für unsere MCUs zu erleichtern, haben wir das COMPILE-Makro_FIRMWARE, dass wir bei der Ausführung unsere Elektronik als Parameter verwenden können, um nur dies zu tun. Klipper kompiliert für alle von unserem Bundle unterstützten Elektronikkomponenten:\\![](<../../.gitbook/assets/image (1540).png>)\\
+-   **Kompilierte Firmware für unterstützte Elektronik**Um den Prozess der Erstellung und Wartung unserer Klipper-Firmware für unsere MCUs zu erleichtern, haben wir das Makro COMPILE_FIRMWARE, dass wir bei der Ausführung unsere Elektronik als Parameter verwenden können, um nur dies zu tun. Klipper kompiliert für alle von unserem Bundle unterstützten Elektronikkomponenten:\\![](<../../.gitbook/assets/image (1540).png>)\\
     Wir finden diese leicht zugänglich über unsere Web-Benutzeroberfläche im Firmware-Verzeichnis_Binärdateien in unserem MASCHINEN-Tab (wenn wir Großsegel verwenden):\\![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)\\
     Nachfolgend finden Sie die Liste der unterstützten Elektronikgeräte:
 
@@ -338,7 +338,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | Octopus Pro (H723) | btt-octopus-pro-h723 |
 | Octopus v1.1 | btt-octopus-11 |
 | Octopus v1.1 (407) | btt-octopus-11-407 |
-| SKR Pro v1.2 | skr_pro_12 |
+| SKR Pro v1.2 | skr_Profi_12 |
 | 3 SEK | Übrigens_skr_3 |
 | SKR 3 (H723) | btt-skr-3-h723 |
 | SKR 3 EZ | btt-skr-3-ez |
@@ -406,7 +406,7 @@ Da unsere Makros dynamisch sind, extrahieren sie bestimmte Informationen aus uns
 
 -   **Starten Sie den Gcode START_DRUCKEN**, unter Verwendung von Platzhaltern, um Filament- und Betttemperaturwerte dynamisch zu übergeben:
 
-{% tabs %}
+{% Tabs %}
 {% tab title="PrusaSlicer-SuperSlicer" %}**Prusa-Schneider**
 
 ```gcode
@@ -490,7 +490,7 @@ Um diese an unsere Maschine anzupassen, verwenden wir die Variablen, die wir in 
 
 #### Nachrichten-/Benachrichtigungssprache
 
-Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variablen können wir es anpassen:
+Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variable können wir es anpassen:
 
 <table><thead><tr><th width="189">Variable</th><th width="247">Descripción</th><th width="163">Valores posibles</th><th>Valor por defecto</th></tr></thead><tbody><tr><td>variable_language</td><td>Nos permite seleccionar el idioma de las notificaciones. En el caso de no estar bien definido se usará en (inglés)</td><td>es / en</td><td>es</td></tr></tbody></table>
 
@@ -570,17 +570,17 @@ Eine wichtige Phase unseres Druckstarts ist das korrekte Spülen unserer Düse, 
 
 #### Laden/Entladen des Filaments
 
-In diesem Fall erleichtert diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
+In diesem Fall erleichtert uns diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
 
 | Variable                                    | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                            | Mögliche Werte | Standardwert |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
 | Variable_Filament_entladen_Länge            | Wie viel mm das Filament zurückgezogen werden muss, passen Sie an Ihre Maschine an, normalerweise das Maß von Ihrer Düse bis zu den Zahnrädern Ihres Extruders, wobei ein zusätzlicher Spielraum hinzukommt.                                                                                                                                                                                                                                            | Nummer         | 130          |
 | Variable_Filament_entladen_Geschwindigkeit  | Filamentrückzugsgeschwindigkeit in mm/s. Normalerweise wird eine langsame Geschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                                    | Nummer         | 5            |
-| Variable_Filament_Belastung_Länge           | Abstand in mm zum Laden des neuen Filaments... sowie variabel_filament_entladen_Länge verwenden wir das Maß von Ihrem Getriebe bis zum Extruder und fügen einen zusätzlichen Spielraum hinzu. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel gespült werden soll. Normalerweise können Sie ihm einen größeren Spielraum als den vorherigen Wert geben, um sicherzustellen, dass die Die Extrusion des vorherigen Filaments ist sauber. | Nummer         | 150          |
+| Variable_Filament_Belastung_Länge           | Abstand in mm zum Laden des neuen Filaments... sowie variabel_Filament_entladen_Länge verwenden wir das Maß von Ihrem Getriebe bis zum Extruder und fügen einen zusätzlichen Spielraum hinzu. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel gespült werden soll. Normalerweise können Sie ihm einen größeren Spielraum als den vorherigen Wert geben, um sicherzustellen, dass die Die Extrusion des vorherigen Filaments ist sauber. | Nummer         | 150          |
 | Variable_Filament_Belastung_Geschwindigkeit | Filamentladegeschwindigkeit in mm/s, normalerweise wird eine höhere Geschwindigkeit als die Entladegeschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                           | Nummer         | 10           |
 
 {% hint style="warning" %}
-Eine weitere notwendige Einstellung für Ihren Abschnitt\[Extruder] gibt an[<mark style="color:green;">**max_extrudieren_nur_Distanz**</mark>](https://www.klipper3d.org/Config_Reference.html#extruder)...der empfohlene Wert ist normalerweise >101 (falls nicht definiert, verwenden Sie 50), um beispielsweise typische Extruder-Kalibrierungstests zu ermöglichen. \\
+Eine weitere notwendige Einstellung für Ihren Abschnitt\[Extruder] zeigt an[<mark style="color:green;">**max_extrudieren_nur_Distanz**</mark>](https://www.klipper3d.org/Config_Reference.html#extruder)...der empfohlene Wert ist normalerweise >101 (falls nicht definiert, verwenden Sie 50), um beispielsweise typische Extruder-Kalibrierungstests zu ermöglichen. \\
 Sie sollten den Wert basierend auf dem, was zuvor über den Test oder die Konfiguration Ihres Geräts erwähnt wurde, anpassen**Variable_Filament_entladen_Länge**ICH**Variable_Filament_Belastung_Länge**,
 {% endint %}
 
@@ -601,7 +601,7 @@ Bei bestimmten Vorgängen unseres Druckers, wie z. B. Pausen, empfiehlt es sich,
 
 Es ist wichtig, das Beste aus unserer Maschine herauszuholen, damit sie sich selbst nivelliert und dafür sorgt, dass sich unsere Maschine immer im besten Zustand befindet.
 
-**Z-TILT ist im Grunde ein Prozess, der uns hilft, unsere Z-Motoren in Bezug auf unsere X- (kartesische) oder XY- (CoreXY) Achse/Gantry auszurichten.**. Con esto **Wir stellen sicher, dass unser Z immer perfekt, präzise und automatisch ausgerichtet ist**.
+**Z-TILT ist im Grunde ein Prozess, der uns hilft, unsere Z-Motoren in Bezug auf unsere X- (kartesische) oder XY- (CoreXY) Achse/Gantry auszurichten.**. Mit diesem**Wir stellen sicher, dass unser Z immer perfekt, präzise und automatisch ausgerichtet ist**.
 
 | Variable                         | Beschreibung                                                                                | Mögliche Werte | Standardwert |
 | -------------------------------- | ------------------------------------------------------------------------------------------- | -------------- | ------------ |
@@ -684,7 +684,7 @@ Wir haben zwei Gruppen von Makros:
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
 | \_BENUTZER_ENDE_DRUCKEN_VOR_HEIZUNGEN_AUS  | Es wird vor dem Ausschalten der Heizungen ausgeführt_ENDE_DRUCKEN_VOR_HEIZUNGEN_AUS                   |
 | \_BENUTZER_ENDE_DRUCKEN_NACH_HEIZUNGEN_AUS | Es wird ausgeführt, nachdem die Heizungen vorher ausgeschaltet wurden_ENDE_DRUCKEN_NACH_HEIZUNGEN_AUS |
-| \_BENUTZER_ENDE_PRINT_PARK                 | Es wird ausgeführt, bevor der Kopf geparkt wird_ENDE_DRUCKEN_PARK                                     |
+| \_BENUTZER_ENDE_DRUCKEN_PARK               | Es wird ausgeführt, bevor der Kopf geparkt wird_ENDE_DRUCKEN_PARK                                     |
 
 **DRUCKEN_GRUNDLAGEN**
 

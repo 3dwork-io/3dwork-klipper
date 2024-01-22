@@ -133,7 +133,7 @@ Some added macros that will be useful to us:
 | Macro                                                                                  | Description                                                                                                                                                                                                                 |
 | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **MAYBE_HOME**                                                                         | It allows us to optimize the homing process only by performing it on those axes that are not homing.                                                                                                                        |
-| **PAUSE**                                                                              | Using the related variables, it allows us to manage a pause with a more versatile head parking than normal macros.                                                                                                          |
+| **PAUSE**                                                                              | Through the related variables it allows us to manage a pause with a more versatile head parking than normal macros.                                                                                                         |
 | <p><strong>SET_PAUSE_AT_LAYER</strong><br><strong>SET_PAUSE_AT_NEXT_LAYER</strong></p> | <p>A very useful macro that Mainsail integrates into its UI to be able to pause on demand in a specific layer... in case we forgot when laminating.<br>We also have another one to execute the pause on the next layer.</p> |
 | **RESUME**                                                                             | Improved since it allows us to detect if our nozzle is not at the extrusion temperature in order to solve it before it shows an error and damages our printing.                                                             |
 | **CANCEL_PRINT**                                                                       | Which allows the use of the rest of the macros to perform a print cancellation correctly.                                                                                                                                   |
@@ -197,7 +197,7 @@ The ideal in each case would be to add to our laminator,**in the filament gcodes
 
 It is usually normal that we have different printing surfaces depending on the finish we want to have or the type of filament.
 
-This set of macros, created by[Garethky](https://github.com/garethky), they will allow us to have control of these and especially the correct adjustment of ZOffset in each of them in the style that we have in Prusa machines. Below you can see some of its functions:
+Este conjunto de macros, creadas por [Garethky](https://github.com/garethky), they will allow us to have control of these and especially the correct adjustment of ZOffset in each of them in the style that we have in Prusa machines. Below you can see some of its functions:
 
 -   We can store the number of printing surfaces we want, each one having a unique name
 -   each printing surface will have its own ZOffset
@@ -230,7 +230,7 @@ SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
 APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 ```
 
-On the other hand, it is interesting to be able to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
+On the other hand, it is interesting to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
 
 {% hint style="warning" %}
 It is important that the value in NAME="xxxx" matches the name we gave when installing our printing surface
@@ -339,7 +339,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | Octopus v1.1 | btt-octopus-11 |
 | Octopus v1.1 (407) | btt-octopus-11-407 |
 | SKR Pro v1.2 | skr_pro_12 |
-| SKR 3 | btt_skr_3 |
+| SEK 3 | btt_skr_3 |
 | SKR 3 (H723) | btt-skr-3-h723 |
 | SKR 3 EZ | btt-skr-3-ez |
 | SKR 3 EZ (H723) | btt-skr-3-ez-h723 |
@@ -469,7 +469,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% endloss %}
 
 {% hint style="info" %}
-Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they replace them with the values ​​configured in the profile**of impression.
+Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**of impression.
 
 In the following links you can find a list of these for:[**Prusa Slicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -558,7 +558,7 @@ It is important that we have in our[start gcode of our laminator](../empezamos/c
 
 #### purged
 
-An important phase of our start of printing is a correct purging of our nozzle to avoid remains of filament or that these could damage our printing at some point. Below you have the variables that intervene in this process:
+An important phase of our start of printing is a correct purging of our nozzle to avoid filament remains or that these could damage our printing at some point. Below you have the variables that intervene in this process:
 
 | Variable                               | Description                                                                                                                                                                                                                                                                                                                                                                                         | Possible values                                                        | Default value       |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------- |
@@ -570,7 +570,7 @@ An important phase of our start of printing is a correct purging of our nozzle t
 
 #### Filament loading/unloading
 
-In this case, this group of variables will facilitate the management of loading and unloading our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
+In this case, this group of variables will make it easier for us to manage the loading and unloading of our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
 
 | Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                        | Possible values | Default value |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |
@@ -594,7 +594,7 @@ In certain processes of our printer, such as paused, it is advisable to park our
 | variable_start_print_park_z_height | Z height during pre-heating                                                                                                                                                                                                                                                      | number                             | 50            |
 | variable_end_print_park_in         | Location where to park the head when finishing or canceling a print.                                                                                                                                                                                                             | <p>back /<br>center /<br>front</p> | back          |
 | variable_end_print_park_z_hop      | Distance to rise in Z at the end of printing.                                                                                                                                                                                                                                    | number                             | 20            |
-| variable_pause_print_park_in       | Location where to park the head when pausing printing.                                                                                                                                                                                                                           | <p>back /<br>center /<br>front</p> | back          |
+| variable_pause_print_park_in       | Ubicación donde aparcar el cabezal al pausar la impresión.                                                                                                                                                                                                                       | <p>back /<br>center /<br>front</p> | back          |
 | variable_pause_idle_timeout        | Value, in seconds, of the activation of the inactivity process in the machine that releases motors and causes coordinates to be lost,**A high value is advisable so that when activating the PAUSE macro it takes enough time to perform any action before losing coordinates.** | number                             | 43200         |
 
 #### Z-Tilt

@@ -6,7 +6,8 @@
 
 [![](<../../.gitbook/assets/image (1986).png>)- Inglese](https://klipper-3dwork-io.translate.goog/klipper/mejoras/3dwork-klipper-bundle?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp)
 
-{% suggerimento stile="pericolo" %}<mark style="color:red;">**GUIDA IN PROCESSO!!! Sebbene le macro siano completamente funzionali, sono in continuo sviluppo.**</mark>
+{% hint style="danger" %}
+<mark style="color:red;">**GUIDA IN PROCESSO!!! Sebbene le macro siano completamente funzionali, sono in continuo sviluppo.**</mark>
 
 <mark style="color:orange;">**Usateli a vostro rischio e pericolo!!!**</mark>{% finale %}
 
@@ -451,7 +452,7 @@ Reiniciamos Cura e iremos a_**Estensioni/Post elaborazione/Modifica G-Code**_e s
 {% finale %}
 {% indtab %}
 
-{% titolo scheda="IdeaMaker" %}
+{% tab title="IdeaMaker" %}
 
 ```gcode
 START_PRINT EXTRUDER_TEMP={temperature_extruder1} BED_TEMP={temperature_heatbed}
@@ -722,7 +723,7 @@ Come abbiamo spiegato in "[personalizzazione delle macro](3dwork-klipper-bundle.
 
 #### Parametri di personalizzazione
 
-Così come ti consigliamo di creare una sezione nel tuo print.cfg chiamata USER OVERRIDES, posta dopo gli include delle nostre configurazioni, per poter regolare e personalizzare qualsiasi parametro utilizzato in esse.
+Così come ti consigliamo di creare una sezione nel tuo print.cfg chiamata USER OVERRIDES, posizionata dopo gli include delle nostre configurazioni, per poter regolare e personalizzare qualsiasi parametro utilizzato in esse.
 
 Nell'esempio seguente vedremo come nel nostro caso ci interessa personalizzare i parametri del nostro livellamento letto (bed_mesh) regolando i punti della sonda_count) rispetto alla configurazione che abbiamo di default nelle configurazioni del nostro modulo Klipper:
 

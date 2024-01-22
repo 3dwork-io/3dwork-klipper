@@ -197,7 +197,7 @@ The ideal in each case would be to add to our laminator,**in the filament gcodes
 
 It is usually normal that we have different printing surfaces depending on the finish we want to have or the type of filament.
 
-Este conjunto de macros, creadas por [Garethky](https://github.com/garethky), they will allow us to have control of these and especially the correct adjustment of ZOffset in each of them in the style that we have in Prusa machines. Below you can see some of its functions:
+This set of macros, created by[Garethky](https://github.com/garethky), they will allow us to have control of these and especially the correct adjustment of ZOffset in each of them in the style that we have in Prusa machines. Below you can see some of its functions:
 
 -   We can store the number of printing surfaces we want, each one having a unique name
 -   each printing surface will have its own ZOffset
@@ -594,7 +594,7 @@ In certain processes of our printer, such as paused, it is advisable to park our
 | variable_start_print_park_z_height | Z height during pre-heating                                                                                                                                                                                                                                                      | number                             | 50            |
 | variable_end_print_park_in         | Location where to park the head when finishing or canceling a print.                                                                                                                                                                                                             | <p>back /<br>center /<br>front</p> | back          |
 | variable_end_print_park_z_hop      | Distance to rise in Z at the end of printing.                                                                                                                                                                                                                                    | number                             | 20            |
-| variable_pause_print_park_in       | Ubicación donde aparcar el cabezal al pausar la impresión.                                                                                                                                                                                                                       | <p>back /<br>center /<br>front</p> | back          |
+| variable_pause_print_park_in       | Location where to park the head when pausing printing.                                                                                                                                                                                                                           | <p>back /<br>center /<br>front</p> | back          |
 | variable_pause_idle_timeout        | Value, in seconds, of the activation of the inactivity process in the machine that releases motors and causes coordinates to be lost,**A high value is advisable so that when activating the PAUSE macro it takes enough time to perform any action before losing coordinates.** | number                             | 43200         |
 
 #### Z-Tilt

@@ -1,6 +1,6 @@
 * * *
 
-## Beschreibung: Paket mit Makros, Einstellungen und anderen Dienstprogrammen für Klipper
+## description: Paquete de macros, configuraciones y otras utilidades para Klipper
 
 # 3Dwork Clipper-Paket
 
@@ -42,7 +42,7 @@ Wenn Ihr Klipper-Konfigurationsverzeichnis angepasst ist, denken Sie daran, den 
 {% hint style="info" %}
 Bei Neuinstallationen:
 
-Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, die es uns ermöglichen, die Makros in unserem Bundle zu verwenden, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
+Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, sodass wir die Makros in unserem Bundle verwenden können, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
 
 -   Wir stellen sicher, dass wir unsere haben[Host als zweite MCU](raspberry-como-segunda-mcu.md)
 -   Als nächstes fügen wir eine Printer.cfg hinzu. Denken Sie daran, dass diese Schritte für eine Neuinstallation gelten, bei der Sie keine Printer.cfg haben und das Makro zum Erstellen von Firmware starten möchten, wie das, das Sie unten sehen können:
@@ -108,7 +108,7 @@ enable_force_move: True
 Damit können wir Klipper starten, um Zugriff auf unsere Makros zu erhalten.
 {% endhint %}
 
-### Mit Moonraker immer auf dem neuesten Stand bleiben
+### Usando Moonraker para estar siempre actualizado
 
 Dank Moonraker können wir das Update nutzen_Manager, um über die Verbesserungen, die wir möglicherweise in der Zukunft einführen, auf dem Laufenden zu bleiben.
 
@@ -221,7 +221,7 @@ build_sheet textured_pei = {'name': 'Textured PEI', 'offset': -0.160000000000000
 {%endcode%}
 
 -   Wir müssen einen Aufruf zur Bewerbung einschließen_BAUEN_BLATT_ANPASSUNG in unserem DRUCK_START, um den ZOffset der ausgewählten Oberfläche anwenden zu können
--   Es ist wichtig, dass für das vorherige Makro APPLY gilt_BAUEN_BLATT_ANPASSUNG, um richtig zu funktionieren, müssen wir ein SET hinzufügen_GCODE_OFFSET Z=0,0 kurz vor dem Aufruf von APPLY_BAUEN_BLATT_EINSTELLUNG
+-   Es ist wichtig, dass für das vorherige Makro APPLY gilt_BAUEN_BLATT_ANPASSUNG, um richtig zu funktionieren, müssen wir ein SET hinzufügen_GCODE_OFFSET Z=0,0 kurz vor dem Aufruf von APPLY_BUILD_BLATT_EINSTELLUNG
 
 ```django
 # Load build sheet
@@ -255,7 +255,7 @@ gcode:
 
 {%endcode%}
 
-Wenn KlipperScreen vorhanden ist, können wir auch ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in das wir einen Aufruf der Makros einfügen, die zuvor für das Laden jeder Oberfläche erstellt wurden:
+Auch wenn wir über KlipperScreen verfügen, können wir ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in das wir einen Aufruf der zuvor für das Laden jeder Oberfläche erstellten Makros einfügen:
 
 {% code title="~/printer_data/config/KlipperScreen.conf" %}
 
@@ -294,7 +294,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 
 ### **Maschinenkonfigurationsmakros**
 
-| Makro                                                                                        | Beschreibung                                                                                                                                                                                                                                                              |
+| Macro                                                                                        | Beschreibung                                                                                                                                                                                                                                                              |
 | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **KOMPILIEREN_FIRMWARE**                                                                     | <p>Mit diesem Makro können wir die Klipper-Firmware auf einfache Weise kompilieren, zur Vereinfachung über die Benutzeroberfläche auf die Firmware zugreifen und sie auf unsere Elektronik anwenden.<br>Hier finden Sie weitere Details zur unterstützten Elektronik.</p> |
 | **BERECHNUNG_BETT_GITTERGEWEBE**                                                             | Ein äußerst nützliches Makro zur Berechnung der Fläche für unser Netz, da dies manchmal ein komplizierter Prozess sein kann.                                                                                                                                              |
@@ -406,7 +406,7 @@ Da unsere Makros dynamisch sind, extrahieren sie bestimmte Informationen aus uns
 
 -   **Starten Sie den Gcode START_DRUCKEN**, unter Verwendung von Platzhaltern, um Filament- und Betttemperaturwerte dynamisch zu übergeben:
 
-{% Tabs %}
+{% tabs %}
 {% tab title="PrusaSlicer-SuperSlicer" %}**Prusa-Schneider**
 
 ```gcode
@@ -490,7 +490,7 @@ Um diese an unsere Maschine anzupassen, verwenden wir die Variablen, die wir in 
 
 #### Nachrichten-/Benachrichtigungssprache
 
-Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variable können wir es anpassen:
+Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variablen können wir es anpassen:
 
 <table><thead><tr><th width="189">Variable</th><th width="247">Descripción</th><th width="163">Valores posibles</th><th>Valor por defecto</th></tr></thead><tbody><tr><td>variable_language</td><td>Nos permite seleccionar el idioma de las notificaciones. En el caso de no estar bien definido se usará en (inglés)</td><td>es / en</td><td>es</td></tr></tbody></table>
 
@@ -527,11 +527,11 @@ Satz von Variablen, die sich auf den Referenzierungsprozess beziehen.
 
 Variablen im Zusammenhang mit dem Heizprozess unserer Maschine.
 
-| Variable                                      | Beschreibung                                                                                            | Mögliche Werte | Standardwert |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| Variable_Vorwärmen_Extruder                   | Ermöglicht das Vorheizen der Düse auf die in der Variable angegebene Temperatur_Vorwärmen_Extruder_Temp | Wahr falsch    | WAHR         |
-| Variable_Vorwärmen_Extruder_Temp              | Temperatur der Düsenvorwärmung                                                                          | numerisch      | 150          |
-| Variable_Start_drucken_Hitze_Kammer_Bett_Temp | Betttemperatur während des Aufheizvorgangs unseres Gehäuses                                             | numerisch      | 100          |
+| Variable                                    | Beschreibung                                                                                            | Mögliche Werte | Standardwert |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| Variable_Vorwärmen_Extruder                 | Ermöglicht das Vorheizen der Düse auf die in der Variable angegebene Temperatur_Vorwärmen_Extruder_Temp | Wahr falsch    | WAHR         |
+| Variable_Vorwärmen_Extruder_Temp            | Temperatur der Düsenvorwärmung                                                                          | numerisch      | 150          |
+| Variable_Start_print_Hitze_Kammer_Bett_Temp | Betttemperatur während des Aufheizvorgangs unseres Gehäuses                                             | numerisch      | 100          |
 
 {% hint style="success" %}
 Vorteile der Verwendung einer vorgeheizten Düse:
@@ -560,13 +560,13 @@ Es ist wichtig, dass wir in unserem[Start-Gcode unseres Laminators](../empezamos
 
 Eine wichtige Phase unseres Druckstarts ist das korrekte Spülen unserer Düse, um zu verhindern, dass Filamentreste zurückbleiben oder dass diese unseren Druck irgendwann beschädigen könnten. Nachfolgend finden Sie die Variablen, die in diesen Prozess eingreifen:
 
-| Variable                                     | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                  | Mögliche Werte                                                        | Standardwert        |
-| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------- |
-| Variable_Düse_Grundierung                    | <p>Wir können zwischen verschiedenen Spüloptionen wählen:<br>- primeline zeichnet die typische Reinigungslinie<br>- primelineadaptative generiert eine Spüllinie, die sich an die Fläche des gedruckten Teils anpasst, wobei variable_nozzle_priming_objectdistance als Rand verwendet wird<br>- Mit Primeblob werfen wir einen Tropfen Filament in eine Ecke unseres Bettes, sehr effektiv zum Reinigen der Düse und leicht zu entfernen</p> | <p>Hauptlinie /</p><p>primelineadaptiv /<br>primeblob /<br>FALSCH</p> | adaptive Primlinien |
-| Variable_nozzle_Grundierung_Objektentfernung | Wenn wir eine adaptive Beschnittlinie verwenden, ist dies der Rand, der zwischen der Beschnittlinie und dem gedruckten Objekt verwendet werden soll                                                                                                                                                                                                                                                                                           | numerisch                                                             | 5                   |
-| Variable_Düse_Primzahl_Start_X               | <p>Wo wir unsere Spülleitung platzieren möchten:<br>- min wird es bei X=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei X=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die X-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                  | max                 |
-| Variable_Düse_Primzahl_Start_Und             | <p>Wo wir unsere Spülleitung platzieren möchten:<br>- min wird es bei Y=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei Y=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die Y-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                  | Mindest             |
-| Variable_Düse_Primzahl_Richtung              | <p>Die Adresse unserer Leitung oder Zustellung:<br>- Nach hinten bewegt sich der Kopf zur Vorderseite des Druckers<br>- Vorwärts bewegt sich nach hinten<br>- Auto bewegt sich abhängig von variable_nozzle_prime_start_y zur Mitte</p>                                                                                                                                                                                                       | <p>automatisch /<br>vorwärts /<br>rückwärts</p>                       | Auto                |
+| Variable                                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                  | Mögliche Werte                                                        | Standardwert        |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------- |
+| Variable_Düse_Grundierung                  | <p>Wir können zwischen verschiedenen Spüloptionen wählen:<br>- primeline zeichnet die typische Reinigungslinie<br>- primelineadaptative generiert eine Spüllinie, die sich an die Fläche des gedruckten Teils anpasst, wobei variable_nozzle_priming_objectdistance als Rand verwendet wird<br>- Mit Primeblob werfen wir einen Tropfen Filament in eine Ecke unseres Bettes, sehr effektiv zum Reinigen der Düse und leicht zu entfernen</p> | <p>Hauptlinie /</p><p>primelineadaptiv /<br>primeblob /<br>FALSCH</p> | adaptive Primlinien |
+| Variable_Düse_Grundierung_Objektentfernung | Wenn wir eine adaptive Beschnittlinie verwenden, ist dies der Rand, der zwischen der Beschnittlinie und dem gedruckten Objekt verwendet werden soll                                                                                                                                                                                                                                                                                           | numerisch                                                             | 5                   |
+| Variable_Düse_Primzahl_Start_X             | <p>Wo wir unsere Spülleitung platzieren möchten:<br>- min wird es bei X=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei X=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die X-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                  | max                 |
+| Variable_Düse_Primzahl_Start_Und           | <p>Wo wir unsere Spülleitung platzieren möchten:<br>- min wird es bei Y=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei Y=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die Y-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                  | Mindest             |
+| Variable_Düse_Primzahl_Richtung            | <p>Die Adresse unserer Leitung oder Zustellung:<br>- Nach hinten bewegt sich der Kopf zur Vorderseite des Druckers<br>- Vorwärts bewegt sich nach hinten<br>- Auto bewegt sich abhängig von variable_nozzle_prime_start_y zur Mitte</p>                                                                                                                                                                                                       | <p>automatisch /<br>vorwärts /<br>rückwärts</p>                       | Auto                |
 
 #### Laden/Entladen des Filaments
 
@@ -757,7 +757,7 @@ Wir können denselben Prozess mit jedem Parameter verwenden, den wir anpassen m�
 
 #### Anpassen der Pin-Konfiguration
 
-Wir werden genau wie zuvor vorgehen und in unserem Bereich USER OVERRIDES die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
+Wir werden genauso vorgehen wie zuvor, in unserem Bereich USER OVERRIDES werden wir die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
 
 Im folgenden Beispiel werden wir den Pin unseres elektronischen Lüfters (Controllers) anpassen_Ventilator), um ihn einem anderen als dem Standard-Lüfter zuzuweisen:
 

@@ -1,6 +1,6 @@
 * * *
 
-## description: Paquete de macros, configuraciones y otras utilidades para Klipper
+## Beschreibung: Paket mit Makros, Einstellungen und anderen Dienstprogrammen für Klipper
 
 # 3Dwork Clipper-Paket
 
@@ -108,7 +108,7 @@ enable_force_move: True
 Damit können wir Klipper starten, um Zugriff auf unsere Makros zu erhalten.
 {% endhint %}
 
-### Usando Moonraker para estar siempre actualizado
+### Mit Moonraker immer auf dem neuesten Stand bleiben
 
 Dank Moonraker können wir das Update nutzen_Manager, um über die Verbesserungen, die wir möglicherweise in der Zukunft einführen, auf dem Laufenden zu bleiben.
 
@@ -221,7 +221,7 @@ build_sheet textured_pei = {'name': 'Textured PEI', 'offset': -0.160000000000000
 {%endcode%}
 
 -   Wir müssen einen Aufruf zur Bewerbung einschließen_BAUEN_BLATT_ANPASSUNG in unserem DRUCK_START, um den ZOffset der ausgewählten Oberfläche anwenden zu können
--   Es ist wichtig, dass für das vorherige Makro APPLY gilt_BAUEN_BLATT_ANPASSUNG, um richtig zu funktionieren, müssen wir ein SET hinzufügen_GCODE_OFFSET Z=0,0 kurz vor dem Aufruf von APPLY_BUILD_BLATT_EINSTELLUNG
+-   Es ist wichtig, dass für das vorherige Makro APPLY gilt_BAUEN_BLATT_ANPASSUNG, um richtig zu funktionieren, müssen wir ein SET hinzufügen_GCODE_OFFSET Z=0,0 kurz vor dem Aufruf von APPLY_BAUEN_BLATT_EINSTELLUNG
 
 ```django
 # Load build sheet
@@ -294,7 +294,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 
 ### **Maschinenkonfigurationsmakros**
 
-| Macro                                                                                        | Beschreibung                                                                                                                                                                                                                                                              |
+| Makro                                                                                        | Beschreibung                                                                                                                                                                                                                                                              |
 | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **KOMPILIEREN_FIRMWARE**                                                                     | <p>Mit diesem Makro können wir die Klipper-Firmware auf einfache Weise kompilieren, zur Vereinfachung über die Benutzeroberfläche auf die Firmware zugreifen und sie auf unsere Elektronik anwenden.<br>Hier finden Sie weitere Details zur unterstützten Elektronik.</p> |
 | **BERECHNUNG_BETT_GITTERGEWEBE**                                                             | Ein äußerst nützliches Makro zur Berechnung der Fläche für unser Netz, da dies manchmal ein komplizierter Prozess sein kann.                                                                                                                                              |
@@ -527,11 +527,11 @@ Satz von Variablen, die sich auf den Referenzierungsprozess beziehen.
 
 Variablen im Zusammenhang mit dem Heizprozess unserer Maschine.
 
-| Variable                                    | Beschreibung                                                                                            | Mögliche Werte | Standardwert |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| Variable_Vorwärmen_Extruder                 | Ermöglicht das Vorheizen der Düse auf die in der Variable angegebene Temperatur_Vorwärmen_Extruder_Temp | Wahr falsch    | WAHR         |
-| Variable_Vorwärmen_Extruder_Temp            | Temperatur der Düsenvorwärmung                                                                          | numerisch      | 150          |
-| Variable_Start_print_Hitze_Kammer_Bett_Temp | Betttemperatur während des Aufheizvorgangs unseres Gehäuses                                             | numerisch      | 100          |
+| Variable                                      | Beschreibung                                                                                            | Mögliche Werte | Standardwert |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| Variable_Vorwärmen_Extruder                   | Ermöglicht das Vorheizen der Düse auf die in der Variable angegebene Temperatur_Vorwärmen_Extruder_Temp | Wahr falsch    | WAHR         |
+| Variable_Vorwärmen_Extruder_Temp              | Temperatur der Düsenvorwärmung                                                                          | numerisch      | 150          |
+| Variable_Start_drucken_Hitze_Kammer_Bett_Temp | Betttemperatur während des Aufheizvorgangs unseres Gehäuses                                             | numerisch      | 100          |
 
 {% hint style="success" %}
 Vorteile der Verwendung einer vorgeheizten Düse:
@@ -574,7 +574,7 @@ In diesem Fall erleichtert uns diese Gruppe von Variablen die Verwaltung des Lad
 
 | Variable                                    | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                            | Mögliche Werte | Standardwert |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| Variable_Filament_entladen_Länge            | Wie viel mm das Filament zurückgezogen werden muss, passen Sie an Ihre Maschine an, normalerweise das Maß von Ihrer Düse bis zu den Zahnrädern Ihres Extruders, wobei ein zusätzlicher Spielraum hinzukommt.                                                                                                                                                                                                                                            | Nummer         | 130          |
+| Variable_Filament_entladen_Länge            | Cuanto retraer en mm el filamento, ajustar a tu máquina, normalmente la medida desde tu nozzle a los engranajes de tu extrusor añadiendo un margen extra.                                                                                                                                                                                                                                                                                               | Nummer         | 130          |
 | Variable_Filament_entladen_Geschwindigkeit  | Filamentrückzugsgeschwindigkeit in mm/s. Normalerweise wird eine langsame Geschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                                    | Nummer         | 5            |
 | Variable_Filament_Belastung_Länge           | Abstand in mm zum Laden des neuen Filaments... sowie variabel_Filament_entladen_Länge verwenden wir das Maß von Ihrem Getriebe bis zum Extruder und fügen einen zusätzlichen Spielraum hinzu. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel gespült werden soll. Normalerweise können Sie ihm einen größeren Spielraum als den vorherigen Wert geben, um sicherzustellen, dass die Die Extrusion des vorherigen Filaments ist sauber. | Nummer         | 150          |
 | Variable_Filament_Belastung_Geschwindigkeit | Filamentladegeschwindigkeit in mm/s, normalerweise wird eine höhere Geschwindigkeit als die Entladegeschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                           | Nummer         | 10           |

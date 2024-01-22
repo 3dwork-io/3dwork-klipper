@@ -17,8 +17,8 @@ ensure_sudo_command_whitelisting()
 	then
 		$sudo rm /etc/sudoers.d/030-3dwork-githooks
 	fi
-	touch /tmp/030-3dwork-githooks
-	cat << '#EOF' > /tmp/030-3dwork-githooks
+	$sudo touch /tmp/030-3dwork-githooks
+	$sudo cat << '#EOF' > /tmp/030-3dwork-githooks
 mks  ALL=(ALL) NOPASSWD: /home/mks/klipper_config/3dwork-klipper/scripts/3dwork-qidi-update.sh
 #EOF
 

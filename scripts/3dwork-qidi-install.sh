@@ -62,6 +62,20 @@ register_include_3dwork_macros()
     fi
 }
 
+register_include_3dwork_moonraker_update_manager()
+{
+    report_status "Adding 3Dwork Update Manager to moonraker.conf... Installing"
+    printf "${green} QIDI Config Directory: $QIDI_CONFIG_DIR ${white}\n"
+
+    ## including 3Dwork macros *.cfg in printer.cfg
+    if grep -q "include 3dwork-klipper" $QIDI_CONFIG_DIR/moonraker.conf ; then
+        echo "printer.cfg already includes 3Dwork cfgs"
+    else
+        printf "${green}Including 3Dwork macro cfgs in printer.cfg ${white}\n"
+        sed -i '[include 3dwork-klipper/moonraker.conf]' $QIDI_CONFIG_DIR/printer.cfg
+    fi
+}
+
 install_klippain_shaketune()
 {
 	SHAKETUNE_DIR="/home/mks/klippain_shaketune/K-ShakeTune"
@@ -91,4 +105,5 @@ install_dependencies
 ensure_sudo_command_whitelisting
 register_gcode_shell_command
 include_3dwork_macros
+include_3dwork_moonraker_update_manager
 ##install_klippain_shaketune

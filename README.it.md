@@ -6,8 +6,7 @@
 
 [![](<../../.gitbook/assets/image (1986).png>)- Inglese](https://klipper-3dwork-io.translate.goog/klipper/mejoras/3dwork-klipper-bundle?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp)
 
-{% hint style="danger" %}
-<mark style="color:red;">**GUIDA IN PROCESSO!!! Sebbene le macro siano completamente funzionali, sono in continuo sviluppo.**</mark>
+{% suggerimento stile="pericolo" %}<mark style="color:red;">**GUIDA IN PROCESSO!!! Sebbene le macro siano completamente funzionali, sono in continuo sviluppo.**</mark>
 
 <mark style="color:orange;">**Usateli a vostro rischio e pericolo!!!**</mark>{% finale %}
 
@@ -452,7 +451,7 @@ Reiniciamos Cura e iremos a_**Estensioni/Post elaborazione/Modifica G-Code**_e s
 {% finale %}
 {% indtab %}
 
-{% tab title="IdeaMaker" %}
+{% titolo scheda="IdeaMaker" %}
 
 ```gcode
 START_PRINT EXTRUDER_TEMP={temperature_extruder1} BED_TEMP={temperature_heatbed}
@@ -608,7 +607,7 @@ Sfruttare al massimo la nostra macchina affinché si autolivella e garantire che
 | --------------------------------- | --------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
 | variabile_calibrare_Con_inclinare | Permette, se abilitato nella nostra configurazione Klipper, il processo di regolazione Z-Tilt | Vero falso       | Falso             |
 
-#### Storto
+#### Skew
 
 L'impiego di[STORTO](broken-reference)Per la correzione o la regolazione precisa delle nostre stampanti è estremamente consigliabile se riscontriamo deviazioni nelle nostre stampe. Utilizzando la seguente variabile possiamo consentirne l'utilizzo nelle nostre macro:
 
@@ -683,8 +682,8 @@ Abbiamo due gruppi di macro:
 
 | Nome della macro                               | Descrizione                                                                                     |
 | ---------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| \_UTENTE_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO | Viene eseguito prima di spegnere i riscaldatori, prima_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO    |
-| \_UTENTE_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO  | Viene eseguito dopo lo spegnimento dei riscaldatori, prima_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO |
+| \_UTENTE_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO | Viene eseguito prima di spegnere i riscaldatori, prima_FINE_STAMPA_BEFORE_RISCALDATORI_SPENTO   |
+| \_USER_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO    | Viene eseguito dopo lo spegnimento dei riscaldatori, prima_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO |
 | \_UTENTE_FINE_STAMPA_PARCO                     | Viene eseguito prima che la testa sia parcheggiata, prima_FINE_STAMPA_PARCO                     |
 
 **STAMPA_BASI**

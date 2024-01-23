@@ -230,7 +230,7 @@ SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
 APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 ```
 
-D'altra parte, è interessante avere delle macro per attivare questa o quella superficie o addirittura passarla come parametro dal nostro laminatore in modo che con diversi profili di stampante o filamento possiamo caricare l'una o l'altra automaticamente:
+D'altra parte, è interessante poter avere macro per attivare una superficie o un'altra o addirittura passarla come parametro dal nostro laminatore in modo che con diversi profili di stampante o filamento possiamo caricare l'una o l'altra automaticamente:
 
 {% suggerimento stile="avviso" %}
 È importante che il valore in NAME="xxxx" corrisponda al nome che abbiamo assegnato durante l'installazione della nostra superficie di stampa
@@ -299,7 +299,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | **COMPILARE_FIRMWARE**                                                                        | <p>Con questa macro possiamo compilare il firmware di Klipper in modo semplice, avere il firmware accessibile dalla UI per una maggiore semplicità e poterlo applicare alla nostra elettronica.<br>Qui hai maggiori dettagli sull'elettronica supportata.</p> |
 | **CALCOLARE_LETTO_MAGLIA**                                                                    | Una macro estremamente utile per calcolare l'area della nostra mesh perché a volte può essere un processo complicato.                                                                                                                                         |
 | <p><strong>PID_ALL</strong><br><strong>PID_ESTRUSORE</strong><br><strong>PID_BED</strong></p> | Queste macro, dove potremo passare le temperature al PID sotto forma di parametri, ci permetteranno di eseguire la calibrazione della temperatura in modo estremamente semplice.                                                                              |
-| <p><strong>TEST DI VELOCITÀ</strong><br><strong>TEST_SPEED_DELTA</strong></p>                 | La macro originale del compagno[Ellis](https://github.com/AndrewEllis93)Ci permetteranno in modo abbastanza semplice di testare la velocità con cui possiamo muovere la nostra macchina con precisione e senza perdita di passi.                              |
+| <p><strong>TEST DI VELOCITÀ</strong><br><strong>TEST_SPEED_DELTA</strong></p>                 | La macro originale di Companion[Ellis](https://github.com/AndrewEllis93)Ci permetteranno in modo abbastanza semplice di testare la velocità con cui possiamo muovere la nostra macchina con precisione e senza perdita di passi.                              |
 
 -   **Firmware compilato per l'elettronica supportata**, per facilitare il processo di creazione e manutenzione del firmware Klipper per i nostri MCU abbiamo la macro COMPILE_FIRMWARE che una volta eseguito, possiamo usare la nostra elettronica come parametro. Per fare solo questo, Klipper compilerà per tutta l'elettronica supportata dal nostro bundle:\\![](<../../.gitbook/assets/image (1540).png>)\\
     Li troveremo facilmente accessibili dalla nostra interfaccia utente web nella directory del firmware_binari nella nostra scheda MACCHINA (se usiamo la randa):\\![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)\\
@@ -570,17 +570,17 @@ Una fase importante del nostro inizio stampa è un corretto spurgo dei nostri ug
 
 #### Carico/scarico filamento
 
-In questo caso, questo gruppo di variabili ci faciliterà la gestione del caricamento e dello scaricamento del nostro filamento utilizzato in emulazione dell'M600, ad esempio, o quando si lanciano le macro di caricamento e scaricamento del filamento:
+In questo caso, questo gruppo di variabili faciliterà la gestione del caricamento e dello scaricamento del nostro filamento utilizzato in emulazione dell'M600, ad esempio, o quando si lanciano le macro di caricamento e scaricamento del filamento:
 
-| Variabile                               | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                | Valori possibili | Valore di default |
-| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
-| variabile_filamento_scaricare_lunghezza | Quanto ritirare il filamento in mm, adattalo alla tua macchina, normalmente la misura dal tuo ugello agli ingranaggi del tuo estrusore aggiungendo un margine extra.                                                                                                                                                                                                                                                       | numero           | 130               |
-| variabile_filamento_scaricare_velocità  | Velocità di ritrazione del filamento in mm/sec normalmente viene utilizzata una velocità lenta.                                                                                                                                                                                                                                                                                                                            | numero           | 5                 |
-| variabile_filamento_carico_lunghezza    | Distanza in mm per caricare il nuovo filamento... oltre che in variabile_filamento_scaricare_lunghezza utilizzeremo la misura dal tuo ingranaggio all'estrusore aggiungendo un margine extra, in questo caso questo valore extra dipenderà da quanto vuoi che venga spurgato... normalmente puoi dargli più margine rispetto al valore precedente per assicurarti che il l'estrusione del filamento precedente sia pulita. | numero           | 150               |
-| variabile_filamento_carico_velocità     | Velocità di caricamento del filamento in mm/sec, normalmente viene utilizzata una velocità maggiore rispetto alla velocità di scarico.                                                                                                                                                                                                                                                                                     | numero           | 10                |
+| Variabile                              | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                | Valori possibili | Valore di default |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
+| variabile_filamento_unload_lunghezza   | Quanto ritirare il filamento in mm, adattalo alla tua macchina, normalmente la misura dal tuo ugello agli ingranaggi del tuo estrusore aggiungendo un margine extra.                                                                                                                                                                                                                                                       | numero           | 130               |
+| variabile_filamento_scaricare_velocità | Velocità di ritrazione del filamento in mm/sec normalmente viene utilizzata una velocità lenta.                                                                                                                                                                                                                                                                                                                            | numero           | 5                 |
+| variabile_filamento_carico_lunghezza   | Distanza in mm per caricare il nuovo filamento... oltre che in variabile_filamento_scaricare_lunghezza utilizzeremo la misura dal tuo ingranaggio all'estrusore aggiungendo un margine extra, in questo caso questo valore extra dipenderà da quanto vuoi che venga spurgato... normalmente puoi dargli più margine rispetto al valore precedente per assicurarti che il l'estrusione del filamento precedente sia pulita. | numero           | 150               |
+| variabile_filamento_carico_velocità    | Velocità di caricamento del filamento in mm/sec, normalmente viene utilizzata una velocità maggiore rispetto alla velocità di scarico.                                                                                                                                                                                                                                                                                     | numero           | 10                |
 
 {% suggerimento stile="avviso" %}
-Un'altra impostazione necessaria per la tua sezione\[estrusore] indica il[<mark style="color:green;">**massimo_estrudere_soltanto_distanza**</mark>](https://www.klipper3d.org/Config_Reference.html#extruder)...il valore consigliabile è solitamente >101 (se non definito, utilizzare 50) per consentire, ad esempio, tipici test di calibrazione dell'estrusore. \\
+Un'altra impostazione necessaria per la tua sezione\[estrusore] indica il[<mark style="color:green;">**massimo_estrudere_only_distanza**</mark>](https://www.klipper3d.org/Config_Reference.html#extruder)...il valore consigliabile è solitamente >101 (se non definito, utilizzare 50) per consentire, ad esempio, tipici test di calibrazione dell'estrusore. \\
 Dovresti modificare il valore in base a quanto menzionato in precedenza sul test o sulla configurazione del tuo**variabile_filamento_scaricare_lunghezza**IO**variabile_filamento_carico_lunghezza**,
 {% finale %}
 
@@ -607,7 +607,7 @@ Sfruttare al massimo la nostra macchina affinché si autolivella e garantire che
 | --------------------------------- | --------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
 | variabile_calibrare_Con_inclinare | Permette, se abilitato nella nostra configurazione Klipper, il processo di regolazione Z-Tilt | Vero falso       | Falso             |
 
-#### Skew
+#### Storto
 
 L'impiego di[STORTO](broken-reference)Per la correzione o la regolazione precisa delle nostre stampanti è estremamente consigliabile se riscontriamo deviazioni nelle nostre stampe. Utilizzando la seguente variabile possiamo consentirne l'utilizzo nelle nostre macro:
 
@@ -631,7 +631,7 @@ Normalmente, sarà ciò che dovremo aggiustare, per apportare modifiche alle var
 
 Semplicemente, quello che dobbiamo fare è incollare il contenuto della macro\[gcode_macro GLOBALE_VARS] che possiamo trovare in macro/macros_era_globals.cfg nel nostro Printer.cfg.
 
-Ti ricordiamo quanto accennato in precedenza riguardo al modo in cui Klipper elabora le configurazioni in sequenza, quindi è consigliabile incollarlo dopo gli include di cui abbiamo parlato.[Qui](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
+Ti ricordiamo quanto accennato in precedenza su come Klipper elabora le configurazioni in sequenza, quindi è consigliabile incollarlo dopo gli include di cui abbiamo parlato.[Qui](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
 Avremo qualcosa del genere (è solo un esempio visivo):
 
@@ -682,8 +682,8 @@ Abbiamo due gruppi di macro:
 
 | Nome della macro                               | Descrizione                                                                                     |
 | ---------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| \_UTENTE_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO | Viene eseguito prima di spegnere i riscaldatori, prima_FINE_STAMPA_BEFORE_RISCALDATORI_SPENTO   |
-| \_USER_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO    | Viene eseguito dopo lo spegnimento dei riscaldatori, prima_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO |
+| \_UTENTE_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO | Viene eseguito prima di spegnere i riscaldatori, prima_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO    |
+| \_UTENTE_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO  | Viene eseguito dopo lo spegnimento dei riscaldatori, prima_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO |
 | \_UTENTE_FINE_STAMPA_PARCO                     | Viene eseguito prima che la testa sia parcheggiata, prima_FINE_STAMPA_PARCO                     |
 
 **STAMPA_BASI**

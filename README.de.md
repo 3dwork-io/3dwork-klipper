@@ -42,7 +42,7 @@ Wenn Ihr Klipper-Konfigurationsverzeichnis angepasst ist, denken Sie daran, den 
 {% hint style="info" %}
 Bei Neuinstallationen:
 
-Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, sodass wir die Makros in unserem Bundle verwenden können, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
+Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, die es uns ermöglichen, die Makros in unserem Bundle zu verwenden, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
 
 -   Wir stellen sicher, dass wir unsere haben[Host als zweite MCU](raspberry-como-segunda-mcu.md)
 -   Als nächstes fügen wir eine Printer.cfg hinzu. Denken Sie daran, dass diese Schritte für eine Neuinstallation gelten, bei der Sie keine Printer.cfg haben und das Makro zum Erstellen von Firmware starten möchten, wie das, das Sie unten sehen können:
@@ -230,7 +230,7 @@ SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
 APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 ```
 
-Andererseits ist es interessant, Makros zu haben, um die eine oder andere Oberfläche zu aktivieren oder sie sogar als Parameter von unserem Laminator zu übergeben, damit wir bei unterschiedlichen Drucker- oder Filamentprofilen die eine oder andere automatisch laden können:
+Andererseits ist es interessant, Makros zu haben, um die eine oder andere Oberfläche zu aktivieren oder sie sogar als Parameter von unserem Laminator zu übergeben, sodass wir bei unterschiedlichen Drucker- oder Filamentprofilen die eine oder andere automatisch laden können:
 
 {% hint style="warning" %}
 Es ist wichtig, dass der Wert in NAME="xxxx" mit dem Namen übereinstimmt, den wir bei der Installation unserer Druckoberfläche angegeben haben
@@ -406,7 +406,7 @@ Da unsere Makros dynamisch sind, extrahieren sie bestimmte Informationen aus uns
 
 -   **Starten Sie den Gcode START_DRUCKEN**, unter Verwendung von Platzhaltern, um Filament- und Betttemperaturwerte dynamisch zu übergeben:
 
-{% tabs %}
+{% Tabs %}
 {% tab title="PrusaSlicer-SuperSlicer" %}**Prusa-Schneider**
 
 ```gcode
@@ -570,11 +570,11 @@ Eine wichtige Phase unseres Druckstarts ist das korrekte Spülen unserer Düse, 
 
 #### Laden/Entladen des Filaments
 
-In diesem Fall erleichtert uns diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
+In diesem Fall erleichtert diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
 
 | Variable                                    | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                            | Mögliche Werte | Standardwert |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| Variable_Filament_entladen_Länge            | Cuanto retraer en mm el filamento, ajustar a tu máquina, normalmente la medida desde tu nozzle a los engranajes de tu extrusor añadiendo un margen extra.                                                                                                                                                                                                                                                                                               | Nummer         | 130          |
+| Variable_Filament_entladen_Länge            | Wie viel mm das Filament zurückgezogen werden muss, passen Sie an Ihre Maschine an, normalerweise das Maß von Ihrer Düse bis zu den Zahnrädern Ihres Extruders, wobei ein zusätzlicher Spielraum hinzukommt.                                                                                                                                                                                                                                            | Nummer         | 130          |
 | Variable_Filament_entladen_Geschwindigkeit  | Filamentrückzugsgeschwindigkeit in mm/s. Normalerweise wird eine langsame Geschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                                    | Nummer         | 5            |
 | Variable_Filament_Belastung_Länge           | Abstand in mm zum Laden des neuen Filaments... sowie variabel_Filament_entladen_Länge verwenden wir das Maß von Ihrem Getriebe bis zum Extruder und fügen einen zusätzlichen Spielraum hinzu. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel gespült werden soll. Normalerweise können Sie ihm einen größeren Spielraum als den vorherigen Wert geben, um sicherzustellen, dass die Die Extrusion des vorherigen Filaments ist sauber. | Nummer         | 150          |
 | Variable_Filament_Belastung_Geschwindigkeit | Filamentladegeschwindigkeit in mm/s, normalerweise wird eine höhere Geschwindigkeit als die Entladegeschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                           | Nummer         | 10           |
@@ -668,7 +668,7 @@ Die drei Punkte (...) in den vorherigen Beispielen sollen lediglich darauf hinwe
 
 #### Anpassen von Makros
 
-Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie wir bereits erwähnt haben, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
+Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie bereits erwähnt, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
 
 Wir haben zwei Gruppen von Makros:
 
@@ -757,7 +757,7 @@ Wir können denselben Prozess mit jedem Parameter verwenden, den wir anpassen m�
 
 #### Anpassen der Pin-Konfiguration
 
-Wir werden genauso vorgehen wie zuvor, in unserem Bereich USER OVERRIDES werden wir die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
+Wir werden genau wie zuvor vorgehen und in unserem Bereich USER OVERRIDES die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
 
 Im folgenden Beispiel werden wir den Pin unseres elektronischen Lüfters (Controllers) anpassen_Ventilator), um ihn einem anderen als dem Standard-Lüfter zuzuweisen:
 

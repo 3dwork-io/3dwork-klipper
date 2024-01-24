@@ -4,7 +4,7 @@
 SYSTEMDDIR="/etc/systemd/system"
 PKGLIST="python3-venv"
 KLIPPER_PATH=/home/mks/klipper
-QIDI_CONFIG_DIR=/home/mks/klipper_config/
+QIDI_CONFIG_DIR=/home/mks/klipper_config
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
@@ -59,6 +59,7 @@ include_3dwork_macros()
     else
         printf "${green}Including 3Dwork macro cfgs in printer.cfg ${white}\n"
         sed -i '/\[include gcode_macro\.cfg\]/a \[include 3dwork-klipper/macros/*\.cfg\]' $QIDI_CONFIG_DIR/printer.cfg
+        report_status "Adding 3Dwork macros to printer.cfg... Success!!!"
     fi
 }
 
@@ -72,7 +73,7 @@ include_3dwork_moonraker_update_manager()
         echo "printer.cfg already includes 3Dwork cfgs"
     else
         printf "${green}Including 3Dwork macro cfgs in printer.cfg ${white}\n"
-        sed -i '[include 3dwork-klipper/moonraker.conf]' $QIDI_CONFIG_DIR/printer.cfg
+        sed -i '/\[include 3dwork-klipper/moonraker.conf]/a' $QIDI_CONFIG_DIR/printer.cfg
     fi
 }
 

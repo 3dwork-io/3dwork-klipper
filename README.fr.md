@@ -718,7 +718,7 @@ Lorsqu'elles sont utilisées en tant que module, les configurations 3Dwork NE PE
 C'est pourquoi il est très important de comprendre le fonctionnement de Klipper et comment personnaliser nos modules pour votre machine.
 {% indice de fin %}
 
-Tal como os explicábamos en "[personnalisation des macros](3dwork-klipper-bundle.md#personalizando-macros)"Nous utiliserons le même processus pour ajuster les paramètres ou les broches en fonction de nos besoins.
+Comme nous l'avons expliqué dans "[personnalisation des macros](3dwork-klipper-bundle.md#personalizando-macros)"Nous utiliserons le même processus pour ajuster les paramètres ou les broches en fonction de nos besoins.
 
 #### Paramètres de personnalisation
 

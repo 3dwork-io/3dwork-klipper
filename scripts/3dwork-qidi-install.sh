@@ -48,7 +48,7 @@ register_gcode_shell_command()
     report_status "Register Gcode Shell Command... Success!!!"
 }
 
-register_include_3dwork_macros()
+include_3dwork_macros()
 {
     report_status "Adding 3Dwork macros to printer.cfg... Installing"
     printf "${green} QIDI Config Directory: $QIDI_CONFIG_DIR ${white}\n"
@@ -62,7 +62,7 @@ register_include_3dwork_macros()
     fi
 }
 
-register_include_3dwork_moonraker_update_manager()
+include_3dwork_moonraker_update_manager()
 {
     report_status "Adding 3Dwork Update Manager to moonraker.conf... Installing"
     printf "${green} QIDI Config Directory: $QIDI_CONFIG_DIR ${white}\n"

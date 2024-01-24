@@ -486,7 +486,7 @@ END_PRINT
 
 As we have already mentioned, these new macros will allow us to have some very useful functions as we listed above.
 
-To adjust these to our machine we will use the variables that we will find in macros/macros_was_globals.cfg and which we detail below.
+Para el ajuste de estas a nuestra máquina utilizaremos las variables que encontraremos en macros/macros_was_globals.cfg and which we detail below.
 
 #### Message/notification language
 
@@ -715,7 +715,7 @@ Our module for Klipper uses the modular configuration system used in RatOS and t
 {% hint style="info" %}
 When used as a module, 3Dwork configurations CANNOT be edited directly from the 3dwork-klipper directory within your Klipper configuration directory since it will be read-only for security.
 
-Por eso es muy importante entender el funcionamiento de Klipper y como poder personalizar nuestros módulos a tu máquina.
+That is why it is very important to understand how Klipper works and how to customize our modules to your machine.
 {% endhint %}
 
 As we explained in "[customizing macros](3dwork-klipper-bundle.md#personalizando-macros)"We will use the same process to adjust parameters or pins to fit our needs.

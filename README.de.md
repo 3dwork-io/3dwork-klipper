@@ -301,7 +301,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | <p><strong>PID_ALL</strong><br><strong>PID_EXTRUDER</strong><br><strong>PID_BED</strong></p> | Mithilfe dieser Makros, mit denen wir die Temperaturen in Form von Parametern an den PID übergeben können, können wir die Temperaturkalibrierung auf äußerst einfache Weise durchführen.                                                                                  |
 | <p><strong>TESTGESCHWINDIGKEIT</strong><br><strong>TEST_SPEED_DELTA</strong></p>             | Das Originalmakro des Companion[Ellis](https://github.com/AndrewEllis93)Sie werden es uns auf relativ einfache Weise ermöglichen, die Geschwindigkeit zu testen, mit der wir unsere Maschine präzise und ohne Schrittverluste bewegen können.                             |
 
--   **Kompilierte Firmware für unterstützte Elektronik**Um den Prozess der Erstellung und Wartung unserer Klipper-Firmware für unsere MCUs zu erleichtern, haben wir das COMPILE-Makro_FIRMWARE, dass wir bei der Ausführung unsere Elektronik als Parameter verwenden können, um nur dies zu tun. Klipper kompiliert für alle von unserem Bundle unterstützten Elektronikkomponenten:\\![](<../../.gitbook/assets/image (1540).png>)\\
+-   **Kompilierte Firmware für unterstützte Elektronik**Um den Prozess der Erstellung und Wartung unserer Klipper-Firmware für unsere MCUs zu erleichtern, haben wir das Makro COMPILE_FIRMWARE, dass wir bei der Ausführung unsere Elektronik als Parameter verwenden können, um nur dies zu tun. Klipper kompiliert für alle von unserem Bundle unterstützten Elektronikkomponenten:\\![](<../../.gitbook/assets/image (1540).png>)\\
     Wir finden diese leicht zugänglich über unsere Web-Benutzeroberfläche im Firmware-Verzeichnis_Binärdateien in unserem MASCHINEN-Tab (wenn wir Großsegel verwenden):\\![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)\\
     Nachfolgend finden Sie die Liste der unterstützten Elektronikgeräte:
 
@@ -469,7 +469,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% Endverlust %}
 
 {% hint style="info" %}
-Los**Platzhalter sind „Aliase“ oder Variablen, die die Laminatoren verwenden, damit sie bei der Generierung des GCodes durch die im Profil konfigurierten Werte ersetzt werden**des Eindrucks.
+Los**Platzhalter sind „Aliase“ oder Variablen, die die Laminatoren verwenden, damit sie diese bei der Generierung des Gcodes durch die im Profil konfigurierten Werte ersetzen**des Eindrucks.
 
 Unter den folgenden Links finden Sie eine Liste davon für:[**Prusa-Schneider**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(zusätzlich zu den oben genannten),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)Und[**Behandlung**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -490,7 +490,7 @@ Um diese an unsere Maschine anzupassen, verwenden wir die Variablen, die wir in 
 
 #### Nachrichten-/Benachrichtigungssprache
 
-Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variable können wir es anpassen:
+Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variablen können wir es anpassen:
 
 <table><thead><tr><th width="189">Variable</th><th width="247">Descripción</th><th width="163">Valores posibles</th><th>Valor por defecto</th></tr></thead><tbody><tr><td>variable_language</td><td>Nos permite seleccionar el idioma de las notificaciones. En el caso de no estar bien definido se usará en (inglés)</td><td>es / en</td><td>es</td></tr></tbody></table>
 
@@ -565,12 +565,12 @@ Eine wichtige Phase unseres Druckstarts ist das korrekte Spülen unserer Düse, 
 | Variable_Düse_Grundierung                  | <p>Wir können zwischen verschiedenen Spüloptionen wählen:<br>- primeline zeichnet die typische Reinigungslinie<br>- primelineadaptative generiert eine Spüllinie, die sich an die Fläche des gedruckten Teils anpasst, wobei variable_nozzle_priming_objectdistance als Rand verwendet wird<br>- Mit Primeblob werfen wir einen Tropfen Filament in eine Ecke unseres Bettes, sehr effektiv zum Reinigen der Düse und leicht zu entfernen</p> | <p>Hauptlinie /</p><p>primelineadaptiv /<br>primeblob /<br>FALSCH</p> | adaptive Primlinien |
 | Variable_Düse_Grundierung_Objektentfernung | Wenn wir eine adaptive Beschnittlinie verwenden, ist dies der Rand, der zwischen der Beschnittlinie und dem gedruckten Objekt verwendet werden soll                                                                                                                                                                                                                                                                                           | numerisch                                                             | 5                   |
 | Variable_Düse_Primzahl_Start_X             | <p>Wo wir unsere Spülleitung platzieren möchten:<br>- min wird es bei X=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei X=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die X-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                  | max                 |
-| Variable_Düse_Primzahl_Start_Und           | <p>Wo wir unsere Spülleitung platzieren möchten:<br>- min wird es bei Y=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei Y=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die Y-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                  | Mindest             |
+| Variable_Düse_Primzahl_Start_Und           | <p>Donde queremos ubicar nuestra línea de purga:<br>- min wird es bei Y=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei Y=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die Y-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                  | Mindest             |
 | Variable_Düse_Primzahl_Richtung            | <p>Die Adresse unserer Leitung oder Zustellung:<br>- Nach hinten bewegt sich der Kopf zur Vorderseite des Druckers<br>- Vorwärts bewegt sich nach hinten<br>- Auto bewegt sich abhängig von variable_nozzle_prime_start_y zur Mitte</p>                                                                                                                                                                                                       | <p>automatisch /<br>vorwärts /<br>rückwärts</p>                       | Auto                |
 
 #### Laden/Entladen des Filaments
 
-In diesem Fall erleichtert uns diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
+In diesem Fall erleichtert diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
 
 | Variable                                    | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                            | Mögliche Werte | Standardwert |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
@@ -668,7 +668,7 @@ Die drei Punkte (...) in den vorherigen Beispielen sollen lediglich darauf hinwe
 
 #### Anpassen von Makros
 
-Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie bereits erwähnt, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
+Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie wir bereits erwähnt haben, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
 
 Wir haben zwei Gruppen von Makros:
 

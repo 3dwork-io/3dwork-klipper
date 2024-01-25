@@ -48,7 +48,7 @@ register_gcode_shell_command()
     report_status "Register Gcode Shell Command... Success!!!"
 }
 
-include_3dwork_macros()
+include_3dwork_qidi_printer_macros()
 {
     report_status "Adding 3Dwork macros to printer.cfg... Installing"
     printf "${green} QIDI Config Directory: $QIDI_CONFIG_DIR ${white}\n"
@@ -73,7 +73,7 @@ include_3dwork_moonraker_update_manager()
         echo "printer.cfg already includes 3Dwork cfgs"
     else
         printf "${green}Including 3Dwork macro cfgs in printer.cfg ${white}\n"
-        sed -i '/\[include 3dwork-klipper/moonraker.conf]/a' $QIDI_CONFIG_DIR/printer.cfg
+        sed -i '/\[include 3dwork-klipper\moonraker.conf]/a' $QIDI_CONFIG_DIR/printer.cfg
     fi
 }
 

@@ -394,7 +394,7 @@ From our interface, Mainsail/Fluidd, we will edit our printer.cfg and add:
 {%endcode%}
 
 {% hint style="info" %}
-It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours :\\#\*# &lt;---------------------- SAVE_CONFIG ---------------------->
+It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours:\\#\*# &lt;---------------------- SAVE_CONFIG ---------------------->
 {% endhint %}
 
 {% hint style="warning" %}
@@ -469,7 +469,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% endloss %}
 
 {% hint style="info" %}
-Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**of impression.
+Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they replace them with the values ​​configured in the profile**of impression.
 
 In the following links you can find a list of these for:[**Prusa Slicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -486,7 +486,7 @@ END_PRINT
 
 As we have already mentioned, these new macros will allow us to have some very useful functions as we listed above.
 
-Para el ajuste de estas a nuestra máquina utilizaremos las variables que encontraremos en macros/macros_was_globals.cfg and which we detail below.
+To adjust these to our machine we will use the variables that we will find in macros/macros_was_globals.cfg and which we detail below.
 
 #### Message/notification language
 
@@ -558,7 +558,7 @@ It is important that we have in our[start gcode of our laminator](../empezamos/c
 
 #### purged
 
-An important phase of our start of printing is a correct purging of our nozzle to avoid filament remains or that these could damage our printing at some point. Below you have the variables that intervene in this process:
+An important phase of our start of printing is a correct purging of our nozzle to avoid remains of filament or that these could damage our printing at some point. Below you have the variables that intervene in this process:
 
 | Variable                               | Description                                                                                                                                                                                                                                                                                                                                                                                         | Possible values                                                        | Default value       |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------- |
@@ -570,13 +570,13 @@ An important phase of our start of printing is a correct purging of our nozzle t
 
 #### Filament loading/unloading
 
-In this case, this group of variables will make it easier for us to manage the loading and unloading of our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
+In this case, this group of variables will facilitate the management of loading and unloading our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
 
 | Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                        | Possible values | Default value |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |
 | variable_filament_unload_length | How much to retract the filament in mm, adjust to your machine, normally the measurement from your nozzle to the gears of your extruder adding an extra margin.                                                                                                                                                                                                                    | number          | 130           |
 | variable_filament_unload_speed  | Filament retraction speed in mm/sec normally a slow speed is used.                                                                                                                                                                                                                                                                                                                 | number          | 5             |
-| variable_filament_load_length   | Distance in mm to load the new filament... as well as in variable_filament_unload_length we will use the measurement from your gear to extruder adding an extra margin, in this case this extra value will depend on how much you want it to purge... normally you can give it more margin than the previous value to ensure that the extrusion of the previous filament is clean. | number          | 150           |
+| variable_filament_load_length   | Distance in mm to load the new filament... as well as in variable_filament_unload_length we will use the measurement from your gear to extruder adding an extra margin, in this case this extra value will depend on how much you want it to purge... normally you can give it more margin than the previous value to ensure that the extrusion of the previous filament is clean. | número          | 150           |
 | variable_filament_load_speed    | Filament loading speed in mm/sec, normally a faster speed is used than the unloading speed.                                                                                                                                                                                                                                                                                        | number          | 10            |
 
 {% hint style="warning" %}

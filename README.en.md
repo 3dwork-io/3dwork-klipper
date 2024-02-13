@@ -145,7 +145,7 @@ Some added macros that will be useful to us:
 
 <table><thead><tr><th width="170">Macro</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>START_PRINT</strong></td><td>Nos permitirá poder iniciar nuestras impresiones de una forma segura y al estilo Klipper. Dentro de esta encontraremos algunas funciones interesantes como:<br>- precalentado de nozzle inteligente en el caso de contar con sensor probe<br>- posibilidad de uso de z-tilt mediante variable<br>- mallado de cama adaptativo, forzado o desde una malla guardada<br>- línea de purga personalizable entre normal, línea de purgado adaptativa o gota de purgado<br>- macro segmentada para poder personalizarse tal como os mostraremos más adelante</td></tr><tr><td><strong>END_PRINT</strong></td><td>Macro de fin de impresión donde también disponemos de segmentación para poder personalizar nuestra macro. También contamos con aparcado dinámico del cabezal.</td></tr></tbody></table>
 
--   **Adaptive bed mesh**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations from our bed that allows us to correct these to have perfect adhesion of the first layers. \\
+-   **Adaptive bed mesh**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations in our bed that allows us to correct these to have perfect adhesion of the first layers. \\
     On many occasions we do this meshing before printing to ensure that it works correctly and this is done on the entire surface of our bed.\\
     With adaptive bed meshing, this will be done in the printing area, making it much more precise than the traditional method... in the following screenshots we will see the differences between a traditional mesh and an adaptive one.\\![](<../../.gitbook/assets/image (1220).png>)![](<../../.gitbook/assets/image (348).png>)
 
@@ -230,7 +230,7 @@ SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
 APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 ```
 
-On the other hand, it is interesting to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
+On the other hand, it is interesting to be able to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
 
 {% hint style="warning" %}
 It is important that the value in NAME="xxxx" matches the name we gave when installing our printing surface
@@ -394,7 +394,7 @@ From our interface, Mainsail/Fluidd, we will edit our printer.cfg and add:
 {%endcode%}
 
 {% hint style="info" %}
-It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours:\\#\*# &lt;---------------------- SAVE_CONFIG ---------------------->
+It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours :\\#\*# &lt;---------------------- SAVE_CONFIG ---------------------->
 {% endhint %}
 
 {% hint style="warning" %}
@@ -469,7 +469,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% endloss %}
 
 {% hint style="info" %}
-Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they replace them with the values ​​configured in the profile**of impression.
+Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**of impression.
 
 In the following links you can find a list of these for:[**Prusa Slicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -570,13 +570,13 @@ An important phase of our start of printing is a correct purging of our nozzle t
 
 #### Filament loading/unloading
 
-In this case, this group of variables will facilitate the management of loading and unloading our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
+In this case, this group of variables will make it easier for us to manage the loading and unloading of our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
 
 | Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                        | Possible values | Default value |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |
 | variable_filament_unload_length | How much to retract the filament in mm, adjust to your machine, normally the measurement from your nozzle to the gears of your extruder adding an extra margin.                                                                                                                                                                                                                    | number          | 130           |
 | variable_filament_unload_speed  | Filament retraction speed in mm/sec normally a slow speed is used.                                                                                                                                                                                                                                                                                                                 | number          | 5             |
-| variable_filament_load_length   | Distance in mm to load the new filament... as well as in variable_filament_unload_length we will use the measurement from your gear to extruder adding an extra margin, in this case this extra value will depend on how much you want it to purge... normally you can give it more margin than the previous value to ensure that the extrusion of the previous filament is clean. | número          | 150           |
+| variable_filament_load_length   | Distance in mm to load the new filament... as well as in variable_filament_unload_length we will use the measurement from your gear to extruder adding an extra margin, in this case this extra value will depend on how much you want it to purge... normally you can give it more margin than the previous value to ensure that the extrusion of the previous filament is clean. | number          | 150           |
 | variable_filament_load_speed    | Filament loading speed in mm/sec, normally a faster speed is used than the unloading speed.                                                                                                                                                                                                                                                                                        | number          | 10            |
 
 {% hint style="warning" %}
@@ -695,7 +695,7 @@ We have two groups of macros:
 | \_USER_RESUME_START | Executed at the beginning of a RESUME |
 | \_USER_RESUME_END   | Executed at the end of a RESUME       |
 
--   Internal macros are macros to divide the main macro into processes and are important for this. It is advisable that if adjustments are required, they be copied as is.
+-   Macros internas, son macros para dividir la macro principal en procesos y es importante para este. Es aconsejable que en caso de requerir ajustarse estas se copien tal cual.
 
 **START_PRINT**
 

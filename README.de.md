@@ -145,7 +145,7 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 
 <table><thead><tr><th width="170">Macro</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>START_PRINT</strong></td><td>Nos permitirá poder iniciar nuestras impresiones de una forma segura y al estilo Klipper. Dentro de esta encontraremos algunas funciones interesantes como:<br>- precalentado de nozzle inteligente en el caso de contar con sensor probe<br>- posibilidad de uso de z-tilt mediante variable<br>- mallado de cama adaptativo, forzado o desde una malla guardada<br>- línea de purga personalizable entre normal, línea de purgado adaptativa o gota de purgado<br>- macro segmentada para poder personalizarse tal como os mostraremos más adelante</td></tr><tr><td><strong>END_PRINT</strong></td><td>Macro de fin de impresión donde también disponemos de segmentación para poder personalizar nuestra macro. También contamos con aparcado dinámico del cabezal.</td></tr></tbody></table>
 
--   **Adaptives Bettnetz**Dank der Vielseitigkeit von Klipper können wir Dinge tun, die heute unmöglich erscheinen ... Ein wichtiger Prozess beim Drucken besteht darin, ein Netz von Abweichungen von unserem Bett zu erstellen, das es uns ermöglicht, diese zu korrigieren, um eine perfekte Haftung der ersten Schichten zu erreichen. \\
+-   **Adaptives Bettnetz**Dank der Vielseitigkeit von Klipper können wir Dinge tun, die heute unmöglich erscheinen ... Ein wichtiger Prozess beim Drucken besteht darin, ein Netz von Abweichungen in unserem Bett zu haben, das es uns ermöglicht, diese zu korrigieren, um eine perfekte Haftung der ersten Schichten zu erreichen. \\
     Bei vielen Gelegenheiten führen wir diese Vernetzung vor dem Drucken durch, um sicherzustellen, dass es ordnungsgemäß funktioniert, und zwar auf der gesamten Oberfläche unseres Bettes.\\
     Bei der adaptiven Bettvernetzung erfolgt dies im Druckbereich und ist damit viel präziser als die herkömmliche Methode. In den folgenden Screenshots sehen wir die Unterschiede zwischen einem herkömmlichen und einem adaptiven Netz.\\![](<../../.gitbook/assets/image (1220).png>)![](<../../.gitbook/assets/image (348).png>)
 
@@ -230,7 +230,7 @@ SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
 APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 ```
 
-Andererseits ist es interessant, Makros zu haben, um die eine oder andere Oberfläche zu aktivieren oder sie sogar als Parameter von unserem Laminator zu übergeben, damit wir bei unterschiedlichen Drucker- oder Filamentprofilen die eine oder andere automatisch laden können:
+Andererseits ist es interessant, Makros zu haben, um die eine oder andere Oberfläche zu aktivieren oder sie sogar als Parameter von unserem Laminator zu übergeben, sodass wir bei unterschiedlichen Drucker- oder Filamentprofilen die eine oder andere automatisch laden können:
 
 {% hint style="warning" %}
 Es ist wichtig, dass der Wert in NAME="xxxx" mit dem Namen übereinstimmt, den wir bei der Installation unserer Druckoberfläche angegeben haben
@@ -255,7 +255,7 @@ gcode:
 
 {%endcode%}
 
-Auch wenn wir über KlipperScreen verfügen, können wir ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in das wir einen Aufruf der zuvor für das Laden jeder Oberfläche erstellten Makros einfügen:
+Wenn KlipperScreen vorhanden ist, können wir auch ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in das wir einen Aufruf der Makros einfügen, die zuvor für das Laden jeder Oberfläche erstellt wurden:
 
 {% code title="~/printer_data/config/KlipperScreen.conf" %}
 
@@ -398,7 +398,7 @@ Es ist wichtig, dass wir diese Zeilen am Ende unserer Konfigurationsdatei hinzuf
 {% endhint %}
 
 {% hint style="warning" %}
-Normale Makros wurden abgetrennt**Makros-Shell**angesichts dessen**Um diese zu aktivieren, müssen zusätzlich zu der Tatsache, dass sie derzeit getestet werden, weitere Schritte manuell durchgeführt werden.**Und**Sie benötigen möglicherweise zusätzliche Berechtigungen, um Ausführungsberechtigungen zuzuweisen, für die keine Anweisungen angegeben wurden, da sie eine Automatisierung anstreben.**\\<mark style="color:red;">**Die Nutzung geschieht auf eigenes Risiko.**</mark>{% endint %}
+Normale Makros wurden abgetrennt**Makros-Shell**angesichts dessen**Um diese zu aktivieren, müssen zusätzlich zu der Tatsache, dass sie derzeit getestet werden, weitere Schritte manuell durchgeführt werden.**Und**Sie benötigen möglicherweise zusätzliche Berechtigungen, um Ausführungsberechtigungen zuzuweisen, für die keine Anweisungen angegeben wurden, da sie eine Automatisierung anstreben.**\\<mark style="color:red;">**Die Nutzung erfolgt auf eigenes Risiko.**</mark>{% endint %}
 
 ### Konfiguration unseres Laminators
 
@@ -469,7 +469,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% Endverlust %}
 
 {% hint style="info" %}
-Los**Platzhalter sind „Aliase“ oder Variablen, die die Laminatoren verwenden, damit sie diese bei der Generierung des Gcodes durch die im Profil konfigurierten Werte ersetzen**des Eindrucks.
+Los**Platzhalter sind „Aliase“ oder Variablen, die die Laminatoren verwenden, damit sie bei der Generierung des GCodes durch die im Profil konfigurierten Werte ersetzt werden**des Eindrucks.
 
 Unter den folgenden Links finden Sie eine Liste davon für:[**Prusa-Schneider**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(zusätzlich zu den oben genannten),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)Und[**Behandlung**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -490,7 +490,7 @@ Um diese an unsere Maschine anzupassen, verwenden wir die Variablen, die wir in 
 
 #### Nachrichten-/Benachrichtigungssprache
 
-Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variablen können wir es anpassen:
+Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variable können wir es anpassen:
 
 <table><thead><tr><th width="189">Variable</th><th width="247">Descripción</th><th width="163">Valores posibles</th><th>Valor por defecto</th></tr></thead><tbody><tr><td>variable_language</td><td>Nos permite seleccionar el idioma de las notificaciones. En el caso de no estar bien definido se usará en (inglés)</td><td>es / en</td><td>es</td></tr></tbody></table>
 
@@ -565,12 +565,12 @@ Eine wichtige Phase unseres Druckstarts ist das korrekte Spülen unserer Düse, 
 | Variable_Düse_Grundierung                  | <p>Wir können zwischen verschiedenen Spüloptionen wählen:<br>- primeline zeichnet die typische Reinigungslinie<br>- primelineadaptative generiert eine Spüllinie, die sich an die Fläche des gedruckten Teils anpasst, wobei variable_nozzle_priming_objectdistance als Rand verwendet wird<br>- Mit Primeblob werfen wir einen Tropfen Filament in eine Ecke unseres Bettes, sehr effektiv zum Reinigen der Düse und leicht zu entfernen</p> | <p>Hauptlinie /</p><p>primelineadaptiv /<br>primeblob /<br>FALSCH</p> | adaptive Primlinien |
 | Variable_Düse_Grundierung_Objektentfernung | Wenn wir eine adaptive Beschnittlinie verwenden, ist dies der Rand, der zwischen der Beschnittlinie und dem gedruckten Objekt verwendet werden soll                                                                                                                                                                                                                                                                                           | numerisch                                                             | 5                   |
 | Variable_Düse_Primzahl_Start_X             | <p>Wo wir unsere Spülleitung platzieren möchten:<br>- min wird es bei X=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei X=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die X-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                  | max                 |
-| Variable_Düse_Primzahl_Start_Und           | <p>Donde queremos ubicar nuestra línea de purga:<br>- min wird es bei Y=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei Y=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die Y-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                  | Mindest             |
+| Variable_Düse_Primzahl_Start_Und           | <p>Wo wir unsere Spülleitung platzieren möchten:<br>- min wird es bei Y=0 tun (plus einer kleinen Sicherheitsmarge)<br>- max wird dies bei Y=max tun (abzüglich einer kleinen Sicherheitsmarge)<br>- Die Zahl ist die Y-Koordinate, an der die Spülung erfolgen soll</p>                                                                                                                                                                      | <p>Mindest /<br>max. /<br>Nummer</p>                                  | Mindest             |
 | Variable_Düse_Primzahl_Richtung            | <p>Die Adresse unserer Leitung oder Zustellung:<br>- Nach hinten bewegt sich der Kopf zur Vorderseite des Druckers<br>- Vorwärts bewegt sich nach hinten<br>- Auto bewegt sich abhängig von variable_nozzle_prime_start_y zur Mitte</p>                                                                                                                                                                                                       | <p>automatisch /<br>vorwärts /<br>rückwärts</p>                       | Auto                |
 
 #### Laden/Entladen des Filaments
 
-In diesem Fall erleichtert diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
+In diesem Fall erleichtert uns diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
 
 | Variable                                    | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                            | Mögliche Werte | Standardwert |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
@@ -668,7 +668,7 @@ Die drei Punkte (...) in den vorherigen Beispielen sollen lediglich darauf hinwe
 
 #### Anpassen von Makros
 
-Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie wir bereits erwähnt haben, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
+Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie bereits erwähnt, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
 
 Wir haben zwei Gruppen von Makros:
 

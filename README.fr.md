@@ -145,8 +145,8 @@ Quelques macros ajoutées qui nous seront utiles :
 
 <table><thead><tr><th width="170">Macro</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>START_PRINT</strong></td><td>Nos permitirá poder iniciar nuestras impresiones de una forma segura y al estilo Klipper. Dentro de esta encontraremos algunas funciones interesantes como:<br>- precalentado de nozzle inteligente en el caso de contar con sensor probe<br>- posibilidad de uso de z-tilt mediante variable<br>- mallado de cama adaptativo, forzado o desde una malla guardada<br>- línea de purga personalizable entre normal, línea de purgado adaptativa o gota de purgado<br>- macro segmentada para poder personalizarse tal como os mostraremos más adelante</td></tr><tr><td><strong>END_PRINT</strong></td><td>Macro de fin de impresión donde también disponemos de segmentación para poder personalizar nuestra macro. También contamos con aparcado dinámico del cabezal.</td></tr></tbody></table>
 
--   **Cadre de lit adaptatif**Grâce à la polyvalence de Klipper, nous pouvons faire des choses qui semblent aujourd'hui impossibles... un processus important pour l'impression est d'avoir un maillage d'écarts par rapport à notre lit qui nous permet de les corriger pour avoir une parfaite adhérence des premières couches. \\
-    À de nombreuses reprises, nous effectuons ce maillage avant l'impression pour nous assurer qu'il fonctionne correctement et cela se fait sur toute la surface de notre lit.
+-   **Cadre de lit adaptatif**Grâce à la polyvalence de Klipper, nous pouvons faire des choses qui semblent impossibles aujourd'hui... un processus important pour l'impression est d'avoir un maillage d'écarts dans notre lit qui nous permet de les corriger pour avoir une parfaite adhérence des premières couches. \\
+    À de nombreuses reprises, nous effectuons ce maillage avant l'impression pour nous assurer qu'il fonctionne correctement et cela se fait sur toute la surface de notre lit.\\
     Avec le maillage de lit adaptatif, cela se fera dans la zone d'impression, ce qui le rend beaucoup plus précis que la méthode traditionnelle... dans les captures d'écran suivantes, nous verrons les différences entre un maillage traditionnel et un maillage adaptatif.\\![](<../../.gitbook/assets/image (1220).png>)![](<../../.gitbook/assets/image (348).png>)
 
 ### **Macros de gestion des filaments**
@@ -206,7 +206,7 @@ Cet ensemble de macros, créé par[Garethky](https://github.com/garethky), ils n
 D'un autre côté, nous avons quelques**exigences pour le mettre en œuvre**<mark style="color:orange;">**(il essaiera d'ajouter la logique PRINT_START du bundle dans le futur en activant cette fonction par variable et en créant une macro utilisateur précédente et suivante pour pouvoir saisir les événements utilisateur)**</mark>:
 
 -   l'utilisation de\[sauvegarder_variables], dans notre cas nous utiliserons~/variables.cfg pour stocker les variables et cela se trouve déjà dans le cfg de ces macros. \\
-    Cela créera automatiquement un fichier de variables pour nous_construire_sheet.cfg où il sauvegardera nos variables sur le disque.
+    Cela créera automatiquement un fichier de variables pour nous_construire_sheet.cfg où il enregistrera nos variables sur le disque.
 
 {% code title="Exemple de fichier de configuration de variables" %}
 
@@ -230,7 +230,7 @@ SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
 APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 ```
 
-Par contre, il est intéressant d'avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
+Par contre, il est intéressant de pouvoir avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
 
 {% indice style="avertissement" %}
 Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.
@@ -384,7 +384,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 
 Depuis notre interface, Mainsail/Fluidd, nous allons éditer notre imprimante.cfg et ajouter :
 
-{% code title="printer.cfg" %}
+{% code title="imprimante.cfg" %}
 
     ## 3Dwork standard macros
     [include 3dwork-klipper/macros/macros_*.cfg]
@@ -469,7 +469,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 {% de perte finale %}
 
 {% indice style="info" %}
-Los**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils les remplacent par les valeurs configurées dans le profil**d'impression.
+Los**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils soient remplacés par les valeurs configurées dans le profil**d'impression.
 
 Dans les liens suivants, vous pouvez en trouver une liste pour :[**Trancheuse Prusa**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(en plus de ceux ci-dessus),[**Studio Bambou**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)et[**Traitement**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -570,7 +570,7 @@ Une phase importante de notre démarrage d'impression est une purge correcte de 
 
 #### Chargement/déchargement de filaments
 
-Dans ce cas, ce groupe de variables facilitera la gestion du chargement et du déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
+Dans ce cas, ce groupe de variables nous permettra de gérer plus facilement le chargement et le déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
 
 | Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        | Valeurs possibles | Valeur par défaut |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
@@ -726,7 +726,7 @@ Tout comme nous vous conseillons de créer une section dans votre imprimante.cfg
 
 Dans l'exemple suivant, nous verrons comment dans notre cas nous souhaitons personnaliser les paramètres de notre nivellement de lit (lit_mesh) en ajustant les points de sonde_count) par rapport à la configuration que nous avons par défaut dans les configurations de notre module Klipper :
 
-{% code title="printer.cfg" %}
+{% code title="imprimante.cfg" %}
 
 ```django
 ### 3Dwork Klipper Includes
@@ -761,7 +761,7 @@ Nous procéderons exactement comme nous l'avons fait précédemment, dans notre 
 
 Dans l'exemple suivant, nous allons personnaliser quelle est la broche de notre ventilateur électronique (contrôleur_ventilateur) pour l'attribuer à un autre que celui par défaut :
 
-{% code title="printer.cfg" %}
+{% code title="imprimante.cfg" %}
 
 ```django
 ### 3Dwork Klipper Includes

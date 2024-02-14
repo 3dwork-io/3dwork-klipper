@@ -157,7 +157,7 @@ Eine Reihe von Makros, die es uns ermöglichen, verschiedene Aktionen mit unsere
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **M600**               | Dies ermöglicht uns die Kompatibilität mit dem M600-Gcode, der normalerweise in Laminatoren für den Filamentwechsel verwendet wird. |
 | **ENTLADEN_FILAMENT**  | Über die Variablen konfigurierbar, ermöglicht es uns eine unterstützte Filamententladung.                                           |
-| **BELASTUNG_FILAMENT** | Igual que la anterior pero relacionada con la carga del filamento.                                                                  |
+| **BELASTUNG_FILAMENT** | Wie das vorherige, jedoch bezogen auf die Filamentlast.                                                                             |
 
 ### <mark style="color:orange;">**Makros zur Filamentspulenverwaltung (Spoolman)**</mark>
 

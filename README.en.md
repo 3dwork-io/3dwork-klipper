@@ -203,7 +203,7 @@ This set of macros, created by[Garethky](https://github.com/garethky), they will
 -   each printing surface will have its own ZOffset
 -   If we make Z adjustments during a print (Babystepping) from our Klipper, this change will be stored in the surface enabled at that moment
 
-On the other hand we have some**requirements to implement it**<mark style="color:orange;">**(it will try to add in the PRINT logic_START of the bundle in the future by activating this function by variable and creating a previous and subsequent user macro to be able to enter user events)**</mark>:
+Por otro lado tenemos algunos **requirements to implement it**<mark style="color:orange;">**(it will try to add in the PRINT logic_START of the bundle in the future by activating this function by variable and creating a previous and subsequent user macro to be able to enter user events)**</mark>:
 
 -   the use of\[save_variables], in our case we will use~/variables.cfg to store the variables and that is already inside the cfg of these macros. \\
     This will automatically create a variables file for us_build_sheets.cfg where it will save our variables on disk.

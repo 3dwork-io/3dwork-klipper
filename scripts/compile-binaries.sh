@@ -1,7 +1,7 @@
 #!/bin/bash
 
-workspace_klipper="/xhome/pi/klipper"
-workspace_3dwork="/xhome/pi/printer_data/config"
+workspace_klipper="/home/pi/klipper"
+workspace_3dwork="/home/pi/printer_data/config"
 
 compile_btt-manta-e3ez() {
     echo "Compiling firmware for BTT Manta E3 EZ"

@@ -282,14 +282,40 @@ compile_znp_robin_nano_dw_v2() {
     cp $workspace_klipper/out/klipper.bin $workspace_3dwork/firmware_binaries/firmware-znp-robin-nano-dw-v2.bin
 }
 
+#####################################
+# NOT ADDED TO KLIPPER AUTO BUILDER #
+#####################################
+
 compile_mks-eagle-10() {
     echo "Compiling firmware for ZNP Robin Nano DW v2"
     cp -f $workspace_3dwork/3dwork-klipper/boards/mks-eagle-10/firmware.config $workspace_klipper/.config
     make olddefconfig
     make clean
     make
-    cp $workspace_klipper/out/klipper.bin $workspace_3dwork/firmware_binaries/mks-eagle-10.bin
+    cp $workspace_klipper/out/klipper.bin $workspace_3dwork/firmware_binaries/firmware-mks-eagle-10.bin
 }
+
+compile_mks-robin-nano-30() {
+    echo "Compiling firmware for ZNP Robin Nano DW v2"
+    cp -f $workspace_3dwork/3dwork-klipper/boards/mks-robin-nano-30/firmware.config $workspace_klipper/.config
+    make olddefconfig
+    make clean
+    make
+    cp $workspace_klipper/out/klipper.bin $workspace_3dwork/firmware_binaries/firmware-mks-robin-nano-30.bin
+}
+
+compile_mks-robin-nano-20() {
+    echo "Compiling firmware for ZNP Robin Nano DW v2"
+    cp -f $workspace_3dwork/3dwork-klipper/boards/mks-robin-nano-20/firmware.config $workspace_klipper/.config
+    make olddefconfig
+    make clean
+    make
+    cp $workspace_klipper/out/klipper.bin $workspace_3dwork/firmware_binaries/firmware-mks-robin-nano-20.bin
+}
+
+#####################################
+# NOT ADDED TO KLIPPER AUTO BUILDER #
+#####################################
 
 # Force script to exit if an error occurs
 set -e
@@ -333,6 +359,8 @@ if [ -z "$1" ]; then
     compile_znp_robin_nano_dw_v2
     # Makerbase
     compile_mks-eagle-10
+    compile_mks-robin-nano-30
+    compile_mks-robin-nano-20
     # Fysetc
     compile_fysetc_spider
     # Mellow

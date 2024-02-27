@@ -148,7 +148,7 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 | -Intelligente Düsenvorwärmung bei Verwendung eines Sondensensors                          |                                                                                                                                                  |
 | -Möglichkeit der Verwendung der Z-Neigung durch Variable                                  |                                                                                                                                                  |
 | -adaptives Bettnetz, erzwungen oder aus einem gespeicherten Netz                          |                                                                                                                                                  |
-| -anpassbare Spülleitung zwischen normaler, adaptiver Spülleitung oder Spülabfall          |                                                                                                                                                  |
+| -Anpassbare Spülleitung zwischen normaler, adaptiver Spülleitung oder Spülabfall          |                                                                                                                                                  |
 | -segmentiertes Makro, um es personalisieren zu können, wie wir Ihnen später zeigen werden |                                                                                                                                                  |
 | **ENDE_DRUCKEN**                                                                          | End-of-Print-Makro, bei dem wir auch eine Segmentierung haben, um unser Makro anpassen zu können. Wir verfügen auch über dynamisches Kopfparken. |
 
@@ -237,7 +237,7 @@ Andererseits haben wir welche**Anforderungen, um es zu implementieren (wir werde
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-Andererseits ist es interessant, über Makros verfügen zu können, um die eine oder andere Oberfläche zu aktivieren oder sie sogar als Parameter von unserem Laminator zu übergeben, sodass wir bei unterschiedlichen Drucker- oder Filamentprofilen die eine oder andere automatisch laden können:
+Andererseits ist es interessant, Makros zu haben, um die eine oder andere Oberfläche zu aktivieren oder sie sogar als Parameter von unserem Laminator zu übergeben, damit wir bei unterschiedlichen Drucker- oder Filamentprofilen die eine oder andere automatisch laden können:
 
 {% hint style="warning" %}  
 Es ist wichtig, dass der Wert in NAME="xxxx" mit dem Namen übereinstimmt, den wir bei der Installation unserer Druckoberfläche angegeben haben  
@@ -384,7 +384,7 @@ Wir können den Vorgang auch manuell durchführen, wir kopieren das Plugin manue
 
 ### Hinzufügen von 3Dwork-Makros zu unserer Installation
 
-Über unsere Schnittstelle „Mainsail/Fluidd“ bearbeiten wir unsere Datei „printer.cfg“ und fügen Folgendes hinzu:
+Über unsere Schnittstelle Mainsail/Fluidd bearbeiten wir unsere Printer.cfg und fügen Folgendes hinzu:
 
 {% code title="printer.cfg" %}
 
@@ -411,7 +411,7 @@ Da unsere Makros dynamisch sind, extrahieren sie bestimmte Informationen aus uns
 
 -   **Starten Sie den Gcode START_DRUCKEN**, unter Verwendung von Platzhaltern, um Filament- und Betttemperaturwerte dynamisch zu übergeben:
 
-{% tabs %}  
+{% Tabs %}  
 {% tab title="PrusaSlicer-SuperSlicer" %}  
 **Prusa-Schneider**
 
@@ -483,7 +483,7 @@ Um diese an unsere Maschine anzupassen, verwenden wir die Variablen, die wir in 
 
 #### Nachrichten-/Benachrichtigungssprache
 
-Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variablen können wir es anpassen:
+Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variable können wir es anpassen:
 
 | Variable         | Beschreibung                                                                                                                           | Mögliche Werte | Standardwert |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
@@ -512,7 +512,7 @@ Zum Verwalten der in Makros verwendeten Geschwindigkeiten.
 
 #### Heimkehr
 
-Satz von Variablen im Zusammenhang mit dem Referenzierungsprozess.
+Satz von Variablen, die sich auf den Referenzierungsprozess beziehen.
 
 | Variable | Beschreibung | Mögliche Werte | Standardwert |
 | -------- | ------------ | -------------- | ------------ |
@@ -532,7 +532,7 @@ Vorteile der Verwendung einer vorgeheizten Düse:
 
 -   Es gibt uns zusätzliche Zeit, damit das Bett seine Temperatur gleichmäßig erreichen kann.
 -   Wenn wir einen induktiven Sensor ohne Temperaturkompensation verwenden, können unsere Messungen konsistenter und präziser sein.
--   Es ermöglicht Ihnen, eventuell in der Düse verbleibendes Filament aufzuweichen, was bedeutet, dass diese Reste in bestimmten Konfigurationen keinen Einfluss auf die Aktivierung des Sensors haben.  
+-   Ermöglicht das Aufweichen des restlichen Filaments in der Düse, was bedeutet, dass diese Reste in bestimmten Konfigurationen keinen Einfluss auf die Aktivierung des Sensors haben.  
     {% endint %}
 
 #### Bettgitter
@@ -562,7 +562,7 @@ Eine wichtige Phase unseres Druckstarts ist das korrekte Spülen unserer Düse, 
 | Variable                                                                                                                                                               | Beschreibung                                           | Mögliche Werte | Standardwert |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------------- | ------------ |
 | Variable_Düse_Grundierung                                                                                                                                              | Wir können zwischen verschiedenen Spüloptionen wählen: |                |              |
-| -primeline wird die typische Löschlinie zeichnen                                                                                                                       |                                                        |                |              |
+| -primeline zeichnet die typische Löschlinie                                                                                                                            |                                                        |                |              |
 | -primelineadaptative generiert mithilfe einer Variablen eine Spüllinie, die sich an die Fläche des gedruckten Teils anpasst_Düse_Grundierung_Objektentfernung als Rand |                                                        |                |              |
 | -Mit primeblob werfen wir einen Tropfen Filament in eine Ecke unseres Bettes, der sich sehr effektiv zum Reinigen der Düse eignet und leicht zu entfernen ist          |                                                        |                |              |
 | Hauptlinie /                                                                                                                                                           |                                                        |                |              |
@@ -576,7 +576,7 @@ FALSCH
 | Variable_Düse_Primzahl_Start_x | Wo wir unsere Spülleitung platzieren möchten:  
 -min wird es bei X=0 tun (plus einer kleinen Sicherheitsmarge)  
 -max wird dies bei X=max tun (abzüglich einer kleinen Sicherheitsmarge)  
--Die Zahl ist die X-Koordinate, an der sich die Spülung | befindet Mindest /  
+-Die Zahl ist die X-Koordinate, an der die Spülung | lokalisiert werden soll Mindest /  
 max. /  
 Zahl | max |  
 | Variable_Düse_Primzahl_Start_und | Wo wir unsere Spülleitung platzieren möchten:  
@@ -693,12 +693,11 @@ Die drei Punkte (...) in den vorherigen Beispielen sollen lediglich darauf hinwe
 {% hint style="info" %}
 
 -   Wir empfehlen Ihnen, Kommentare hinzuzufügen, wie Sie es im vorherigen Fall gesehen haben, um herauszufinden, was die einzelnen Abschnitte bewirken.
--   Obwohl Sie nicht alle Variablen berühren müssen, empfehlen wir Ihnen, den gesamten Inhalt von zu kopieren\[gcode_Makro GLOBAL_WESSEN]
-    {% endhint %}
+-   Obwohl Sie nicht alle Variablen berühren müssen, empfehlen wir Ihnen, den gesamten Inhalt von zu kopieren\[gcode_Makro GLOBAL_WESSEN]{% endint %}
 
 #### Anpassen von Makros
 
-Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie bereits erwähnt, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
+Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie wir bereits erwähnt haben, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
 
 Wir haben zwei Gruppen von Makros:
 
@@ -736,13 +735,13 @@ Wir haben zwei Gruppen von Makros:
 
 **START_DRUCKEN**
 
-| Makroname                             | Beschreibung                                                                                                                                                                                                                          |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \_START_DRUCKEN_HITZE_KAMMER          | Erhitzt das Gehäuse, wenn der CHAMBER-Parameter überschritten wird_TEMP wird von unserem START-Makro empfangen_DRUCKEN vom Laminator                                                                                                  |
-| \_START_DRUCKEN_NACH_HEIZUNG_BETT     | Es wird ausgeführt, wenn das Bett die Temperatur erreicht hat_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_BETT. Wird normalerweise zur Verarbeitung von Bettkalibrierungen verwendet (Z_NEIGUNG_EINSTELLEN, VIERFACH_PORTAL_NIVELLIERUNG,...) |
-| \_START_DRUCKEN_BETT_GITTERGEWEBE     | Es kümmert sich um die Bettvernetzungslogik.                                                                                                                                                                                          |
-| \_START_DRUCKEN_PARK                  | Parken Sie den Druckkopf, während Sie die Düse auf Drucktemperatur erwärmen.                                                                                                                                                          |
-| \_START_DRUCKEN_NACH_HEIZUNG_EXTRUDER | Spülen Sie die Düse und laden Sie das SKEW-Profil, wenn dies in den Variablen definiert ist                                                                                                                                           |
+| Makroname                             | Beschreibung                                                                                                                                                                                                                              |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \_START_DRUCKEN_HITZE_KAMMER          | Erhitzt das Gehäuse, wenn der CHAMBER-Parameter überschritten wird_TEMP wird von unserem START-Makro empfangen_DRUCKEN vom Laminator                                                                                                      |
+| \_START_DRUCKEN_NACH_HEIZUNG_BETT     | Es wird ausgeführt, wenn das Bett die Temperatur erreicht hat_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_BETT. Wird normalerweise für die Verarbeitung von Bettkalibrierungen verwendet (Z_NEIGUNG_EINSTELLEN, VIERFACH_PORTAL_NIVELLIERUNG,...) |
+| \_START_DRUCKEN_BETT_GITTERGEWEBE     | Es kümmert sich um die Bettvernetzungslogik.                                                                                                                                                                                              |
+| \_START_DRUCKEN_PARK                  | Parken Sie den Druckkopf, während Sie die Düse auf Drucktemperatur erwärmen.                                                                                                                                                              |
+| \_START_DRUCKEN_NACH_HEIZUNG_EXTRUDER | Spülen Sie die Düse und laden Sie das SKEW-Profil, wenn dies in den Variablen definiert ist                                                                                                                                               |
 
 ## Drucker und Elektronik
 

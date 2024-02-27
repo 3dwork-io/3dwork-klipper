@@ -38,7 +38,7 @@ Se la directory di configurazione di Klipper è personalizzata, ricorda di modif
 {% suggerimento stile="informazioni" %}  
 Nelle nuove installazioni:
 
-Dato che Klipper non consente l'accesso alle macro finché non ha un file Printer.cfg corretto e non si connette a un MCU, possiamo "ingannare" Klipper con i seguenti passaggi che ci permetteranno di utilizzare le macro nel nostro pacchetto per, ad esempio, avviare il Macro compilazione firmware Klipper se utilizziamo elettroniche compatibili:
+Dato che Klipper non consente l'accesso alle macro finché non ha un file Printer.cfg corretto e non si connette a un MCU, possiamo "ingannare" Klipper con i seguenti passaggi che ci permetteranno di utilizzare le macro nel nostro bundle, ad esempio, per lanciare il Macro compilazione firmware Klipper se utilizziamo elettroniche compatibili:
 
 -   Ci assicuriamo di avere il nostro[host come secondo MCU](raspberry-como-segunda-mcu.md)
 -   Successivamente aggiungeremo un Printer.cfg, ricorda che questi passaggi sono per un'installazione pulita in cui non hai alcun Printer.cfg e vuoi avviare la macro per creare firmware, come quello che puoi vedere qui sotto:
@@ -148,7 +148,7 @@ Alcune macro aggiunte che ci saranno utili:
 | -preriscaldamento intelligente degli ugelli in caso di sensore sonda                       |                                                                                                                                                                     |
 | -possibilità di utilizzare z-tilt tramite variabile                                        |                                                                                                                                                                     |
 | -Materasso da letto adattivo, forzato o da borsa riposta                                   |                                                                                                                                                                     |
-| -linea di spurgo personalizzabile tra linea di spurgo normale, adattiva o goccia di spurgo |                                                                                                                                                                     |
+| -Linea di spurgo personalizzabile tra linea di spurgo normale, adattiva o goccia di spurgo |                                                                                                                                                                     |
 | -macro segmentata per poterla personalizzare come vi mostreremo in seguito                 |                                                                                                                                                                     |
 | **FINE_STAMPA**                                                                            | Fine della macro di stampa in cui abbiamo anche la segmentazione per poter personalizzare la nostra macro. Disponiamo anche di un parcheggio dinamico per la testa. |
 
@@ -161,11 +161,11 @@ Alcune macro aggiunte che ci saranno utili:
 
 Insieme di macro che ci permetteranno di gestire diverse azioni con il nostro filamento, come caricarlo o scaricarlo.
 
-| Macro                   | Descrizione                                                                                                     |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------- |
-| **M600**                | Ci consentirà la compatibilità con il gcode M600 normalmente utilizzato nei laminatori per il cambio filamento. |
-| **SCARICARE_FILAMENTO** | Configurabile attraverso le variabili, ci consentirà la scarica assistita del filamento.                        |
-| **CARICO_FILAMENTO**    | Uguale al precedente ma relativo al carico del filamento.                                                       |
+| Macro                   | Descrizione                                                                                                          |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **M600**                | Nos va a permitir compatibilidad con el gcode M600 normalmente usado en los laminadores para el cambio de filamento. |
+| **SCARICARE_FILAMENTO** | Configurabile attraverso le variabili, ci consentirà la scarica assistita del filamento.                             |
+| **CARICO_FILAMENTO**    | Uguale al precedente ma relativo al carico del filamento.                                                            |
 
 ### **Macro di gestione delle bobine di filamento (Spoolman)**
 
@@ -237,7 +237,7 @@ D'altra parte ne abbiamo alcuni**requisiti per implementarlo (cercheremo di aggi
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-D'altra parte, è interessante poter avere macro per attivare una superficie o un'altra o addirittura passarla come parametro dal nostro laminatore in modo che con diversi profili di stampante o filamento possiamo caricare l'una o l'altra automaticamente:
+D'altra parte, è interessante avere delle macro per attivare questa o quella superficie o addirittura passarla come parametro dal nostro laminatore in modo che con diversi profili di stampante o filamento possiamo caricare l'una o l'altra automaticamente:
 
 {% suggerimento stile="avviso" %}  
 È importante che il valore in NAME="xxxx" corrisponda al nome che abbiamo assegnato durante l'installazione della nostra superficie di stampa  
@@ -306,7 +306,7 @@ Anche nel caso di KlipperScreen possiamo aggiungere un menu specifico per gestir
 | **PID_ESTRUSORE**                                      |                                                                                                                                                                                                                                  |
 | **PID_LETTO**                                          | Queste macro, dove potremo passare le temperature al PID sotto forma di parametri, ci permetteranno di eseguire la calibrazione della temperatura in modo estremamente semplice.                                                 |
 | **TEST_VELOCITÀ**                                      |                                                                                                                                                                                                                                  |
-| **TEST_VELOCITÀ_DELTA**                                | La macro originale di Companion[Ellis](https://github.com/AndrewEllis93)Ci permetteranno in modo abbastanza semplice di testare la velocità con cui possiamo muovere la nostra macchina con precisione e senza perdita di passi. |
+| **TEST_VELOCITÀ_DELTA**                                | La macro originale del compagno[Ellis](https://github.com/AndrewEllis93)Ci permetteranno in modo abbastanza semplice di testare la velocità con cui possiamo muovere la nostra macchina con precisione e senza perdita di passi. |
 
 -   **Firmware compilato per l'elettronica supportata**, per facilitare il processo di creazione e manutenzione del firmware Klipper per i nostri MCU abbiamo la macro COMPILE_FIRMWARE che una volta eseguito, possiamo usare la nostra elettronica come parametro per fare solo questo, compilerà Klipper per tutta l'elettronica supportata dal nostro bundle:  
     ![](../../.gitbook/assets/image%20(1540).png)  
@@ -351,7 +351,7 @@ Possiamo anche eseguire il processo manualmente, copieremo manualmente il plugin
 | SKR 3EZ                 | btt-skr-3-ez                                 |
 | Saqr A Idha (Haha)      | Si ubriaca moltissimo                        |
 | 2 corone svizzere (429) | btt-skr-2-429                                |
-| 2 corone svizzere (407) | btt-skr-2-407                                |
+| 2 corone svedesi (407)  | btt-skr-2-407                                |
 | RATTO SKR               | btt-cortocircuito-10                         |
 | SKR 1.4 Turbo           | btt-skr-14-turbo                             |
 | SKR Mini Ez vz          | btt_scr_mini_es_30                           |
@@ -532,7 +532,7 @@ Vantaggi dell'utilizzo dell'ugello preriscaldato:
 
 -   Ci concede tempo aggiuntivo affinché il letto possa raggiungere la sua temperatura in modo uniforme.
 -   Se utilizziamo un sensore induttivo che non dispone di compensazione della temperatura, le nostre misurazioni saranno più coerenti e precise.
--   Permette di ammorbidire qualsiasi filamento rimasto nell'ugello, il che significa che, in alcune configurazioni, questi resti non influenzano l'attivazione del sensore.  
+-   Permette di ammorbidire eventuali residui di filamento nell'ugello, il che significa che, in alcune configurazioni, questi residui non influenzano l'attivazione del sensore.  
     {% finale %}
 
 #### Rete da letto
@@ -576,7 +576,7 @@ Falso
 | variabile_ugello_primo_inizio_x| Dove vogliamo posizionare la nostra linea di spurgo:  
 -min lo farà a X=0 (più un piccolo margine di sicurezza)  
 -max lo farà a X=max (meno un piccolo margine di sicurezza)  
--number sarà la coordinata X dove localizzare lo spurgo | minimo/  
+-number sarà la coordinata X dove individuare lo spurgo | minimo/  
 massimo /  
 numero | massimo |  
 | variabile_ugello_primo_inizio_e | Dove vogliamo posizionare la nostra linea di spurgo:  
@@ -612,26 +612,26 @@ Dovresti modificare il valore in base a quanto menzionato in precedenza sul test
 
 In alcuni processi della nostra stampante, come la pausa, è consigliabile parcheggiare la testa. Le macro nel nostro bundle hanno questa opzione oltre alle seguenti variabili da gestire:
 
-| Variabile                                 | Descrizione                                                                                                                                                                                                                                                                                                           | Valori possibili | Valore di default |
-| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
-| variabile_inizio_stampa_parco_In          | Posizione dove parcheggiare la testa durante il preriscaldamento.                                                                                                                                                                                                                                                     | Indietro /       |                   |
-| centro /                                  |                                                                                                                                                                                                                                                                                                                       |                  |                   |
-| davanti                                   | Indietro                                                                                                                                                                                                                                                                                                              |                  |                   |
-| variabile_inizio_stampa_parco_Con_altezza | Altezza Z durante il preriscaldamento                                                                                                                                                                                                                                                                                 | numero           | 50                |
-| variabile_FINE_stampa_parco_In            | Posizione dove parcheggiare la testa quando si termina o si annulla una stampa.                                                                                                                                                                                                                                       | Indietro /       |                   |
-| centro /                                  |                                                                                                                                                                                                                                                                                                                       |                  |                   |
-| davanti                                   | Indietro                                                                                                                                                                                                                                                                                                              |                  |                   |
-| variabile_FINE_stampa_parco_Con_salto     | Distanza da salire in Z alla fine della stampa.                                                                                                                                                                                                                                                                       | numero           | 20                |
-| variabile_pausa_stampa_parco_In           | Posizione dove parcheggiare la testa quando si mette in pausa la stampa.                                                                                                                                                                                                                                              | Indietro /       |                   |
-| centro /                                  |                                                                                                                                                                                                                                                                                                                       |                  |                   |
-| davanti                                   | Indietro                                                                                                                                                                                                                                                                                                              |                  |                   |
-| variabile_pausa_oziare_tempo scaduto      | Valore, in secondi, dell'attivazione del processo di inattività della macchina che sblocca i motori e provoca la perdita delle coordinate,**È consigliabile un valore alto in modo che quando si attiva la macro PAUSE ci voglia il tempo sufficiente per eseguire qualsiasi azione prima di perdere le coordinate.** | numero           | 43200             |
+| Variabile                                 | Descrizione                                                                                                                                                                                                                                                                                                        | Valori possibili | Valore di default |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- | ----------------- |
+| variabile_inizio_stampa_parco_In          | Posizione dove parcheggiare la testa durante il preriscaldamento.                                                                                                                                                                                                                                                  | Indietro /       |                   |
+| centro /                                  |                                                                                                                                                                                                                                                                                                                    |                  |                   |
+| davanti                                   | Indietro                                                                                                                                                                                                                                                                                                           |                  |                   |
+| variabile_inizio_stampa_parco_Con_altezza | Altezza Z durante il preriscaldamento                                                                                                                                                                                                                                                                              | numero           | 50                |
+| variabile_FINE_stampa_parco_In            | Posizione dove parcheggiare la testa quando si termina o si annulla una stampa.                                                                                                                                                                                                                                    | Indietro /       |                   |
+| centro /                                  |                                                                                                                                                                                                                                                                                                                    |                  |                   |
+| davanti                                   | Indietro                                                                                                                                                                                                                                                                                                           |                  |                   |
+| variabile_FINE_stampa_parco_Con_salto     | Distanza da salire in Z alla fine della stampa.                                                                                                                                                                                                                                                                    | numero           | 20                |
+| variabile_pausa_stampa_parco_In           | Posizione dove parcheggiare la testa quando si mette in pausa la stampa.                                                                                                                                                                                                                                           | Indietro /       |                   |
+| centro /                                  |                                                                                                                                                                                                                                                                                                                    |                  |                   |
+| davanti                                   | Indietro                                                                                                                                                                                                                                                                                                           |                  |                   |
+| variabile_pausa_oziare_tempo scaduto      | Valore, in secondi, dell'attivazione del processo di inattività della macchina che sblocca i motori e provoca la perdita delle coordinate,**È consigliabile un valore alto in modo che quando si attiva la macro PAUSA ci voglia tempo sufficiente per eseguire qualsiasi azione prima di perdere le coordinate.** | numero           | 43200             |
 
 #### Inclinazione Z
 
 Sfruttare al massimo la nostra macchina affinché si autolivella e garantire che la nostra macchina sia sempre nelle migliori condizioni è fondamentale.
 
-**Z-TILT è fondamentalmente un processo che ci aiuta ad allineare i nostri motori Z rispetto al nostro asse/gantry X (cartesiano) o XY (CoreXY).**. Con questo**ci assicuriamo che la nostra Z sia sempre allineata in modo perfetto, preciso e automatico**.
+**Z-TILT è fondamentalmente un processo che ci aiuta ad allineare i nostri motori Z rispetto al nostro asse/gantry X (cartesiano) o XY (CoreXY).**. Con questo**ci assicuriamo di avere sempre la nostra Z allineata perfettamente, in modo preciso e automatico**.
 
 | Variabile                         | Descrizione                                                                                   | Valori possibili | Valore di default |
 | --------------------------------- | --------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
@@ -764,7 +764,7 @@ Come abbiamo spiegato in "[personalizzazione delle macro](3dwork-klipper-bundle.
 
 #### Parametri di personalizzazione
 
-Così come ti consigliamo di creare una sezione nel tuo print.cfg chiamata USER OVERRIDES, posta dopo gli include delle nostre configurazioni, per poter regolare e personalizzare qualsiasi parametro utilizzato in esse.
+Così come ti consigliamo di creare una sezione nel tuo print.cfg chiamata USER OVERRIDES, posizionata dopo gli include delle nostre configurazioni, per poter regolare e personalizzare qualsiasi parametro utilizzato in esse.
 
 Nell'esempio seguente vedremo come nel nostro caso ci interessa personalizzare i parametri del nostro livellamento letto (bed_mesh) regolando i punti della sonda_count) rispetto alla configurazione che abbiamo di default nelle configurazioni del nostro modulo Klipper:
 

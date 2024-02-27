@@ -319,6 +319,15 @@ compile_mks-gen-l() {
     cp $workspace_klipper/out/klipper.elf.hex $workspace_firmware_binaries/firmware_binaries/firmware-mks-gen-l.hex
 }
 
+compile_artillery-ruby-12() {
+    echo "Compiling firmware for Artillery Ruby v1.x"
+    cp -f $workspace_3dwork/3dwork-klipper/boards/artillery-ruby-12/firmware.config $workspace_klipper/.config
+    make olddefconfig
+    make clean
+    make
+    cp $workspace_klipper/out/klipper.bin $workspace_firmware_binaries/firmware_binaries/firmware-artillery-ruby-12.bin
+}
+
 #####################################
 # NOT ADDED TO KLIPPER AUTO BUILDER #
 #####################################
@@ -368,6 +377,8 @@ if [ -z "$1" ]; then
     compile_mks-robin-nano-30
     compile_mks-robin-nano-20
     compile_mks-gen-l
+    # Artillery
+    compile_artillery-ruby-12
     # Fysetc
     compile_fysetc_spider
     # Mellow

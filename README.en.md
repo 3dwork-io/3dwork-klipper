@@ -148,7 +148,7 @@ Some added macros that will be useful to us:
 | -intelligent nozzle preheating in the case of having a probe sensor        |                                                                                                                                    |
 | -possibility of using z-tilt through variable                              |                                                                                                                                    |
 | -Adaptive bed mattress, forced or from a stored bag                        |                                                                                                                                    |
-| -customizable purge line between normal, adaptive purge line or purge drop |                                                                                                                                    |
+| -Customizable purge line between normal, adaptive purge line or purge drop |                                                                                                                                    |
 | -segmented macro to be able to be personalized as we will show you later   |                                                                                                                                    |
 | **END_PRINT**                                                              | End of print macro where we also have segmentation to be able to customize our macro. We also have dynamic head parking.           |
 
@@ -237,7 +237,7 @@ On the other hand we have some**requirements to implement it (we will try to add
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-On the other hand, it is interesting to be able to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
+On the other hand, it is interesting to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
 
 {% hint style="warning" %}  
 It is important that the value in NAME="xxxx" matches the name we gave when installing our printing surface  
@@ -532,7 +532,7 @@ Benefits of using preheated nozzle:
 
 -   It allows us additional time so that the bed can reach its temperature uniformly.
 -   If we use an inductive sensor that does not have temperature compensation, it will allow our measurements to be more consistent and precise.
--   It allows you to soften any remaining filament in the nozzle, which means that, in certain configurations, these remains do not affect the activation of the sensor.  
+-   Allows you to soften any remaining filament in the nozzle, which means that, in certain configurations, these remains do not affect the activation of the sensor.  
     {% endint %}
 
 #### Bed Mesh

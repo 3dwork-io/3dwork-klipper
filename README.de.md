@@ -173,7 +173,7 @@ Eine Reihe von Makros, die es uns ermöglichen, verschiedene Aktionen mit unsere
 **ABSCHNITT IN BEARBEITUNG!!!**  
 {% endint %}
 
-[**Spoolman**](https://github.com/Donkie/Spoolman)ist ein in Moonraker integrierter Filamentspulenmanager, mit dem wir unseren Filamentbestand und die Verfügbarkeit verwalten können.
+[**Spoolman**](https://github.com/Donkie/Spoolman)ist ein Filament-Spulenmanager, der in Moonraker integriert ist und es uns ermöglicht, unseren Filamentvorrat und die Verfügbarkeit zu verwalten.
 
 !\[](../../.gitbook/assets/image (1990).png)
 
@@ -210,7 +210,7 @@ Normalerweise ist es normal, dass wir je nach gewünschter Oberfläche oder Fila
 Dieser Satz von Makros, erstellt von[Garethky](https://github.com/garethky)Sie ermöglichen uns die Kontrolle über diese und insbesondere über die korrekte Einstellung von ZOffset in jedem von ihnen in der Art, wie wir es bei Prusa-Maschinen haben. Unten sehen Sie einige seiner Funktionen:
 
 -   Wir können die gewünschte Anzahl von Druckoberflächen speichern, wobei jede einen eindeutigen Namen hat
--   Jede Druckoberfläche verfügt über einen eigenen ZOffset
+-   cada superficie de impresión va a tener un ZOffset propio
 -   Wenn wir während eines Drucks (Babystepping) von unserem Klipper aus Z-Anpassungen vornehmen, wird diese Änderung in der zu diesem Zeitpunkt aktivierten Oberfläche gespeichert
 
 Andererseits haben wir welche**Anforderungen, um es zu implementieren (wir werden versuchen, die PRINT-Logik hinzuzufügen).\_START des Bundles in der Zukunft durch Aktivierung dieser Funktion per Variable und Erstellung eines vorherigen und nachfolgenden Benutzermakros, um Benutzerereignisse eingeben zu können)**:
@@ -384,7 +384,7 @@ Wir können den Vorgang auch manuell durchführen, wir kopieren das Plugin manue
 
 ### Hinzufügen von 3Dwork-Makros zu unserer Installation
 
-Über unsere Schnittstelle Mainsail/Fluidd bearbeiten wir unsere Printer.cfg und fügen Folgendes hinzu:
+Über unsere Schnittstelle „Mainsail/Fluidd“ bearbeiten wir unsere Datei „printer.cfg“ und fügen Folgendes hinzu:
 
 {% code title="printer.cfg" %}
 
@@ -735,19 +735,19 @@ Wir haben zwei Gruppen von Makros:
 
 **START_DRUCKEN**
 
-| Makroname                             | Beschreibung                                                                                                                                                                                                                              |
-| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \_START_DRUCKEN_HITZE_KAMMER          | Erhitzt das Gehäuse, wenn der CHAMBER-Parameter überschritten wird_TEMP wird von unserem START-Makro empfangen_DRUCKEN vom Laminator                                                                                                      |
-| \_START_DRUCKEN_NACH_HEIZUNG_BETT     | Es wird ausgeführt, wenn das Bett die Temperatur erreicht hat_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_BETT. Wird normalerweise für die Verarbeitung von Bettkalibrierungen verwendet (Z_NEIGUNG_EINSTELLEN, VIERFACH_PORTAL_NIVELLIERUNG,...) |
-| \_START_DRUCKEN_BETT_GITTERGEWEBE     | Es kümmert sich um die Bettvernetzungslogik.                                                                                                                                                                                              |
-| \_START_DRUCKEN_PARK                  | Parken Sie den Druckkopf, während Sie die Düse auf Drucktemperatur erwärmen.                                                                                                                                                              |
-| \_START_DRUCKEN_NACH_HEIZUNG_EXTRUDER | Spülen Sie die Düse und laden Sie das SKEW-Profil, wenn dies in den Variablen definiert ist                                                                                                                                               |
+| Makroname                             | Beschreibung                                                                                                                                                                                                                          |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \_START_DRUCKEN_HITZE_KAMMER          | Erhitzt das Gehäuse, wenn der CHAMBER-Parameter überschritten wird_TEMP wird von unserem START-Makro empfangen_DRUCKEN vom Laminator                                                                                                  |
+| \_START_DRUCKEN_NACH_HEIZUNG_BETT     | Es wird ausgeführt, wenn das Bett die Temperatur erreicht hat_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_BETT. Wird normalerweise zur Verarbeitung von Bettkalibrierungen verwendet (Z_NEIGUNG_EINSTELLEN, VIERFACH_PORTAL_NIVELLIERUNG,...) |
+| \_START_DRUCKEN_BETT_GITTERGEWEBE     | Es kümmert sich um die Bettvernetzungslogik.                                                                                                                                                                                          |
+| \_START_DRUCKEN_PARK                  | Parken Sie den Druckkopf, während Sie die Düse auf Drucktemperatur erwärmen.                                                                                                                                                          |
+| \_START_DRUCKEN_NACH_HEIZUNG_EXTRUDER | Spülen Sie die Düse und laden Sie das SKEW-Profil, wenn dies in den Variablen definiert ist                                                                                                                                           |
 
 ## Drucker und Elektronik
 
 Da wir mit verschiedenen Drucker- und Elektronikmodellen arbeiten, werden wir diejenigen hinzufügen, die nicht direkt von RatOS unterstützt werden, unabhängig davon, ob es sich um Beiträge von uns oder aus der Community handelt.
 
--   Drucker, in diesem Verzeichnis haben wir alle Druckerkonfigurationen
+-   printers, en este directorio tendremos todas las configuraciones de impresoras
 -   Boards, hier finden wir die elektronischen
 
 ### Parameter und Pins

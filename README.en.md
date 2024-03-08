@@ -173,7 +173,7 @@ Set of macros that will allow us to manage different actions with our filament, 
 **SECTION IN PROCESS!!!**  
 {% endint %}
 
-[**Spoolman**](https://github.com/Donkie/Spoolman)is a filament spool manager that is integrated into Moonraker and that allows us to manage our filament stock and availability.
+[**Spoolman**](https://github.com/Donkie/Spoolman)is a filament spool manager that is integrated into Moonraker and allows us to manage our filament stock and availability.
 
 !\[](../../.gitbook/assets/image (1990).png)
 

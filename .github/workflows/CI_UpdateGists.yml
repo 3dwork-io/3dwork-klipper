@@ -67,7 +67,7 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           gist_id: 194649a9314f8adfceb51ae8b2e80b7b
-          file_path: macros/macros_config_test_speed.cfg
+          file_path: macros/macros_config_test_kinematics.cfg
           file_type: binary
 
       - name: Creating var_globals.cfg Gist

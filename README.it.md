@@ -173,7 +173,7 @@ Insieme di macro che ci permetteranno di gestire diverse azioni con il nostro fi
 **SEZIONE IN PROCESSO!!!**  
 {% finale %}
 
-[**Bobinatore**](https://github.com/Donkie/Spoolman)è un gestore di bobine di filamenti integrato in Moonraker e ci consente di gestire lo stock e la disponibilità dei nostri filamenti.
+[**Bobinatore**](https://github.com/Donkie/Spoolman)è un gestore di bobine di filamenti integrato in Moonraker e che ci consente di gestire lo stock e la disponibilità dei nostri filamenti.
 
 !\[](../../.gitbook/assets/image (1990).png)
 
@@ -310,7 +310,7 @@ Anche nel caso di KlipperScreen possiamo aggiungere un menu specifico per gestir
 
 -   **Firmware compilato per l'elettronica supportata**, per facilitare il processo di creazione e manutenzione del firmware Klipper per i nostri MCU abbiamo la macro COMPILE_FIRMWARE che una volta eseguito, possiamo usare la nostra elettronica come parametro per fare solo questo, compilerà Klipper per tutta l'elettronica supportata dal nostro bundle:  
     ![](../../.gitbook/assets/image%20(1540).png)  
-    Li troveremo facilmente accessibili dalla nostra interfaccia utente web nella directory del firmware_binari nella nostra scheda MACCHINA (se utilizziamo la randa):  
+    Li troveremo facilmente accessibili dalla nostra interfaccia utente web nella directory del firmware_binari nella nostra scheda MACCHINA (se usiamo la randa):  
     ![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)  
     Di seguito è riportato l'elenco dei dispositivi elettronici supportati:
 
@@ -318,7 +318,7 @@ Anche nel caso di KlipperScreen possiamo aggiungere un menu specifico per gestir
 
 Questi script sono preparati per funzionare su un sistema Raspbian con utente pi, se non è il tuo caso dovrai adattarlo.
 
-I firmware sono generati per l'utilizzo con una connessione USB, che è sempre quella che consigliamo. Inoltre, il punto di montaggio USB è sempre lo stesso, quindi la configurazione della connessione MCU non cambierà se vengono generati con la nostra macro/script.
+I firmware vengono generati per l'utilizzo con una connessione USB, che è sempre quella consigliata. Inoltre, il punto di montaggio USB è sempre lo stesso, quindi la configurazione della connessione MCU non cambierà se vengono generati con la nostra macro/script.
 
 **Affinché Klipper possa eseguire le macro della shell, è necessario installare un'estensione, grazie al compagno**[**arcoseno**](https://github.com/Arksine)**, che lo consente.**
 
@@ -351,7 +351,7 @@ Possiamo anche eseguire il processo manualmente, copieremo manualmente il plugin
 | SKR 3EZ                 | btt-skr-3-ez                                 |
 | Saqr A Idha (Haha)      | Si ubriaca moltissimo                        |
 | 2 corone svizzere (429) | btt-skr-2-429                                |
-| 2 corone svedesi (407)  | btt-skr-2-407                                |
+| 2 corone svizzere (407) | btt-skr-2-407                                |
 | RATTO SKR               | btt-cortocircuito-10                         |
 | SKR 1.4 Turbo           | btt-skr-14-turbo                             |
 | SKR Mini Ez vz          | btt_scr_mini_es_30                           |
@@ -557,7 +557,7 @@ Ti consigliamo di utilizzare il livellamento adattivo poiché adatterà sempre l
 
 #### epurato
 
-Una fase importante del nostro inizio stampa è un corretto spurgo dei nostri ugelli per evitare che restino filamenti o che questi possano prima o poi danneggiare la nostra stampa. Di seguito sono riportate le variabili che intervengono in questo processo:
+Una fase importante del nostro inizio stampa è un corretto spurgo del nostro ugello per evitare resti di filamento o che questi possano prima o poi danneggiare la nostra stampa. Di seguito sono riportate le variabili che intervengono in questo processo:
 
 | Variabile                                                                                                                                                               | Descrizione                                       | Valori possibili | Valore di default |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------- | ----------------- |

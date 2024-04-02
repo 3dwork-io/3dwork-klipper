@@ -128,7 +128,7 @@ Some added macros that will be useful to us:
 | Macro                                                            | Description                                                                                                                                                     |
 | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **MAYBE_HOME**                                                   | It allows us to optimize the homing process only by performing it on those axes that are not homing.                                                            |
-| **PAUSE**                                                        | Through the related variables it allows us to manage a pause with a more versatile head parking than normal macros.                                             |
+| **PAUSE**                                                        | Using the related variables, it allows us to manage a pause with a more versatile head parking than normal macros.                                              |
 | **SET_PAUSE_AT_LAYER**                                           |                                                                                                                                                                 |
 | **SET_PAUSE_AT_NEXT_LAYER**                                      | A very useful macro that Mainsail integrates into its UI to be able to pause on demand in a specific layer... in case we forgot when laminating.                |
 | We also have another one to execute the pause on the next layer. |                                                                                                                                                                 |
@@ -173,7 +173,7 @@ Set of macros that will allow us to manage different actions with our filament, 
 **SECTION IN PROCESS!!!**  
 {% endint %}
 
-[**Spoolman**](https://github.com/Donkie/Spoolman)is a filament spool manager that is integrated into Moonraker and allows us to manage our filament stock and availability.
+[**Spoolman**](https://github.com/Donkie/Spoolman)is a filament spool manager that is integrated into Moonraker and that allows us to manage our filament stock and availability.
 
 !\[](../../.gitbook/assets/image (1990).png)
 
@@ -237,7 +237,7 @@ On the other hand we have some**requirements to implement it (we will try to add
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-On the other hand, it is interesting to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
+On the other hand, it is interesting to be able to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
 
 {% hint style="warning" %}  
 It is important that the value in NAME="xxxx" matches the name we gave when installing our printing surface  
@@ -354,7 +354,7 @@ We can also carry out the process by hand, we will manually copy the plugin for 
 | SKR 2 (407)        | btt-skr-2-407                  |
 | SKR RAT            | btt-short-circuit-10           |
 | SKR 1.4 Turbo      | btt-skr-14-turbo               |
-| SKR Mini Ez vz     | btt_skr_mini_ez_30             |
+| SKR Mini Ez vz     | btt_skr_mini_e3_30             |
 
 | Toolhead (CAN) | Parameter name to use in macro |
 | -------------- | ------------------------------ |
@@ -532,7 +532,7 @@ Benefits of using preheated nozzle:
 
 -   It allows us additional time so that the bed can reach its temperature uniformly.
 -   If we use an inductive sensor that does not have temperature compensation, it will allow our measurements to be more consistent and precise.
--   Allows you to soften any remaining filament in the nozzle, which means that, in certain configurations, these remains do not affect the activation of the sensor.  
+-   It allows you to soften any remaining filament in the nozzle, which means that, in certain configurations, these remains do not affect the activation of the sensor.  
     {% endint %}
 
 #### Bed Mesh

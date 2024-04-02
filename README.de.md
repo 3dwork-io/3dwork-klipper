@@ -128,7 +128,7 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 | Makro                                                                         | Beschreibung                                                                                                                                                                                               |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **VIELLEICHT_HEIM**                                                           | Dadurch können wir den Referenzierungsprozess nur optimieren, indem wir ihn auf den Achsen durchführen, die nicht referenziert werden.                                                                     |
-| **PAUSE**                                                                     | Mithilfe der zugehörigen Variablen können wir eine Pause mit einem vielseitigeren Kopfparkmodus verwalten als mit normalen Makros.                                                                         |
+| **PAUSE**                                                                     | Durch die zugehörigen Variablen können wir eine Pause mit einem vielseitigeren Kopfparkmodus verwalten als mit normalen Makros.                                                                            |
 | **SATZ_PAUSE_BEI_SCHICHT**                                                    |                                                                                                                                                                                                            |
 | **SATZ_PAUSE_BEI_NÄCHSTE_SCHICHT**                                            | Ein sehr nützliches Makro, das Mainsail in seine Benutzeroberfläche integriert, um bei Bedarf in einer bestimmten Ebene pausieren zu können ... für den Fall, dass wir es beim Laminieren vergessen haben. |
 | Wir haben auch eine weitere, um die Pause auf der nächsten Ebene auszuführen. |                                                                                                                                                                                                            |
@@ -237,7 +237,7 @@ Andererseits haben wir welche**Anforderungen, um es zu implementieren (wir werde
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-Andererseits ist es interessant, über Makros verfügen zu können, um die eine oder andere Oberfläche zu aktivieren oder sie sogar als Parameter von unserem Laminator zu übergeben, sodass wir bei unterschiedlichen Drucker- oder Filamentprofilen die eine oder andere automatisch laden können:
+Andererseits ist es interessant, Makros zu haben, um die eine oder andere Oberfläche zu aktivieren oder sie sogar als Parameter von unserem Laminator zu übergeben, damit wir bei unterschiedlichen Drucker- oder Filamentprofilen die eine oder andere automatisch laden können:
 
 {% hint style="warning" %}  
 Es ist wichtig, dass der Wert in NAME="xxxx" mit dem Namen übereinstimmt, den wir bei der Installation unserer Druckoberfläche angegeben haben  
@@ -354,7 +354,7 @@ Wir können den Vorgang auch manuell durchführen, wir kopieren das Plugin manue
 | SKR 2 (407)        | btt-skr-2-407                                     |
 | SKR RAT            | BTT-Kurzschluss-10                                |
 | SKR 1.4 Turbo      | btt-skr-14-turbo                                  |
-| SKR Mini Ez vz     | Übrigens_skr_mini_ez_30                           |
+| SKR Mini Ez vz     | Übrigens_skr_Mini_ez_30                           |
 
 | Werkzeugkopf (CAN) | Parametername, der im Makro verwendet werden soll |
 | ------------------ | ------------------------------------------------- |
@@ -585,7 +585,7 @@ Zahl | max |
 -Die Zahl ist die Y-Koordinate, an der die Spülung | lokalisiert werden soll Mindest /  
 max. /  
 Zahl | min |  
-| Variable_Düse_Primzahl_Richtung | Die Adresse unserer Leitung oder Zustellung:  
+| variabel_Düse_Primzahl_Richtung | Die Adresse unserer Leitung oder Zustellung:  
 -Nach hinten bewegt sich der Kopf zur Vorderseite des Druckers  
 -vorwärts bewegt sich nach hinten  
 -Das Auto fährt je nach Variable in Richtung Mitte_Düse_Primzahl_Start_und | Auto /  

@@ -111,7 +111,7 @@ Da Mainsail/Fluidd modificheremo il nostro moonraker.conf (dovrebbe essere alla 
 
     [include 3dwork-klipper/moonraker.conf]
 
-{% suggerimento stile="avviso" %}  
+{% stile suggerimento="avviso" %}  
 **Ricordarsi di eseguire prima la fase di installazione, altrimenti Moonraker genererà un errore e non sarà in grado di avviarsi.**
 
 **D'altra parte, se la directory della configurazione di Klipper è personalizzata, ricordati di adattare il percorso in modo appropriato alla tua installazione.**  
@@ -128,7 +128,7 @@ Alcune macro aggiunte che ci saranno utili:
 | Macro                                                                   | Descrizione                                                                                                                                                                                           |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **FORSE_CASA**                                                          | Ci consente di ottimizzare il processo di homing solo eseguendolo su quegli assi che non sono in homing.                                                                                              |
-| **PAUSA**                                                               | Utilizzando le relative variabili, ci permette di gestire una pausa con un parcheggio della testa più versatile rispetto alle normali macro.                                                          |
+| **PAUSA**                                                               | Attraverso le relative variabili ci permette di gestire una pausa con un parcheggio della testa più versatile rispetto alle normali macro.                                                            |
 | **IMPOSTATO_PAUSA_A_STRATO**                                            |                                                                                                                                                                                                       |
 | **IMPOSTATO_PAUSA_A_PROSSIMO_STRATO**                                   | Una macro molto utile che Mainsail integra nella sua interfaccia utente per poter mettere in pausa su richiesta in un livello specifico... nel caso ce ne fossimo dimenticati durante la laminazione. |
 | Ne abbiamo anche un altro per eseguire la pausa sul livello successivo. |                                                                                                                                                                                                       |
@@ -169,7 +169,7 @@ Insieme di macro che ci permetteranno di gestire diverse azioni con il nostro fi
 
 ### **Macro di gestione delle bobine di filamento (Spoolman)**
 
-{% suggerimento stile="avviso" %}  
+{% stile suggerimento="avviso" %}  
 **SEZIONE IN PROCESSO!!!**  
 {% finale %}
 
@@ -201,7 +201,7 @@ L’ideale in ogni caso sarebbe aggiungere alla nostra plastificatrice,**nei gco
 
 ### **Macro di gestione della superficie di stampa**
 
-{% suggerimento stile="avviso" %}  
+{% stile suggerimento="avviso" %}  
 **SEZIONE IN PROCESSO!!!**  
 {% finale %}
 
@@ -237,9 +237,9 @@ D'altra parte ne abbiamo alcuni**requisiti per implementarlo (cercheremo di aggi
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-D'altra parte, è interessante poter avere macro per attivare una superficie o un'altra o addirittura passarla come parametro dal nostro laminatore in modo che con diversi profili di stampante o filamento possiamo caricare l'una o l'altra automaticamente:
+D'altra parte, è interessante avere delle macro per attivare questa o quella superficie o addirittura passarla come parametro dal nostro laminatore in modo che con diversi profili di stampante o filamento possiamo caricare l'una o l'altra automaticamente:
 
-{% suggerimento stile="avviso" %}  
+{% stile suggerimento="avviso" %}  
 È importante che il valore in NAME="xxxx" corrisponda al nome che abbiamo assegnato durante l'installazione della nostra superficie di stampa  
 {% finale %}
 
@@ -508,7 +508,7 @@ Per gestire le velocità utilizzate nelle macro.
 | Variabile                        | Descrizione                            | Valori possibili | Valore di default |   |
 | -------------------------------- | -------------------------------------- | ---------------- | ----------------- | - |
 | variabile_macro_viaggio_velocità | Velocità di trasferimento              | numerico         | 150               |   |
-| variabile_macro_Con_velocità     | Velocità di trasferimento per l'asse Z | numerico         | 15                |   |
+| variabile_macro_z_velocità       | Velocità di trasferimento per l'asse Z | numerico         | 15                |   |
 
 #### Homing
 
@@ -549,7 +549,7 @@ Per controllare il processo di livellamento abbiamo variabili che possono essere
 | nomi                                                                                                         | adattivo                                                                            |                  |                   |
 | variabile_letto_maglia_profilo                                                                               | Il nome utilizzato per la nostra mesh archiviata                                    | testo            | predefinito       |
 
-{% suggerimento stile="avviso" %}  
+{% stile suggerimento="avviso" %}  
 Ti consigliamo di utilizzare il livellamento adattivo poiché adatterà sempre la mesh alla dimensione della nostra stampa, consentendoti di avere un'area della mesh regolata.
 
 È importante che abbiamo nel nostro[avvia il gcode della nostra plastificatrice](../empezamos/configuracion-klipper-en-laminadores.md#configurando-nuestro-laminador-para-usar-nustras-macros-start_print-y-end_print), nella chiamata al nostro START_STAMPA, STAMPA valori_MAX e STAMPA_MINIMO  
@@ -603,7 +603,7 @@ In questo caso, questo gruppo di variabili ci faciliterà la gestione del carica
 | variabile_filamento_carico_lunghezza    | Distanza in mm per caricare il nuovo filamento... oltre che in variabile_filamento_scaricare_lunghezza utilizzeremo la misura dal tuo ingranaggio all'estrusore aggiungendo un margine extra, in questo caso questo valore extra dipenderà da quanto vuoi che venga spurgato... normalmente puoi dargli più margine rispetto al valore precedente per assicurarti che il l'estrusione del filamento precedente sia pulita. | numero           | 150               |
 | variabile_filamento_carico_velocità     | Velocità di caricamento del filamento in mm/sec, normalmente viene utilizzata una velocità maggiore rispetto alla velocità di scarico.                                                                                                                                                                                                                                                                                     | numero           | 10                |
 
-{% suggerimento stile="avviso" %}  
+{% stile suggerimento="avviso" %}  
 Un'altra impostazione necessaria per la tua sezione\[estrusore]indicare il[**massimo_estrudere_soltanto_distanza**](https://www.klipper3d.org/Config_Reference.html#extruder)...il valore consigliabile è solitamente >101 (se non definito, utilizzare 50) per consentire, ad esempio, tipici test di calibrazione dell'estrusore.  
 Dovresti modificare il valore in base a quanto menzionato in precedenza sul test o sulla configurazione del tuo**variabile_filamento_scaricare_lunghezza**IO**variabile_filamento_carico_lunghezza**.  
 {% finale %}
@@ -686,7 +686,7 @@ variable_language: "es"                         # Possible values: "en", "es"
 
 ```
 
-{% suggerimento stile="avviso" %}
+{% stile suggerimento="avviso" %}
 I tre punti (...) negli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 
@@ -796,7 +796,7 @@ probe_count: 11,11
 
 {%endcode%}
 
-{% suggerimento stile="avviso" %}
+{% stile suggerimento="avviso" %}
 I tre punti (...) negli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 
@@ -841,7 +841,7 @@ pin: PA8
 
 {%endcode%}
 
-{% suggerimento stile="avviso" %}
+{% stile suggerimento="avviso" %}
 I tre punti (...) negli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 

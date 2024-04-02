@@ -7,7 +7,7 @@
 [![](../../.gitbook/assets/image%20(1986).png)- Anglais](https://klipper-3dwork-io.translate.goog/klipper/mejoras/3dwork-klipper-bundle?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp)
 
 {% indice style="danger" %}  
-**GUIDE EN COURS !!! Bien que les macros soient entièrement fonctionnelles, elles sont en développement continu.**
+**GUIDE EN COURS !!! Bien que les macros soient entièrement fonctionnelles, elles font l’objet d’un développement continu.**
 
 **Utilisez-les à vos risques et périls!!!**  
 {% finint %}
@@ -128,7 +128,7 @@ Quelques macros ajoutées qui nous seront utiles :
 | Macro                                                                          | Description                                                                                                                                                                          |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **PEUT ÊTRE_MAISON**                                                           | Cela nous permet d'optimiser le processus de référencement uniquement en l'exécutant sur les axes qui ne sont pas référencés.                                                        |
-| **PAUSE**                                                                      | En utilisant les variables associées, cela nous permet de gérer une pause avec un stationnement de tête plus polyvalent que les macros normales.                                     |
+| **PAUSE**                                                                      | Grâce aux variables associées, cela nous permet de gérer une pause avec un stationnement de tête plus polyvalent que les macros normales.                                            |
 | **ENSEMBLE_PAUSE_À_COUCHE**                                                    |                                                                                                                                                                                      |
 | **ENSEMBLE_PAUSE_À_SUIVANT_COUCHE**                                            | Une macro très utile que Mainsail intègre dans son UI pour pouvoir faire une pause à la demande dans un calque spécifique... au cas où nous l'aurions oublié lors du laminage.       |
 | Nous en avons également un autre pour exécuter la pause sur le calque suivant. |                                                                                                                                                                                      |
@@ -193,7 +193,7 @@ Nous n'allons pas entrer dans l'installation et la configuration de celui-ci pui
 | Macro                 | Description                                                       |
 | --------------------- | ----------------------------------------------------------------- |
 | ENSEMBLE_ACTIF_BOBINE | Cela nous permet d'indiquer quel est l'ID de la bobine à utiliser |
-| CLAIR_ACTIF_BOBINE    | Cela nous permet de réinitialiser la bobine active                |
+| CLAIR_ACTIF_BOBINE    | Nos permite resetear la bobina activa                             |
 
 L'idéal dans chaque cas serait d'ajouter à notre plastifieuse,**dans les gcodes du filament pour chaque bobine, l'appel à ceci**, Et rappelez-vous**changer son identifiant une fois consommé**pour pouvoir garder une trace de ce qu'il reste de filament dedans !!!
 
@@ -237,7 +237,7 @@ D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essa
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-Par contre, il est intéressant de pouvoir avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
+Par contre, il est intéressant d'avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
 
 {% indice style="avertissement" %}  
 Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.  
@@ -342,7 +342,7 @@ Nous pouvons également effectuer le processus à la main, nous copierons manuel
 | PAS de poulpe Max  | btt-octopus-max-it                        |
 | Poulpe Pro (446)   | btt-octopus-pro-446                       |
 | Poulpe Pro (429)   | btt-octopus-pro-429                       |
-| Octopus Pro (H723) | btt-octopus-pro-h723                      |
+| Poulpe Pro (H723)  | btt-octopus-pro-h723                      |
 | Poulpe v1.1        | btt-octopus-11                            |
 | Poulpe v1.1 (407)  | btt-octopus-11-407                        |
 | SKR Pro v1.2       | skr_pro_12                                |
@@ -365,7 +365,7 @@ Nous pouvons également effectuer le processus à la main, nous copierons manuel
 | EBB42 v1.2         | btt_reflux42_12                           |
 | EBB36 v1.2         | btt_reflux36_12                           |
 
-| **Electronique**              | **Nom du paramètre à utiliser dans la macro** |
+| **Électronique**              | **Nom du paramètre à utiliser dans la macro** |
 | ----------------------------- | --------------------------------------------- |
 | MKS Aigle v1.x                | mks-aigle-10                                  |
 | ISS Robin Nano vz             | mks-robin-nano-30                             |
@@ -601,7 +601,7 @@ Dans ce cas, ce groupe de variables nous permettra de gérer plus facilement le 
 | variable_filament_décharger_longueur | De combien rétracter le filament en mm, ajustez à votre machine, normalement la mesure de votre buse aux engrenages de votre extrudeuse en ajoutant une marge supplémentaire.                                                                                                                                                                                                                                                                      | nombre            | 130               |
 | variable_filament_décharger_vitesse  | Vitesse de rétraction du filament en mm/sec, normalement une vitesse lente est utilisée.                                                                                                                                                                                                                                                                                                                                                           | nombre            | 5                 |
 | variable_filament_charger_longueur   | Distance en mm pour charger le nouveau filament... ainsi qu'en variable_filament_décharger_longueur, nous utiliserons la mesure de votre équipement à l'extrudeuse en ajoutant une marge supplémentaire, dans ce cas cette valeur supplémentaire dépendra de la quantité que vous souhaitez purger... normalement vous pouvez lui donner plus de marge que la valeur précédente pour garantir que la l'extrusion du filament précédent est propre. | nombre            | 150               |
-| variables_filament_charger_vitesse   | Vitesse de chargement du filament en mm/sec, normalement une vitesse plus rapide est utilisée que la vitesse de déchargement.                                                                                                                                                                                                                                                                                                                      | nombre            | 10                |
+| variable_filament_charger_vitesse    | Vitesse de chargement du filament en mm/sec, normalement une vitesse plus rapide est utilisée que la vitesse de déchargement.                                                                                                                                                                                                                                                                                                                      | nombre            | 10                |
 
 {% indice style="avertissement" %}  
 Un autre paramètre nécessaire pour votre section\[extrudeuse]se indique el[**maximum_extruder_seulement_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)...la valeur recommandée est généralement >101 (si elle n'est pas définie, utilisez 50) pour, par exemple, permettre des tests d'étalonnage typiques d'une extrudeuse.  
@@ -659,7 +659,7 @@ C'est pourquoi il est très important de comprendre le fonctionnement de Klipper
 
 Normalement, ce sera ce que nous devrons ajuster, faire des ajustements aux variables que nous avons par défaut dans notre module**Vos excuses**para Falaises.
 
-Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBALE_DONT]ce qu'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
+Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBAL_DONT]ce qu'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
 
 Nous vous rappelons ce que nous avons mentionné précédemment sur la façon dont Klipper traite les configurations de manière séquentielle, il est donc conseillé de le coller après les inclusions que nous avons mentionnées.[ici](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
@@ -737,7 +737,7 @@ Nous avons deux groupes de macros :
 
 | Nombre Macro                                    | Description                                                                                                                                                                                                                        |
 | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \_DÉBUT_IMPRIMER_CHALEUR_CHAMBRE                | Chauffe l'enceinte dans le cas où le paramètre CHAMBRE_TEMP est reçu par notre macro START_IMPRIMER depuis la plastifieuse                                                                                                         |
+| \_COMMENCER_IMPRIMER_CHALEUR_CHAMBRE            | Chauffe l'enceinte dans le cas où le paramètre CHAMBRE_TEMP est reçu par notre macro START_IMPRIMER depuis la plastifieuse                                                                                                         |
 | \_COMMENCER_IMPRIMER_APRÈS_CHAUFFAGE_LIT        | Il est exécuté lorsque le lit atteint la température, après_UTILISATEUR_COMMENCER_IMPRIMER_APRÈS_CHAUFFAGE_LIT. Généralement utilisé pour traiter les étalonnages de lit (Z_INCLINAISON_AJUSTEMENT, QUAD_PORTIQUE_NIVELLEMENT,...) |
 | \_COMMENCER_IMPRIMER_LIT_ENGRENER               | Il gère la logique de maillage du lit.                                                                                                                                                                                             |
 | \_COMMENCER_IMPRIMER_PARC                       | Garez la tête d'impression tout en chauffant la buse à la température d'impression.                                                                                                                                                |

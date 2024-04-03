@@ -20,7 +20,7 @@ Da**Le tue scuse**Abbiamo compilato e messo a punto una serie di macro, impostaz
 
 Gran parte di questo pacchetto è basato su[**Ratti**](https://os.ratrig.com/)migliorare le parti che riteniamo interessanti, così come altri contributi della community.
 
-## Installazione
+## Instalación
 
 Per installare il nostro pacchetto per Klipper seguiremo i seguenti passaggi
 
@@ -31,7 +31,7 @@ Ci collegheremo al nostro host tramite SSH ed emetteremo i seguenti comandi:
     cd ~/printer_data/config
     git clone https://github.com/3dwork-io/3dwork-klipper.git
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 Se la directory di configurazione di Klipper è personalizzata, ricorda di modificare il primo comando in modo appropriato per la tua installazione.  
 {% finale %}
 
@@ -111,7 +111,7 @@ Da Mainsail/Fluidd modificheremo il nostro moonraker.conf (dovrebbe essere alla 
 
     [include 3dwork-klipper/moonraker.conf]
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 **Ricordarsi di eseguire prima la fase di installazione, altrimenti Moonraker genererà un errore e non sarà in grado di avviarsi.**
 
 **D'altra parte, se la directory della configurazione di Klipper è personalizzata, ricordati di adattare il percorso in modo appropriato alla tua installazione.**  
@@ -169,7 +169,7 @@ Insieme di macro che ci permetteranno di gestire diverse azioni con il nostro fi
 
 ### **Macro di gestione delle bobine di filamento (Spoolman)**
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 **SEZIONE IN PROCESSO!!!**  
 {% finale %}
 
@@ -201,7 +201,7 @@ L’ideale in ogni caso sarebbe aggiungere alla nostra plastificatrice,**nei gco
 
 ### **Macro di gestione della superficie di stampa**
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 **SEZIONE IN PROCESSO!!!**  
 {% finale %}
 
@@ -239,7 +239,7 @@ D'altra parte ne abbiamo alcuni**requisiti per implementarlo (cercheremo di aggi
 
 D'altra parte, è interessante avere delle macro per attivare questa o quella superficie o addirittura passarla come parametro dal nostro laminatore in modo che con diversi profili di stampante o filamento possiamo caricare l'una o l'altra automaticamente:
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 È importante che il valore in NAME="xxxx" corrisponda al nome che abbiamo assegnato durante l'installazione della nostra superficie di stampa  
 {% finale %}
 
@@ -290,7 +290,7 @@ Anche nel caso di KlipperScreen possiamo aggiungere un menu specifico per gestir
 | INSTALLARE_COSTRUIRE_FOGLIO                 |             |
 | SPETTACOLO_COSTRUIRE_FOGLIO                 |             |
 | SPETTACOLO_COSTRUIRE_FOGLI                  |             |
-| IMPOSTATO_COSTRUIRE_FOGLIO_COMPENSARE       |             |
+| IMPOSTATO_COSTRUIRE_FOGLIO_OFFSET           |             |
 | RIPRISTINA_COSTRUIRE_FOGLIO_COMPENSARE      |             |
 | IMPOSTATO_CODICE G_COMPENSARE               |             |
 | FARE DOMANDA A_COSTRUIRE_FOGLIO_REGOLAZIONE |             |
@@ -338,7 +338,7 @@ Possiamo anche eseguire il processo manualmente, copieremo manualmente il plugin
 | Dimentica M4P           | btt-manta-m4p                                |
 | Manta M4P v2.a          | btt-manta-m4p-22                             |
 | Manta Qab               | btt-manta-m8p                                |
-| Manda MthP b1.1         | btt-manta-m8p-11                             |
+| Manta M8P v1.1          | btt-manta-m8p-11                             |
 | NO Polpo Max            | btt-octopus-max-it                           |
 | Polpo Pro (446)         | btt-octopus-pro-446                          |
 | Polpo Pro (429)         | btt-octopus-pro-429                          |
@@ -400,7 +400,7 @@ Dalla nostra interfaccia, Mainsail/Fluidd, modificheremo il nostro print.cfg e a
 #\*# \\&lt;---------------------- SALVA_CONFIGURAZIONE ----------------------->  
 {% finale %}
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 Le macro normali sono state separate da**shell delle macro**dato che**Per abilitarli è necessario eseguire manualmente ulteriori passaggi, oltre a quelli attualmente in fase di test.**E\*\*Potrebbero richiedere autorizzazioni aggiuntive per assegnare autorizzazioni di esecuzione per le quali non sono state indicate le istruzioni poiché stanno tentando di automatizzare.\*\*  
 **Se li usi è a tuo rischio e pericolo.**  
 {% finale %}
@@ -443,7 +443,7 @@ Poiché le nostre macro sono dinamiche, estrarranno determinate informazioni dal
 
     START_PRINT EXTRUDER_TEMP={material_print_temperature_layer_0} BED_TEMP={material_bed_temperature_layer_0} PRINT_MIN=%MINX%,%MINY% PRINT_MAX=%MAXX%,%MAXY%
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 Dovremo installare il plugin[**Plug-in post-processo (di Frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)dal menù_**Aiuto/Mostra**_configuration Folder... copiaremos el script del link anterior dentro de la carpeta script.   
 Riavviamo Cura e andremo a_**Estensioni/Post elaborazione/Modifica G-Code**_e selezioneremo_**Dimensioni di stampa mesh**_.  
 {% finale %}  
@@ -463,7 +463,7 @@ Riavviamo Cura e andremo a_**Estensioni/Post elaborazione/Modifica G-Code**_e se
 {% perdita %}
 
 {% suggerimento stile="informazioni" %}  
-IL**i placeholder sono "alias" o variabili che i laminatori utilizzano in modo che durante la generazione del gcode vengano sostituiti dai valori configurati nel profilo**di impressione.
+IL**i placeholder sono degli "alias" o variabili che i laminatori utilizzano in modo che durante la generazione del gcode li sostituiscano con i valori configurati nel profilo**di impressione.
 
 Nei seguenti link è possibile trovarne un elenco per:[**Affettatrice Prusa**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(oltre a quelli sopra),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)E[**Cura**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -508,7 +508,7 @@ Per gestire le velocità utilizzate nelle macro.
 | Variabile                        | Descrizione                            | Valori possibili | Valore di default |   |
 | -------------------------------- | -------------------------------------- | ---------------- | ----------------- | - |
 | variabile_macro_viaggio_velocità | Velocità di trasferimento              | numerico         | 150               |   |
-| variabile_macro_z_velocità       | Velocità di trasferimento per l'asse Z | numerico         | 15                |   |
+| variabile_macro_Con_velocità     | Velocità di trasferimento per l'asse Z | numerico         | 15                |   |
 
 #### Homing
 
@@ -549,7 +549,7 @@ Per controllare il processo di livellamento abbiamo variabili che possono essere
 | nomi                                                                                                         | adattivo                                                                            |                  |                   |
 | variabile_letto_maglia_profilo                                                                               | Il nome utilizzato per la nostra mesh archiviata                                    | testo            | predefinito       |
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 Ti consigliamo di utilizzare il livellamento adattivo poiché adatterà sempre la mesh alla dimensione della nostra stampa, consentendoti di avere un'area della mesh regolata.
 
 È importante che abbiamo nel nostro[avvia il gcode della nostra plastificatrice](../empezamos/configuracion-klipper-en-laminadores.md#configurando-nuestro-laminador-para-usar-nustras-macros-start_print-y-end_print), nella chiamata al nostro START_STAMPA, STAMPA valori_MAX e STAMPA_MINIMO  
@@ -557,7 +557,7 @@ Ti consigliamo di utilizzare il livellamento adattivo poiché adatterà sempre l
 
 #### epurato
 
-Una fase importante del nostro inizio stampa è un corretto spurgo dei nostri ugelli per evitare che restino filamenti o che questi possano prima o poi danneggiare la nostra stampa. Di seguito sono riportate le variabili che intervengono in questo processo:
+Una fase importante del nostro inizio stampa è un corretto spurgo del nostro ugello per evitare resti di filamento o che questi possano prima o poi danneggiare la nostra stampa. Di seguito sono riportate le variabili che intervengono in questo processo:
 
 | Variabile                                                                                                                                                               | Descrizione                                       | Valori possibili | Valore di default |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------- | ----------------- |
@@ -603,7 +603,7 @@ In questo caso, questo gruppo di variabili ci faciliterà la gestione del carica
 | variabile_filamento_carico_lunghezza    | Distanza in mm per caricare il nuovo filamento... oltre che in variabile_filamento_scaricare_lunghezza utilizzeremo la misura dal tuo ingranaggio all'estrusore aggiungendo un margine extra, in questo caso questo valore extra dipenderà da quanto vuoi che venga spurgato... normalmente puoi dargli più margine rispetto al valore precedente per assicurarti che il l'estrusione del filamento precedente sia pulita. | numero           | 150               |
 | variabile_filamento_carico_velocità     | Velocità di caricamento del filamento in mm/sec, normalmente viene utilizzata una velocità maggiore rispetto alla velocità di scarico.                                                                                                                                                                                                                                                                                     | numero           | 10                |
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 Un'altra impostazione necessaria per la tua sezione\[estrusore]indicare il[**massimo_estrudere_soltanto_distanza**](https://www.klipper3d.org/Config_Reference.html#extruder)...il valore consigliabile è solitamente >101 (se non definito, utilizzare 50) per consentire, ad esempio, tipici test di calibrazione dell'estrusore.  
 Dovresti modificare il valore in base a quanto menzionato in precedenza sul test o sulla configurazione del tuo**variabile_filamento_scaricare_lunghezza**IO**variabile_filamento_carico_lunghezza**.  
 {% finale %}
@@ -631,7 +631,7 @@ In alcuni processi della nostra stampante, come la pausa, è consigliabile parch
 
 Sfruttare al massimo la nostra macchina affinché si autolivella e garantire che la nostra macchina sia sempre nelle migliori condizioni è fondamentale.
 
-**Z-TILT è fondamentalmente un processo che ci aiuta ad allineare i nostri motori Z rispetto al nostro asse/gantry X (cartesiano) o XY (CoreXY).**. Con questo**ci assicuriamo di avere sempre la nostra Z allineata perfettamente, in modo preciso e automatico**.
+**Z-TILT è fondamentalmente un processo che ci aiuta ad allineare i nostri motori Z rispetto al nostro asse/gantry X (cartesiano) o XY (CoreXY).**. Con questo**ci assicuriamo che la nostra Z sia sempre allineata in modo perfetto, preciso e automatico**.
 
 | Variabile                         | Descrizione                                                                                   | Valori possibili | Valore di default |
 | --------------------------------- | --------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
@@ -661,7 +661,7 @@ Normalmente, sarà ciò che dovremo aggiustare, per apportare modifiche alle var
 
 Semplicemente, quello che dobbiamo fare è incollare il contenuto della macro\[gcode_macro GLOBALE_DI CHI]cosa possiamo trovare in macro/macro_era_globals.cfg nel nostro Printer.cfg.
 
-Ti ricordiamo quanto accennato in precedenza su come Klipper elabora le configurazioni in sequenza, quindi è consigliabile incollarlo dopo gli include di cui abbiamo parlato.[Qui](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
+Ti ricordiamo quanto accennato in precedenza riguardo al modo in cui Klipper elabora le configurazioni in sequenza, quindi è consigliabile incollarlo dopo gli include di cui abbiamo parlato.[Qui](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
 Avremo qualcosa del genere (è solo un esempio visivo):
 
@@ -686,7 +686,7 @@ variable_language: "es"                         # Possible values: "en", "es"
 
 ```
 
-{% stile suggerimento="avviso" %}
+{% suggerimento stile="avviso" %}
 I tre punti (...) negli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 
@@ -796,7 +796,7 @@ probe_count: 11,11
 
 {%endcode%}
 
-{% stile suggerimento="avviso" %}
+{% suggerimento stile="avviso" %}
 I tre punti (...) negli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 
@@ -841,7 +841,7 @@ pin: PA8
 
 {%endcode%}
 
-{% stile suggerimento="avviso" %}
+{% suggerimento stile="avviso" %}
 I tre punti (...) negli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 

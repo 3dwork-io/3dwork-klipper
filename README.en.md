@@ -20,7 +20,7 @@ From**Your excuses**We have compiled and fine-tuned a set of macros, machine and
 
 Much of this package is based on[**Rats**](https://os.ratrig.com/)improving the parts that we think are interesting, as well as other contributions from the community.
 
-## Installation
+## Instalación
 
 To install our package for Klipper we will follow the following steps
 
@@ -128,7 +128,7 @@ Some added macros that will be useful to us:
 | Macro                                                            | Description                                                                                                                                                     |
 | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **MAYBE_HOME**                                                   | It allows us to optimize the homing process only by performing it on those axes that are not homing.                                                            |
-| **PAUSE**                                                        | Using the related variables, it allows us to manage a pause with a more versatile head parking than normal macros.                                              |
+| **PAUSE**                                                        | Through the related variables it allows us to manage a pause with a more versatile head parking than normal macros.                                             |
 | **SET_PAUSE_AT_LAYER**                                           |                                                                                                                                                                 |
 | **SET_PAUSE_AT_NEXT_LAYER**                                      | A very useful macro that Mainsail integrates into its UI to be able to pause on demand in a specific layer... in case we forgot when laminating.                |
 | We also have another one to execute the pause on the next layer. |                                                                                                                                                                 |
@@ -237,7 +237,7 @@ On the other hand we have some**requirements to implement it (we will try to add
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-On the other hand, it is interesting to be able to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
+On the other hand, it is interesting to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
 
 {% hint style="warning" %}  
 It is important that the value in NAME="xxxx" matches the name we gave when installing our printing surface  
@@ -356,14 +356,14 @@ We can also carry out the process by hand, we will manually copy the plugin for 
 | SKR 1.4 Turbo      | btt-skr-14-turbo               |
 | SKR Mini Ez vz     | btt_skr_mini_ez_30             |
 
-| Toolhead (CAN) | Parameter name to use in macro |
-| -------------- | ------------------------------ |
-| EBB42 v1       | btt_ebb42_10                   |
-| EBB36 v1       | btt_ebb36_10                   |
-| EBB42 v1.1     | btt_ebb42_11                   |
-| EBB36 v1.1     | btt_ebb36_11                   |
-| EBB42 v1.2     | btt_ebb42_12                   |
-| EBB36 v1.2     | btt_ebb36_12                   |
+| Toolhead (CAN) | Nombre de parámetro a usar en macro |
+| -------------- | ----------------------------------- |
+| EBB42 v1       | btt_ebb42_10                        |
+| EBB36 v1       | btt_ebb36_10                        |
+| EBB42 v1.1     | btt_ebb42_11                        |
+| EBB36 v1.1     | btt_ebb36_11                        |
+| EBB42 v1.2     | btt_ebb42_12                        |
+| EBB36 v1.2     | btt_ebb36_12                        |
 
 | **Electronics**      | **Parameter name to use in macro** |
 | -------------------- | ---------------------------------- |
@@ -463,7 +463,7 @@ We restart Cura and we will go to_**Extensions/Post processing/Modify G-Code**_a
 {% endloss %}
 
 {% hint style="info" %}  
-Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**of impression.
+Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they replace them with the values ​​configured in the profile**of impression.
 
 In the following links you can find a list of these for:[**Prusa Slicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -557,7 +557,7 @@ It is important that we have in our[start gcode of our laminator](../empezamos/c
 
 #### purged
 
-An important phase of our start of printing is a correct purging of our nozzle to avoid filament remains or that these could damage our printing at some point. Below you have the variables that intervene in this process:
+An important phase of our start of printing is a correct purging of our nozzle to avoid remains of filament or that these could damage our printing at some point. Below you have the variables that intervene in this process:
 
 | Variable                                                                                                                                             | Description                                      | Possible values | Default value |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | --------------- | ------------- |

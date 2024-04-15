@@ -16,7 +16,7 @@ Journal des modifications
 
 12/07/2023 - Ajout du support pour automatiser la création du firmware électronique Bigtreetech
 
-Depuis**Vos excuses**Nous avons compilé et affiné un ensemble de macros, de paramètres machines et électroniques, ainsi que d'autres outils pour une gestion simple et puissante de Klipper.
+Depuis**Vos excuses**Nous avons collecté et ajusté un ensemble de macros, de paramètres machines et électroniques, ainsi que d'autres outils pour une gestion simple et puissante de Klipper.
 
 Une grande partie de ce package est basée sur[**Les rats**](https://os.ratrig.com/)améliorer les parties que nous jugeons intéressantes, ainsi que d'autres contributions de la communauté.
 
@@ -128,7 +128,7 @@ Quelques macros ajoutées qui nous seront utiles :
 | Macro                                                                          | Description                                                                                                                                                                          |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **PEUT ÊTRE_MAISON**                                                           | Cela nous permet d'optimiser le processus de référencement uniquement en l'exécutant sur les axes qui ne sont pas référencés.                                                        |
-| **PAUSE**                                                                      | En utilisant les variables associées, cela nous permet de gérer une pause avec un stationnement de tête plus polyvalent que les macros normales.                                     |
+| **PAUSE**                                                                      | Grâce aux variables associées, cela nous permet de gérer une pause avec un stationnement de tête plus polyvalent que les macros normales.                                            |
 | **ENSEMBLE_PAUSE_À_COUCHE**                                                    |                                                                                                                                                                                      |
 | **ENSEMBLE_PAUSE_À_SUIVANT_COUCHE**                                            | Une macro très utile que Mainsail intègre dans son UI pour pouvoir faire une pause à la demande dans un calque spécifique... au cas où nous l'aurions oublié lors du laminage.       |
 | Nous en avons également un autre pour exécuter la pause sur le calque suivant. |                                                                                                                                                                                      |
@@ -297,16 +297,16 @@ Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons 
 
 ### **Macros de configuration des machines**
 
-| Macro                                                             | Description                                                                                                                                                                                                                |
-| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **COMPILER_MICROLOGICIEL**                                        | Avec cette macro, nous pouvons compiler le firmware Klipper de manière simple, rendre le firmware accessible depuis l'interface utilisateur pour plus de simplicité et pouvoir l'appliquer à notre électronique.           |
-| Ici vous avez plus de détails sur l’électronique prise en charge. |                                                                                                                                                                                                                            |
-| **CALCULER_LIT_ENGRENER**                                         | Une macro extrêmement utile pour calculer la surface de notre maillage car cela peut parfois être un processus compliqué.                                                                                                  |
-| **PID_TOUS**                                                      |                                                                                                                                                                                                                            |
-| **PID_EXTRUDEUSE**                                                |                                                                                                                                                                                                                            |
-| **PID_LIT**                                                       | Ces macros, où nous pouvons transmettre les températures au PID sous forme de paramètres, nous permettront d'effectuer l'étalonnage de la température de manière extrêmement simple.                                       |
-| **TEST_VITESSE**                                                  |                                                                                                                                                                                                                            |
-| **TEST_VITESSE_DELTA**                                            | Macro originale du compagnon[Élise](https://github.com/AndrewEllis93)Ils nous permettront de manière assez simple de tester la vitesse à laquelle nous pouvons déplacer notre machine avec précision et sans perte de pas. |
+| Macro                                                   | Description                                                                                                                                                                                                                |
+| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **COMPILER_MICROLOGICIEL**                              | Avec cette macro, nous pouvons compiler le firmware Klipper de manière simple, rendre le firmware accessible depuis l'interface utilisateur pour plus de simplicité et pouvoir l'appliquer à notre électronique.           |
+| Aquí tenéis más detalle de las electrónicas soportadas. |                                                                                                                                                                                                                            |
+| **CALCULER_LIT_ENGRENER**                               | Une macro extrêmement utile pour calculer la surface de notre maillage car cela peut parfois être un processus compliqué.                                                                                                  |
+| **PID_TOUS**                                            |                                                                                                                                                                                                                            |
+| **PID_EXTRUDEUSE**                                      |                                                                                                                                                                                                                            |
+| **PID_LIT**                                             | Ces macros, où nous pouvons transmettre les températures au PID sous forme de paramètres, nous permettront d'effectuer l'étalonnage de la température de manière extrêmement simple.                                       |
+| **TEST_VITESSE**                                        |                                                                                                                                                                                                                            |
+| **TEST_VITESSE_DELTA**                                  | Macro originale du compagnon[Élise](https://github.com/AndrewEllis93)Ils nous permettront de manière assez simple de tester la vitesse à laquelle nous pouvons déplacer notre machine avec précision et sans perte de pas. |
 
 -   **Firmware compilé pour les appareils électroniques pris en charge**, pour faciliter le processus de création et de maintenance de notre firmware Klipper pour nos MCU, nous avons la macro COMPILE_FIRMWARE qui, une fois exécuté, nous pouvons utiliser notre électronique comme paramètre pour faire uniquement cela, compilera Klipper pour toute l'électronique prise en charge par notre bundle :  
     ![](../../.gitbook/assets/image%20(1540).png)  
@@ -470,7 +470,7 @@ Dans les liens suivants, vous pouvez en trouver une liste pour :[**Trancheuse P
 L'utilisation de ceux-ci permet à nos macros d'être dynamiques.  
 {% finint %}
 
--   **gcode de final END_IMPRIMER**, dans ce cas en n'utilisant pas d'espaces réservés, c'est commun à toutes les plastifieuses
+-   **gcode de final END_IMPRIMER**, dans ce cas, en n'utilisant pas d'espaces réservés, il est commun à toutes les plastifieuses
 
 
     END_PRINT
@@ -604,7 +604,7 @@ Dans ce cas, ce groupe de variables facilitera la gestion du chargement et du d�
 | variable_filament_charger_vitesse    | Vitesse de chargement du filament en mm/sec, normalement une vitesse plus rapide est utilisée que la vitesse de déchargement.                                                                                                                                                                                                                                                                                                                      | nombre            | 10                |
 
 {% indice style="avertissement" %}  
-Un autre paramètre nécessaire pour votre section\[extrudeuse]se indique el[**maximum_extruder_seulement_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)...la valeur recommandée est généralement >101 (si elle n'est pas définie, utilisez 50) pour, par exemple, permettre des tests d'étalonnage typiques d'une extrudeuse.  
+Otro ajuste necesario para vuestra sección \[extrudeuse]se indique el[**maximum_extruder_seulement_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)...la valeur recommandée est généralement >101 (si elle n'est pas définie, utilisez 50) pour, par exemple, permettre des tests d'étalonnage typiques d'une extrudeuse.  
 Vous devez ajuster la valeur en fonction de ce qui a été mentionné précédemment concernant le test ou la configuration de votre**variable_filament_décharger_longueur**je**variable_filament_charger_longueur**.  
 {% finint %}
 
@@ -659,7 +659,7 @@ C'est pourquoi il est très important de comprendre le fonctionnement de Klipper
 
 Normalement, ce sera ce que nous devrons ajuster, faire des ajustements aux variables que nous avons par défaut dans notre module**Vos excuses**para Falaises.
 
-Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBALE_DONT]ce qu'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
+Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBAL_DONT]ce qu'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
 
 Nous vous rappelons ce que nous avons mentionné précédemment sur la façon dont Klipper traite les configurations de manière séquentielle, il est donc conseillé de le coller après les inclusions que nous avons mentionnées.[ici](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
@@ -693,7 +693,7 @@ Les trois points (...) dans les exemples précédents ont simplement pour but d'
 {% indice style="info" %}
 
 -   Nous vous conseillons d'ajouter des commentaires comme vous le voyez dans le cas précédent pour identifier ce que fait chaque section.
--   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBALE_DONT]{% finint %}
+-   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBAL_DONT]{% finint %}
 
 #### Personnalisation des macros
 
@@ -720,7 +720,7 @@ Nous avons deux groupes de macros :
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | \_UTILISATEUR_FIN_IMPRIMER_AVANT_CHAUFFAGES_DÉSACTIVÉ | Il est exécuté avant d'éteindre les radiateurs, avant_FIN_IMPRIMER_AVANT_CHAUFFAGES_DÉSACTIVÉ |
 | \_UTILISATEUR_FIN_IMPRIMER_APRÈS_CHAUFFAGES_DÉSACTIVÉ | Il est exécuté après l'arrêt des radiateurs, avant_FIN_IMPRIMER_APRÈS_CHAUFFAGES_DÉSACTIVÉ    |
-| \_UTILISATEUR_FIN_IMPRIMER_PARC                       | Il est exécuté avant que la tête ne soit garée, avant_FIN_IMPRIMER_PARC                       |
+| \_UTILISATEUR_END_IMPRIMER_PARC                       | Il est exécuté avant que la tête ne soit garée, avant_FIN_IMPRIMER_PARC                       |
 
 **IMPRIMER_LES BASES**
 

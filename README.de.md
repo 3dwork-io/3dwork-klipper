@@ -16,7 +16,7 @@
 
 07.12.2023 – Unterstützung hinzugefügt, um die Erstellung der elektronischen Firmware von Bigtreetech zu automatisieren
 
-Aus**Deine Ausreden**Wir haben eine Reihe von Makros, Maschinen- und Elektronikeinstellungen sowie andere Tools für eine einfache und leistungsstarke Klipper-Verwaltung zusammengestellt und angepasst.
+Aus**Deine Ausreden**Wir haben eine Reihe von Makros, Maschinen- und Elektronikeinstellungen sowie anderen Tools für eine einfache und leistungsstarke Klipper-Verwaltung zusammengestellt und verfeinert.
 
 Ein Großteil dieses Pakets basiert auf[**Ratten**](https://os.ratrig.com/)Verbesserung der Teile, die wir für interessant halten, sowie anderer Beiträge aus der Community.
 
@@ -38,7 +38,7 @@ Wenn Ihr Klipper-Konfigurationsverzeichnis angepasst ist, denken Sie daran, den 
 {% hint style="info" %}  
 Bei Neuinstallationen:
 
-Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, die es uns ermöglichen, die Makros in unserem Bundle zu verwenden, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
+Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, sodass wir die Makros in unserem Bundle verwenden können, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
 
 -   Wir stellen sicher, dass wir unsere haben[Host als zweite MCU](raspberry-como-segunda-mcu.md)
 -   Als nächstes fügen wir eine Printer.cfg hinzu. Denken Sie daran, dass diese Schritte für eine Neuinstallation gelten, bei der Sie keine Printer.cfg haben und das Makro zum Erstellen von Firmware starten möchten, wie das, das Sie unten sehen können:
@@ -260,7 +260,7 @@ Es ist wichtig, dass der Wert in NAME="xxxx" mit dem Namen übereinstimmt, den w
 
 {%endcode%}
 
-Wenn wir über KlipperScreen verfügen, können wir auch ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in dem wir einen Aufruf der Makros einfügen, die zuvor für das Laden jeder Oberfläche erstellt wurden:
+Auch wenn wir über KlipperScreen verfügen, können wir ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in das wir einen Aufruf der zuvor für das Laden jeder Oberfläche erstellten Makros einfügen:
 
 {% code title="~/printer_data/config/KlipperScreen.conf" %}
 
@@ -332,29 +332,29 @@ Der einfachste Weg ist die Verwendung[**keoh**](../instalacion/#instalando-kiauh
 
 Wir können den Vorgang auch manuell durchführen, wir kopieren das Plugin manuell für Klipper[**gcode_Hülse_Verlängerung**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)in unserem Verzeichnis`_**~/klipper/klippy/extras**_`Verwenden Sie SSH oder SCP und starten Sie Klipper neu.
 
-| Elektronik         | Parametername, der im Makro verwendet werden soll |
-| ------------------ | ------------------------------------------------- |
-| Manta E            | Mit Stolz                                         |
-| Vergessen Sie M4P  | btt-manta-m4p                                     |
-| Manta M4P v2.a     | btt-manta-m4p-22                                  |
-| Manta Qab          | btt-manta-m8p                                     |
-| Manda MthP b1.1    | btt-manta-m8p-11                                  |
-| KEIN Oktopus Max   | btt-octopus-max-it                                |
-| Octopus Pro (446)  | btt-octopus-pro-446                               |
-| Octopus Pro (429)  | btt-octopus-pro-429                               |
-| Octopus Pro (H723) | btt-octopus-pro-h723                              |
-| Octopus v1.1       | btt-octopus-11                                    |
-| Octopus v1.1 (407) | btt-octopus-11-407                                |
-| SKR Pro v1.2       | skr_Profi_12                                      |
-| SKR 3              | Übrigens_skr_3                                    |
-| Saqr A (Haha)      | Du machst ihn betrunken                           |
-| SKR 3 EZ           | btt-skr-3-ez                                      |
-| Saqr A Idha (Haha) | Sie wird sehr betrunken                           |
-| SKR 2 (429)        | btt-skr-2-429                                     |
-| SKR 2 (407)        | btt-skr-2-407                                     |
-| SKR RAT            | BTT-Kurzschluss-10                                |
-| SKR 1.4 Turbo      | btt-skr-14-turbo                                  |
-| SKR Mini Ez vz     | Übrigens_skr_Mini_ez_30                           |
+| Elektronik                       | Parametername, der im Makro verwendet werden soll |
+| -------------------------------- | ------------------------------------------------- |
+| Manta E                          | Mit Stolz                                         |
+| Vergessen Sie M4P                | btt-manta-m4p                                     |
+| Manta M4P v2.a                   | btt-manta-m4p-22                                  |
+| Manta Qab                        | btt-manta-m8p                                     |
+| Manda MthP b1.1                  | btt-manta-m8p-11                                  |
+| KEIN Oktopus Max                 | btt-octopus-max-it                                |
+| Octopus Pro (446)                | btt-octopus-pro-446                               |
+| Octopus Pro (429)                | btt-octopus-pro-429                               |
+| Octopus Pro (H723)               | btt-octopus-pro-h723                              |
+| Octopus v1.1                     | BTT-Oktopus-11                                    |
+| Octopus v1.1 (407)               | btt-octopus-11-407                                |
+| SKR Pro v1.2                     | skr_Profi_12                                      |
+| SKR 3                            | Übrigens_skr_3                                    |
+| Saqr A (Haha)                    | Du machst ihn betrunken                           |
+| SKR 3 EZ                         | btt-skr-3-ez                                      |
+| Saqr (Friede sei mit ihm) (Haha) | Sie wird sehr betrunken                           |
+| SKR 2 (429)                      | btt-skr-2-429                                     |
+| SKR 2 (407)                      | btt-skr-2-407                                     |
+| SKR RAT                          | BTT-Kurzschluss-10                                |
+| SKR 1.4 Turbo                    | btt-skr-14-turbo                                  |
+| SKR Mini Ez vz                   | Übrigens_skr_Mini_ez_30                           |
 
 | Werkzeugkopf (CAN) | Parametername, der im Makro verwendet werden soll |
 | ------------------ | ------------------------------------------------- |
@@ -512,7 +512,7 @@ Zum Verwalten der in Makros verwendeten Geschwindigkeiten.
 
 #### Heimkehr
 
-Satz von Variablen, die sich auf den Referenzierungsprozess beziehen.
+Satz von Variablen im Zusammenhang mit dem Referenzierungsprozess.
 
 | Variable | Beschreibung | Mögliche Werte | Standardwert |
 | -------- | ------------ | -------------- | ------------ |
@@ -555,7 +555,7 @@ Wir empfehlen Ihnen, die adaptive Nivellierung zu verwenden, da dadurch das Netz
 Es ist wichtig, dass wir in unserem[Start-Gcode unseres Laminators](../empezamos/configuracion-klipper-en-laminadores.md#configurando-nuestro-laminador-para-usar-nustras-macros-start_print-y-end_print), im Aufruf zu unserem START_PRINT, PRINT-Werte_MAX y DRUCKEN_MINDEST.  
 {% endint %}
 
-#### gesäubert
+#### Purgado
 
 Eine wichtige Phase unseres Druckstarts ist das korrekte Spülen unserer Düse, um zu verhindern, dass Filamentreste zurückbleiben oder dass diese unseren Druck irgendwann beschädigen könnten. Nachfolgend finden Sie die Variablen, die in diesen Prozess eingreifen:
 
@@ -578,13 +578,13 @@ FALSCH
 -max wird dies bei X=max tun (abzüglich einer kleinen Sicherheitsmarge)  
 -Die Zahl ist die X-Koordinate, an der sich die Spülung | befindet Mindest /  
 max. /  
-Zahl | max |  
+Nummer | max |  
 | Variable_Düse_Primzahl_Start_und | Wo wir unsere Spülleitung platzieren möchten:  
 -min wird dies bei Y=0 tun (plus einer kleinen Sicherheitsmarge)  
 -max wird dies bei Y=max tun (abzüglich einer kleinen Sicherheitsmarge)  
 -Die Zahl ist die Y-Koordinate, an der die Spülung | lokalisiert werden soll Mindest /  
 max. /  
-Zahl | min |  
+Nummer | min |  
 | Variable_Düse_Primzahl_Richtung | Die Adresse unserer Leitung oder Zustellung:  
 -Nach hinten bewegt sich der Kopf zur Vorderseite des Druckers  
 -vorwärts bewegt sich nach hinten  
@@ -596,12 +596,12 @@ rückwärts | auto |
 
 In diesem Fall erleichtert diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
 
-| Variable                                    | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Mögliche Werte | Standardwert |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| Variable_Filament_entladen_Länge            | Wie viel mm das Filament zurückgezogen werden muss, passen Sie an Ihre Maschine an, normalerweise das Maß von Ihrer Düse bis zu den Zahnrädern Ihres Extruders, wobei ein zusätzlicher Spielraum hinzukommt.                                                                                                                                                                                                                                                          | Nummer         | 130          |
-| Variable_Filament_entladen_Geschwindigkeit  | Filamentrückzugsgeschwindigkeit in mm/s. Normalerweise wird eine langsame Geschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                                                  | Nummer         | 5            |
-| Variable_Filament_Belastung_Länge           | Abstand in mm zum Laden des neuen Filaments... sowie variabel_Filament_entladen_Für die Länge verwenden wir die Messung von Ihrem Getriebe bis zum Extruder und fügen einen zusätzlichen Spielraum hinzu. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel Sie entleeren möchten. Normalerweise können Sie ihm einen größeren Spielraum als den vorherigen Wert geben, um sicherzustellen, dass der Die Extrusion des vorherigen Filaments ist sauber. | Nummer         | 150          |
-| Variable_Filament_Belastung_Geschwindigkeit | Filamentladegeschwindigkeit in mm/s, normalerweise wird eine höhere Geschwindigkeit als die Entladegeschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                         | Nummer         | 10           |
+| Variable                                    | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Mögliche Werte | Standardwert |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| Variable_Filament_entladen_Länge            | Wie viel mm das Filament zurückgezogen werden muss, passen Sie an Ihre Maschine an, normalerweise das Maß von Ihrer Düse bis zu den Zahnrädern Ihres Extruders, wobei ein zusätzlicher Spielraum hinzukommt.                                                                                                                                                                                                                                                        | Nummer         | 130          |
+| Variable_Filament_entladen_Geschwindigkeit  | Filamentrückzugsgeschwindigkeit in mm/s. Normalerweise wird eine langsame Geschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                                                | Nummer         | 5            |
+| Variable_Filament_Belastung_Länge           | Abstand in mm zum Laden des neuen Filaments... sowie variabel_Filament_entladen_Für die Länge verwenden wir die Messung von Ihrem Getriebe bis zum Extruder und fügen einen zusätzlichen Spielraum hinzu. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel gespült werden soll. Normalerweise können Sie ihm einen größeren Spielraum als den vorherigen Wert geben, um sicherzustellen, dass der Die Extrusion des vorherigen Filaments ist sauber. | Nummer         | 150          |
+| Variable_Filament_Belastung_Geschwindigkeit | Filamentladegeschwindigkeit in mm/s, normalerweise wird eine höhere Geschwindigkeit als die Entladegeschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                       | Nummer         | 10           |
 
 {% hint style="warning" %}  
 Eine weitere notwendige Einstellung für Ihren Abschnitt\[Extruder]geben Sie an[**max_extrudieren_nur_Distanz**](https://www.klipper3d.org/Config_Reference.html#extruder)...der empfohlene Wert ist normalerweise >101 (falls nicht definiert, verwenden Sie 50), um beispielsweise typische Extruder-Kalibrierungstests zu ermöglichen.  
@@ -641,9 +641,9 @@ Es ist wichtig, das Beste aus unserer Maschine herauszuholen, damit sie sich sel
 
 Die Verwendung von[SCHRÄG](broken-reference)Für die Korrektur bzw. Feinjustierung unserer Drucker ist es äußerst ratsam, wenn wir Abweichungen in unseren Ausdrucken haben. Mit der folgenden Variablen können wir die Verwendung in unseren Makros ermöglichen:
 
-| Variable                  | Beschreibung                                                                                                                                                                                                                         | Mögliche Werte | Standardwert          |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | --------------------- |
-| Variable_verzerren_Profil | Dadurch können wir unser Skew-Profil berücksichtigen, das in unser START-Makro geladen wird_DRUCKEN Um es zu aktivieren, müssen wir die Variable auskommentieren und den Namen des Skew-Profils aus unserer Konfiguration verwenden. | Text           | Mein_verzerren_Profil |
+| Variable                  | Beschreibung                                                                                                                                                                                                                         | Mögliche Werte | Standardwert           |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ---------------------- |
+| Variable_verzerren_Profil | Dadurch können wir unser Skew-Profil berücksichtigen, das in unser START-Makro geladen wird_DRUCKEN Um es zu aktivieren, müssen wir die Variable auskommentieren und den Namen des Skew-Profils aus unserer Konfiguration verwenden. | Text           | Mein_verzerren_profile |
 
 ### Makroanpassung
 
@@ -735,13 +735,13 @@ Wir haben zwei Gruppen von Makros:
 
 **START_DRUCKEN**
 
-| Makroname                             | Beschreibung                                                                                                                                                                                                                              |
-| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \_START_DRUCKEN_HITZE_KAMMER          | Erhitzt das Gehäuse, wenn der CHAMBER-Parameter überschritten wird_TEMP wird von unserem START-Makro empfangen_DRUCKEN vom Laminator                                                                                                      |
-| \_START_DRUCKEN_NACH_HEIZUNG_BETT     | Es wird ausgeführt, wenn das Bett die Temperatur erreicht hat_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_BETT. Wird normalerweise für die Verarbeitung von Bettkalibrierungen verwendet (Z_NEIGUNG_EINSTELLEN, VIERFACH_PORTAL_NIVELLIERUNG,...) |
-| \_START_DRUCKEN_BETT_GITTERGEWEBE     | Es kümmert sich um die Bettvernetzungslogik.                                                                                                                                                                                              |
-| \_START_DRUCKEN_PARK                  | Parken Sie den Druckkopf, während Sie die Düse auf Drucktemperatur erwärmen.                                                                                                                                                              |
-| \_START_DRUCKEN_NACH_HEIZUNG_EXTRUDER | Spülen Sie die Düse und laden Sie das SKEW-Profil, wenn dies in den Variablen definiert ist                                                                                                                                               |
+| Makroname                             | Beschreibung                                                                                                                                                                                                                          |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \_START_DRUCKEN_HITZE_KAMMER          | Erhitzt das Gehäuse, wenn der CHAMBER-Parameter überschritten wird_TEMP wird von unserem START-Makro empfangen_DRUCKEN vom Laminator                                                                                                  |
+| \_START_DRUCKEN_NACH_HEIZUNG_BETT     | Es wird ausgeführt, wenn das Bett die Temperatur erreicht hat_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_BETT. Wird normalerweise zur Verarbeitung von Bettkalibrierungen verwendet (Z_NEIGUNG_EINSTELLEN, VIERFACH_PORTAL_NIVELLIERUNG,...) |
+| \_START_DRUCKEN_BETT_GITTERGEWEBE     | Es kümmert sich um die Bettvernetzungslogik.                                                                                                                                                                                          |
+| \_START_DRUCKEN_PARK                  | Parken Sie den Druckkopf, während Sie die Düse auf Drucktemperatur erwärmen.                                                                                                                                                          |
+| \_START_DRUCKEN_NACH_HEIZUNG_EXTRUDER | Spülen Sie die Düse und laden Sie das SKEW-Profil, wenn dies in den Variablen definiert ist                                                                                                                                           |
 
 ## Drucker und Elektronik
 
@@ -804,7 +804,7 @@ Wir können denselben Prozess mit jedem Parameter verwenden, den wir anpassen m�
 
 #### Anpassen der Pin-Konfiguration
 
-Wir werden genau wie zuvor vorgehen und in unserem Bereich USER OVERRIDES die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
+Wir werden genauso vorgehen wie zuvor, in unserem Bereich USER OVERRIDES werden wir die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
 
 Im folgenden Beispiel werden wir den Pin unseres elektronischen Lüfters (Controllers) anpassen_Ventilator), um ihn einem anderen als dem Standard-Lüfter zuzuweisen:
 

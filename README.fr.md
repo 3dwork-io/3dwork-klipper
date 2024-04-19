@@ -16,7 +16,7 @@ Journal des modifications
 
 12/07/2023 - Ajout du support pour automatiser la création du firmware électronique Bigtreetech
 
-Depuis**Vos excuses**Nous avons collecté et ajusté un ensemble de macros, de paramètres machines et électroniques, ainsi que d'autres outils pour une gestion simple et puissante de Klipper.
+Depuis**Vos excuses**Nous avons compilé et affiné un ensemble de macros, de paramètres machines et électroniques, ainsi que d'autres outils pour une gestion simple et puissante de Klipper.
 
 Une grande partie de ce package est basée sur[**Les rats**](https://os.ratrig.com/)améliorer les parties que nous jugeons intéressantes, ainsi que d'autres contributions de la communauté.
 
@@ -216,7 +216,7 @@ Cet ensemble de macros, créé par[Garethky](https://github.com/garethky), ils n
 D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essaierons d'ajouter dans la logique PRINT_START du bundle dans le futur en activant cette fonction par variable et en créant une macro utilisateur précédente et suivante pour pouvoir saisir les événements utilisateur)**:
 
 -   l'utilisation de\[sauvegarder_variables]Dans notre cas, nous utiliserons ~/variables.cfg pour stocker les variables et cela se trouve déjà dans le cfg de ces macros.  
-    Cela créera automatiquement un fichier de variables pour nous_construire_sheet.cfg où il enregistrera nos variables sur le disque.
+    Cela créera automatiquement un fichier de variables pour nous_construire_sheet.cfg où il sauvegardera nos variables sur le disque.
 
 {% code title="Exemple de fichier de configuration de variables" %}
 
@@ -229,7 +229,7 @@ D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essa
 {%endcode%}
 
 -   nous devons inclure un appel à postuler_CONSTRUIRE_FEUILLE_AJUSTEMENT dans notre PRINT_START pour pouvoir appliquer le ZOffset de la surface sélectionnée
--   Il est important que pour la macro précédente, APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT, pour fonctionner correctement il faut ajouter un SET_CODEG_OFFSET Z=0.0 juste avant d'appeler APPLY_CONSTRUIRE_FEUILLE_AJUSTEMENT
+-   Il est important que pour la macro précédente, APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT, pour fonctionner correctement il faut ajouter un SET_CODE GCO_OFFSET Z=0.0 juste avant d'appeler APPLY_CONSTRUIRE_FEUILLE_AJUSTEMENT
 
 
     # Load build sheet
@@ -240,7 +240,7 @@ D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essa
 Par contre, il est intéressant de pouvoir avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
 
 {% indice style="avertissement" %}  
-Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.  
+Il est important que la valeur dans NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.  
 {% finint %}
 
 {% code title="printer.cfg ou inclure cfg" %}
@@ -292,25 +292,25 @@ Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons 
 | MONTRER_CONSTRUIRE_FEUILLES                |             |
 | ENSEMBLE_CONSTRUIRE_FEUILLE_COMPENSER      |             |
 | RÉINITIALISER_CONSTRUIRE_FEUILLE_COMPENSER |             |
-| ENSEMBLE_CODEG_COMPENSER                   |             |
+| ENSEMBLE_CODE GCO_COMPENSER                |             |
 | APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT    |             |
 
 ### **Macros de configuration des machines**
 
-| Macro                                                   | Description                                                                                                                                                                                                                |
-| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **COMPILER_MICROLOGICIEL**                              | Avec cette macro, nous pouvons compiler le firmware Klipper de manière simple, rendre le firmware accessible depuis l'interface utilisateur pour plus de simplicité et pouvoir l'appliquer à notre électronique.           |
-| Aquí tenéis más detalle de las electrónicas soportadas. |                                                                                                                                                                                                                            |
-| **CALCULER_LIT_ENGRENER**                               | Une macro extrêmement utile pour calculer la surface de notre maillage car cela peut parfois être un processus compliqué.                                                                                                  |
-| **PID_TOUS**                                            |                                                                                                                                                                                                                            |
-| **PID_EXTRUDEUSE**                                      |                                                                                                                                                                                                                            |
-| **PID_LIT**                                             | Ces macros, où nous pouvons transmettre les températures au PID sous forme de paramètres, nous permettront d'effectuer l'étalonnage de la température de manière extrêmement simple.                                       |
-| **TEST_VITESSE**                                        |                                                                                                                                                                                                                            |
-| **TEST_VITESSE_DELTA**                                  | Macro originale du compagnon[Élise](https://github.com/AndrewEllis93)Ils nous permettront de manière assez simple de tester la vitesse à laquelle nous pouvons déplacer notre machine avec précision et sans perte de pas. |
+| Macro                                                             | Description                                                                                                                                                                                                                |
+| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **COMPILER_MICROLOGICIEL**                                        | Avec cette macro, nous pouvons compiler le firmware Klipper de manière simple, rendre le firmware accessible depuis l'interface utilisateur pour plus de simplicité et pouvoir l'appliquer à notre électronique.           |
+| Ici vous avez plus de détails sur l’électronique prise en charge. |                                                                                                                                                                                                                            |
+| **CALCULER_LIT_ENGRENER**                                         | Une macro extrêmement utile pour calculer la surface de notre maillage car cela peut parfois être un processus compliqué.                                                                                                  |
+| **PID_TOUS**                                                      |                                                                                                                                                                                                                            |
+| **PID_EXTRUDEUSE**                                                |                                                                                                                                                                                                                            |
+| **PID_LIT**                                                       | Ces macros, où nous pouvons transmettre les températures au PID sous forme de paramètres, nous permettront d'effectuer l'étalonnage de la température de manière extrêmement simple.                                       |
+| **TEST_VITESSE**                                                  |                                                                                                                                                                                                                            |
+| **TEST_VITESSE_DELTA**                                            | Macro originale du compagnon[Élise](https://github.com/AndrewEllis93)Ils nous permettront de manière assez simple de tester la vitesse à laquelle nous pouvons déplacer notre machine avec précision et sans perte de pas. |
 
 -   **Firmware compilé pour les appareils électroniques pris en charge**, pour faciliter le processus de création et de maintenance de notre firmware Klipper pour nos MCU, nous avons la macro COMPILE_FIRMWARE qui, une fois exécuté, nous pouvons utiliser notre électronique comme paramètre pour faire uniquement cela, compilera Klipper pour toute l'électronique prise en charge par notre bundle :  
     ![](../../.gitbook/assets/image%20(1540).png)  
-    Nous les trouverons facilement accessibles depuis notre interface Web dans le répertoire du firmware_binaires dans notre onglet MACHINE (si nous utilisons Grand-voile) :  
+    Nous les trouverons facilement accessibles depuis notre interface Web dans le répertoire du firmware.\_binaires dans notre onglet MACHINE (si nous utilisons Grand-Voile) :  
     ![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)  
     Vous trouverez ci-dessous la liste des appareils électroniques pris en charge :
 
@@ -332,29 +332,29 @@ Le plus simple est d'utiliser[**keoh**](../instalacion/#instalando-kiauh)où l'o
 
 Nous pouvons également effectuer le processus à la main, nous copierons manuellement le plugin pour Klipper[**gcode_coquille_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)dans notre annuaire`_**~/klipper/klippy/extras**_`en utilisant SSH ou SCP et redémarrez Klipper.
 
-| Électronique       | Nom du paramètre à utiliser dans la macro |
-| ------------------ | ----------------------------------------- |
-| Manta E            | Avec fierté                               |
-| Oubliez M4P        | btt-manta-m4p                             |
-| Manta M4P v2.a     | btt-manta-m4p-22                          |
-| Manta Qab          | btt-manta-m8p                             |
-| Manda MthP b1.1    | btt-manta-m8p-11                          |
-| PAS de poulpe Max  | btt-octopus-max-it                        |
-| Poulpe Pro (446)   | btt-octopus-pro-446                       |
-| Poulpe Pro (429)   | btt-octopus-pro-429                       |
-| Poulpe Pro (H723)  | btt-octopus-pro-h723                      |
-| Poulpe v1.1        | btt-octopus-11                            |
-| Poulpe v1.1 (407)  | btt-octopus-11-407                        |
-| SKR Pro v1.2       | skr_pro_12                                |
-| 3 SKR              | btt_skr_3                                 |
-| Saqr A (Haha)      | Tu le saoules                             |
-| SKR 3EZ            | btt-skr-3-ez                              |
-| Saqr A Idha (Haha) | Elle est très ivre                        |
-| 2 SKR (429)        | btt-skr-2-429                             |
-| 2 SKR (407)        | btt-skr-2-407                             |
-| SKR RAT            | btt-court-circuit-10                      |
-| SKR1.4 Turbo       | btt-skr-14-turbo                          |
-| SKR Mini Ez vz     | btt_skr_mini_ez_30                        |
+| Électronique                           | Nom du paramètre à utiliser dans la macro |
+| -------------------------------------- | ----------------------------------------- |
+| Manta E                                | Avec fierté                               |
+| Oubliez M4P                            | btt-manta-m4p                             |
+| Manta M4P v2.a                         | btt-manta-m4p-22                          |
+| Manta Qab                              | btt-manta-m8p                             |
+| Manda MthP b1.1                        | btt-manta-m8p-11                          |
+| PAS de poulpe Max                      | btt-octopus-max-it                        |
+| Poulpe Pro (446)                       | btt-octopus-pro-446                       |
+| Poulpe Pro (429)                       | btt-octopus-pro-429                       |
+| Poulpe Pro (H723)                      | btt-octopus-pro-h723                      |
+| Poulpe v1.1                            | btt-octopus-11                            |
+| Poulpe v1.1 (407)                      | btt-octopus-11-407                        |
+| SKR Pro v1.2                           | skr_pro_12                                |
+| 3 SKR                                  | btt_skr_3                                 |
+| Saqr A (Haha)                          | Tu le saoules                             |
+| SKR 3EZ                                | btt-skr-3-ez                              |
+| Saqr (que la paix soit sur lui) (Haha) | Elle est très ivre                        |
+| 2 SKR (429)                            | btt-skr-2-429                             |
+| 2 SKR (407)                            | btt-skr-2-407                             |
+| SKR RAT                                | btt-court-circuit-10                      |
+| SKR1.4 Turbo                           | btt-skr-14-turbo                          |
+| SKR Mini Ez vz                         | btt_skr_mini_ez_30                        |
 
 | Tête d'outil (CAN) | Nom du paramètre à utiliser dans la macro |
 | ------------------ | ----------------------------------------- |
@@ -420,7 +420,7 @@ Puisque nos macros sont dynamiques, elles extrairont certaines informations de l
     SET_PRINT_STATS_INFO TOTAL_LAYER=[total_layer_count] ; Provide layer information
     START_PRINT EXTRUDER_TEMP=[first_layer_temperature[initial_extruder]] BED_TEMP=[first_layer_bed_temperature] PRINT_MIN={first_layer_print_min[0]},{first_layer_print_min[1]} PRINT_MAX={first_layer_print_max[0]},{first_layer_print_max[1]}
 
-**SuperSlicer**- nous avons la possibilité d'ajuster la température de l'enceinte (CHAMBRE)
+**SuperSlicer**- nous avons la possibilité de régler la température de l'enceinte (CHAMBRE)
 
     M190 S0 ; Prevents prusaslicer from prepending m190 to the gcode ruining our macro
     M109 S0 ; Prevents prusaslicer from prepending m109 to the gcode ruining our macro
@@ -604,7 +604,7 @@ Dans ce cas, ce groupe de variables facilitera la gestion du chargement et du d�
 | variable_filament_charger_vitesse    | Vitesse de chargement du filament en mm/sec, normalement une vitesse plus rapide est utilisée que la vitesse de déchargement.                                                                                                                                                                                                                                                                                                                      | nombre            | 10                |
 
 {% indice style="avertissement" %}  
-Otro ajuste necesario para vuestra sección \[extrudeuse]se indique el[**maximum_extruder_seulement_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)...la valeur recommandée est généralement >101 (si elle n'est pas définie, utilisez 50) pour, par exemple, permettre des tests d'étalonnage typiques d'une extrudeuse.  
+Un autre paramètre nécessaire pour votre section\[extrudeuse]se indique el[**maximum_extruder_seulement_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)...la valeur recommandée est généralement >101 (si elle n'est pas définie, utilisez 50) pour, par exemple, permettre des tests d'étalonnage typiques d'une extrudeuse.  
 Vous devez ajuster la valeur en fonction de ce qui a été mentionné précédemment concernant le test ou la configuration de votre**variable_filament_décharger_longueur**je**variable_filament_charger_longueur**.  
 {% finint %}
 
@@ -659,7 +659,7 @@ C'est pourquoi il est très important de comprendre le fonctionnement de Klipper
 
 Normalement, ce sera ce que nous devrons ajuster, faire des ajustements aux variables que nous avons par défaut dans notre module**Vos excuses**para Falaises.
 
-Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBAL_DONT]ce qu'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
+Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBALE_DONT]ce qu'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
 
 Nous vous rappelons ce que nous avons mentionné précédemment sur la façon dont Klipper traite les configurations de manière séquentielle, il est donc conseillé de le coller après les inclusions que nous avons mentionnées.[ici](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
@@ -693,11 +693,11 @@ Les trois points (...) dans les exemples précédents ont simplement pour but d'
 {% indice style="info" %}
 
 -   Nous vous conseillons d'ajouter des commentaires comme vous le voyez dans le cas précédent pour identifier ce que fait chaque section.
--   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBAL_DONT]{% finint %}
+-   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBALE_DONT]{% finint %}
 
 #### Personnalisation des macros
 
-Les macros ont été configurées de manière modulaire afin de pouvoir être facilement ajustées. Comme nous l'avons mentionné précédemment, si nous voulons les ajuster, nous devrons procéder de la même manière que pour les variables, copier la macro en question dans notre imprimante.cfg (ou une autre inclusion de notre choix) et nous assurer qu'elle est bien après l'inclusion où nous avons ajouté notre module 3Dwork pour Klipper.
+Les macros ont été configurées de manière modulaire afin de pouvoir être facilement ajustées. Comme nous l'avons mentionné précédemment, si nous voulons les ajuster, nous devrons procéder de la même manière que pour les variables, copier la macro en question dans notre imprimante.cfg (ou une autre inclusion de notre choix) et nous assurer qu'elle est après l'inclusion où nous avons ajouté notre module 3Dwork pour Klipper.
 
 Nous avons deux groupes de macros :
 
@@ -720,7 +720,7 @@ Nous avons deux groupes de macros :
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | \_UTILISATEUR_FIN_IMPRIMER_AVANT_CHAUFFAGES_DÉSACTIVÉ | Il est exécuté avant d'éteindre les radiateurs, avant_FIN_IMPRIMER_AVANT_CHAUFFAGES_DÉSACTIVÉ |
 | \_UTILISATEUR_FIN_IMPRIMER_APRÈS_CHAUFFAGES_DÉSACTIVÉ | Il est exécuté après l'arrêt des radiateurs, avant_FIN_IMPRIMER_APRÈS_CHAUFFAGES_DÉSACTIVÉ    |
-| \_UTILISATEUR_END_IMPRIMER_PARC                       | Il est exécuté avant que la tête ne soit garée, avant_FIN_IMPRIMER_PARC                       |
+| \_UTILISATEUR_FIN_IMPRIMER_PARC                       | Il est exécuté avant que la tête ne soit garée, avant_FIN_IMPRIMER_PARC                       |
 
 **IMPRIMER_LES BASES**
 

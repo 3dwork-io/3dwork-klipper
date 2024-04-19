@@ -328,6 +328,15 @@ compile_artillery-ruby-12() {
     cp $workspace_klipper/out/klipper.bin $workspace_firmware_binaries/firmware_binaries/firmware-artillery-ruby-12.bin
 }
 
+compile_btt-kraken-h723() {
+    echo "Compiling firmware for BTT Kraken H723"
+    cp -f $workspace_3dwork/3dwork-klipper/boards/btt-kraken-h723/firmware.config $workspace_klipper/.config
+    make olddefconfig
+    make clean
+    make
+    cp $workspace_klipper/out/klipper.bin $workspace_firmware_binaries/firmware_binaries/firmware-btt-kraken-h723.bin
+}
+
 #####################################
 # NOT ADDED TO KLIPPER AUTO BUILDER #
 #####################################
@@ -349,6 +358,7 @@ pushd $workspace_klipper
 if [ -z "$1" ]; then
     # If no parameter is provided, compile firmware for all boards
     # Run make scripts for the supported boards.
+    compile_btt-kraken-h723
     compile_btt-manta-e3ez
     compile_btt-manta-m4p
     compile_btt-manta-m4p-22

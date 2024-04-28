@@ -16,7 +16,7 @@ Registro delle modifiche
 
 07/12/2023 - Aggiunto il supporto per automatizzare la creazione del firmware elettronico Bigtreetech
 
-Da**Le tue scuse**Abbiamo raccolto e adattato una serie di macro, impostazioni della macchina e dell'elettronica, nonché altri strumenti per una gestione semplice e potente di Klipper.
+Da**Le tue scuse**Abbiamo compilato e messo a punto una serie di macro, impostazioni della macchina e dell'elettronica, nonché altri strumenti per una gestione Klipper semplice e potente.
 
 Gran parte di questo pacchetto è basato su[**Ratti**](https://os.ratrig.com/)migliorare le parti che riteniamo interessanti, così come altri contributi della community.
 
@@ -31,7 +31,7 @@ Ci collegheremo al nostro host tramite SSH ed emetteremo i seguenti comandi:
     cd ~/printer_data/config
     git clone https://github.com/3dwork-io/3dwork-klipper.git
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 Se la directory di configurazione di Klipper è personalizzata, ricorda di modificare il primo comando in modo appropriato per la tua installazione.  
 {% finale %}
 
@@ -111,7 +111,7 @@ Da Mainsail/Fluidd modificheremo il nostro moonraker.conf (dovrebbe essere alla 
 
     [include 3dwork-klipper/moonraker.conf]
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 **Ricordarsi di eseguire prima la fase di installazione, altrimenti Moonraker genererà un errore e non sarà in grado di avviarsi.**
 
 **D'altra parte, se la directory della configurazione di Klipper è personalizzata, ricordati di adattare il percorso in modo appropriato alla tua installazione.**  
@@ -169,7 +169,7 @@ Insieme di macro che ci permetteranno di gestire diverse azioni con il nostro fi
 
 ### **Macro di gestione delle bobine di filamento (Spoolman)**
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 **SEZIONE IN PROCESSO!!!**  
 {% finale %}
 
@@ -177,7 +177,7 @@ Insieme di macro che ci permetteranno di gestire diverse azioni con il nostro fi
 
 !\[](../../.gitbook/assets/image (1990).png)
 
-Non entreremo nei dettagli dell'installazione e della configurazione di questo poiché è relativamente semplice utilizzare il file[**istruzioni dal tuo Github**](https://github.com/Donkie/Spoolman)**,**comunque**Ti consigliamo di utilizzare Docker**per semplicità e ricorda**attivare le impostazioni in Moonraker**necessario:
+Non entreremo nei dettagli dell'installazione e della configurazione di questo poiché è relativamente semplice utilizzare il file[**istruzioni dal tuo Github**](https://github.com/Donkie/Spoolman)**,**comunque**Ti consigliamo di utilizzare Docker**per semplicità e ricordo**attivare le impostazioni in Moonraker**necessario:
 
 {% titolo del codice="moonraker.conf" %}
 
@@ -195,13 +195,13 @@ Non entreremo nei dettagli dell'installazione e della configurazione di questo p
 | IMPOSTATO_ATTIVO_BOBINA | Ci permette di indicare quale è l'ID della bobina da utilizzare |
 | CHIARO_ATTIVO_BOBINA    | Ci permette di resettare la bobina attiva                       |
 
-L’ideale in ogni caso sarebbe aggiungere alla nostra plastificatrice,**nei gcode del filamento per ogni bobina la chiamata a questo**, e ricorda**cambia il suo ID una volta consumato**per poter tenere traccia di ciò che rimane di filamento al suo interno!!!
+L’ideale in ogni caso sarebbe aggiungere alla nostra plastificatrice,**nei gcode del filamento per ogni bobina la chiamata a questo**, e ricorda**cambiare il suo ID una volta consumato**per poter tenere traccia di ciò che rimane di filamento al suo interno!!!
 
 !\[](../../.gitbook/assets/image (1991).png)
 
 ### **Macro di gestione della superficie di stampa**
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 **SEZIONE IN PROCESSO!!!**  
 {% finale %}
 
@@ -239,7 +239,7 @@ D'altra parte ne abbiamo alcuni**requisiti per implementarlo (cercheremo di aggi
 
 D'altra parte, è interessante poter avere macro per attivare una superficie o un'altra o addirittura passarla come parametro dal nostro laminatore in modo che con diversi profili di stampante o filamento possiamo caricare l'una o l'altra automaticamente:
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 È importante che il valore in NAME="xxxx" corrisponda al nome che abbiamo assegnato durante l'installazione della nostra superficie di stampa  
 {% finale %}
 
@@ -320,7 +320,7 @@ Questi script sono preparati per funzionare su un sistema Raspbian con utente pi
 
 I firmware vengono generati per l'utilizzo con una connessione USB, che è sempre ciò che consigliamo. Inoltre, il punto di montaggio USB è sempre lo stesso, quindi la configurazione della connessione MCU non cambierà se vengono generati con la nostra macro/script.
 
-**Affinché Klipper possa eseguire le macro della shell, deve essere installata un'estensione, grazie al compagno**[**arcoseno**](https://github.com/Arksine)**, che lo consente.**
+**Affinché Klipper possa eseguire le macro della shell, è necessario installare un'estensione, grazie al compagno**[**arcoseno**](https://github.com/Arksine)**, che lo consente.**
 
 **A seconda della distribuzione Klipper utilizzata, potrebbero essere già abilitati.**
 
@@ -332,29 +332,29 @@ Il modo più semplice è usare[**keoh**](../instalacion/#instalando-kiauh)dove t
 
 Possiamo anche eseguire il processo manualmente, copieremo manualmente il plugin per Klipper[**gcode_conchiglia_estensione**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)all'interno della nostra directory`_**~/klipper/klippy/extras**_`utilizzando SSH o SCP e riavviare Klipper.
 
-| Elettronica             | Nome del parametro da utilizzare nella macro |
-| ----------------------- | -------------------------------------------- |
-| Manta E                 | Con orgoglio                                 |
-| Dimentica M4P           | btt-manta-m4p                                |
-| Manta M4P v2.a          | btt-manta-m4p-22                             |
-| Manta Qab               | btt-manta-m8p                                |
-| Manda MthP b1.1         | btt-manta-m8p-11                             |
-| NO Polpo Max            | btt-octopus-max-it                           |
-| Polpo Pro (446)         | btt-octopus-pro-446                          |
-| Polpo Pro (429)         | btt-octopus-pro-429                          |
-| Polpo Pro (H723)        | btt-octopus-pro-h723                         |
-| Polpo v1.1              | btt-polpo-11                                 |
-| Polpo v1.1 (407)        | btt-polpo-11-407                             |
-| SKR Pro v1.2            | scr_pro_12                                   |
-| SKR 3                   | btt_scr_3                                    |
-| Saqr A (Ahah)           | Lo fai ubriacare                             |
-| SKR 3EZ                 | btt-skr-3-ez                                 |
-| Saqr A Idha (Haha)      | Si ubriaca moltissimo                        |
-| 2 corone svizzere (429) | btt-skr-2-429                                |
-| 2 corone svizzere (407) | btt-skr-2-407                                |
-| RATTO SKR               | btt-cortocircuito-10                         |
-| SKR 1.4 Turbo           | btt-skr-14-turbo                             |
-| SKR Mini Ez vz          | btt_scr_mini_es_30                           |
+| Elettronica                         | Nome del parametro da utilizzare nella macro |
+| ----------------------------------- | -------------------------------------------- |
+| Manta E                             | Con orgoglio                                 |
+| Dimentica M4P                       | btt-manta-m4p                                |
+| Manta M4P v2.a                      | btt-manta-m4p-22                             |
+| Manta Qab                           | btt-manta-m8p                                |
+| Manda MthP b1.1                     | btt-manta-m8p-11                             |
+| NO Polpo Max                        | btt-octopus-max-it                           |
+| Polpo Pro (446)                     | btt-octopus-pro-446                          |
+| Polpo Pro (429)                     | btt-octopus-pro-429                          |
+| Polpo Pro (H723)                    | btt-octopus-pro-h723                         |
+| Polpo v1.1                          | btt-polpo-11                                 |
+| Polpo v1.1 (407)                    | btt-polpo-11-407                             |
+| SKR Pro v1.2                        | scr_pro_12                                   |
+| SKR 3                               | btt_scr_3                                    |
+| Saqr A (Ahah)                       | Lo fai ubriacare                             |
+| SKR 3EZ                             | btt-skr-3-ez                                 |
+| Saqr (la pace sia su di lui) (Haha) | Si ubriaca moltissimo                        |
+| 2 corone svizzere (429)             | btt-skr-2-429                                |
+| 2 corone svedesi (407)              | btt-skr-2-407                                |
+| RATTO SKR                           | btt-cortocircuito-10                         |
+| SKR 1.4 Turbo                       | btt-skr-14-turbo                             |
+| SKR Mini Ez vz                      | btt_scr_mini_es_30                           |
 
 | Testa portautensili (CAN) | Nome del parametro da utilizzare nella macro |
 | ------------------------- | -------------------------------------------- |
@@ -400,7 +400,7 @@ Dalla nostra interfaccia, Mainsail/Fluidd, modificheremo il nostro print.cfg e a
 #\*# \\&lt;---------------------- SALVA_CONFIGURAZIONE ----------------------->  
 {% finale %}
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 Le macro normali sono state separate da**shell delle macro**dato che**Per abilitarli è necessario eseguire manualmente ulteriori passaggi, oltre a quelli attualmente in fase di test.**E\*\*Potrebbero richiedere autorizzazioni aggiuntive per assegnare autorizzazioni di esecuzione per le quali non sono state indicate le istruzioni poiché stanno tentando di automatizzare.\*\*  
 **Se li usi è a tuo rischio e pericolo.**  
 {% finale %}
@@ -443,7 +443,7 @@ Poiché le nostre macro sono dinamiche, estrarranno determinate informazioni dal
 
     START_PRINT EXTRUDER_TEMP={material_print_temperature_layer_0} BED_TEMP={material_bed_temperature_layer_0} PRINT_MIN=%MINX%,%MINY% PRINT_MAX=%MAXX%,%MAXY%
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 Dovremo installare il plugin[**Plug-in post-processo (di Frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)dal menù_**Aiuto/Mostra**_configuration Folder... copiaremos el script del link anterior dentro de la carpeta script.   
 Riavviamo Cura e andremo a_**Estensioni/Post elaborazione/Modifica G-Code**_e selezioneremo_**Dimensioni di stampa mesh**_.  
 {% finale %}  
@@ -549,7 +549,7 @@ Per controllare il processo di livellamento abbiamo variabili che possono essere
 | nomi                                                                                                         | adattivo                                                                            |                  |                   |
 | variabile_letto_maglia_profilo                                                                               | Il nome utilizzato per la nostra mesh archiviata                                    | testo            | predefinito       |
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 Ti consigliamo di utilizzare il livellamento adattivo poiché adatterà sempre la mesh alla dimensione della nostra stampa, consentendoti di avere un'area della mesh regolata.
 
 È importante che abbiamo nel nostro[avvia il gcode della nostra plastificatrice](../empezamos/configuracion-klipper-en-laminadores.md#configurando-nuestro-laminador-para-usar-nustras-macros-start_print-y-end_print), nella chiamata al nostro START_STAMPA, STAMPA valori_MAX e STAMPA_MINIMO  
@@ -557,7 +557,7 @@ Ti consigliamo di utilizzare il livellamento adattivo poiché adatterà sempre l
 
 #### epurato
 
-Una fase importante del nostro inizio stampa è un corretto spurgo dei nostri ugelli per evitare che restino filamenti o che questi possano danneggiare la nostra stampa ad un certo punto. Di seguito sono riportate le variabili che intervengono in questo processo:
+Una fase importante del nostro inizio stampa è un corretto spurgo dei nostri ugelli per evitare che restino filamenti o che questi possano prima o poi danneggiare la nostra stampa. Di seguito sono riportate le variabili che intervengono in questo processo:
 
 | Variabile                                                                                                                                                               | Descrizione                                       | Valori possibili | Valore di default |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------- | ----------------- |
@@ -598,12 +598,12 @@ In questo caso, questo gruppo di variabili faciliterà la gestione del caricamen
 
 | Variabile                               | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                | Valori possibili | Valore di default |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
-| variabile_filamento_scaricare_lunghezza | Quanto ritirare il filamento in mm, adattalo alla tua macchina, normalmente la misura dal tuo ugello agli ingranaggi del tuo estrusore aggiungendo un margine extra.                                                                                                                                                                                                                                                       | numero           | 130               |
+| variabile_filamento_scaricare_lunghezza | Quanto ritrarre il filamento in mm, adattalo alla tua macchina, normalmente la misura dal tuo ugello agli ingranaggi del tuo estrusore aggiungendo un margine extra.                                                                                                                                                                                                                                                       | numero           | 130               |
 | variabile_filamento_scaricare_velocità  | Velocità di ritrazione del filamento in mm/sec normalmente viene utilizzata una velocità lenta.                                                                                                                                                                                                                                                                                                                            | numero           | 5                 |
 | variabile_filamento_carico_lunghezza    | Distanza in mm per caricare il nuovo filamento... oltre che in variabile_filamento_scaricare_lunghezza utilizzeremo la misura dal tuo ingranaggio all'estrusore aggiungendo un margine extra, in questo caso questo valore extra dipenderà da quanto vuoi che venga spurgato... normalmente puoi dargli più margine rispetto al valore precedente per assicurarti che il l'estrusione del filamento precedente sia pulita. | numero           | 150               |
 | variabile_filamento_carico_velocità     | Velocità di caricamento del filamento in mm/sec, normalmente viene utilizzata una velocità maggiore rispetto alla velocità di scarico.                                                                                                                                                                                                                                                                                     | numero           | 10                |
 
-{% stile suggerimento="avviso" %}  
+{% suggerimento stile="avviso" %}  
 Un'altra impostazione necessaria per la tua sezione\[estrusore]indicare il[**massimo_estrudere_soltanto_distanza**](https://www.klipper3d.org/Config_Reference.html#extruder)...il valore consigliabile è solitamente >101 (se non definito, utilizzare 50) per consentire, ad esempio, tipici test di calibrazione dell'estrusore.  
 Dovresti modificare il valore in base a quanto menzionato in precedenza sul test o sulla configurazione del tuo**variabile_filamento_scaricare_lunghezza**IO**variabile_filamento_carico_lunghezza**.  
 {% finale %}
@@ -617,7 +617,7 @@ In alcuni processi della nostra stampante, come la pausa, è consigliabile parch
 | variabile_inizio_stampa_parco_In          | Posizione dove parcheggiare la testa durante il preriscaldamento.                                                                                                                                                                                                                                                     | Indietro /       |                   |
 | centro /                                  |                                                                                                                                                                                                                                                                                                                       |                  |                   |
 | davanti                                   | Indietro                                                                                                                                                                                                                                                                                                              |                  |                   |
-| variabile_inizio_stampa_parco_Con_altezza | Altura en Z durante el pre-calentado                                                                                                                                                                                                                                                                                  | numero           | 50                |
+| variabile_inizio_stampa_parco_Con_altezza | Altezza Z durante il preriscaldamento                                                                                                                                                                                                                                                                                 | numero           | 50                |
 | variabile_FINE_stampa_parco_In            | Posizione dove parcheggiare la testa quando si termina o si annulla una stampa.                                                                                                                                                                                                                                       | Indietro /       |                   |
 | centro /                                  |                                                                                                                                                                                                                                                                                                                       |                  |                   |
 | davanti                                   | Indietro                                                                                                                                                                                                                                                                                                              |                  |                   |
@@ -686,7 +686,7 @@ variable_language: "es"                         # Possible values: "en", "es"
 
 ```
 
-{% stile suggerimento="avviso" %}
+{% suggerimento stile="avviso" %}
 I tre punti (...) degli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 
@@ -716,11 +716,11 @@ Abbiamo due gruppi di macro:
 
 **FINE_STAMPA**
 
-| Nome della macro                               | Descrizione                                                                                       |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| \_UTENTE_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO | Viene eseguito prima di spegnere i riscaldatori, prima_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO      |
-| \_UTENTE_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO  | Viene eseguito dopo che i riscaldatori sono stati spenti, prima_FINE_STAMPA_DOPO_RISCALDATORI_OFF |
-| \_UTENTE_FINE_STAMPA_PARCO                     | Viene eseguito prima che la testa sia parcheggiata, prima_FINE_STAMPA_PARCO                       |
+| Nome della macro                               | Descrizione                                                                                     |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| \_UTENTE_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO | Viene eseguito prima di spegnere i riscaldatori, prima_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO    |
+| \_UTENTE_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO  | Viene eseguito dopo lo spegnimento dei riscaldatori, prima_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO |
+| \_UTENTE_FINE_STAMPA_PARCO                     | Viene eseguito prima che la testa sia parcheggiata, prima_FINE_STAMPA_PARCO                     |
 
 **STAMPA_BASI**
 
@@ -766,7 +766,7 @@ Come abbiamo spiegato in "[personalizzazione delle macro](3dwork-klipper-bundle.
 
 Così come ti consigliamo di creare una sezione nel tuo print.cfg chiamata USER OVERRIDES, posizionata dopo gli include delle nostre configurazioni, per poter regolare e personalizzare qualsiasi parametro utilizzato in esse.
 
-Nell'esempio seguente vedremo come nel nostro caso siamo interessati a personalizzare i parametri del nostro livellamento del letto (bed_mesh) regolando i punti della sonda_count) rispetto alla configurazione che abbiamo di default nelle configurazioni del nostro modulo Klipper:
+Nell'esempio seguente vedremo come nel nostro caso ci interessa personalizzare i parametri del nostro livellamento letto (bed_mesh) regolando i punti della sonda_count) rispetto alla configurazione che abbiamo di default nelle configurazioni del nostro modulo Klipper:
 
 {% titolo codice="printer.cfg" %}
 
@@ -796,7 +796,7 @@ probe_count: 11,11
 
 {%endcode%}
 
-{% stile suggerimento="avviso" %}
+{% suggerimento stile="avviso" %}
 I tre punti (...) degli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 
@@ -841,7 +841,7 @@ pin: PA8
 
 {%endcode%}
 
-{% stile suggerimento="avviso" %}
+{% suggerimento stile="avviso" %}
 I tre punti (...) degli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 

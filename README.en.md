@@ -16,7 +16,7 @@ Changelog
 
 12/07/2023 - Added support to automate the creation of Bigtreetech electronic firmware
 
-From**Your excuses**We have collected and adjusted a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
+From**Your excuses**We have compiled and fine-tuned a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
 
 Much of this package is based on[**Rats**](https://os.ratrig.com/)improving the parts that we think are interesting, as well as other contributions from the community.
 
@@ -332,29 +332,29 @@ The easiest way is to use[**keoh**](../instalacion/#instalando-kiauh)where we wi
 
 We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)within our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
 
-| Electronics        | Parameter name to use in macro |
-| ------------------ | ------------------------------ |
-| Manta E            | With pride                     |
-| Manta M4P          | btt-manta-m4p                  |
-| Manta M4P v2.a     | btt-manta-m4p-22               |
-| Manda MthP         | btt-manta-m8p                  |
-| Manda MthP b1.1    | btt-manta-m8p-11               |
-| Octopus Max EZ     | btt-octopus-max-ez             |
-| Octopus Pro (446)  | btt-octopus-pro-446            |
-| Octopus Pro (429)  | btt-octopus-pro-429            |
-| Octopus Pro (H723) | btt-octopus-pro-h723           |
-| Octopus v1.1       | btt-octopus-11                 |
-| Octopus v1.1 (407) | btt-octopus-11-407             |
-| SKR Pro v1.2       | skr_pro_12                     |
-| SKR 3              | btt_skr_3                      |
-| Saqr A (Haha)      | You get him drunk              |
-| SKR 3 EZ           | btt-skr-3-ez                   |
-| Saqr A Idha (Haha) | She gets very drunk            |
-| SKR 2 (429)        | btt-skr-2-429                  |
-| SKR 2 (407)        | btt-skr-2-407                  |
-| SKR RAT            | btt-short-circuit-10           |
-| SKR 1.4 Turbo      | btt-skr-14-turbo               |
-| SKR Mini Ez vz     | btt_skr_mini_ez_30             |
+| Electronics                     | Parameter name to use in macro |
+| ------------------------------- | ------------------------------ |
+| Manta E                         | With pride                     |
+| Manta M4P                       | btt-manta-m4p                  |
+| Manta M4P v2.a                  | btt-manta-m4p-22               |
+| Manda MthP                      | btt-manta-m8p                  |
+| Manda MthP b1.1                 | btt-manta-m8p-11               |
+| Octopus Max EZ                  | btt-octopus-max-ez             |
+| Octopus Pro (446)               | btt-octopus-pro-446            |
+| Octopus Pro (429)               | btt-octopus-pro-429            |
+| Octopus Pro (H723)              | btt-octopus-pro-h723           |
+| Octopus v1.1                    | btt-octopus-11                 |
+| Octopus v1.1 (407)              | btt-octopus-11-407             |
+| SKR Pro v1.2                    | skr_pro_12                     |
+| SKR 3                           | btt_skr_3                      |
+| Saqr A (Haha)                   | You get him drunk              |
+| SKR 3 EZ                        | btt-skr-3-ez                   |
+| Saqr (peace be upon him) (Haha) | She gets very drunk            |
+| SKR 2 (429)                     | btt-skr-2-429                  |
+| SKR 2 (407)                     | btt-skr-2-407                  |
+| SKR RAT                         | btt-short-circuit-10           |
+| SKR 1.4 Turbo                   | btt-skr-14-turbo               |
+| SKR Mini Ez vz                  | btt_skr_mini_ez_30             |
 
 | Toolhead (CAN) | Parameter name to use in macro |
 | -------------- | ------------------------------ |

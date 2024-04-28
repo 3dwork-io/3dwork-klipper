@@ -337,6 +337,15 @@ compile_btt-kraken-h723() {
     cp $workspace_klipper/out/klipper.bin $workspace_firmware_binaries/firmware_binaries/firmware-btt-kraken-h723.bin
 }
 
+compile_rpi-rp2040() {
+    echo "Compiling firmware for Raspberry Pico RP2040"
+    cp -f $workspace_3dwork/3dwork-klipper/boards/rpi-rp2040/firmware.config $workspace_klipper/.config
+    make olddefconfig
+    make clean
+    make
+    cp $workspace_klipper/out/klipper.uf2 $workspace_firmware_binaries/firmware_binaries/firmware-rpi-rp2040.u2f
+}
+
 #####################################
 # NOT ADDED TO KLIPPER AUTO BUILDER #
 #####################################
@@ -394,6 +403,8 @@ if [ -z "$1" ]; then
     # Mellow
     compile_mellow_fly_sht_42
     compile_mellow_fly_sht_36
+    # Raspberry
+    compile_rpi-rp2040
     # Toolheads
     compile_btt_ebb42_10
     compile_btt_ebb36_10

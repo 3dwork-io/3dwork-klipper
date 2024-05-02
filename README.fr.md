@@ -1,6 +1,6 @@
 * * *
 
-## description: Paquete de macros, configuraciones y otras utilidades para Klipper
+## description : Pack de macros, paramètres et autres utilitaires pour Klipper
 
 # Pack Tondeuse 3Dwork
 
@@ -290,7 +290,7 @@ Il est important que la valeur dans NAME="xxxx" corresponde au nom que nous avon
 | INSTALLER_CONSTRUIRE_FEUILLE               |             |
 | MONTRER_CONSTRUIRE_FEUILLE                 |             |
 | MONTRER_CONSTRUIRE_FEUILLES                |             |
-| SET_CONSTRUIRE_FEUILLE_COMPENSER           |             |
+| ENSEMBLE_CONSTRUIRE_FEUILLE_COMPENSER      |             |
 | RÉINITIALISER_CONSTRUIRE_FEUILLE_COMPENSER |             |
 | ENSEMBLE_CODE GCO_COMPENSER                |             |
 | APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT    |             |

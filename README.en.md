@@ -112,7 +112,7 @@ From Mainsail/Fluidd we will edit our moonraker.conf (it should be at the same h
     [include 3dwork-klipper/moonraker.conf]
 
 {% hint style="warning" %}  
-**Remember to do the installation step beforehand, otherwise Moonraker will generate an error and will not be able to start.**
+**Remember to do the installation step beforehand otherwise Moonraker will generate an error and will not be able to start.**
 
 **On the other hand, if the directory of your Klipper configuration is customized, remember to adjust the path appropriately for your installation.**  
 {% endint %}
@@ -128,7 +128,7 @@ Some added macros that will be useful to us:
 | Macro                                                            | Description                                                                                                                                                     |
 | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **MAYBE_HOME**                                                   | It allows us to optimize the homing process only by performing it on those axes that are not homing.                                                            |
-| **PAUSE**                                                        | Through the related variables it allows us to manage a pause with a more versatile head parking than normal macros.                                             |
+| **PAUSE**                                                        | Using the related variables, it allows us to manage a pause with a more versatile head parking than normal macros.                                              |
 | **SET_PAUSE_AT_LAYER**                                           |                                                                                                                                                                 |
 | **SET_PAUSE_AT_NEXT_LAYER**                                      | A very useful macro that Mainsail integrates into its UI to be able to pause on demand in a specific layer... in case we forgot when laminating.                |
 | We also have another one to execute the pause on the next layer. |                                                                                                                                                                 |
@@ -207,7 +207,7 @@ The ideal in each case would be to add to our laminator,**in the filament gcodes
 
 It is usually normal that we have different printing surfaces depending on the finish we want to have or the type of filament.
 
-This set of macros, created by[Garethky](https://github.com/garethky), they will allow us to have control of these and especially the correct adjustment of ZOffset in each of them in the style that we have in Prusa machines. Below you can see some of its functions:
+This set of macros, created by[Garethky](https://github.com/garethky), they will allow us to have control over these and especially the correct adjustment of ZOffset in each of them in the style that we have in Prusa machines. Below you can see some of its functions:
 
 -   We can store the number of printing surfaces we want, each one having a unique name
 -   each printing surface will have its own ZOffset
@@ -216,7 +216,7 @@ This set of macros, created by[Garethky](https://github.com/garethky), they will
 On the other hand we have some**requirements to implement it (we will try to add in the PRINT logic_START of the bundle in the future by activating this function by variable and creating a previous and subsequent user macro to be able to enter user events)**:
 
 -   the use of\[save_variables]In our case we will use ~/variables.cfg to store the variables and that is already inside the cfg of these macros.  
-    This will automatically create a variables file for us_build_sheets.cfg where it will save our variables on disk.
+    This will automatically create a variables file_build_sheets.cfg where it will save our variables on disk.
 
 {% code title="Example of variables config file" %}
 
@@ -330,31 +330,31 @@ The easiest way is to use[**keoh**](../instalacion/#instalando-kiauh)where we wi
 
 ![](../../.gitbook/assets/telegram-cloud-photo-size-4-5837048490604215201-x_partial.jpg)
 
-We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)within our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
+We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)inside our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
 
-| Electronics                     | Parameter name to use in macro |
-| ------------------------------- | ------------------------------ |
-| Manta E                         | With pride                     |
-| Manta M4P                       | btt-manta-m4p                  |
-| Manta M4P v2.a                  | btt-manta-m4p-22               |
-| Manda MthP                      | btt-manta-m8p                  |
-| Manda MthP b1.1                 | btt-manta-m8p-11               |
-| Octopus Max EZ                  | btt-octopus-max-ez             |
-| Octopus Pro (446)               | btt-octopus-pro-446            |
-| Octopus Pro (429)               | btt-octopus-pro-429            |
-| Octopus Pro (H723)              | btt-octopus-pro-h723           |
-| Octopus v1.1                    | btt-octopus-11                 |
-| Octopus v1.1 (407)              | btt-octopus-11-407             |
-| SKR Pro v1.2                    | skr_pro_12                     |
-| SKR 3                           | btt_skr_3                      |
-| Saqr A (Haha)                   | You get him drunk              |
-| SKR 3 EZ                        | btt-skr-3-ez                   |
-| Saqr (peace be upon him) (Haha) | She gets very drunk            |
-| SKR 2 (429)                     | btt-skr-2-429                  |
-| SKR 2 (407)                     | btt-skr-2-407                  |
-| SKR RAT                         | btt-short-circuit-10           |
-| SKR 1.4 Turbo                   | btt-skr-14-turbo               |
-| SKR Mini Ez vz                  | btt_skr_mini_ez_30             |
+| Electronics        | Parameter name to use in macro |
+| ------------------ | ------------------------------ |
+| Manta E            | With pride                     |
+| Manta M4P          | btt-manta-m4p                  |
+| Manta M4P v2.a     | btt-manta-m4p-22               |
+| Manda MthP         | btt-manta-m8p                  |
+| Manda MthP b1.1    | btt-manta-m8p-11               |
+| Octopus Max EZ     | btt-octopus-max-ez             |
+| Octopus Pro (446)  | btt-octopus-pro-446            |
+| Octopus Pro (429)  | btt-octopus-pro-429            |
+| Octopus Pro (H723) | btt-octopus-pro-h723           |
+| Octopus v1.1       | btt-octopus-11                 |
+| Octopus v1.1 (407) | btt-octopus-11-407             |
+| SKR Pro v1.2       | skr_pro_12                     |
+| SKR 3              | btt_skr_3                      |
+| Saqr A (Haha)      | You get him drunk              |
+| SKR 3 EZ           | btt-skr-3-ez                   |
+| Saqr A Idha (Haha) | She gets very drunk            |
+| SKR 2 (429)        | btt-skr-2-429                  |
+| SKR 2 (407)        | btt-skr-2-407                  |
+| SKR RAT            | btt-short-circuit-10           |
+| SKR 1.4 Turbo      | btt-skr-14-turbo               |
+| SKR Mini Ez vz     | btt_skr_mini_ez_30             |
 
 | Toolhead (CAN) | Parameter name to use in macro |
 | -------------- | ------------------------------ |
@@ -396,7 +396,7 @@ From our interface, Mainsail/Fluidd, we will edit our printer.cfg and add:
 {%endcode%}
 
 {% hint style="info" %}  
-It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes, they will be overwritten by ours:  
+It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours:  
 #\*# \\&lt;---------------------- SAVE_CONFIG ---------------------->  
 {% endint %}
 
@@ -463,7 +463,7 @@ We restart Cura and we will go to_**Extensions/Post processing/Modify G-Code**_a
 {% endloss %}
 
 {% hint style="info" %}  
-Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**of impression.
+Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they replace them with the values ​​configured in the profile**of impression.
 
 In the following links you can find a list of these for:[**Prusa Slicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -557,7 +557,7 @@ It is important that we have in our[start gcode of our laminator](../empezamos/c
 
 #### purged
 
-An important phase of our start of printing is a correct purging of our nozzle to avoid filament remains or that these could damage our printing at some point. Below you have the variables that intervene in this process:
+An important phase of our start of printing is a correct purging of our nozzle to avoid remains of filament or that these could damage our printing at some point. Below you have the variables that intervene in this process:
 
 | Variable                                                                                                                                             | Description                                      | Possible values | Default value |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | --------------- | ------------- |
@@ -565,7 +565,7 @@ An important phase of our start of printing is a correct purging of our nozzle t
 | -primeline is going to draw the typical purge line                                                                                                   |                                                  |                 |               |
 | -primelineadaptative will generate a purge line that adapts to the area of ​​the printed part using variable_nozzle_priming_objectdistance as margin |                                                  |                 |               |
 | -primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove                         |                                                  |                 |               |
-| prime line /                                                                                                                                         |                                                  |                 |               |
+| primeline /                                                                                                                                          |                                                  |                 |               |
 
 primelineadaptive /  
 prime blob /  

@@ -112,7 +112,7 @@ From Mainsail/Fluidd we will edit our moonraker.conf (it should be at the same h
     [include 3dwork-klipper/moonraker.conf]
 
 {% hint style="warning" %}  
-**Remember to do the installation step beforehand otherwise Moonraker will generate an error and will not be able to start.**
+**Remember to do the installation step beforehand, otherwise Moonraker will generate an error and will not be able to start.**
 
 **On the other hand, if the directory of your Klipper configuration is customized, remember to adjust the path appropriately for your installation.**  
 {% endint %}
@@ -207,7 +207,7 @@ The ideal in each case would be to add to our laminator,**in the filament gcodes
 
 It is usually normal that we have different printing surfaces depending on the finish we want to have or the type of filament.
 
-This set of macros, created by[Garethky](https://github.com/garethky), they will allow us to have control over these and especially the correct adjustment of ZOffset in each of them in the style that we have in Prusa machines. Below you can see some of its functions:
+This set of macros, created by[Garethky](https://github.com/garethky), they will allow us to have control of these and especially the correct adjustment of ZOffset in each of them in the style that we have in Prusa machines. Below you can see some of its functions:
 
 -   We can store the number of printing surfaces we want, each one having a unique name
 -   each printing surface will have its own ZOffset
@@ -216,7 +216,7 @@ This set of macros, created by[Garethky](https://github.com/garethky), they will
 On the other hand we have some**requirements to implement it (we will try to add in the PRINT logic_START of the bundle in the future by activating this function by variable and creating a previous and subsequent user macro to be able to enter user events)**:
 
 -   the use of\[save_variables]In our case we will use ~/variables.cfg to store the variables and that is already inside the cfg of these macros.  
-    This will automatically create a variables file_build_sheets.cfg where it will save our variables on disk.
+    This will automatically create a variables file for us_build_sheets.cfg where it will save our variables on disk.
 
 {% code title="Example of variables config file" %}
 
@@ -308,7 +308,7 @@ Also in the case of having KlipperScreen we can add a specific menu to manage th
 | **TEST_SPEED**                                           |                                                                                                                                                                                                      |
 | **TEST_SPEED_DELTA**                                     | Companion's original macro[Ellis](https://github.com/AndrewEllis93)They will allow us in a fairly simple way to test the speed at which we can move our machine precisely and without loss of steps. |
 
--   **Compiled firmware for supported electronics**, to facilitate the process of creating and maintaining our Klipper firmware for our MCUs we have the COMPILE macro_FIRMWARE that when executed, we can use our electronics as a parameter to do only this, will compile Klipper for all the electronics supported by our bundle:  
+-   **Compiled firmware for supported electronics**, para facilitar el proceso de creación y mantenimiento de nuestro firmware Klipper para nuestras MCU contamos con la macro COMPILE_FIRMWARE that when executed, we can use our electronics as a parameter to do only this, will compile Klipper for all the electronics supported by our bundle:  
     ![](../../.gitbook/assets/image%20(1540).png)  
     We will find these easily accessible from our web UI in the firmware directory_binaries in our MACHINE tab (if we use Mainsail):  
     ![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)  
@@ -330,7 +330,7 @@ The easiest way is to use[**keoh**](../instalacion/#instalando-kiauh)where we wi
 
 ![](../../.gitbook/assets/telegram-cloud-photo-size-4-5837048490604215201-x_partial.jpg)
 
-We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)inside our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
+We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)within our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
 
 | Electronics        | Parameter name to use in macro |
 | ------------------ | ------------------------------ |
@@ -396,7 +396,7 @@ From our interface, Mainsail/Fluidd, we will edit our printer.cfg and add:
 {%endcode%}
 
 {% hint style="info" %}  
-It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours:  
+It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes, they will be overwritten by ours:  
 #\*# \\&lt;---------------------- SAVE_CONFIG ---------------------->  
 {% endint %}
 
@@ -463,7 +463,7 @@ We restart Cura and we will go to_**Extensions/Post processing/Modify G-Code**_a
 {% endloss %}
 
 {% hint style="info" %}  
-Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they replace them with the values ​​configured in the profile**of impression.
+Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**of impression.
 
 In the following links you can find a list of these for:[**Prusa Slicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -557,7 +557,7 @@ It is important that we have in our[start gcode of our laminator](../empezamos/c
 
 #### purged
 
-An important phase of our start of printing is a correct purging of our nozzle to avoid remains of filament or that these could damage our printing at some point. Below you have the variables that intervene in this process:
+An important phase of our start of printing is a correct purging of our nozzle to avoid filament remains or that these could damage our printing at some point. Below you have the variables that intervene in this process:
 
 | Variable                                                                                                                                             | Description                                      | Possible values | Default value |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | --------------- | ------------- |
@@ -565,7 +565,7 @@ An important phase of our start of printing is a correct purging of our nozzle t
 | -primeline is going to draw the typical purge line                                                                                                   |                                                  |                 |               |
 | -primelineadaptative will generate a purge line that adapts to the area of ​​the printed part using variable_nozzle_priming_objectdistance as margin |                                                  |                 |               |
 | -primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove                         |                                                  |                 |               |
-| primeline /                                                                                                                                          |                                                  |                 |               |
+| prime line /                                                                                                                                         |                                                  |                 |               |
 
 primelineadaptive /  
 prime blob /  

@@ -308,7 +308,7 @@ Also in the case of having KlipperScreen we can add a specific menu to manage th
 | **TEST_SPEED**                                           |                                                                                                                                                                                                      |
 | **TEST_SPEED_DELTA**                                     | Companion's original macro[Ellis](https://github.com/AndrewEllis93)They will allow us in a fairly simple way to test the speed at which we can move our machine precisely and without loss of steps. |
 
--   **Compiled firmware for supported electronics**, para facilitar el proceso de creación y mantenimiento de nuestro firmware Klipper para nuestras MCU contamos con la macro COMPILE_FIRMWARE that when executed, we can use our electronics as a parameter to do only this, will compile Klipper for all the electronics supported by our bundle:  
+-   **Compiled firmware for supported electronics**, to facilitate the process of creating and maintaining our Klipper firmware for our MCUs we have the COMPILE macro_FIRMWARE that when executed, we can use our electronics as a parameter to do only this, will compile Klipper for all the electronics supported by our bundle:  
     ![](../../.gitbook/assets/image%20(1540).png)  
     We will find these easily accessible from our web UI in the firmware directory_binaries in our MACHINE tab (if we use Mainsail):  
     ![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)  
@@ -633,9 +633,9 @@ Making the most of our machine so that it self-levels and ensuring that our mach
 
 **Z-TILT is basically a process that helps us align our Z motors with respect to our X (Cartesian) or XY (CoreXY) axis/gantry.**. With this**we ensure that we always have our Z aligned perfectly and precisely and automatically**.
 
-| Variable                  | Description                                                                    | Possible values | Default value |
-| ------------------------- | ------------------------------------------------------------------------------ | --------------- | ------------- |
-| variable_calibrate_z_tilt | Allows, if enabled in our Klipper configuration, the Z-Tilt adjustment process | True / False    | False         |
+| Variable                  | Description                                                                    | Valores posibles | Default value |
+| ------------------------- | ------------------------------------------------------------------------------ | ---------------- | ------------- |
+| variable_calibrate_z_tilt | Allows, if enabled in our Klipper configuration, the Z-Tilt adjustment process | True / False     | False         |
 
 #### Skew
 

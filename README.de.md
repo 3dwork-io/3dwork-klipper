@@ -38,7 +38,7 @@ Wenn Ihr Klipper-Konfigurationsverzeichnis angepasst ist, denken Sie daran, den 
 {% hint style="info" %}  
 Bei Neuinstallationen:
 
-Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, sodass wir die Makros in unserem Bundle verwenden können, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
+Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, die es uns ermöglichen, die Makros in unserem Bundle zu verwenden, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
 
 -   Wir stellen sicher, dass wir unsere haben[Host als zweite MCU](raspberry-como-segunda-mcu.md)
 -   Als nächstes fügen wir eine Printer.cfg hinzu. Denken Sie daran, dass diese Schritte für eine Neuinstallation gelten, bei der Sie keine Printer.cfg haben und das Makro zum Erstellen von Firmware starten möchten, wie das, das Sie unten sehen können:
@@ -127,7 +127,7 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 
 | Makro                                                                         | Beschreibung                                                                                                                                                                                               |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **VIELLEICHT_HEIM**                                                           | Dadurch können wir den Referenzierungsprozess nur optimieren, indem wir ihn auf den Achsen durchführen, die nicht referenziert werden.                                                                     |
+| **VIELLEICHT_HEIM**                                                           | Nos permite optimizar el proceso de homing solamente realizando este en aquellos ejes que no están con homing.                                                                                             |
 | **PAUSE**                                                                     | Durch die Verwendung der zugehörigen Variablen können wir eine Pause mit einem vielseitigeren Head-Parking verwalten als mit normalen Makros.                                                              |
 | **SATZ_PAUSE_BEI_SCHICHT**                                                    |                                                                                                                                                                                                            |
 | **SATZ_PAUSE_BEI_NÄCHSTE_SCHICHT**                                            | Ein sehr nützliches Makro, das Mainsail in seine Benutzeroberfläche integriert, um bei Bedarf in einer bestimmten Ebene pausieren zu können ... für den Fall, dass wir es beim Laminieren vergessen haben. |
@@ -154,7 +154,7 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 
 -   **Adaptives Bettnetz**Dank der Vielseitigkeit von Klipper können wir Dinge tun, die heute unmöglich erscheinen ... Ein wichtiger Prozess beim Drucken besteht darin, ein Netz von Abweichungen von unserem Bett zu erstellen, das es uns ermöglicht, diese zu korrigieren, um eine perfekte Haftung der ersten Schichten zu erreichen.  
     In vielen Fällen führen wir diese Vernetzung vor dem Drucken durch, um sicherzustellen, dass sie ordnungsgemäß funktioniert, und zwar auf der gesamten Oberfläche unseres Bettes.  
-    Bei der adaptiven Bettvernetzung erfolgt dies im Druckbereich und ist damit viel präziser als die herkömmliche Methode. In den folgenden Screenshots sehen wir die Unterschiede zwischen einem herkömmlichen und einem adaptiven Netz.  
+    Con el mallado de cama adaptativo esta se va a realizar en la zona de impresión haciendo que sea mucho más precisa que el método tradicional... en las siguientes capturas veremos las diferencias de una malla tradicional y una adaptativa.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
 
 ### **Makros zur Filamentverwaltung**
@@ -207,7 +207,7 @@ Ideal wäre in jedem Fall die Ergänzung unseres Laminators,**in den Filament-Gc
 
 Normalerweise ist es normal, dass wir je nach gewünschter Oberfläche oder Filamentart unterschiedliche Druckoberflächen haben.
 
-Dieser Satz von Makros, erstellt von[Garethky](https://github.com/garethky)Sie ermöglichen uns die Kontrolle über diese und insbesondere über die korrekte Einstellung von ZOffset in jedem von ihnen, ganz im Stil, den wir bei Prusa-Maschinen haben. Unten sehen Sie einige seiner Funktionen:
+Dieser Satz von Makros, erstellt von[Garethky](https://github.com/garethky), sie ermöglichen uns die Kontrolle über diese und insbesondere die korrekte Einstellung des ZOffset in jedem von ihnen im Stil, den wir bei Prusa-Maschinen haben. Unten sehen Sie einige seiner Funktionen:
 
 -   Wir können die gewünschte Anzahl von Druckoberflächen speichern, wobei jede einen eindeutigen Namen hat
 -   Jede Druckoberfläche verfügt über einen eigenen ZOffset
@@ -216,7 +216,7 @@ Dieser Satz von Makros, erstellt von[Garethky](https://github.com/garethky)Sie e
 Andererseits haben wir welche**Anforderungen, um es zu implementieren (wir werden versuchen, die PRINT-Logik hinzuzufügen).\_START des Bundles in der Zukunft durch Aktivierung dieser Funktion per Variable und Erstellung eines vorherigen und nachfolgenden Benutzermakros, um Benutzerereignisse eingeben zu können)**:
 
 -   die Verwendung von\[speichern_Variablen]In unserem Fall verwenden wir ~/variables.cfg, um die Variablen zu speichern, und das ist bereits in der CFG dieser Makros enthalten.  
-    Dadurch wird automatisch eine Variablendatei erstellt_bauen_sheet.cfg, wo unsere Variablen auf der Festplatte gespeichert werden.
+    Dadurch wird automatisch eine Variablendatei für uns erstellt_bauen_sheet.cfg, wo unsere Variablen auf der Festplatte gespeichert werden.
 
 {% code title="Beispiel einer Variablenkonfigurationsdatei" %}
 
@@ -260,7 +260,7 @@ Es ist wichtig, dass der Wert in NAME="xxxx" mit dem Namen übereinstimmt, den w
 
 {%endcode%}
 
-Auch wenn wir über KlipperScreen verfügen, können wir ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in das wir einen Aufruf der zuvor für das Laden jeder Oberfläche erstellten Makros einfügen:
+Wenn wir über KlipperScreen verfügen, können wir auch ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in das wir einen Aufruf der zuvor für das Laden jeder Oberfläche erstellten Makros einfügen:
 
 {% code title="~/printer_data/config/KlipperScreen.conf" %}
 
@@ -310,7 +310,7 @@ Auch wenn wir über KlipperScreen verfügen, können wir ein spezielles Menü hi
 
 -   **Kompilierte Firmware für unterstützte Elektronik**Um den Prozess der Erstellung und Wartung unserer Klipper-Firmware für unsere MCUs zu erleichtern, haben wir das Makro COMPILE_Die FIRMWARE, bei deren Ausführung wir unsere Elektronik als Parameter verwenden können, um nur dies zu tun, kompiliert Klipper für die gesamte von unserem Bundle unterstützte Elektronik:  
     ![](../../.gitbook/assets/image%20(1540).png)  
-    Encontraremos estas accesibles de forma sencilla desde nuestra UI web en el directorio firmware_Binärdateien in unserem MASCHINEN-Tab (wenn wir Großsegel verwenden):  
+    Wir finden diese leicht zugänglich über unsere Web-Benutzeroberfläche im Firmware-Verzeichnis_Binärdateien in unserem MASCHINEN-Tab (wenn wir Großsegel verwenden):  
     ![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)  
     Nachfolgend finden Sie die Liste der unterstützten Elektronikgeräte:
 
@@ -396,7 +396,7 @@ Wir können den Vorgang auch manuell durchführen, wir kopieren das Plugin manue
 {%endcode%}
 
 {% hint style="info" %}  
-Es ist wichtig, dass wir diese Zeilen am Ende unserer Konfigurationsdatei hinzufügen ... direkt über dem Abschnitt, damit Makros in unserer CFG oder in Includes von unseren überschrieben werden:  
+Es ist wichtig, dass wir diese Zeilen am Ende unserer Konfigurationsdatei hinzufügen ... direkt über dem Abschnitt, damit Makros in unserer CFG oder in unseren Includes von unseren überschrieben werden:  
 #\*# \\&lt;-------- SPEICHERN_KONFIG -------->  
 {% endint %}
 
@@ -460,10 +460,10 @@ Wir starten Cura neu und gehen zu_**Erweiterungen/Nachbearbeitung/G-Code ändern
     START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 
 {% Endverlust %}  
-{% Endverlust %}
+{% endtabs %}
 
 {% hint style="info" %}  
-Der**Platzhalter sind „Aliase“ oder Variablen, die die Laminatoren verwenden, damit sie diese bei der Generierung des Gcodes durch die im Profil konfigurierten Werte ersetzen**des Eindrucks.
+Der**Platzhalter sind „Aliase“ oder Variablen, die die Laminatoren verwenden, damit sie bei der Generierung des GCodes durch die im Profil konfigurierten Werte ersetzt werden**des Eindrucks.
 
 Unter den folgenden Links finden Sie eine Liste davon für:[**Prusa-Schneider**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(zusätzlich zu den oben genannten),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)Und[**Behandlung**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -483,7 +483,7 @@ Um diese an unsere Maschine anzupassen, verwenden wir die Variablen, die wir in 
 
 #### Nachrichten-/Benachrichtigungssprache
 
-Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variable können wir es anpassen:
+Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variablen können wir es anpassen:
 
 | Variable         | Beschreibung                                                                                                                           | Mögliche Werte | Standardwert |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
@@ -512,7 +512,7 @@ Zum Verwalten der in Makros verwendeten Geschwindigkeiten.
 
 #### Heimkehr
 
-Satz von Variablen im Zusammenhang mit dem Referenzierungsprozess.
+Satz von Variablen, die sich auf den Referenzierungsprozess beziehen.
 
 | Variable | Beschreibung | Mögliche Werte | Standardwert |
 | -------- | ------------ | -------------- | ------------ |
@@ -562,10 +562,10 @@ Eine wichtige Phase unseres Druckstarts ist das korrekte Spülen unserer Düse, 
 | Variable                                                                                                                                                               | Beschreibung                                           | Mögliche Werte | Standardwert |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------------- | ------------ |
 | Variable_Düse_Grundierung                                                                                                                                              | Wir können zwischen verschiedenen Spüloptionen wählen: |                |              |
-| -primeline wird die typische Löschlinie zeichnen                                                                                                                       |                                                        |                |              |
+| -primeline zeichnet die typische Löschlinie                                                                                                                            |                                                        |                |              |
 | -primelineadaptative generiert mithilfe einer Variablen eine Spüllinie, die sich an die Fläche des gedruckten Teils anpasst_Düse_Grundierung_Objektentfernung als Rand |                                                        |                |              |
 | -Mit primeblob werfen wir einen Tropfen Filament in eine Ecke unseres Bettes, der sich sehr effektiv zum Reinigen der Düse eignet und leicht zu entfernen ist          |                                                        |                |              |
-| Primeline /                                                                                                                                                            |                                                        |                |              |
+| Hauptlinie /                                                                                                                                                           |                                                        |                |              |
 
 primelineadaptiv /  
 primeblob /   
@@ -573,18 +573,18 @@ FALSCH
 
 | adaptive Primeline |  
 | Variable_Düse_Grundierung_Objektentfernung | Wenn wir eine adaptive Beschnittlinie verwenden, ist dies der Rand, der zwischen der Beschnittlinie und dem gedruckten Objekt | verwendet werden soll numerisch | 5 |  
-| Variable_Düse_Primzahl_Start_x | Wo wir unsere Spülleitung platzieren möchten:  
+| Variable_Düse_prime_Start_x | Wo wir unsere Spülleitung platzieren möchten:  
 -min wird es bei X=0 tun (plus einer kleinen Sicherheitsmarge)  
 -max wird dies bei X=max tun (abzüglich einer kleinen Sicherheitsmarge)  
--Die Zahl ist die X-Koordinate, an der die Spülung | lokalisiert werden soll Mindest /  
+- número será la coordenada X donde ubicar la purga | min /   
 max. /  
-Nummer | max |  
+Zahl | max |  
 | Variable_Düse_Primzahl_Start_und | Wo wir unsere Spülleitung platzieren möchten:  
 -min wird dies bei Y=0 tun (plus einer kleinen Sicherheitsmarge)  
 -max wird dies bei Y=max tun (abzüglich einer kleinen Sicherheitsmarge)  
 -Die Zahl ist die Y-Koordinate, an der die Spülung | lokalisiert werden soll Mindest /  
 max. /  
-Nummer | min |  
+Zahl | min |  
 | Variable_Düse_Primzahl_Richtung | Die Adresse unserer Leitung oder Zustellung:  
 -Nach hinten bewegt sich der Kopf zur Vorderseite des Druckers  
 -vorwärts bewegt sich nach hinten  
@@ -697,7 +697,7 @@ Die drei Punkte (...) in den vorherigen Beispielen sollen lediglich darauf hinwe
 
 #### Anpassen von Makros
 
-Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie bereits erwähnt, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
+Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie wir bereits erwähnt haben, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
 
 Wir haben zwei Gruppen von Makros:
 
@@ -804,7 +804,7 @@ Wir können denselben Prozess mit jedem Parameter verwenden, den wir anpassen m�
 
 #### Anpassen der Pin-Konfiguration
 
-Wir werden genau wie zuvor vorgehen und in unserem Bereich USER OVERRIDES die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
+Wir werden genauso vorgehen wie zuvor, in unserem Bereich USER OVERRIDES werden wir die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
 
 Im folgenden Beispiel werden wir den Pin unseres elektronischen Lüfters (Controllers) anpassen_Ventilator), um ihn einem anderen als dem Standard-Lüfter zuzuweisen:
 

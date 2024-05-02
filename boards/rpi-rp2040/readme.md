@@ -21,6 +21,8 @@ In the configurator, Enable extra low-level configuration options
 
 Ensure that the micro-controller architecture is set to ‘Raspberry Pi RP2040’
 
+![](https://github.com/3dwork-io/3dwork-klipper/blob/master/boards/rpi-rp2040/rpi-rp2040-USB.jpg)
+
 Once the configuration is selected, Pres `Q` to exit and “Yes” if asked to save the configuration.
 
 Run the following:

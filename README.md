@@ -4,7 +4,7 @@
 
 # 3Dwork Klipper Bundle
 
-[<img width="171" alt="kofi" src="https://github.com/3dwork-io/3dwork-klipper/blob/master/Ko-fi-Logo.png">]([https://ko-fi.com/laureotero](https://ko-fi.com/jjr3d))
+[<img width="171" alt="kofi" src="https://github.com/3dwork-io/3dwork-klipper/blob/master/Ko-fi-Logo.png">](https://ko-fi.com/jjr3d)
 
 
  [![](../../.gitbook/assets/image%20(1986).png) - English](https://klipper-3dwork-io.translate.goog/klipper/mejoras/3dwork-klipper-bundle?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp)

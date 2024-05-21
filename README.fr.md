@@ -4,6 +4,8 @@
 
 # Pack Tondeuse 3Dwork
 
+[<img width="171" alt="kofi" src="https://github.com/3dwork-io/3dwork-klipper/blob/master/Ko-fi-Logo.png">](https://ko-fi.com/jjr3d)
+
 [![](../../.gitbook/assets/image%20(1986).png)- Anglais](https://klipper-3dwork-io.translate.goog/klipper/mejoras/3dwork-klipper-bundle?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp)
 
 {% indice style="danger" %}  
@@ -119,7 +121,7 @@ Depuis Mainsail/Fluidd nous éditerons notre moonraker.conf (il doit être à la
 
 ## Macro
 
-Nous avons toujours commenté que RatOS est l'une des meilleures distributions Klipper, avec prise en charge des modules Raspberry et CB1, en grande partie grâce à ses configurations modulaires et à ses excellentes macros.
+Nous avons toujours dit que RatOS est l'une des meilleures distributions Klipper, avec prise en charge des modules Raspberry et CB1, en grande partie grâce à ses configurations modulaires et à ses excellentes macros.
 
 Quelques macros ajoutées qui nous seront utiles :
 
@@ -128,7 +130,7 @@ Quelques macros ajoutées qui nous seront utiles :
 | Macro                                                                          | Description                                                                                                                                                                          |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **PEUT ÊTRE_MAISON**                                                           | Cela nous permet d'optimiser le processus de référencement uniquement en l'exécutant sur les axes qui ne sont pas référencés.                                                        |
-| **PAUSE**                                                                      | En utilisant les variables associées, cela nous permet de gérer une pause avec un stationnement de tête plus polyvalent que les macros normales.                                     |
+| **PAUSE**                                                                      | Grâce aux variables associées, cela nous permet de gérer une pause avec un stationnement de tête plus polyvalent que les macros normales.                                            |
 | **ENSEMBLE_PAUSE_À_COUCHE**                                                    |                                                                                                                                                                                      |
 | **ENSEMBLE_PAUSE_À_SUIVANT_COUCHE**                                            | Une macro très utile que Mainsail intègre dans son UI pour pouvoir faire une pause à la demande dans un calque spécifique... au cas où nous l'aurions oublié lors du laminage.       |
 | Nous en avons également un autre pour exécuter la pause sur le calque suivant. |                                                                                                                                                                                      |
@@ -229,7 +231,7 @@ D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essa
 {%endcode%}
 
 -   nous devons inclure un appel à postuler_CONSTRUIRE_FEUILLE_AJUSTEMENT dans notre PRINT_START pour pouvoir appliquer le ZOffset de la surface sélectionnée
--   Il est important que pour la macro précédente, APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT, pour fonctionner correctement il faut ajouter un SET_CODE GCO_OFFSET Z=0.0 juste avant d'appeler APPLY_CONSTRUIRE_FEUILLE_AJUSTEMENT
+-   Il est important que pour la macro précédente, APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT, pour fonctionner correctement il faut ajouter un SET_CODEG_OFFSET Z=0.0 juste avant d'appeler APPLY_CONSTRUIRE_FEUILLE_AJUSTEMENT
 
 
     # Load build sheet
@@ -240,7 +242,7 @@ D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essa
 Par contre, il est intéressant de pouvoir avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
 
 {% indice style="avertissement" %}  
-Il est important que la valeur dans NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.  
+Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.  
 {% finint %}
 
 {% code title="printer.cfg ou inclure cfg" %}
@@ -292,7 +294,7 @@ Il est important que la valeur dans NAME="xxxx" corresponde au nom que nous avon
 | MONTRER_CONSTRUIRE_FEUILLES                |             |
 | ENSEMBLE_CONSTRUIRE_FEUILLE_COMPENSER      |             |
 | RÉINITIALISER_CONSTRUIRE_FEUILLE_COMPENSER |             |
-| ENSEMBLE_CODE GCO_COMPENSER                |             |
+| ENSEMBLE_CODEG_COMPENSER                   |             |
 | APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT    |             |
 
 ### **Macros de configuration des machines**
@@ -310,7 +312,7 @@ Il est important que la valeur dans NAME="xxxx" corresponde au nom que nous avon
 
 -   **Firmware compilé pour les appareils électroniques pris en charge**, pour faciliter le processus de création et de maintenance de notre firmware Klipper pour nos MCU, nous avons la macro COMPILE_FIRMWARE qui, une fois exécuté, nous pouvons utiliser notre électronique comme paramètre pour faire uniquement cela, compilera Klipper pour toute l'électronique prise en charge par notre bundle :  
     ![](../../.gitbook/assets/image%20(1540).png)  
-    Nous les trouverons facilement accessibles depuis notre interface Web dans le répertoire du firmware.\_binaires dans notre onglet MACHINE (si nous utilisons Grand-Voile) :  
+    Nous les trouverons facilement accessibles depuis notre interface Web dans le répertoire du firmware_binaires dans notre onglet MACHINE (si nous utilisons Grand-voile) :  
     ![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)  
     Vous trouverez ci-dessous la liste des appareils électroniques pris en charge :
 
@@ -326,7 +328,7 @@ Les firmwares sont générés pour être utilisés avec une connexion USB, ce qu
 
 ![](../../.gitbook/assets/image%20(770).png)
 
-Le plus simple est d'utiliser[**keoh**](../instalacion/#instalando-kiauh)où l'on retrouvera dans une de ses options la possibilité d'installer cette extension :
+Le moyen le plus simple est d'utiliser[**keoh**](../instalacion/#instalando-kiauh)où l'on retrouvera dans une de ses options la possibilité d'installer cette extension :
 
 ![](../../.gitbook/assets/telegram-cloud-photo-size-4-5837048490604215201-x_partial.jpg)
 
@@ -386,7 +388,7 @@ Nous pouvons également effectuer le processus à la main, nous copierons manuel
 
 Depuis notre interface, Mainsail/Fluidd, nous allons éditer notre imprimante.cfg et ajouter :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
     ## 3Dwork standard macros
     [include 3dwork-klipper/macros/macros_*.cfg]
@@ -557,7 +559,7 @@ Il est important que nous ayons dans notre[démarrer le gcode de notre plastifie
 
 #### purgé
 
-Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filaments ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
+Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filament ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
 
 | Variable                                                                                                                                                           | Description                                               | Valeurs possibles | Valeur par défaut |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- | ----------------- | ----------------- |
@@ -594,7 +596,7 @@ en arrière | automobile |
 
 #### Chargement/déchargement de filaments
 
-Dans ce cas, ce groupe de variables facilitera la gestion du chargement et du déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
+Dans ce cas, ce groupe de variables nous permettra de gérer plus facilement le chargement et le déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
 
 | Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        | Valeurs possibles | Valeur par défaut |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
@@ -659,7 +661,7 @@ C'est pourquoi il est très important de comprendre le fonctionnement de Klipper
 
 Normalement, ce sera ce que nous devrons ajuster, faire des ajustements aux variables que nous avons par défaut dans notre module**Vos excuses**para Falaises.
 
-Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBAL_DONT]ce qu'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
+Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBALE_DONT]ce qu'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
 
 Nous vous rappelons ce que nous avons mentionné précédemment sur la façon dont Klipper traite les configurations de manière séquentielle, il est donc conseillé de le coller après les inclusions que nous avons mentionnées.[ici](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
@@ -693,11 +695,11 @@ Les trois points (...) dans les exemples précédents ont simplement pour but d'
 {% indice style="info" %}
 
 -   Nous vous conseillons d'ajouter des commentaires comme vous le voyez dans le cas précédent pour identifier ce que fait chaque section.
--   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBAL_DONT]{% finint %}
+-   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBALE_DONT]{% finint %}
 
 #### Personnalisation des macros
 
-Les macros ont été configurées de manière modulaire afin de pouvoir être facilement ajustées. Comme nous l'avons mentionné précédemment, si nous voulons les ajuster, nous devrons procéder de la même manière que pour les variables, copier la macro en question dans notre imprimante.cfg (ou une autre inclusion de notre choix) et nous assurer qu'elle est après l'inclusion où nous avons ajouté notre module 3Dwork pour Klipper.
+Les macros ont été configurées de manière modulaire afin de pouvoir être facilement ajustées. Comme nous l'avons mentionné précédemment, si nous voulons les ajuster, nous devrons procéder de la même manière que pour les variables, copier la macro en question dans notre imprimante.cfg (ou une autre inclusion de notre choix) et nous assurer qu'elle est bien après l'inclusion où nous avons ajouté notre module 3Dwork pour Klipper.
 
 Nous avons deux groupes de macros :
 
@@ -768,7 +770,7 @@ Tout comme nous vous conseillons de créer une section dans votre imprimante.cfg
 
 Dans l'exemple suivant, nous verrons comment dans notre cas nous souhaitons personnaliser les paramètres de notre nivellement de lit (lit_mesh) en ajustant les points de sonde_count) par rapport à la configuration que nous avons par défaut dans les configurations de notre module Klipper :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
 ```
 
@@ -808,7 +810,7 @@ Nous procéderons exactement comme nous l'avons fait précédemment, dans notre 
 
 Dans l'exemple suivant, nous allons personnaliser quelle est la broche de notre ventilateur électronique (contrôleur_ventilateur) pour l'attribuer à un autre que celui par défaut :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
 ```
 

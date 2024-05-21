@@ -12,13 +12,13 @@
 **GUIDE EN COURS !!! Bien que les macros soient entièrement fonctionnelles, elles sont en développement continu.**
 
 **Utilisez-les à vos risques et périls!!!**  
-{% finint %}
+{%endint%}
 
 Journal des modifications
 
 12/07/2023 - Ajout du support pour automatiser la création du firmware électronique Bigtreetech
 
-Depuis**Vos excuses**Nous avons compilé et affiné un ensemble de macros, de paramètres machines et électroniques, ainsi que d'autres outils pour une gestion simple et puissante de Klipper.
+Depuis**Vos excuses**Nous avons collecté et ajusté un ensemble de macros, de paramètres machines et électroniques, ainsi que d'autres outils pour une gestion simple et puissante de Klipper.
 
 Une grande partie de ce package est basée sur[**Les rats**](https://os.ratrig.com/)améliorer les parties que nous jugeons intéressantes, ainsi que d'autres contributions de la communauté.
 
@@ -35,7 +35,7 @@ Nous allons nous connecter à notre hôte via SSH et émettre les commandes suiv
 
 {% indice style="avertissement" %}  
 Si votre répertoire de configuration Klipper est personnalisé, n'oubliez pas d'ajuster la première commande en conséquence pour votre installation.  
-{% finint %}
+{%endint%}
 
 {% indice style="info" %}  
 Dans les nouvelles installations :
@@ -103,7 +103,7 @@ Puisque Klipper n'autorise pas l'accès aux macros tant qu'il n'a pas un fichier
     [respond]
 
 Avec cela, nous pouvons démarrer Klipper pour nous donner accès à nos macros.  
-{% finint %}
+{%endint%}
 
 ### Utiliser Moonraker pour être toujours à jour
 
@@ -117,11 +117,11 @@ Depuis Mainsail/Fluidd nous éditerons notre moonraker.conf (il doit être à la
 **Pensez à faire l'étape d'installation au préalable, sinon Moonraker générera une erreur et ne pourra pas démarrer.**
 
 **En revanche, si le répertoire de votre configuration Klipper est personnalisé, pensez à ajuster le chemin en fonction de votre installation.**  
-{% finint %}
+{%endint%}
 
 ## Macro
 
-Nous avons toujours dit que RatOS est l'une des meilleures distributions Klipper, avec prise en charge des modules Raspberry et CB1, en grande partie grâce à ses configurations modulaires et à ses excellentes macros.
+Nous avons toujours commenté que RatOS est l'une des meilleures distributions Klipper, avec prise en charge des modules Raspberry et CB1, en grande partie grâce à ses configurations modulaires et à ses excellentes macros.
 
 Quelques macros ajoutées qui nous seront utiles :
 
@@ -173,7 +173,7 @@ Ensemble de macros qui nous permettront de gérer différentes actions avec notr
 
 {% indice style="avertissement" %}  
 **SECTION EN COURS !!!**  
-{% finint %}
+{%endint%}
 
 [**Spoolman**](https://github.com/Donkie/Spoolman)est un gestionnaire de bobines de filament intégré à Moonraker et qui nous permet de gérer notre stock et notre disponibilité de filament.
 
@@ -205,7 +205,7 @@ L'idéal dans chaque cas serait d'ajouter à notre plastifieuse,**dans les gcode
 
 {% indice style="avertissement" %}  
 **SECTION EN COURS !!!**  
-{% finint %}
+{%endint%}
 
 Il est généralement normal que nous ayons des surfaces d'impression différentes en fonction de la finition que nous souhaitons avoir ou du type de filament.
 
@@ -231,7 +231,7 @@ D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essa
 {%endcode%}
 
 -   nous devons inclure un appel à postuler_CONSTRUIRE_FEUILLE_AJUSTEMENT dans notre PRINT_START pour pouvoir appliquer le ZOffset de la surface sélectionnée
--   Il est important que pour la macro précédente, APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT, pour fonctionner correctement il faut ajouter un SET_CODEG_OFFSET Z=0.0 juste avant d'appeler APPLY_CONSTRUIRE_FEUILLE_AJUSTEMENT
+-   Il est important que pour la macro précédente, APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT, pour fonctionner correctement il faut ajouter un SET_CODE GCO_OFFSET Z=0.0 juste avant d'appeler APPLY_CONSTRUIRE_FEUILLE_AJUSTEMENT
 
 
     # Load build sheet
@@ -239,11 +239,11 @@ D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essa
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-Par contre, il est intéressant de pouvoir avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
+Par contre, il est intéressant d'avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
 
 {% indice style="avertissement" %}  
 Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.  
-{% finint %}
+{%endint%}
 
 {% code title="printer.cfg ou inclure cfg" %}
 
@@ -294,7 +294,7 @@ Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons 
 | MONTRER_CONSTRUIRE_FEUILLES                |             |
 | ENSEMBLE_CONSTRUIRE_FEUILLE_COMPENSER      |             |
 | RÉINITIALISER_CONSTRUIRE_FEUILLE_COMPENSER |             |
-| ENSEMBLE_CODEG_COMPENSER                   |             |
+| ENSEMBLE_CODE GCO_COMPENSER                |             |
 | APPLIQUER_CONSTRUIRE_FEUILLE_AJUSTEMENT    |             |
 
 ### **Macros de configuration des machines**
@@ -328,7 +328,7 @@ Les firmwares sont générés pour être utilisés avec une connexion USB, ce qu
 
 ![](../../.gitbook/assets/image%20(770).png)
 
-Le moyen le plus simple est d'utiliser[**keoh**](../instalacion/#instalando-kiauh)où l'on retrouvera dans une de ses options la possibilité d'installer cette extension :
+Le plus simple est d'utiliser[**keoh**](../instalacion/#instalando-kiauh)où l'on retrouvera dans une de ses options la possibilité d'installer cette extension :
 
 ![](../../.gitbook/assets/telegram-cloud-photo-size-4-5837048490604215201-x_partial.jpg)
 
@@ -388,7 +388,7 @@ Nous pouvons également effectuer le processus à la main, nous copierons manuel
 
 Depuis notre interface, Mainsail/Fluidd, nous allons éditer notre imprimante.cfg et ajouter :
 
-{% code title="printer.cfg" %}
+{% code title="imprimante.cfg" %}
 
     ## 3Dwork standard macros
     [include 3dwork-klipper/macros/macros_*.cfg]
@@ -400,12 +400,12 @@ Depuis notre interface, Mainsail/Fluidd, nous allons éditer notre imprimante.cf
 {% indice style="info" %}  
 Il est important d'ajouter ces lignes à la fin de notre fichier de configuration... juste au dessus de la section pour que s'il y a des macros dans notre cfg ou include, elles soient écrasées par les nôtres :  
 #\*# \\&lt;------------ SAUVEGARDER_CONFIGURATION ------------>  
-{% finint %}
+{%endint%}
 
 {% indice style="avertissement" %}  
 Les macros normales ont été séparées de**shell de macros**car**Pour les activer, il est nécessaire d'effectuer manuellement des étapes supplémentaires, en plus du fait qu'elles sont actuellement en cours de test.**et\*\*Ils peuvent avoir besoin d'autorisations supplémentaires pour attribuer des autorisations d'exécution pour lesquelles les instructions n'ont pas été indiquées puisqu'ils tentent d'automatiser.\*\*  
 **Si vous les utilisez, c'est à vos propres risques.**  
-{% finint %}
+{%endint%}
 
 ### Configuration de notre plastifieuse
 
@@ -448,7 +448,7 @@ Puisque nos macros sont dynamiques, elles extrairont certaines informations de l
 {% indice style="avertissement" %}  
 Il va falloir installer le plugin[**Plugin de post-traitement (par frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)du menu_**Aide/Afficher**_configuration Folder... copiaremos el script del link anterior dentro de la carpeta script.   
 On redémarre Cura et on ira à_**Extensions/Post-traitement/Modifier le G-Code**_et nous sélectionnerons_**Taille d'impression du maillage**_.  
-{% finint %}  
+{%endint%}  
 {% perte finale %}
 
 {% tab title="IdeaMaker" %}
@@ -470,7 +470,7 @@ Les**les espaces réservés sont des "alias" ou des variables que les plastifieu
 Dans les liens suivants, vous pouvez en trouver une liste pour :[**Trancheuse Prusa**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(en plus de ceux ci-dessus),[**Studio Bambou**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)et[**Traitement**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
 L'utilisation de ceux-ci permet à nos macros d'être dynamiques.  
-{% finint %}
+{%endint%}
 
 -   **gcode de final END_IMPRIMER**, dans ce cas, en n'utilisant pas d'espaces réservés, il est commun à toutes les plastifieuses
 
@@ -489,7 +489,7 @@ Pour les ajuster à notre machine nous utiliserons les variables que nous trouve
 
 | Variable        | Description                                                                                                          | Valeurs possibles | Valeur par défaut |
 | --------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
-| variable_langue | Il nous permet de sélectionner la langue des notifications. S'il n'est pas bien défini, il sera utilisé en (anglais) | c'est dans        | est               |
+| variable_langue | Il nous permet de sélectionner la langue des notifications. S'il n'est pas bien défini, il sera utilisé en (anglais) | es / en           | est               |
 
 #### Extrusion relative
 
@@ -497,7 +497,7 @@ Cela nous permet de contrôler quel mode d'extrusion nous utiliserons à la fin 
 
 {% indice style="succès" %}  
 Il est conseillé de configurer votre plastifieuse pour utiliser l'extrusion relative et de définir cette variable sur True.  
-{% finint %}
+{%endint%}
 
 | Variable                   | Description                                                                    | Valeurs possibles | Valeur par défaut |
 | -------------------------- | ------------------------------------------------------------------------------ | ----------------- | ----------------- |
@@ -535,7 +535,7 @@ Avantages de l'utilisation d'une buse préchauffée :
 -   Cela nous laisse du temps supplémentaire pour que le lit puisse atteindre sa température de manière uniforme.
 -   Si nous utilisons un capteur inductif sans compensation de température, cela permettra à nos mesures d'être plus cohérentes et précises.
 -   Permet de ramollir tout filament restant dans la buse, ce qui signifie que, dans certaines configurations, ces restes n'affectent pas l'activation du capteur.  
-    {% finint %}
+    {%endint%}
 
 #### Filet de lit
 
@@ -555,11 +555,11 @@ Pour contrôler le processus de mise à niveau, nous disposons de variables qui 
 Nous vous conseillons d'utiliser le nivellement adaptatif puisqu'il ajustera toujours le maillage à la taille de notre impression, vous permettant ainsi d'avoir une zone de maillage ajustée.
 
 Il est important que nous ayons dans notre[démarrer le gcode de notre plastifieuse](../empezamos/configuracion-klipper-en-laminadores.md#configurando-nuestro-laminador-para-usar-nustras-macros-start_print-y-end_print), dans l'appel à notre START_IMPRIMER, IMPRIMER les valeurs_MAX et IMPRIMER_MIN.  
-{% finint %}
+{%endint%}
 
 #### purgé
 
-Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filament ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
+Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filaments ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
 
 | Variable                                                                                                                                                           | Description                                               | Valeurs possibles | Valeur par défaut |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- | ----------------- | ----------------- |
@@ -596,7 +596,7 @@ en arrière | automobile |
 
 #### Chargement/déchargement de filaments
 
-Dans ce cas, ce groupe de variables nous permettra de gérer plus facilement le chargement et le déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
+Dans ce cas, ce groupe de variables facilitera la gestion du chargement et du déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
 
 | Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        | Valeurs possibles | Valeur par défaut |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
@@ -608,7 +608,7 @@ Dans ce cas, ce groupe de variables nous permettra de gérer plus facilement le 
 {% indice style="avertissement" %}  
 Un autre paramètre nécessaire pour votre section\[extrudeuse]se indique el[**maximum_extruder_seulement_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)...la valeur recommandée est généralement >101 (si elle n'est pas définie, utilisez 50) pour, par exemple, permettre des tests d'étalonnage typiques d'une extrudeuse.  
 Vous devez ajuster la valeur en fonction de ce qui a été mentionné précédemment concernant le test ou la configuration de votre**variable_filament_décharger_longueur**je**variable_filament_charger_longueur**.  
-{% finint %}
+{%endint%}
 
 #### Parking
 
@@ -655,13 +655,13 @@ Notre module pour Klipper utilise le système de configuration modulaire utilis�
 Lorsqu'elles sont utilisées en tant que module, les configurations 3Dwork NE PEUVENT PAS être modifiées directement à partir du répertoire 3dwork-klipper dans votre répertoire de configuration Klipper car elles seront en lecture seule pour des raisons de sécurité.
 
 C'est pourquoi il est très important de comprendre le fonctionnement de Klipper et comment personnaliser nos modules pour votre machine.  
-{% finint %}
+{%endint%}
 
 #### **Personnalisation des variables**
 
 Normalement, ce sera ce que nous devrons ajuster, faire des ajustements aux variables que nous avons par défaut dans notre module**Vos excuses**para Falaises.
 
-Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBALE_DONT]ce qu'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
+Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBAL_DONT]ce qu'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
 
 Nous vous rappelons ce que nous avons mentionné précédemment sur la façon dont Klipper traite les configurations de manière séquentielle, il est donc conseillé de le coller après les inclusions que nous avons mentionnées.[ici](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
@@ -695,7 +695,7 @@ Les trois points (...) dans les exemples précédents ont simplement pour but d'
 {% indice style="info" %}
 
 -   Nous vous conseillons d'ajouter des commentaires comme vous le voyez dans le cas précédent pour identifier ce que fait chaque section.
--   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBALE_DONT]{% finint %}
+-   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBAL_DONT]{%endint%}
 
 #### Personnalisation des macros
 
@@ -770,7 +770,7 @@ Tout comme nous vous conseillons de créer une section dans votre imprimante.cfg
 
 Dans l'exemple suivant, nous verrons comment dans notre cas nous souhaitons personnaliser les paramètres de notre nivellement de lit (lit_mesh) en ajustant les points de sonde_count) par rapport à la configuration que nous avons par défaut dans les configurations de notre module Klipper :
 
-{% code title="printer.cfg" %}
+{% code title="imprimante.cfg" %}
 
 ```
 
@@ -810,7 +810,7 @@ Nous procéderons exactement comme nous l'avons fait précédemment, dans notre 
 
 Dans l'exemple suivant, nous allons personnaliser quelle est la broche de notre ventilateur électronique (contrôleur_ventilateur) pour l'attribuer à un autre que celui par défaut :
 
-{% code title="printer.cfg" %}
+{% code title="imprimante.cfg" %}
 
 ```
 

@@ -4,6 +4,8 @@
 
 # 3Dwork Clipper Bundle
 
+[<img width="171" alt="kofi" src="https://github.com/3dwork-io/3dwork-klipper/blob/master/Ko-fi-Logo.png">](https://ko-fi.com/jjr3d)
+
 [![](../../.gitbook/assets/image%20(1986).png)- English](https://klipper-3dwork-io.translate.goog/klipper/mejoras/3dwork-klipper-bundle?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp)
 
 {% hint style="danger" %}  
@@ -128,7 +130,7 @@ Some added macros that will be useful to us:
 | Macro                                                            | Description                                                                                                                                                     |
 | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **MAYBE_HOME**                                                   | It allows us to optimize the homing process only by performing it on those axes that are not homing.                                                            |
-| **PAUSE**                                                        | Using the related variables, it allows us to manage a pause with a more versatile head parking than normal macros.                                              |
+| **PAUSE**                                                        | Through the related variables it allows us to manage a pause with a more versatile head parking than normal macros.                                             |
 | **SET_PAUSE_AT_LAYER**                                           |                                                                                                                                                                 |
 | **SET_PAUSE_AT_NEXT_LAYER**                                      | A very useful macro that Mainsail integrates into its UI to be able to pause on demand in a specific layer... in case we forgot when laminating.                |
 | We also have another one to execute the pause on the next layer. |                                                                                                                                                                 |
@@ -148,7 +150,7 @@ Some added macros that will be useful to us:
 | -intelligent nozzle preheating in the case of having a probe sensor        |                                                                                                                                    |
 | -possibility of using z-tilt through variable                              |                                                                                                                                    |
 | -Adaptive bed mattress, forced or from a stored bag                        |                                                                                                                                    |
-| -customizable purge line between normal, adaptive purge line or purge drop |                                                                                                                                    |
+| -Customizable purge line between normal, adaptive purge line or purge drop |                                                                                                                                    |
 | -segmented macro to be able to be personalized as we will show you later   |                                                                                                                                    |
 | **END_PRINT**                                                              | End of print macro where we also have segmentation to be able to customize our macro. We also have dynamic head parking.           |
 
@@ -565,7 +567,7 @@ An important phase of our start of printing is a correct purging of our nozzle t
 | -primeline is going to draw the typical purge line                                                                                                   |                                                  |                 |               |
 | -primelineadaptative will generate a purge line that adapts to the area of ​​the printed part using variable_nozzle_priming_objectdistance as margin |                                                  |                 |               |
 | -primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove                         |                                                  |                 |               |
-| primeline /                                                                                                                                          |                                                  |                 |               |
+| prime line /                                                                                                                                         |                                                  |                 |               |
 
 primelineadaptive /  
 prime blob /  

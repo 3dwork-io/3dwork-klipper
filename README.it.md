@@ -4,6 +4,8 @@
 
 # Pacchetto Clipper 3Dwork
 
+[<img width="171" alt="kofi" src="https://github.com/3dwork-io/3dwork-klipper/blob/master/Ko-fi-Logo.png">](https://ko-fi.com/jjr3d)
+
 [![](../../.gitbook/assets/image%20(1986).png)- Inglese](https://klipper-3dwork-io.translate.goog/klipper/mejoras/3dwork-klipper-bundle?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp)
 
 {% suggerimento stile="pericolo" %}  
@@ -128,7 +130,7 @@ Alcune macro aggiunte che ci saranno utili:
 | Macro                                                                   | Descrizione                                                                                                                                                                                           |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **FORSE_CASA**                                                          | Ci consente di ottimizzare il processo di homing solo eseguendolo su quegli assi che non sono in homing.                                                                                              |
-| **PAUSA**                                                               | Utilizzando le relative variabili, ci permette di gestire una pausa con un parcheggio della testa più versatile rispetto alle normali macro.                                                          |
+| **PAUSA**                                                               | Attraverso le relative variabili ci permette di gestire una pausa con un parcheggio della testa più versatile rispetto alle normali macro.                                                            |
 | **IMPOSTATO_PAUSA_A_STRATO**                                            |                                                                                                                                                                                                       |
 | **IMPOSTATO_PAUSA_A_PROSSIMO_STRATO**                                   | Una macro molto utile che Mainsail integra nella sua interfaccia utente per poter mettere in pausa su richiesta in un livello specifico... nel caso ce ne fossimo dimenticati durante la laminazione. |
 | Ne abbiamo anche un altro per eseguire la pausa sul livello successivo. |                                                                                                                                                                                                       |
@@ -177,7 +179,7 @@ Insieme di macro che ci permetteranno di gestire diverse azioni con il nostro fi
 
 !\[](../../.gitbook/assets/image (1990).png)
 
-Non entreremo nei dettagli dell'installazione e della configurazione di questo poiché è relativamente semplice utilizzare il file[**istruzioni dal tuo Github**](https://github.com/Donkie/Spoolman)**,**comunque**Ti consigliamo di utilizzare Docker**per semplicità e ricordo**attivare le impostazioni in Moonraker**necessario:
+Non entreremo nei dettagli dell'installazione e della configurazione di questo poiché è relativamente semplice utilizzare il file[**istruzioni dal tuo Github**](https://github.com/Donkie/Spoolman)**,**comunque**Ti consigliamo di utilizzare Docker**per semplicità e ricorda**attivare le impostazioni in Moonraker**necessario:
 
 {% titolo del codice="moonraker.conf" %}
 
@@ -195,7 +197,7 @@ Non entreremo nei dettagli dell'installazione e della configurazione di questo p
 | IMPOSTATO_ATTIVO_BOBINA | Ci permette di indicare quale è l'ID della bobina da utilizzare |
 | CHIARO_ATTIVO_BOBINA    | Ci permette di resettare la bobina attiva                       |
 
-L’ideale in ogni caso sarebbe aggiungere alla nostra plastificatrice,**nei gcode del filamento per ogni bobina la chiamata a questo**, e ricorda**cambiare il suo ID una volta consumato**per poter tenere traccia di ciò che rimane di filamento al suo interno!!!
+L’ideale in ogni caso sarebbe aggiungere alla nostra plastificatrice,**nei gcode del filamento per ogni bobina la chiamata a questo**, e ricorda**cambia il suo ID una volta consumato**per poter tenere traccia di ciò che rimane di filamento al suo interno!!!
 
 !\[](../../.gitbook/assets/image (1991).png)
 
@@ -304,7 +306,7 @@ Anche nel caso di KlipperScreen possiamo aggiungere un menu specifico per gestir
 | **CALCOLARE_LETTO_MAGLIA**                             | Una macro estremamente utile per calcolare l'area della nostra mesh perché a volte può essere un processo complicato.                                                                                                            |
 | **PID_TUTTO**                                          |                                                                                                                                                                                                                                  |
 | **PID_ESTRUSORE**                                      |                                                                                                                                                                                                                                  |
-| **PID_LETTO**                                          | Queste macro, dove possiamo passare le temperature al PID sotto forma di parametri, ci permetteranno di eseguire la calibrazione della temperatura in modo estremamente semplice.                                                |
+| **PID_LETTO**                                          | Queste macro, dove potremo passare le temperature al PID sotto forma di parametri, ci permetteranno di eseguire la calibrazione della temperatura in modo estremamente semplice.                                                 |
 | **TEST_VELOCITÀ**                                      |                                                                                                                                                                                                                                  |
 | **TEST_VELOCITÀ_DELTA**                                | La macro originale del compagno[Ellis](https://github.com/AndrewEllis93)Ci permetteranno in modo abbastanza semplice di testare la velocità con cui possiamo muovere la nostra macchina con precisione e senza perdita di passi. |
 
@@ -351,7 +353,7 @@ Possiamo anche eseguire il processo manualmente, copieremo manualmente il plugin
 | SKR 3EZ                 | btt-skr-3-ez                                 |
 | Saqr A Idha (Haha)      | Si ubriaca moltissimo                        |
 | 2 corone svizzere (429) | btt-skr-2-429                                |
-| 2 corone svedesi (407)  | btt-skr-2-407                                |
+| 2 corone svizzere (407) | btt-skr-2-407                                |
 | RATTO SKR               | btt-cortocircuito-10                         |
 | SKR 1.4 Turbo           | btt-skr-14-turbo                             |
 | SKR Mini Ez vz          | btt_scr_mini_es_30                           |
@@ -557,7 +559,7 @@ Ti consigliamo di utilizzare il livellamento adattivo poiché adatterà sempre l
 
 #### epurato
 
-Una fase importante del nostro inizio stampa è un corretto spurgo dei nostri ugelli per evitare che restino filamenti o che questi possano danneggiare la nostra stampa ad un certo punto. Di seguito sono riportate le variabili che intervengono in questo processo:
+Una fase importante del nostro inizio stampa è un corretto spurgo del nostro ugello per evitare resti di filamento o che questi possano prima o poi danneggiare la nostra stampa. Di seguito sono riportate le variabili che intervengono in questo processo:
 
 | Variabile                                                                                                                                                               | Descrizione                                       | Valori possibili | Valore di default |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------- | ----------------- |
@@ -579,7 +581,7 @@ Falso
 -number sarà la coordinata X dove localizzare lo spurgo | minimo/  
 massimo /  
 numero | massimo |  
-| variabile_ugello_primo_inizio_sì | Dove vogliamo posizionare la nostra linea di spurgo:  
+| variabile_ugello_primo_inizio_e | Dove vogliamo posizionare la nostra linea di spurgo:  
 -min lo farà a Y=0 (più un piccolo margine di sicurezza)  
 -max lo farà a Y=max (meno un piccolo margine di sicurezza)  
 -numero sarà la coordinata Y dove individuare lo spurgo | minimo/  
@@ -594,7 +596,7 @@ all'indietro | automatico |
 
 #### Carico/scarico filamento
 
-In questo caso, questo gruppo di variabili faciliterà la gestione del caricamento e dello scaricamento del nostro filamento utilizzato in emulazione dell'M600, ad esempio, o quando si lanciano le macro di caricamento e scaricamento del filamento:
+In questo caso, questo gruppo di variabili ci faciliterà la gestione del caricamento e dello scaricamento del nostro filamento utilizzato in emulazione dell'M600, ad esempio, o quando si lanciano le macro di caricamento e scaricamento del filamento:
 
 | Variabile                               | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                | Valori possibili | Valore di default |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
@@ -687,7 +689,7 @@ variable_language: "es"                         # Possible values: "en", "es"
 ```
 
 {% suggerimento stile="avviso" %}
-I tre punti (...) degli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
+I tre punti (...) negli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 
 {% suggerimento stile="informazioni" %}
@@ -797,7 +799,7 @@ probe_count: 11,11
 {%endcode%}
 
 {% suggerimento stile="avviso" %}
-I tre punti (...) degli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
+I tre punti (...) negli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 
 Possiamo utilizzare lo stesso processo con qualsiasi parametro che desideriamo regolare.
@@ -842,7 +844,7 @@ pin: PA8
 {%endcode%}
 
 {% suggerimento stile="avviso" %}
-I tre punti (...) degli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
+I tre punti (...) negli esempi precedenti stanno solo ad indicare che si possono avere più configurazioni tra le sezioni... in nessun caso vanno aggiunti.
 {% suggerimento finale %}
 
 ```

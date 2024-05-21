@@ -12,13 +12,13 @@
 **GUIDE IN PROCESS!!! Although the macros are fully functional, they are under continuous development.**
 
 **Use them at your own risk!!!**  
-{% endint %}
+{%endint%}
 
 Changelog
 
 12/07/2023 - Added support to automate the creation of Bigtreetech electronic firmware
 
-From**Your excuses**We have compiled and fine-tuned a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
+From**Your excuses**We have collected and adjusted a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
 
 Much of this package is based on[**Rats**](https://os.ratrig.com/)improving the parts that we think are interesting, as well as other contributions from the community.
 
@@ -35,7 +35,7 @@ We will connect to our host via SSH and issue the following commands:
 
 {% hint style="warning" %}  
 If your Klipper configuration directory is customized, remember to adjust the first command appropriately for your installation.  
-{% endint %}
+{%endint%}
 
 {% hint style="info" %}  
 In new installations:
@@ -103,7 +103,7 @@ Since Klipper does not allow access to macros until it has a correct printer.cfg
     [respond]
 
 With this we can start Klipper to give us access to our macros.  
-{% endint %}
+{%endint%}
 
 ### Using Moonraker to always be up to date
 
@@ -117,7 +117,7 @@ From Mainsail/Fluidd we will edit our moonraker.conf (it should be at the same h
 **Remember to do the installation step beforehand, otherwise Moonraker will generate an error and will not be able to start.**
 
 **On the other hand, if the directory of your Klipper configuration is customized, remember to adjust the path appropriately for your installation.**  
-{% endint %}
+{%endint%}
 
 ## Macros
 
@@ -173,7 +173,7 @@ Set of macros that will allow us to manage different actions with our filament, 
 
 {% hint style="warning" %}  
 **SECTION IN PROCESS!!!**  
-{% endint %}
+{%endint%}
 
 [**Spoolman**](https://github.com/Donkie/Spoolman)is a filament spool manager that is integrated into Moonraker and that allows us to manage our filament stock and availability.
 
@@ -205,7 +205,7 @@ The ideal in each case would be to add to our laminator,**in the filament gcodes
 
 {% hint style="warning" %}  
 **SECTION IN PROCESS!!!**  
-{% endint %}
+{%endint%}
 
 It is usually normal that we have different printing surfaces depending on the finish we want to have or the type of filament.
 
@@ -239,11 +239,11 @@ On the other hand we have some**requirements to implement it (we will try to add
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-On the other hand, it is interesting to be able to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
+On the other hand, it is interesting to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
 
 {% hint style="warning" %}  
 It is important that the value in NAME="xxxx" matches the name we gave when installing our printing surface  
-{% endint %}
+{%endint%}
 
 {% code title="printer.cfg or include cfg" %}
 
@@ -332,7 +332,7 @@ The easiest way is to use[**keoh**](../instalacion/#instalando-kiauh)where we wi
 
 ![](../../.gitbook/assets/telegram-cloud-photo-size-4-5837048490604215201-x_partial.jpg)
 
-We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)inside our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
+We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)within our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
 
 | Electronics        | Parameter name to use in macro |
 | ------------------ | ------------------------------ |
@@ -400,12 +400,12 @@ From our interface, Mainsail/Fluidd, we will edit our printer.cfg and add:
 {% hint style="info" %}  
 It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes, they will be overwritten by ours:  
 #\*# \\&lt;---------------------- SAVE_CONFIG ---------------------->  
-{% endint %}
+{%endint%}
 
 {% hint style="warning" %}  
 Normal macros have been separated from**macros shell**given that**To enable these, it is necessary to perform additional steps manually, in addition to the fact that they are currently being tested.**y\*\*They may require extra permissions to assign execution permissions for which the instructions have not been indicated since they are trying to automate.\*\*  
 **If you use them it is at your own risk.**  
-{% endint %}
+{%endint%}
 
 ### Configuration of our laminator
 
@@ -448,7 +448,7 @@ Since our macros are dynamic, they will extract certain information from our pri
 {% hint style="warning" %}  
 We will have to install the plugin[**Post Process Plugin (by frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)from the menu_**Help/Show**_configuration Folder... we will copy the script from the previous link into the script folder.  
 We restart Cura and we will go to_**Extensions/Post processing/Modify G-Code**_and we will select_**Mesh Print Size**_.  
-{% endint %}  
+{%endint%}  
 {% end loss %}
 
 {% tab title="IdeaMaker" %}
@@ -470,7 +470,7 @@ Los**placeholders are "aliases" or variables that the laminators use so that whe
 In the following links you can find a list of these for:[**Prusa Slicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
 The use of these allows our macros to be dynamic.  
-{% endint %}
+{%endint%}
 
 -   **gcode the final END_PRINT**, in this case by not using placeholders it is common to all laminators
 
@@ -497,7 +497,7 @@ It allows us to control which extrusion mode we will use at the end of our START
 
 {% hint style="success" %}  
 It is advisable that you configure your laminator to use relative extrusion and set this variable to True.  
-{% endint %}
+{%endint%}
 
 | Variable                    | Description                                                        | Possible values | Default value |
 | --------------------------- | ------------------------------------------------------------------ | --------------- | ------------- |
@@ -535,7 +535,7 @@ Benefits of using preheated nozzle:
 -   It allows us additional time so that the bed can reach its temperature uniformly.
 -   If we use an inductive sensor that does not have temperature compensation, it will allow our measurements to be more consistent and precise.
 -   Allows you to soften any remaining filament in the nozzle, which means that, in certain configurations, these remains do not affect the activation of the sensor.  
-    {% endint %}
+    {%endint%}
 
 #### Bed Mesh
 
@@ -555,11 +555,11 @@ To control the leveling process we have variables that can be very useful. For e
 We advise you to use adaptive leveling since it will always adjust the mesh to the size of our print, allowing you to have an adjusted mesh area.
 
 It is important that we have in our[start gcode of our laminator](../empezamos/configuracion-klipper-en-laminadores.md#configurando-nuestro-laminador-para-usar-nustras-macros-start_print-y-end_print), in the call to our START_PRINT, PRINT values_MAX y PRINT_MIN.  
-{% endint %}
+{%endint%}
 
 #### purged
 
-An important phase of our start of printing is a correct purging of our nozzle to avoid remains of filament or that these could damage our printing at some point. Below you have the variables that intervene in this process:
+An important phase of our start of printing is a correct purging of our nozzle to avoid filament remains or that these could damage our printing at some point. Below you have the variables that intervene in this process:
 
 | Variable                                                                                                                                             | Description                                      | Possible values | Default value |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | --------------- | ------------- |
@@ -596,7 +596,7 @@ backwards | auto |
 
 #### Filament loading/unloading
 
-In this case, this group of variables will make it easier for us to manage the loading and unloading of our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
+In this case, this group of variables will facilitate the management of loading and unloading our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
 
 | Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                        | Possible values | Default value |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |
@@ -608,7 +608,7 @@ In this case, this group of variables will make it easier for us to manage the l
 {% hint style="warning" %}  
 Another necessary setting for your section\[extruder]indicate the[**max_extrude_only_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)...the advisable value is usually >101 (if not defined, use 50) to, for example, allow typical extruder calibration tests.  
 You should adjust the value based on what was previously mentioned about the test or the configuration of your**variable_filament_unload_length**I**variable_filament_load_length**.  
-{% endint %}
+{%endint%}
 
 #### Parking
 
@@ -641,7 +641,7 @@ Making the most of our machine so that it self-levels and ensuring that our mach
 
 #### Skew
 
-The use of[SKEW](broken-reference)For the correction or precise adjustment of our printers it is extremely advisable if we have deviations in our prints. Using the following variable we can allow the use in our macros:
+The use of[SKEW](broken-reference) para la corrección o ajuste preciso de nuestras impresoras es extremadamente aconsejable si tenemos desviaciones en nuestras impresiones. Usando la siguiente variable podemos permitir el uso en nuestras macros:
 
 | Variable              | Description                                                                                                                                                                                                | Possible values | Default value   |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | --------------- |
@@ -655,7 +655,7 @@ Our module for Klipper uses the modular configuration system used in RatOS and t
 When used as a module, 3Dwork configurations CANNOT be edited directly from the 3dwork-klipper directory within your Klipper configuration directory since it will be read-only for security.
 
 That is why it is very important to understand how Klipper works and how to customize our modules to your machine.  
-{% endint %}
+{%endint%}
 
 #### **Customizing variables**
 
@@ -695,7 +695,7 @@ The three points (...) in the previous examples are merely to indicate that you 
 {% hint style="info" %}
 
 -   We advise you to add comments as you see in the previous case to identify what each section does.
--   Although you do not need to touch all the variables, we advise you to copy all the content of\[gcode_macro GLOBAL_VARS]{% endint %}
+-   Although you do not need to touch all the variables, we advise you to copy all the content of\[gcode_macro GLOBAL_VARS]{%endint%}
 
 #### Customizing macros
 

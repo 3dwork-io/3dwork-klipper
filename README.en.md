@@ -18,7 +18,7 @@ Changelog
 
 12/07/2023 - Added support to automate the creation of Bigtreetech electronic firmware
 
-From**Your excuses**We have collected and adjusted a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
+From**Your excuses**We have compiled and fine-tuned a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
 
 Much of this package is based on[**Rats**](https://os.ratrig.com/)improving the parts that we think are interesting, as well as other contributions from the community.
 
@@ -137,7 +137,7 @@ Some added macros that will be useful to us:
 | **RESUME**                                                       | Improved since it allows us to detect if our nozzle is not at the extrusion temperature in order to solve it before it shows an error and damages our printing. |
 | **CANCEL_PRINT**                                                 | Which allows the use of the rest of the macros to perform a print cancellation correctly.                                                                       |
 
--   **Paused on layer change**, some very interesting macros that allow us to pause a layer or launch a command when starting the next layer.  
+-   **Paused on layer change**, some very interesting macros that allow us to pause a layer or launch a command when starting the next layer.   
     ![](../../.gitbook/assets/image%20(143).png)![](../../.gitbook/assets/image%20(1003).png)  
     Additionally, another advantage of them is that they are integrated with Mainsail, so we will have new functions in our UI as you can see below:  
     ![](../../.gitbook/assets/image%20(725).png)![](../../.gitbook/assets/image%20(1083).png)
@@ -154,7 +154,7 @@ Some added macros that will be useful to us:
 | -segmented macro to be able to be personalized as we will show you later   |                                                                                                                                    |
 | **END_PRINT**                                                              | End of print macro where we also have segmentation to be able to customize our macro. We also have dynamic head parking.           |
 
--   **Adaptive bed mesh**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations from our bed that allows us to correct these to have perfect adhesion of the first layers.  
+-   **Adaptive bed mesh**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations from our bed that allows us to correct these to have perfect adhesion of the first layers.   
     On many occasions we do this meshing before printing to ensure that it works correctly and this is done on the entire surface of our bed.  
     With adaptive bed meshing, this will be done in the printing area, making it much more precise than the traditional method... in the following screenshots we will see the differences between a traditional mesh and an adaptive one.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -217,7 +217,7 @@ This set of macros, created by[Garethky](https://github.com/garethky), they will
 
 On the other hand we have some**requirements to implement it (we will try to add in the PRINT logic_START of the bundle in the future by activating this function by variable and creating a previous and subsequent user macro to be able to enter user events)**:
 
--   the use of\[save_variables]In our case we will use ~/variables.cfg to store the variables and that is already inside the cfg of these macros.  
+-   the use of\[save_variables]In our case we will use ~/variables.cfg to store the variables and that is already inside the cfg of these macros.   
     This will automatically create a variables file for us_build_sheets.cfg where it will save our variables on disk.
 
 {% code title="Example of variables config file" %}
@@ -239,7 +239,7 @@ On the other hand we have some**requirements to implement it (we will try to add
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-On the other hand, it is interesting to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
+On the other hand, it is interesting to be able to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
 
 {% hint style="warning" %}  
 It is important that the value in NAME="xxxx" matches the name we gave when installing our printing surface  
@@ -398,7 +398,7 @@ From our interface, Mainsail/Fluidd, we will edit our printer.cfg and add:
 {%endcode%}
 
 {% hint style="info" %}  
-It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes, they will be overwritten by ours:  
+It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours:  
 #\*# \\&lt;---------------------- SAVE_CONFIG ---------------------->  
 {%endint%}
 
@@ -446,7 +446,7 @@ Since our macros are dynamic, they will extract certain information from our pri
     START_PRINT EXTRUDER_TEMP={material_print_temperature_layer_0} BED_TEMP={material_bed_temperature_layer_0} PRINT_MIN=%MINX%,%MINY% PRINT_MAX=%MAXX%,%MAXY%
 
 {% hint style="warning" %}  
-We will have to install the plugin[**Post Process Plugin (by frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)from the menu_**Help/Show**_configuration Folder... we will copy the script from the previous link into the script folder.  
+We will have to install the plugin[**Post Process Plugin (by frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)from the menu_**Help/Show**_configuration Folder... we will copy the script from the previous link into the script folder.   
 We restart Cura and we will go to_**Extensions/Post processing/Modify G-Code**_and we will select_**Mesh Print Size**_.  
 {%endint%}  
 {% end loss %}
@@ -569,8 +569,8 @@ An important phase of our start of printing is a correct purging of our nozzle t
 | -primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove                         |                                                  |                 |               |
 | prime line /                                                                                                                                         |                                                  |                 |               |
 
-primelineadaptive /  
-prime blob /  
+primelineadaptive /   
+prime blob /   
 False
 
 | adaptive primeline |  
@@ -578,19 +578,19 @@ False
 | variable_nozzle_prime_start_x | Where we want to locate our purge line:  
 -min will do it at X=0 (plus a small safety margin)  
 -max will do so at X=max (minus a small safety margin)  
--number will be the X coordinate where to locate the purge | min /  
+-number will be the X coordinate where to locate the purge | min /   
 max /   
 number | max |  
 | variable_nozzle_prime_start_and | Where we want to locate our purge line:  
 -min will do so at Y=0 (plus a small safety margin)  
 -max will do so at Y=max (minus a small safety margin)  
--number will be the Y coordinate where to locate the purge | min /  
+-number will be the Y coordinate where to locate the purge | min /   
 max /   
 number | min |  
 | variable_nozzle_prime_direction | The address of our line or drop:  
 -backwards the head will move to the front of the printer  
 -forwards will move to the back  
--car will go towards the center depending on variable_nozzle_prime_start_and | car /  
+-car will go towards the center depending on variable_nozzle_prime_start_and | car /   
 forwards /   
 backwards | auto |
 
@@ -606,7 +606,7 @@ In this case, this group of variables will facilitate the management of loading 
 | variable_filament_load_speed    | Filament loading speed in mm/sec, normally a faster speed is used than the unloading speed.                                                                                                                                                                                                                                                                                        | number          | 10            |
 
 {% hint style="warning" %}  
-Another necessary setting for your section\[extruder]indicate the[**max_extrude_only_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)...the advisable value is usually >101 (if not defined, use 50) to, for example, allow typical extruder calibration tests.  
+Another necessary setting for your section\[extruder]indicate the[**max_extrude_only_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)...the advisable value is usually >101 (if not defined, use 50) to, for example, allow typical extruder calibration tests.   
 You should adjust the value based on what was previously mentioned about the test or the configuration of your**variable_filament_unload_length**I**variable_filament_load_length**.  
 {%endint%}
 
@@ -641,7 +641,7 @@ Making the most of our machine so that it self-levels and ensuring that our mach
 
 #### Skew
 
-The use of[SKEW](broken-reference) para la corrección o ajuste preciso de nuestras impresoras es extremadamente aconsejable si tenemos desviaciones en nuestras impresiones. Usando la siguiente variable podemos permitir el uso en nuestras macros:
+The use of[SKEW](broken-reference)For the correction or precise adjustment of our printers it is extremely advisable if we have deviations in our prints. Using the following variable we can allow the use in our macros:
 
 | Variable              | Description                                                                                                                                                                                                | Possible values | Default value   |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | --------------- |

@@ -328,13 +328,13 @@ compile_artillery-ruby-12() {
     cp $workspace_klipper/out/klipper.bin $workspace_firmware_binaries/firmware_binaries/firmware-artillery-ruby-12.bin
 }
 
-compile_btt-kraken-h723() {
-    echo "Compiling firmware for BTT Kraken H723"
-    cp -f $workspace_3dwork/3dwork-klipper/boards/btt-kraken-h723/firmware.config $workspace_klipper/.config
+compile_btt-kraken() {
+    echo "Compiling firmware for BTT Kraken"
+    cp -f $workspace_3dwork/3dwork-klipper/boards/btt-kraken/firmware.config $workspace_klipper/.config
     make olddefconfig
     make clean
     make
-    cp $workspace_klipper/out/klipper.bin $workspace_firmware_binaries/firmware_binaries/firmware-btt-kraken-h723.bin
+    cp $workspace_klipper/out/klipper.bin $workspace_firmware_binaries/firmware_binaries/firmware-btt-kraken.bin
 }
 
 compile_rpi-rp2040() {
@@ -344,6 +344,51 @@ compile_rpi-rp2040() {
     make clean
     make
     cp $workspace_klipper/out/klipper.uf2 $workspace_firmware_binaries/firmware_binaries/firmware-rpi-rp2040.u2f
+}
+
+compile_btt-manta-m5p() {
+    echo "Compiling firmware for BTT Manta M5P"
+    cp -f $workspace_3dwork/3dwork-klipper/boards/btt-manta-m5p/firmware.config $workspace_klipper/.config
+    make olddefconfig
+    make clean
+    make
+    cp $workspace_klipper/out/klipper.bin $workspace_firmware_binaries/firmware_binaries/firmware-btt-manta-m5p.bin
+}
+
+compile_btt-manta-m8p-20() {
+    echo "Compiling firmware for BTT Manta M8P v2.0"
+    cp -f $workspace_3dwork/3dwork-klipper/boards/btt-manta-m8p-20/firmware.config $workspace_klipper/.config
+    make olddefconfig
+    make clean
+    make
+    cp $workspace_klipper/out/klipper.bin $workspace_firmware_binaries/firmware_binaries/firmware-btt-manta-m8p-20.bin
+}
+
+compile_btt-skr-14() {
+    echo "Compiling firmware for SKR 1.4"
+    cp -f $workspace_3dwork/3dwork-klipper/boards/btt-skr-14/firmware.config $workspace_klipper/.config
+    make olddefconfig
+    make clean
+    make
+    cp $workspace_klipper/out/klipper.bin $workspace_firmware_binaries/firmware_binaries/firmware-btt-skr-14.bin
+}
+
+compile_fysetc_spider-22() {
+    echo "Compiling firmware for Fysetc Spider v2.2"
+    cp -f $workspace_3dwork/3dwork-klipper/boards/fysetc-spider-22/firmware.config $workspace_klipper/.config
+    make olddefconfig
+    make clean
+    make
+    cp $workspace_klipper/out/klipper.bin $workspace_firmware_binaries/firmware_binaries/firmware-fysetc-spider-22.bin
+}
+
+compile_ldo-leviathan-12() {
+    echo "Compiling firmware for LDO Leviathan v1.2"
+    cp -f $workspace_3dwork/3dwork-klipper/boards/ldo-leviathan-12/firmware.config $workspace_klipper/.config
+    make olddefconfig
+    make clean
+    make
+    cp $workspace_klipper/out/klipper.bin $workspace_firmware_binaries/firmware_binaries/firmware-ldo-leviathan-12.bin
 }
 
 #####################################
@@ -367,12 +412,14 @@ pushd $workspace_klipper
 if [ -z "$1" ]; then
     # If no parameter is provided, compile firmware for all boards
     # Run make scripts for the supported boards.
-    compile_btt-kraken-h723
+    compile_btt-kraken
     compile_btt-manta-e3ez
     compile_btt-manta-m4p
     compile_btt-manta-m4p-22
+    compile_btt-manta-m5p
     compile_btt-manta-m8p
     compile_btt-manta-m8p-11
+    compile_btt-manta-m8p-20
     compile_btt-octopus-max-ez
     compile_btt-octopus-pro-446
     compile_btt-octopus-pro-429
@@ -388,6 +435,7 @@ if [ -z "$1" ]; then
     compile_btt-skr-2-429
     compile_btt-skr-2-407
     compile_btt-skrat-10
+    compile_btt-skr-14
     compile_btt-skr-14-turbo
     # Elegoo
     compile_znp_robin_nano_dw_v2
@@ -400,11 +448,14 @@ if [ -z "$1" ]; then
     compile_artillery-ruby-12
     # Fysetc
     compile_fysetc_spider
+    compile_fysetc_spider-22
     # Mellow
     compile_mellow_fly_sht_42
     compile_mellow_fly_sht_36
     # Raspberry
     compile_rpi-rp2040
+    # LDO
+    compile_ldo-leviathan-12
     # Toolheads
     compile_btt_ebb42_10
     compile_btt_ebb36_10

@@ -12,13 +12,13 @@
 **GUIDE IN PROCESS!!! Although the macros are fully functional, they are under continuous development.**
 
 **Use them at your own risk!!!**  
-{%endint%}
+{% endhint %}
 
 Changelog
 
 12/07/2023 - Added support to automate the creation of Bigtreetech electronic firmware
 
-From**Your excuses**We have compiled and fine-tuned a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
+From**3Dwork**We have compiled and fine-tuned a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
 
 Much of this package is based on[**Rats**](https://os.ratrig.com/)improving the parts that we think are interesting, as well as other contributions from the community.
 
@@ -35,7 +35,7 @@ We will connect to our host via SSH and issue the following commands:
 
 {% hint style="warning" %}  
 If your Klipper configuration directory is customized, remember to adjust the first command appropriately for your installation.  
-{%endint%}
+{% endhint %}
 
 {% hint style="info" %}  
 In new installations:
@@ -103,7 +103,7 @@ Since Klipper does not allow access to macros until it has a correct printer.cfg
     [respond]
 
 With this we can start Klipper to give us access to our macros.  
-{%endint%}
+{% endhint %}
 
 ### Using Moonraker to always be up to date
 
@@ -117,7 +117,7 @@ From Mainsail/Fluidd we will edit our moonraker.conf (it should be at the same h
 **Remember to do the installation step beforehand, otherwise Moonraker will generate an error and will not be able to start.**
 
 **On the other hand, if the directory of your Klipper configuration is customized, remember to adjust the path appropriately for your installation.**  
-{%endint%}
+{% endhint %}
 
 ## Macros
 
@@ -150,7 +150,7 @@ Some added macros that will be useful to us:
 | -intelligent nozzle preheating in the case of having a probe sensor        |                                                                                                                                    |
 | -possibility of using z-tilt through variable                              |                                                                                                                                    |
 | -Adaptive bed mattress, forced or from a stored bag                        |                                                                                                                                    |
-| -Customizable purge line between normal, adaptive purge line or purge drop |                                                                                                                                    |
+| -customizable purge line between normal, adaptive purge line or purge drop |                                                                                                                                    |
 | -segmented macro to be able to be personalized as we will show you later   |                                                                                                                                    |
 | **END_PRINT**                                                              | End of print macro where we also have segmentation to be able to customize our macro. We also have dynamic head parking.           |
 
@@ -173,7 +173,7 @@ Set of macros that will allow us to manage different actions with our filament, 
 
 {% hint style="warning" %}  
 **SECTION IN PROCESS!!!**  
-{%endint%}
+{% endhint %}
 
 [**Spoolman**](https://github.com/Donkie/Spoolman)is a filament spool manager that is integrated into Moonraker and that allows us to manage our filament stock and availability.
 
@@ -197,7 +197,7 @@ We are not going to go into the installation and configuration of this since it 
 | SET_ACTIVE_SPOOL   | It allows us to indicate which is the ID of the coil to use |
 | CLEAR_ACTIVE_SPOOL | It allows us to reset the active coil                       |
 
-The ideal in each case would be to add to our laminator,**in the filament gcodes for each coil the call to this**, and remember**change its ID once consumed**to be able to keep track of what remains of filament in it!!!
+The ideal in each case would be to add to our laminator,**in the filament gcodes for each coil the call to this**, and remember**change its ID once consumed**to be able to keep track of what remains of the filament in it!!!
 
 !\[](../../.gitbook/assets/image (1991).png)
 
@@ -205,7 +205,7 @@ The ideal in each case would be to add to our laminator,**in the filament gcodes
 
 {% hint style="warning" %}  
 **SECTION IN PROCESS!!!**  
-{%endint%}
+{% endhint %}
 
 It is usually normal that we have different printing surfaces depending on the finish we want to have or the type of filament.
 
@@ -243,7 +243,7 @@ On the other hand, it is interesting to be able to have macros to activate one s
 
 {% hint style="warning" %}  
 It is important that the value in NAME="xxxx" matches the name we gave when installing our printing surface  
-{%endint%}
+{% endhint %}
 
 {% code title="printer.cfg or include cfg" %}
 
@@ -322,26 +322,26 @@ These scripts are prepared to work on a Raspbian system with pi user, if this is
 
 The firmwares are generated for use with a USB connection, which is always what we recommend. Furthermore, the USB mounting point is always the same, so your MCU connection configuration will not change if they are generated with our macro/script.
 
-**In order for Klipper to execute shell macros, an extension must be installed, thanks to the companion**[**arcsine**](https://github.com/Arksine)**, that allows it.**
+**In order for Klipper to execute shell macros, an extension must be installed, thanks to the companion**[**Arksine**](https://github.com/Arksine)**, that allows it.**
 
 **Depending on the Klipper distro used, they may already be enabled.**
 
 ![](../../.gitbook/assets/image%20(770).png)
 
-The easiest way is to use[**keoh**](../instalacion/#instalando-kiauh)where we will find in one of its options the possibility of installing this extension:
+The easiest way is to use[**Wow**](../instalacion/#instalando-kiauh)where we will find in one of its options the possibility of installing this extension:
 
 ![](../../.gitbook/assets/telegram-cloud-photo-size-4-5837048490604215201-x_partial.jpg)
 
-We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)within our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
+We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)inside our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
 
 | Electronics        | Parameter name to use in macro |
 | ------------------ | ------------------------------ |
-| Manta E            | With pride                     |
+| Blanket E3 NO      | With pride                     |
 | Manta M4P          | btt-manta-m4p                  |
-| Manta M4P v2.a     | btt-manta-m4p-22               |
-| Manda MthP         | btt-manta-m8p                  |
-| Manda MthP b1.1    | btt-manta-m8p-11               |
-| Octopus Max EZ     | btt-octopus-max-ez             |
+| Manta M4P v2.2     | btt-manta-m4p-22               |
+| Manta M8P          | btt-manta-m8p                  |
+| Manta M8P v1.1     | btt-manta-m8p-11               |
+| Octopus Max EZ     | btt-octopus-max-it             |
 | Octopus Pro (446)  | btt-octopus-pro-446            |
 | Octopus Pro (429)  | btt-octopus-pro-429            |
 | Octopus Pro (H723) | btt-octopus-pro-h723           |
@@ -349,12 +349,12 @@ We can also carry out the process by hand, we will manually copy the plugin for 
 | Octopus v1.1 (407) | btt-octopus-11-407             |
 | SKR Pro v1.2       | skr_pro_12                     |
 | SKR 3              | btt_skr_3                      |
-| Saqr A (Haha)      | You get him drunk              |
-| SKR 3 EZ           | btt-skr-3-ez                   |
-| Saqr A Idha (Haha) | She gets very drunk            |
+| SKR 3 (H723)       | btt-skr-3-h723                 |
+| SKR 3 EZ           | this is btt-skr-3              |
+| Saqr A Idha (Haha) | btt-skr-3-ez-h723              |
 | SKR 2 (429)        | btt-skr-2-429                  |
 | SKR 2 (407)        | btt-skr-2-407                  |
-| SKR RAT            | btt-short-circuit-10           |
+| SKR RAT            | btt-laughter-10                |
 | SKR 1.4 Turbo      | btt-skr-14-turbo               |
 | SKR Mini Ez vz     | btt_skr_mini_ez_30             |
 
@@ -370,7 +370,7 @@ We can also carry out the process by hand, we will manually copy the plugin for 
 | **Electronics**      | **Parameter name to use in macro** |
 | -------------------- | ---------------------------------- |
 | MKS Eagle v1.x       | mks-eagle-10                       |
-| ISS Robin Nano vz    | mks-robin-nano-30                  |
+| MKS Robin Nano v3    | mks-robin-nano-30                  |
 | MKS Robin Nano v2    | mks-robin-nano-20                  |
 | MKS Gen L            | mks-gen-l                          |
 | ZNP Robin Nano DW v2 | zeg_robin_nano_dw_Class            |
@@ -400,12 +400,12 @@ From our interface, Mainsail/Fluidd, we will edit our printer.cfg and add:
 {% hint style="info" %}  
 It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours:  
 #\*# \\&lt;---------------------- SAVE_CONFIG ---------------------->  
-{%endint%}
+{% endhint %}
 
 {% hint style="warning" %}  
 Normal macros have been separated from**macros shell**given that**To enable these, it is necessary to perform additional steps manually, in addition to the fact that they are currently being tested.**y\*\*They may require extra permissions to assign execution permissions for which the instructions have not been indicated since they are trying to automate.\*\*  
 **If you use them it is at your own risk.**  
-{%endint%}
+{% endhint %}
 
 ### Configuration of our laminator
 
@@ -415,7 +415,7 @@ Since our macros are dynamic, they will extract certain information from our pri
 
 {% tabs %}  
 {% tab title="PrusaSlicer-SuperSlicer" %}  
-**Prusa Slicer**
+**PrusaSlicer**
 
     M190 S0 ; Prevents prusaslicer from prepending m190 to the gcode ruining our macro
     M109 S0 ; Prevents prusaslicer from prepending m109 to the gcode ruining our macro
@@ -448,7 +448,7 @@ Since our macros are dynamic, they will extract certain information from our pri
 {% hint style="warning" %}  
 We will have to install the plugin[**Post Process Plugin (by frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)from the menu_**Help/Show**_configuration Folder... we will copy the script from the previous link into the script folder.   
 We restart Cura and we will go to_**Extensions/Post processing/Modify G-Code**_and we will select_**Mesh Print Size**_.  
-{%endint%}  
+{% endhint %}  
 {% end loss %}
 
 {% tab title="IdeaMaker" %}
@@ -462,17 +462,17 @@ We restart Cura and we will go to_**Extensions/Post processing/Modify G-Code**_a
     START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 
 {% end loss %}  
-{% endloss %}
+{% endtabs %}
 
 {% hint style="info" %}  
 Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**of impression.
 
-In the following links you can find a list of these for:[**Prusa Slicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
+In the following links you can find a list of these for:[**PrusaSlicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
 The use of these allows our macros to be dynamic.  
-{%endint%}
+{% endhint %}
 
--   **gcode the final END_PRINT**, in this case by not using placeholders it is common to all laminators
+-   **gcode de final END_PRINT**, in this case by not using placeholders it is common to all laminators
 
 
     END_PRINT
@@ -497,7 +497,7 @@ It allows us to control which extrusion mode we will use at the end of our START
 
 {% hint style="success" %}  
 It is advisable that you configure your laminator to use relative extrusion and set this variable to True.  
-{%endint%}
+{% endhint %}
 
 | Variable                    | Description                                                        | Possible values | Default value |
 | --------------------------- | ------------------------------------------------------------------ | --------------- | ------------- |
@@ -535,7 +535,7 @@ Benefits of using preheated nozzle:
 -   It allows us additional time so that the bed can reach its temperature uniformly.
 -   If we use an inductive sensor that does not have temperature compensation, it will allow our measurements to be more consistent and precise.
 -   Allows you to soften any remaining filament in the nozzle, which means that, in certain configurations, these remains do not affect the activation of the sensor.  
-    {%endint%}
+    {% endhint %}
 
 #### Bed Mesh
 
@@ -555,7 +555,7 @@ To control the leveling process we have variables that can be very useful. For e
 We advise you to use adaptive leveling since it will always adjust the mesh to the size of our print, allowing you to have an adjusted mesh area.
 
 It is important that we have in our[start gcode of our laminator](../empezamos/configuracion-klipper-en-laminadores.md#configurando-nuestro-laminador-para-usar-nustras-macros-start_print-y-end_print), in the call to our START_PRINT, PRINT values_MAX y PRINT_MIN.  
-{%endint%}
+{% endhint %}
 
 #### purged
 
@@ -596,7 +596,7 @@ backwards | auto |
 
 #### Filament loading/unloading
 
-In this case, this group of variables will facilitate the management of loading and unloading our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
+In this case, this group of variables will make it easier for us to manage the loading and unloading of our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
 
 | Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                        | Possible values | Default value |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |
@@ -608,7 +608,7 @@ In this case, this group of variables will facilitate the management of loading 
 {% hint style="warning" %}  
 Another necessary setting for your section\[extruder]indicate the[**max_extrude_only_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)...the advisable value is usually >101 (if not defined, use 50) to, for example, allow typical extruder calibration tests.   
 You should adjust the value based on what was previously mentioned about the test or the configuration of your**variable_filament_unload_length**I**variable_filament_load_length**.  
-{%endint%}
+{% endhint %}
 
 #### Parking
 
@@ -655,11 +655,11 @@ Our module for Klipper uses the modular configuration system used in RatOS and t
 When used as a module, 3Dwork configurations CANNOT be edited directly from the 3dwork-klipper directory within your Klipper configuration directory since it will be read-only for security.
 
 That is why it is very important to understand how Klipper works and how to customize our modules to your machine.  
-{%endint%}
+{% endhint %}
 
 #### **Customizing variables**
 
-Normally, it will be what we will have to adjust, to make adjustments to the variables that we have by default in our module**Your excuses**para Cliffs.
+Normally, it will be what we will have to adjust, to make adjustments to the variables that we have by default in our module**3Dwork**pair Klipper.
 
 Simply, what we have to do is paste the content of the macro\[gcode_macro GLOBAL_VARS]what we can find in macros/macros_was_globals.cfg in our printer.cfg.
 
@@ -695,7 +695,7 @@ The three points (...) in the previous examples are merely to indicate that you 
 {% hint style="info" %}
 
 -   We advise you to add comments as you see in the previous case to identify what each section does.
--   Although you do not need to touch all the variables, we advise you to copy all the content of\[gcode_macro GLOBAL_VARS]{%endint%}
+-   Although you do not need to touch all the variables, we advise you to copy all the content of\[gcode_macro GLOBAL_VARS]{% endhint %}
 
 #### Customizing macros
 
@@ -762,7 +762,7 @@ When used as a module, 3Dwork configurations CANNOT be edited directly from the 
 That is why it is very important to understand how Klipper works and how to customize our modules to your machine.
 {% endhint %}
 
-As we explained in "[customizing macros](3dwork-klipper-bundle.md#personalizando-macros)"We will use the same process to adjust parameters or pins to fit our needs.
+As we explained them in "[customizing macros](3dwork-klipper-bundle.md#personalizando-macros)"We will use the same process to adjust parameters or pins to fit our needs.
 
 #### Customizing parameters
 

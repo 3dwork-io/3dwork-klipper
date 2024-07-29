@@ -8,7 +8,7 @@
 
 [![](../../.gitbook/assets/image%20(1986).png)- Anglais](https://klipper-3dwork-io.translate.goog/klipper/mejoras/3dwork-klipper-bundle?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp)
 
-{% hint style="danger" %}  
+{% indice style="danger" %}  
 **GUIDE EN COURS !!! Bien que les macros soient entièrement fonctionnelles, elles sont en développement continu.**
 
 **Utilisez-les à vos risques et périls!!!**  
@@ -150,7 +150,7 @@ Quelques macros ajoutées qui nous seront utiles :
 | -préchauffage intelligent de la buse en cas de présence d'un capteur à sonde                       |                                                                                                                                                                                |
 | -possibilité d'utiliser l'inclinaison en z via variable                                            |                                                                                                                                                                                |
 | -maillage adaptatif du lit, forcé ou à partir d'un maillage sauvegardé                             |                                                                                                                                                                                |
-| -ligne de purge personnalisable entre la ligne de purge normale et adaptative ou la chute de purge |                                                                                                                                                                                |
+| -Ligne de purge personnalisable entre la ligne de purge normale et adaptative ou la chute de purge |                                                                                                                                                                                |
 | -macro segmentée pour pouvoir être personnalisée comme nous vous le montrerons plus tard           |                                                                                                                                                                                |
 | **FIN_IMPRIMER**                                                                                   | Macro de fin d'impression où nous avons également une segmentation pour pouvoir personnaliser notre macro. Nous disposons également d'un stationnement de tête dynamique.      |
 
@@ -197,7 +197,7 @@ Nous n'allons pas entrer dans l'installation et la configuration de celui-ci pui
 | ENSEMBLE_ACTIF_BOBINE | Cela nous permet d'indiquer quel est l'ID de la bobine à utiliser |
 | CLAIR_ACTIF_BOBINE    | Cela nous permet de réinitialiser la bobine active                |
 
-L'idéal dans chaque cas serait d'ajouter à notre plastifieuse,**dans les gcodes du filament pour chaque bobine, l'appel à ceci**, Et rappelez-vous**changer son identifiant une fois consommé**pour pouvoir garder une trace de ce qu'il reste du filament dedans !!!
+L'idéal dans chaque cas serait d'ajouter à notre plastifieuse,**dans les gcodes du filament pour chaque bobine, l'appel à ceci**, Et rappelez-vous**changer son identifiant une fois consommé**pour pouvoir garder une trace de ce qu'il reste de filament dedans !!!
 
 !\[](../../.gitbook/assets/image (1991).png)
 
@@ -334,29 +334,29 @@ Le plus simple est d'utiliser[**Ouah**](../instalacion/#instalando-kiauh)où l'o
 
 Nous pouvons également effectuer le processus à la main, nous copierons manuellement le plugin pour Klipper[**gcode_coquille_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)dans notre annuaire`_**~/klipper/klippy/extras**_`Commando ssh ou scp ou rancimos clipper.
 
-| Électronique       | Nom du paramètre à utiliser dans la macro |
-| ------------------ | ----------------------------------------- |
-| Manta E            | Avec fierté                               |
-| Oubliez M4P        | btt-manta-m4p                             |
-| Manta M4P v2.a     | btt-manta-m4p-22                          |
-| Mante M8P          | btt-manta-m8p                             |
-| Manta M8P v1.1     | btt-manta-m8p-11                          |
-| Poulpe Max EZ      | btt-octopus-max-it                        |
-| Poulpe Pro (446)   | btt-octopus-pro-446                       |
-| Poulpe Pro (429)   | btt-octopus-pro-429                       |
-| Poulpe Pro (H723)  | btt-octopus-pro-h723                      |
-| Poulpe v1.1        | btt-octopus-11                            |
-| Poulpe v1.1 (407)  | btt-octopus-11-407                        |
-| SKR Pro v1.2       | skr_pro_12                                |
-| 3 SKR              | btt_skr_3                                 |
-| Saqr A (Haha)      | Tu le saoules                             |
-| SKR 3EZ            | c'est btt-skr-3                           |
-| Saqr A Idha (Haha) | btt-skr-3-ez-h723                         |
-| 2 SKR (429)        | btt-skr-2-429                             |
-| 2 SKR (407)        | btt-skr-2-407                             |
-| SKR RAT            | btt-rires-10                              |
-| SKR1.4 Turbo       | btt-skr-14-turbo                          |
-| SKR Mini Ez vz     | btt_skr_mini_ez_30                        |
+| Électronique                           | Nom du paramètre à utiliser dans la macro |
+| -------------------------------------- | ----------------------------------------- |
+| Manta E                                | Avec fierté                               |
+| Oubliez M4P                            | btt-manta-m4p                             |
+| Manta M4P v2.a                         | btt-manta-m4p-22                          |
+| Mante M8P                              | btt-manta-m8p                             |
+| Manta M8P v1.1                         | btt-manta-m8p-11                          |
+| Poulpe Max EZ                          | btt-octopus-max-it                        |
+| Poulpe Pro (446)                       | btt-octopus-pro-446                       |
+| Poulpe Pro (429)                       | btt-octopus-pro-429                       |
+| Poulpe Pro (H723)                      | btt-octopus-pro-h723                      |
+| Poulpe v1.1                            | btt-octopus-11                            |
+| Poulpe v1.1 (407)                      | btt-octopus-11-407                        |
+| SKR Pro v1.2                           | skr_pro_12                                |
+| 3 SKR                                  | btt_skr_3                                 |
+| Saqr A (Haha)                          | Tu le saoules                             |
+| SKR 3EZ                                | c'est btt-skr-3                           |
+| Saqr (que la paix soit sur lui) (Haha) | btt-skr-3-ez-h723                         |
+| 2 SKR (429)                            | btt-skr-2-429                             |
+| 2 SKR (407)                            | btt-skr-2-407                             |
+| SKR RAT                                | btt-rires-10                              |
+| SKR1.4 Turbo                           | btt-skr-14-turbo                          |
+| SKR Mini Ez vz                         | btt_skr_mini_ez_30                        |
 
 | Tête d'outil (CAN) | Nom du paramètre à utiliser dans la macro |
 | ------------------ | ----------------------------------------- |
@@ -386,9 +386,9 @@ Nous pouvons également effectuer le processus à la main, nous copierons manuel
 
 ### Ajout de macros 3Dwork à notre installation
 
-Depuis notre interface, Mainsail/Fluidd, nous allons éditer notre imprimante.cfg et ajouter :
+Depuis notre interface Mainsail/Fluidd, nous allons éditer notre imprimante.cfg et ajouter :
 
-{% code title="printer.cfg" %}
+{% code title="imprimante.cfg" %}
 
     ## 3Dwork standard macros
     [include 3dwork-klipper/macros/macros_*.cfg]
@@ -398,7 +398,7 @@ Depuis notre interface, Mainsail/Fluidd, nous allons éditer notre imprimante.cf
 {%endcode%}
 
 {% indice style="info" %}  
-Il est important d'ajouter ces lignes à la fin de notre fichier de configuration... juste au dessus de la section afin que s'il y a des macros dans notre cfg ou include elles soient écrasées par les nôtres :  
+Il est important d'ajouter ces lignes à la fin de notre fichier de configuration... juste au dessus de la section pour que s'il y a des macros dans notre cfg ou include, elles soient écrasées par les nôtres :  
 #\*# \\&lt;------------ SAUVEGARDER_CONFIGURATION ------------>  
 {% indice de fin %}
 
@@ -661,7 +661,7 @@ C'est pourquoi il est très important de comprendre le fonctionnement de Klipper
 
 Normalement, ce sera ce que nous devrons ajuster, faire des ajustements aux variables que nous avons par défaut dans notre module**Travail 3D**paire Clipper.
 
-Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBALE_DONT]ce qu'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
+Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBAL_DONT]ce qu'on peut trouver dans les macros/macros_était_globals.cfg dans notre imprimante.cfg.
 
 Nous vous rappelons ce que nous avons mentionné précédemment sur la façon dont Klipper traite les configurations de manière séquentielle, il est donc conseillé de le coller après les inclusions que nous avons mentionnées.[ici](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
@@ -695,7 +695,7 @@ Les trois points (...) dans les exemples précédents ont simplement pour but d'
 {% indice style="info" %}
 
 -   Nous vous conseillons d'ajouter des commentaires comme vous le voyez dans le cas précédent pour identifier ce que fait chaque section.
--   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBALE_DONT]{% indice de fin %}
+-   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBAL_DONT]{% indice de fin %}
 
 #### Personnalisation des macros
 
@@ -770,7 +770,7 @@ Tout comme nous vous conseillons de créer une section dans votre imprimante.cfg
 
 Dans l'exemple suivant, nous verrons comment dans notre cas nous souhaitons personnaliser les paramètres de notre nivellement de lit (lit_mesh) en ajustant les points de sonde_count) par rapport à la configuration que nous avons par défaut dans les configurations de notre module Klipper :
 
-{% code title="printer.cfg" %}
+{% code title="imprimante.cfg" %}
 
 ```
 
@@ -810,7 +810,7 @@ Nous procéderons exactement comme nous l'avons fait précédemment, dans notre 
 
 Dans l'exemple suivant, nous allons personnaliser quelle est la broche de notre ventilateur électronique (contrôleur_ventilateur) pour l'attribuer à un autre que celui par défaut :
 
-{% code title="printer.cfg" %}
+{% code title="imprimante.cfg" %}
 
 ```
 

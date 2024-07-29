@@ -150,7 +150,7 @@ Some added macros that will be useful to us:
 | -intelligent nozzle preheating in the case of having a probe sensor        |                                                                                                                                    |
 | -possibility of using z-tilt through variable                              |                                                                                                                                    |
 | -Adaptive bed mattress, forced or from a stored bag                        |                                                                                                                                    |
-| -customizable purge line between normal, adaptive purge line or purge drop |                                                                                                                                    |
+| -Customizable purge line between normal, adaptive purge line or purge drop |                                                                                                                                    |
 | -segmented macro to be able to be personalized as we will show you later   |                                                                                                                                    |
 | **END_PRINT**                                                              | End of print macro where we also have segmentation to be able to customize our macro. We also have dynamic head parking.           |
 
@@ -197,7 +197,7 @@ We are not going to go into the installation and configuration of this since it 
 | SET_ACTIVE_SPOOL   | It allows us to indicate which is the ID of the coil to use |
 | CLEAR_ACTIVE_SPOOL | It allows us to reset the active coil                       |
 
-The ideal in each case would be to add to our laminator,**in the filament gcodes for each coil the call to this**, and remember**change its ID once consumed**to be able to keep track of what remains of the filament in it!!!
+The ideal in each case would be to add to our laminator,**in the filament gcodes for each coil the call to this**, and remember**change its ID once consumed**to be able to keep track of what remains of filament in it!!!
 
 !\[](../../.gitbook/assets/image (1991).png)
 
@@ -332,31 +332,31 @@ The easiest way is to use[**Wow**](../instalacion/#instalando-kiauh)where we wil
 
 ![](../../.gitbook/assets/telegram-cloud-photo-size-4-5837048490604215201-x_partial.jpg)
 
-We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)inside our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
+We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)within our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
 
-| Electronics        | Parameter name to use in macro |
-| ------------------ | ------------------------------ |
-| Blanket E3 NO      | With pride                     |
-| Manta M4P          | btt-manta-m4p                  |
-| Manta M4P v2.2     | btt-manta-m4p-22               |
-| Manta M8P          | btt-manta-m8p                  |
-| Manta M8P v1.1     | btt-manta-m8p-11               |
-| Octopus Max EZ     | btt-octopus-max-it             |
-| Octopus Pro (446)  | btt-octopus-pro-446            |
-| Octopus Pro (429)  | btt-octopus-pro-429            |
-| Octopus Pro (H723) | btt-octopus-pro-h723           |
-| Octopus v1.1       | btt-octopus-11                 |
-| Octopus v1.1 (407) | btt-octopus-11-407             |
-| SKR Pro v1.2       | skr_pro_12                     |
-| SKR 3              | btt_skr_3                      |
-| SKR 3 (H723)       | btt-skr-3-h723                 |
-| SKR 3 EZ           | this is btt-skr-3              |
-| Saqr A Idha (Haha) | btt-skr-3-ez-h723              |
-| SKR 2 (429)        | btt-skr-2-429                  |
-| SKR 2 (407)        | btt-skr-2-407                  |
-| SKR RAT            | btt-laughter-10                |
-| SKR 1.4 Turbo      | btt-skr-14-turbo               |
-| SKR Mini Ez vz     | btt_skr_mini_ez_30             |
+| Electronics                     | Parameter name to use in macro |
+| ------------------------------- | ------------------------------ |
+| Blanket E3 NO                   | With pride                     |
+| Manta M4P                       | btt-manta-m4p                  |
+| Manta M4P v2.2                  | btt-manta-m4p-22               |
+| Manta M8P                       | btt-manta-m8p                  |
+| Manta M8P v1.1                  | btt-manta-m8p-11               |
+| Octopus Max EZ                  | btt-octopus-max-it             |
+| Octopus Pro (446)               | btt-octopus-pro-446            |
+| Octopus Pro (429)               | btt-octopus-pro-429            |
+| Octopus Pro (H723)              | btt-octopus-pro-h723           |
+| Octopus v1.1                    | btt-octopus-11                 |
+| Octopus v1.1 (407)              | btt-octopus-11-407             |
+| SKR Pro v1.2                    | skr_pro_12                     |
+| SKR 3                           | btt_skr_3                      |
+| SKR 3 (H723)                    | btt-skr-3-h723                 |
+| SKR 3 EZ                        | this is btt-skr-3              |
+| Saqr (peace be upon him) (Haha) | btt-skr-3-ez-h723              |
+| SKR 2 (429)                     | btt-skr-2-429                  |
+| SKR 2 (407)                     | btt-skr-2-407                  |
+| SKR RAT                         | btt-laughter-10                |
+| SKR 1.4 Turbo                   | btt-skr-14-turbo               |
+| SKR Mini Ez vz                  | btt_skr_mini_ez_30             |
 
 | Toolhead (CAN) | Parameter name to use in macro |
 | -------------- | ------------------------------ |
@@ -398,7 +398,7 @@ From our interface, Mainsail/Fluidd, we will edit our printer.cfg and add:
 {%endcode%}
 
 {% hint style="info" %}  
-It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours:  
+It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes, they will be overwritten by ours:  
 #\*# \\&lt;---------------------- SAVE_CONFIG ---------------------->  
 {% endhint %}
 
@@ -635,7 +635,7 @@ Making the most of our machine so that it self-levels and ensuring that our mach
 
 **Z-TILT is basically a process that helps us align our Z motors with respect to our X (Cartesian) or XY (CoreXY) axis/gantry.**. With this**we ensure that we always have our Z aligned perfectly and precisely and automatically**.
 
-| Variable                  | Description                                                                    | Possible values | Default value |
+| Variable                  | Descripción                                                                    | Possible values | Default value |
 | ------------------------- | ------------------------------------------------------------------------------ | --------------- | ------------- |
 | variable_calibrate_z_tilt | Allows, if enabled in our Klipper configuration, the Z-Tilt adjustment process | True / False    | False         |
 

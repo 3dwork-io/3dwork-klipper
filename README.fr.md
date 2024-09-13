@@ -11,16 +11,16 @@
 {% indice style="danger" %}  
 **GUIDE EN COURS !!! Bien que les macros soient entièrement fonctionnelles, elles sont en développement continu.**
 
-**Utilisez-les à vos risques et périls!!!**  
+**Utilisez-les à vos propres risques !!!**  
 {% indice de fin %}
 
 Journal des modifications
 
 12/07/2023 - Ajout du support pour automatiser la création du firmware électronique Bigtreetech
 
-Depuis**Travail 3D**Nous avons compilé et affiné un ensemble de macros, de paramètres machines et électroniques, ainsi que d'autres outils pour une gestion simple et puissante de Klipper.
+Depuis**Travail 3D**Nous avons collecté et ajusté un ensemble de macros, de paramètres machines et électroniques, ainsi que d'autres outils pour une gestion simple et puissante de Klipper.
 
-Une grande partie de ce package est basée sur[**Les rats**](https://os.ratrig.com/)améliorer les parties que nous jugeons intéressantes, ainsi que d'autres contributions de la communauté.
+Une grande partie de ce package est basée sur[**Rats**](https://os.ratrig.com/)améliorer les parties que nous jugeons intéressantes, ainsi que d'autres contributions de la communauté.
 
 ## Installation
 
@@ -114,7 +114,7 @@ Depuis Mainsail/Fluidd nous éditerons notre moonraker.conf (il doit être à la
     [include 3dwork-klipper/moonraker.conf]
 
 {% indice style="avertissement" %}  
-**Pensez à faire l'étape d'installation au préalable, sinon Moonraker générera une erreur et ne pourra pas démarrer.**
+**Pensez à faire l'étape d'installation au préalable sinon Moonraker générera une erreur et ne pourra pas démarrer.**
 
 **En revanche, si le répertoire de votre configuration Klipper est personnalisé, pensez à ajuster le chemin en fonction de votre installation.**  
 {% indice de fin %}
@@ -130,7 +130,7 @@ Quelques macros ajoutées qui nous seront utiles :
 | Macro                                                                          | Description                                                                                                                                                                          |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **PEUT ÊTRE_MAISON**                                                           | Cela nous permet d'optimiser le processus de référencement uniquement en l'exécutant sur les axes qui ne sont pas référencés.                                                        |
-| **PAUSE**                                                                      | Grâce aux variables associées, cela nous permet de gérer une pause avec un stationnement de tête plus polyvalent que les macros normales.                                            |
+| **PAUSE**                                                                      | En utilisant les variables associées, cela nous permet de gérer une pause avec un stationnement de tête plus polyvalent que les macros normales.                                     |
 | **ENSEMBLE_PAUSE_À_COUCHE**                                                    |                                                                                                                                                                                      |
 | **ENSEMBLE_PAUSE_À_SUIVANT_COUCHE**                                            | Une macro très utile que Mainsail intègre dans son UI pour pouvoir faire une pause à la demande dans un calque spécifique... au cas où nous l'aurions oublié lors du laminage.       |
 | Nous en avons également un autre pour exécuter la pause sur le calque suivant. |                                                                                                                                                                                      |
@@ -154,7 +154,7 @@ Quelques macros ajoutées qui nous seront utiles :
 | -macro segmentée pour pouvoir être personnalisée comme nous vous le montrerons plus tard           |                                                                                                                                                                                |
 | **FIN_IMPRIMER**                                                                                   | Macro de fin d'impression où nous avons également une segmentation pour pouvoir personnaliser notre macro. Nous disposons également d'un stationnement de tête dynamique.      |
 
--   **Maille de lit adaptative**Grâce à la polyvalence de Klipper, nous pouvons faire des choses qui semblent aujourd'hui impossibles... un processus important pour l'impression est d'avoir un maillage d'écarts par rapport à notre lit qui nous permet de les corriger pour avoir une parfaite adhérence des premières couches.   
+-   **Maille de lit adaptative**Grâce à la polyvalence de Klipper, nous pouvons faire des choses qui semblent impossibles aujourd'hui... un processus important pour l'impression est d'avoir un maillage d'écarts dans notre lit qui nous permet de les corriger pour avoir une parfaite adhérence des premières couches.   
     À de nombreuses reprises, nous effectuons ce maillage avant l'impression pour nous assurer qu'il fonctionne correctement et cela se fait sur toute la surface de notre lit.  
     Avec le maillage adaptatif du lit, cela se fera dans la zone d'impression, ce qui le rend beaucoup plus précis que la méthode traditionnelle... dans les captures d'écran suivantes, nous verrons les différences entre un maillage traditionnel et un maillage adaptatif.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -197,7 +197,7 @@ Nous n'allons pas entrer dans l'installation et la configuration de celui-ci pui
 | ENSEMBLE_ACTIF_BOBINE | Cela nous permet d'indiquer quel est l'ID de la bobine à utiliser |
 | CLAIR_ACTIF_BOBINE    | Cela nous permet de réinitialiser la bobine active                |
 
-L'idéal dans chaque cas serait d'ajouter à notre plastifieuse,**dans les gcodes du filament pour chaque bobine, l'appel à ceci**, Et rappelez-vous**changer son identifiant une fois consommé**pour pouvoir garder une trace de ce qu'il reste de filament dedans !!!
+L'idéal dans chaque cas serait d'ajouter à notre plastifieuse,**dans les gcodes du filament pour chaque bobine, l'appel à ceci**, et souviens-toi**changer son identifiant une fois consommé**pour pouvoir garder une trace de ce qu'il reste de filament dedans !!!
 
 !\[](../../.gitbook/assets/image (1991).png)
 
@@ -218,7 +218,7 @@ Cet ensemble de macros, créé par[Garethky](https://github.com/garethky), ils n
 D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essaierons d'ajouter dans la logique PRINT_START du bundle dans le futur en activant cette fonction par variable et en créant une macro utilisateur précédente et suivante pour pouvoir saisir les événements utilisateur)**:
 
 -   l'utilisation de\[sauvegarder_variables]Dans notre cas, nous utiliserons ~/variables.cfg pour stocker les variables et cela se trouve déjà dans le cfg de ces macros.   
-    Cela créera automatiquement un fichier de variables pour nous_construire_sheet.cfg où il enregistrera nos variables sur le disque.
+    Cela créera automatiquement un fichier de variables pour nous_construire_sheet.cfg où il sauvegardera nos variables sur le disque.
 
 {% code title="Exemple de fichier de configuration de variables" %}
 
@@ -239,7 +239,7 @@ D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essa
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-Par contre, il est intéressant de pouvoir avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
+Par contre, il est intéressant d'avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
 
 {% indice style="avertissement" %}  
 Il est important que la valeur dans NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.  
@@ -334,29 +334,29 @@ Le plus simple est d'utiliser[**Ouah**](../instalacion/#instalando-kiauh)où l'o
 
 Nous pouvons également effectuer le processus à la main, nous copierons manuellement le plugin pour Klipper[**gcode_coquille_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)dans notre annuaire`_**~/klipper/klippy/extras**_`Commando ssh ou scp ou rancimos clipper.
 
-| Électronique                           | Nom du paramètre à utiliser dans la macro |
-| -------------------------------------- | ----------------------------------------- |
-| Manta E                                | Avec fierté                               |
-| Oubliez M4P                            | btt-manta-m4p                             |
-| Manta M4P v2.a                         | btt-manta-m4p-22                          |
-| Mante M8P                              | btt-manta-m8p                             |
-| Manta M8P v1.1                         | btt-manta-m8p-11                          |
-| Poulpe Max EZ                          | btt-octopus-max-it                        |
-| Poulpe Pro (446)                       | btt-octopus-pro-446                       |
-| Poulpe Pro (429)                       | btt-octopus-pro-429                       |
-| Poulpe Pro (H723)                      | btt-octopus-pro-h723                      |
-| Poulpe v1.1                            | btt-octopus-11                            |
-| Poulpe v1.1 (407)                      | btt-octopus-11-407                        |
-| SKR Pro v1.2                           | skr_pro_12                                |
-| 3 SKR                                  | btt_skr_3                                 |
-| Saqr A (Haha)                          | Tu le saoules                             |
-| SKR 3EZ                                | c'est btt-skr-3                           |
-| Saqr (que la paix soit sur lui) (Haha) | btt-skr-3-ez-h723                         |
-| 2 SKR (429)                            | btt-skr-2-429                             |
-| 2 SKR (407)                            | btt-skr-2-407                             |
-| SKR RAT                                | btt-rires-10                              |
-| SKR1.4 Turbo                           | btt-skr-14-turbo                          |
-| SKR Mini Ez vz                         | btt_skr_mini_ez_30                        |
+| Électronique       | Nom du paramètre à utiliser dans la macro |
+| ------------------ | ----------------------------------------- |
+| Manta E            | Avec fierté                               |
+| Oubliez M4P        | btt-manta-m4p                             |
+| Manta M4P v2.a     | btt-manta-m4p-22                          |
+| Mante M8P          | btt-manta-m8p                             |
+| Manta M8P v1.1     | btt-manta-m8p-11                          |
+| Poulpe Max EZ      | btt-octopus-max-it                        |
+| Poulpe Pro (446)   | btt-octopus-pro-446                       |
+| Poulpe Pro (429)   | btt-octopus-pro-429                       |
+| Poulpe Pro (H723)  | btt-octopus-pro-h723                      |
+| Poulpe v1.1        | btt-octopus-11                            |
+| Poulpe v1.1 (407)  | btt-octopus-11-407                        |
+| SKR Pro v1.2       | skr_pro_12                                |
+| 3 SKR              | btt_skr_3                                 |
+| Saqr A (Haha)      | Tu le saoules                             |
+| SKR 3EZ            | c'est btt-skr-3                           |
+| Saqr A Idha (Haha) | btt-skr-3-ez-h723                         |
+| 2 SKR (429)        | btt-skr-2-429                             |
+| 2 SKR (407)        | btt-skr-2-407                             |
+| SKR RAT            | btt-rires-10                              |
+| SKR1.4 Turbo       | btt-skr-14-turbo                          |
+| SKR Mini Ez vz     | btt_skr_mini_ez_30                        |
 
 | Tête d'outil (CAN) | Nom du paramètre à utiliser dans la macro |
 | ------------------ | ----------------------------------------- |
@@ -386,7 +386,7 @@ Nous pouvons également effectuer le processus à la main, nous copierons manuel
 
 ### Ajout de macros 3Dwork à notre installation
 
-Depuis notre interface Mainsail/Fluidd, nous allons éditer notre imprimante.cfg et ajouter :
+Depuis notre interface, Mainsail/Fluidd, nous allons éditer notre imprimante.cfg et ajouter :
 
 {% code title="imprimante.cfg" %}
 
@@ -403,7 +403,7 @@ Il est important d'ajouter ces lignes à la fin de notre fichier de configuratio
 {% indice de fin %}
 
 {% indice style="avertissement" %}  
-Les macros normales ont été séparées de**shell de macros**car**Pour les activer, il est nécessaire d'effectuer manuellement des étapes supplémentaires, en plus du fait qu'elles sont actuellement en cours de test.**et\*\*Ils peuvent avoir besoin d'autorisations supplémentaires pour attribuer des autorisations d'exécution pour lesquelles les instructions n'ont pas été indiquées puisqu'ils tentent d'automatiser.\*\*  
+Les macros normales ont été séparées de**shell de macros**étant donné que**Pour les activer, il est nécessaire d'effectuer manuellement des étapes supplémentaires, en plus du fait qu'elles sont actuellement en cours de test.**et\*\*Ils peuvent avoir besoin d'autorisations supplémentaires pour attribuer des autorisations d'exécution pour lesquelles les instructions n'ont pas été indiquées puisqu'ils tentent d'automatiser.\*\*  
 **Si vous les utilisez, c'est à vos propres risques.**  
 {% indice de fin %}
 
@@ -465,7 +465,7 @@ On redémarre Cura et on ira à_**Extensions/Post-traitement/Modifier le G-Code*
 {% onglets de fin %}
 
 {% indice style="info" %}  
-Les**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils soient remplacés par les valeurs configurées dans le profil**d'impression.
+Le**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils soient remplacés par les valeurs configurées dans le profil**impression.
 
 Dans les liens suivants, vous pouvez en trouver une liste pour :[**PrusaSlicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(en plus de ceux ci-dessus),[**Studio Bambou**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)et[**Traitement**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -501,7 +501,7 @@ Il est conseillé de configurer votre plastifieuse pour utiliser l'extrusion rel
 
 | Variable                   | Description                                                                    | Valeurs possibles | Valeur par défaut |
 | -------------------------- | ------------------------------------------------------------------------------ | ----------------- | ----------------- |
-| variable_relatif_extrusion | Il nous permet d'indiquer le mode d'extrusion utilisé dans notre plastifieuse. | Vrai faux         | Vrai              |
+| variable_relatif_extrusion | Il nous permet d'indiquer le mode d'extrusion utilisé dans notre plastifieuse. | Vrai / Faux       | Vrai              |
 
 #### Vitesses
 
@@ -525,8 +525,8 @@ Variables liées au processus de chauffage de notre machine.
 
 | Variable                                              | Description                                                                                      | Valeurs possibles | Valeur par défaut |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------- | ----------------- |
-| variable_Préchauffer_extrudeuse                       | Permet de préchauffer la buse à la température indiquée en variable_Préchauffer_extrudeuse_temp. | Vrai faux         | Vrai              |
-| variable_Préchauffer_extrudeuse_temp.                 | Température de préchauffage de la buse                                                           | numérique         | 150               |
+| variable_préchauffer_extrudeuse                       | Permet de préchauffer la buse à la température indiquée en variable_préchauffer_extrudeuse_temp. | Vrai / Faux       | Vrai              |
+| variable_préchauffer_extrudeuse_temp.                 | Température de préchauffage de la buse                                                           | numérique         | 150               |
 | variable_commencer_imprimer_chaleur_chambre_lit_temp. | Température du lit pendant le processus de chauffage de notre enceinte                           | numérique         | 100               |
 
 {% indice style="succès" %}  
@@ -548,7 +548,7 @@ Pour contrôler le processus de mise à niveau, nous disposons de variables qui 
 | -storemesh, chargera un maillage stocké et n'effectuera pas d'interrogation du lit                                     |                                                                                                      |                   |                   |
 | -adaptatif, nous fera un nouveau maillage mais adapté à la zone d'impression, améliorant souvent nos premières couches |                                                                                                      |                   |                   |
 | -nomesh, au cas où nous n'aurions pas de capteur ou si nous utilisons un maillage pour ignorer le processus            | nouveau maillage / maillage stocké / adaptatif /                                                     |                   |                   |
-| des noms                                                                                                               | adaptative                                                                                           |                   |                   |
+| noms                                                                                                                   | adaptative                                                                                           |                   |                   |
 | variable_lit_engrener_profil                                                                                           | Le nom utilisé pour notre maillage stocké                                                            | texte             | défaut            |
 
 {% indice style="avertissement" %}  
@@ -561,42 +561,42 @@ Il est important que nous ayons dans notre[démarrer le gcode de notre plastifie
 
 Une phase importante de notre démarrage d'impression est une purge correcte de notre buse pour éviter les restes de filaments ou que ceux-ci pourraient endommager notre impression à un moment donné. Ci-dessous vous avez les variables qui interviennent dans ce processus :
 
-| Variable                                                                                                                                                           | Description                                               | Valeurs possibles | Valeur par défaut |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- | ----------------- | ----------------- |
-| variable_buse_amorçage                                                                                                                                             | Nous pouvons choisir entre différentes options de purge : |                   |                   |
-| -primeline va tracer la ligne de purge typique                                                                                                                     |                                                           |                   |                   |
-| -primelineadaptative générera une ligne de purge qui s'adapte à la zone de la pièce imprimée à l'aide d'une variable_buse_amorçage_distance de l'objet comme marge |                                                           |                   |                   |
-| -primeblob nous fera une goutte de filament dans un coin de notre lit, très efficace pour nettoyer la buse et facile à retirer                                     |                                                           |                   |                   |
-| ligne principale /                                                                                                                                                 |                                                           |                   |                   |
+| Variable                                                                                                                                                              | Description                                               | Valeurs possibles | Valeur par défaut |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----------------- | ----------------- |
+| variable_ajutage_amorçage                                                                                                                                             | Nous pouvons choisir entre différentes options de purge : |                   |                   |
+| -primeline va tracer la ligne de purge typique                                                                                                                        |                                                           |                   |                   |
+| -primelineadaptative générera une ligne de purge qui s'adapte à la zone de la pièce imprimée à l'aide d'une variable_ajutage_amorçage_distance de l'objet comme marge |                                                           |                   |                   |
+| -primeblob nous fera une goutte de filament dans un coin de notre lit, très efficace pour nettoyer la buse et facile à retirer                                        |                                                           |                   |                   |
+| ligne principale /                                                                                                                                                    |                                                           |                   |                   |
 
 primelineadaptatif /   
 goutte principale /   
 FAUX
 
 | ligne principale adaptative |  
-| variable_buse_amorçage_distance de l'objet | Si nous utilisons une ligne de fond perdu adaptative, ce sera la marge à utiliser entre la ligne de fond perdu et l'objet imprimé | numérique | 5 |  
-| variable_buse_prime_commencer_X | Où nous voulons localiser notre ligne de purge :  
+| variable_ajutage_amorçage_distance de l'objet | Si nous utilisons une ligne de fond perdu adaptative, ce sera la marge à utiliser entre la ligne de fond perdu et l'objet imprimé | numérique | 5 |  
+| variable_ajutage_prime_commencer_X | Où nous voulons localiser notre ligne de purge :  
 -min le fera à X=0 (plus une petite marge de sécurité)  
 -max le fera à X=max (moins une petite marge de sécurité)  
 -numéro sera la coordonnée X où localiser la purge | minutes /   
 maximum /   
 numéro | maximum |  
-| variable_buse_prime_commencer_et | Où nous voulons localiser notre ligne de purge :  
+| variable_ajutage_prime_commencer_et | Où nous voulons localiser notre ligne de purge :  
 -min le fera à Y=0 (plus une petite marge de sécurité)  
 -max le fera à Y=max (moins une petite marge de sécurité)  
 -numéro sera la coordonnée Y où localiser la purge | minutes /   
 maximum /   
 numéro | min |  
-| variable_buse_prime_direction | L'adresse de notre ligne ou de notre dépôt :  
+| variable_ajutage_prime_direction | L'adresse de notre ligne ou de notre dépôt :  
 -vers l'arrière, la tête se déplacera vers l'avant de l'imprimante  
 -les avants se déplaceront vers l'arrière  
--la voiture ira vers le centre en fonction de la variable_buse_prime_commencer_et | voiture /   
+-la voiture ira vers le centre en fonction de la variable_ajutage_prime_commencer_et | voiture /   
 en avant /   
 en arrière | automobile |
 
 #### Chargement/déchargement de filaments
 
-Dans ce cas, ce groupe de variables nous permettra de gérer plus facilement le chargement et le déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
+Dans ce cas, ce groupe de variables facilitera la gestion du chargement et du déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
 
 | Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        | Valeurs possibles | Valeur par défaut |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
@@ -633,11 +633,11 @@ Dans certains processus de notre imprimante, comme en pause, il est conseillé d
 
 Tirer le meilleur parti de notre machine pour qu'elle s'auto-nivelle et veiller à ce que notre machine soit toujours dans les meilleures conditions est essentiel.
 
-**Z-TILT est essentiellement un processus qui nous aide à aligner nos moteurs Z par rapport à notre axe/portique X (Cartésien) ou XY (CoreXY).**. Avec ça**nous veillons à ce que notre Z soit toujours parfaitement aligné, précisément et automatiquement**.
+**Z-TILT est essentiellement un processus qui nous aide à aligner nos moteurs Z par rapport à notre axe/portique X (Cartésien) ou XY (CoreXY).**. avec ça**nous veillons à ce que notre Z soit toujours parfaitement aligné, précisément et automatiquement**.
 
 | Variable                            | Description                                                                        | Valeurs possibles | Valeur par défaut |
 | ----------------------------------- | ---------------------------------------------------------------------------------- | ----------------- | ----------------- |
-| variable_étalonner_Avec_inclinaison | Permet, si activé dans notre configuration Klipper, le processus de réglage Z-Tilt | Vrai faux         | FAUX              |
+| variable_étalonner_Avec_inclinaison | Permet, si activé dans notre configuration Klipper, le processus de réglage Z-Tilt | Vrai / Faux       | FAUX              |
 
 #### Fausser
 

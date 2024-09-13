@@ -18,7 +18,7 @@ Changelog
 
 12/07/2023 - Added support to automate the creation of Bigtreetech electronic firmware
 
-From**3Dwork**We have compiled and fine-tuned a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
+From**3Dwork**We have collected and adjusted a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
 
 Much of this package is based on[**Rats**](https://os.ratrig.com/)improving the parts that we think are interesting, as well as other contributions from the community.
 
@@ -114,7 +114,7 @@ From Mainsail/Fluidd we will edit our moonraker.conf (it should be at the same h
     [include 3dwork-klipper/moonraker.conf]
 
 {% hint style="warning" %}  
-**Remember to do the installation step beforehand, otherwise Moonraker will generate an error and will not be able to start.**
+**Remember to do the installation step beforehand otherwise Moonraker will generate an error and will not be able to start.**
 
 **On the other hand, if the directory of your Klipper configuration is customized, remember to adjust the path appropriately for your installation.**  
 {% endhint %}
@@ -130,7 +130,7 @@ Some added macros that will be useful to us:
 | Macro                                                            | Description                                                                                                                                                     |
 | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **MAYBE_HOME**                                                   | It allows us to optimize the homing process only by performing it on those axes that are not homing.                                                            |
-| **PAUSE**                                                        | Through the related variables it allows us to manage a pause with a more versatile head parking than normal macros.                                             |
+| **PAUSE**                                                        | Using the related variables, it allows us to manage a pause with a more versatile head parking than normal macros.                                              |
 | **SET_PAUSE_AT_LAYER**                                           |                                                                                                                                                                 |
 | **SET_PAUSE_AT_NEXT_LAYER**                                      | A very useful macro that Mainsail integrates into its UI to be able to pause on demand in a specific layer... in case we forgot when laminating.                |
 | We also have another one to execute the pause on the next layer. |                                                                                                                                                                 |
@@ -154,7 +154,7 @@ Some added macros that will be useful to us:
 | -segmented macro to be able to be personalized as we will show you later   |                                                                                                                                    |
 | **END_PRINT**                                                              | End of print macro where we also have segmentation to be able to customize our macro. We also have dynamic head parking.           |
 
--   **Adaptive bed mesh**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations from our bed that allows us to correct these to have perfect adhesion of the first layers.   
+-   **Adaptive bed mesh**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations in our bed that allows us to correct these to have perfect adhesion of the first layers.   
     On many occasions we do this meshing before printing to ensure that it works correctly and this is done on the entire surface of our bed.  
     With adaptive bed meshing, this will be done in the printing area, making it much more precise than the traditional method... in the following screenshots we will see the differences between a traditional mesh and an adaptive one.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -239,7 +239,7 @@ On the other hand we have some**requirements to implement it (we will try to add
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-On the other hand, it is interesting to be able to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
+On the other hand, it is interesting to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
 
 {% hint style="warning" %}  
 It is important that the value in NAME="xxxx" matches the name we gave when installing our printing surface  
@@ -334,29 +334,29 @@ The easiest way is to use[**Wow**](../instalacion/#instalando-kiauh)where we wil
 
 We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)within our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
 
-| Electronics                     | Parameter name to use in macro |
-| ------------------------------- | ------------------------------ |
-| Blanket E3 NO                   | With pride                     |
-| Manta M4P                       | btt-manta-m4p                  |
-| Manta M4P v2.2                  | btt-manta-m4p-22               |
-| Manta M8P                       | btt-manta-m8p                  |
-| Manta M8P v1.1                  | btt-manta-m8p-11               |
-| Octopus Max EZ                  | btt-octopus-max-it             |
-| Octopus Pro (446)               | btt-octopus-pro-446            |
-| Octopus Pro (429)               | btt-octopus-pro-429            |
-| Octopus Pro (H723)              | btt-octopus-pro-h723           |
-| Octopus v1.1                    | btt-octopus-11                 |
-| Octopus v1.1 (407)              | btt-octopus-11-407             |
-| SKR Pro v1.2                    | skr_pro_12                     |
-| SKR 3                           | btt_skr_3                      |
-| SKR 3 (H723)                    | btt-skr-3-h723                 |
-| SKR 3 EZ                        | this is btt-skr-3              |
-| Saqr (peace be upon him) (Haha) | btt-skr-3-ez-h723              |
-| SKR 2 (429)                     | btt-skr-2-429                  |
-| SKR 2 (407)                     | btt-skr-2-407                  |
-| SKR RAT                         | btt-laughter-10                |
-| SKR 1.4 Turbo                   | btt-skr-14-turbo               |
-| SKR Mini Ez vz                  | btt_skr_mini_ez_30             |
+| Electronics        | Parameter name to use in macro |
+| ------------------ | ------------------------------ |
+| Blanket E3 NO      | With pride                     |
+| Manta M4P          | btt-manta-m4p                  |
+| Manta M4P v2.2     | btt-manta-m4p-22               |
+| Manta M8P          | btt-manta-m8p                  |
+| Manta M8P v1.1     | btt-manta-m8p-11               |
+| Octopus Max EZ     | btt-octopus-max-it             |
+| Octopus Pro (446)  | btt-octopus-pro-446            |
+| Octopus Pro (429)  | btt-octopus-pro-429            |
+| Octopus Pro (H723) | btt-octopus-pro-h723           |
+| Octopus v1.1       | btt-octopus-11                 |
+| Octopus v1.1 (407) | btt-octopus-11-407             |
+| SKR Pro v1.2       | skr_pro_12                     |
+| SKR 3              | btt_skr_3                      |
+| SKR 3 (H723)       | btt-skr-3-h723                 |
+| SKR 3 EZ           | this is btt-skr-3              |
+| Saqr A Idha (Haha) | btt-skr-3-ez-h723              |
+| SKR 2 (429)        | btt-skr-2-429                  |
+| SKR 2 (407)        | btt-skr-2-407                  |
+| SKR RAT            | btt-laughter-10                |
+| SKR 1.4 Turbo      | btt-skr-14-turbo               |
+| SKR Mini Ez vz     | btt_skr_mini_ez_30             |
 
 | Toolhead (CAN) | Parameter name to use in macro |
 | -------------- | ------------------------------ |
@@ -465,7 +465,7 @@ We restart Cura and we will go to_**Extensions/Post processing/Modify G-Code**_a
 {% endtabs %}
 
 {% hint style="info" %}  
-Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**of impression.
+Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**printing.
 
 In the following links you can find a list of these for:[**PrusaSlicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -489,7 +489,7 @@ Since many users like to have macro notifications in their language, we have dev
 
 | Variable          | Description                                                                                                       | Possible values | Default value |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |
-| variable_language | It allows us to select the language of the notifications. If it is not well defined, it will be used in (English) | is in           | es            |
+| variable_language | It allows us to select the language of the notifications. If it is not well defined, it will be used in (English) | is / in         | es            |
 
 #### Relative Extrusion
 
@@ -547,7 +547,7 @@ To control the leveling process we have variables that can be very useful. For e
 | -new mesh, it will mesh each print                                                                    |                                                                          |                 |               |
 | -storedmesh, will load a stored mesh and will not perform bed polling                                 |                                                                          |                 |               |
 | -adaptive, will make us a new mesh but adapted to the printing area, often improving our first layers |                                                                          |                 |               |
-| -nomesh, in case we do not have a sensor or we use mesh to skip the process                           | new mesh / stored mesh / adaptive /                                      |                 |               |
+| -nomesh, in case we do not have a sensor or we use mesh to skip the process                           | newmesh / storedmesh / adaptative /                                      |                 |               |
 | names                                                                                                 | adaptive                                                                 |                 |               |
 | variable_bed_mesh_profile                                                                             | The name used for our stored mesh                                        | text            | default       |
 
@@ -596,7 +596,7 @@ backwards | auto |
 
 #### Filament loading/unloading
 
-In this case, this group of variables will make it easier for us to manage the loading and unloading of our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
+In this case, this group of variables will facilitate the management of loading and unloading our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
 
 | Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                        | Possible values | Default value |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |
@@ -633,9 +633,9 @@ In certain processes of our printer, such as paused, it is advisable to park our
 
 Making the most of our machine so that it self-levels and ensuring that our machine is always in the best condition is essential.
 
-**Z-TILT is basically a process that helps us align our Z motors with respect to our X (Cartesian) or XY (CoreXY) axis/gantry.**. With this**we ensure that we always have our Z aligned perfectly and precisely and automatically**.
+**Z-TILT is basically a process that helps us align our Z motors with respect to our X (Cartesian) or XY (CoreXY) axis/gantry.**. with this**we ensure that we always have our Z aligned perfectly and precisely and automatically**.
 
-| Variable                  | Descripción                                                                    | Possible values | Default value |
+| Variable                  | Description                                                                    | Possible values | Default value |
 | ------------------------- | ------------------------------------------------------------------------------ | --------------- | ------------- |
 | variable_calibrate_z_tilt | Allows, if enabled in our Klipper configuration, the Z-Tilt adjustment process | True / False    | False         |
 
@@ -762,7 +762,7 @@ When used as a module, 3Dwork configurations CANNOT be edited directly from the 
 That is why it is very important to understand how Klipper works and how to customize our modules to your machine.
 {% endhint %}
 
-As we explained them in "[customizing macros](3dwork-klipper-bundle.md#personalizando-macros)"We will use the same process to adjust parameters or pins to fit our needs.
+As we explained in "[customizing macros](3dwork-klipper-bundle.md#personalizando-macros)"We will use the same process to adjust parameters or pins to fit our needs.
 
 #### Customizing parameters
 

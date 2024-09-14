@@ -8,7 +8,7 @@
 
 [![](../../.gitbook/assets/image%20(1986).png)- Inglese](https://klipper-3dwork-io.translate.goog/klipper/mejoras/3dwork-klipper-bundle?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp)
 
-{% stile suggerimento="pericolo" %}  
+{% suggerimento stile="pericolo" %}  
 **GUIDA IN PROCESSO!!! Sebbene le macro siano completamente funzionali, sono in continuo sviluppo.**
 
 **Usateli a vostro rischio e pericolo!!!**  
@@ -18,7 +18,7 @@ Registro delle modifiche
 
 07/12/2023 - Aggiunto il supporto per automatizzare la creazione del firmware elettronico Bigtreetech
 
-Da**Lavoro 3D**Abbiamo compilato e messo a punto una serie di macro, impostazioni della macchina e dell'elettronica, nonché altri strumenti per una gestione Klipper semplice e potente.
+Da**Lavoro 3D**Abbiamo raccolto e adattato una serie di macro, impostazioni della macchina e dell'elettronica, nonché altri strumenti per una gestione Klipper semplice e potente.
 
 Gran parte di questo pacchetto è basato su[**Ratti**](https://os.ratrig.com/)migliorare le parti che riteniamo interessanti, così come altri contributi della community.
 
@@ -40,7 +40,7 @@ Se la directory di configurazione di Klipper è personalizzata, ricorda di modif
 {% suggerimento stile="informazioni" %}  
 Nelle nuove installazioni:
 
-Dato che Klipper non consente l'accesso alle macro finché non ha un file stampante.cfg corretto e non si connette a un MCU, possiamo "ingannare" Klipper con i seguenti passaggi che ci permetteranno di utilizzare le macro nel nostro bundle, ad esempio, per lanciare il Macro compilazione firmware Klipper se utilizziamo elettroniche compatibili:
+Dato che Klipper non consente l'accesso alle macro finché non ha un file Printer.cfg corretto e non si connette a un MCU, possiamo "ingannare" Klipper con i seguenti passaggi che ci permetteranno di utilizzare le macro nel nostro bundle, ad esempio, per lanciare il Macro compilazione firmware Klipper se utilizziamo elettroniche compatibili:
 
 -   Ci assicuriamo di avere il nostro[host come secondo MCU](raspberry-como-segunda-mcu.md)
 -   Successivamente aggiungeremo un Printer.cfg, ricorda che questi passaggi sono per un'installazione pulita in cui non hai alcun Printer.cfg e vuoi avviare la macro per creare firmware, come quello che puoi vedere qui sotto:
@@ -114,7 +114,7 @@ Da Mainsail/Fluidd modificheremo il nostro moonraker.conf (dovrebbe essere alla 
     [include 3dwork-klipper/moonraker.conf]
 
 {% suggerimento stile="avviso" %}  
-**Ricordarsi di eseguire prima la fase di installazione, altrimenti Moonraker genererà un errore e non sarà in grado di avviarsi.**
+**Ricordarsi di eseguire prima la fase di installazione altrimenti Moonraker genererà un errore e non sarà in grado di avviarsi.**
 
 **D'altra parte, se la directory della configurazione di Klipper è personalizzata, ricordati di adattare il percorso in modo appropriato alla tua installazione.**  
 {% suggerimento finale %}
@@ -130,12 +130,12 @@ Alcune macro aggiunte che ci saranno utili:
 | Macro                                                                   | Descrizione                                                                                                                                                                                           |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **FORSE_CASA**                                                          | Ci consente di ottimizzare il processo di homing solo eseguendolo su quegli assi che non sono in homing.                                                                                              |
-| **PAUSA**                                                               | Attraverso le relative variabili ci permette di gestire una pausa con un parcheggio della testa più versatile rispetto alle normali macro.                                                            |
+| **PAUSA**                                                               | Utilizzando le relative variabili, ci permette di gestire una pausa con un parcheggio della testa più versatile rispetto alle normali macro.                                                          |
 | **IMPOSTATO_PAUSA_A_STRATO**                                            |                                                                                                                                                                                                       |
 | **IMPOSTATO_PAUSA_A_PROSSIMO_STRATO**                                   | Una macro molto utile che Mainsail integra nella sua interfaccia utente per poter mettere in pausa su richiesta in un livello specifico... nel caso ce ne fossimo dimenticati durante la laminazione. |
 | Ne abbiamo anche un altro per eseguire la pausa sul livello successivo. |                                                                                                                                                                                                       |
 | **RIPRENDERE**                                                          | Migliorato poiché ci permette di rilevare se il nostro ugello non è alla temperatura di estrusione per risolverlo prima che mostri un errore e danneggi la nostra stampa.                             |
-| **ANNULLA_STAMPA**                                                      | Ciò consente l'utilizzo del resto delle macro per eseguire correttamente un annullamento di stampa.                                                                                                   |
+| **CANCELLARE_STAMPA**                                                   | Ciò consente l'utilizzo del resto delle macro per eseguire correttamente un annullamento di stampa.                                                                                                   |
 
 -   **In pausa al cambio di livello**, alcune macro molto interessanti che ci permettono di mettere in pausa un livello o lanciare un comando all'avvio del livello successivo.   
     ![](../../.gitbook/assets/image%20(143).png)![](../../.gitbook/assets/image%20(1003).png)  
@@ -154,7 +154,7 @@ Alcune macro aggiunte che ci saranno utili:
 | -macro segmentata per poterla personalizzare come vi mostreremo in seguito                 |                                                                                                                                                                     |
 | **FINE_STAMPA**                                                                            | Fine della macro di stampa in cui abbiamo anche la segmentazione per poter personalizzare la nostra macro. Disponiamo anche di un parcheggio dinamico per la testa. |
 
--   **Rete da letto adattiva**Grazie alla versatilità di Klipper possiamo fare cose che oggi sembrano impossibili... un processo importante per la stampa è avere una rete di deviazioni dal nostro letto che ci permette di correggerle per avere una perfetta adesione dei primi strati.   
+-   **Rete da letto adattiva**Grazie alla versatilità di Klipper possiamo fare cose che oggi sembrano impossibili... un processo importante per la stampa è avere una rete di deviazioni nel nostro letto che ci permette di correggerle per avere una perfetta adesione dei primi strati.   
     In molte occasioni eseguiamo questo meshing prima della stampa per assicurarci che funzioni correttamente e questo viene fatto su tutta la superficie del nostro letto.  
     Con il meshing del letto adattivo, questo verrà fatto nell'area di stampa, rendendolo molto più preciso rispetto al metodo tradizionale... negli screenshot seguenti vedremo le differenze tra una mesh tradizionale e una adattiva.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -197,7 +197,7 @@ Non entreremo nei dettagli dell'installazione e della configurazione di questo p
 | IMPOSTATO_ATTIVO_BOBINA | Ci permette di indicare quale è l'ID della bobina da utilizzare |
 | CHIARO_ATTIVO_BOBINA    | Ci permette di resettare la bobina attiva                       |
 
-L’ideale in ogni caso sarebbe aggiungere alla nostra plastificatrice,**nei gcode del filamento per ogni bobina la chiamata a questo**, e ricorda**cambiare il suo ID una volta consumato**per poter tenere traccia di ciò che rimane di filamento al suo interno!!!
+L’ideale in ogni caso sarebbe aggiungere alla nostra plastificatrice,**nei gcode del filamento per ogni bobina la chiamata a questo**, e ricorda**cambia il suo ID una volta consumato**per poter tenere traccia di ciò che rimane di filamento al suo interno!!!
 
 !\[](../../.gitbook/assets/image (1991).png)
 
@@ -217,7 +217,7 @@ Questo set di macro, creato da[Garethky](https://github.com/garethky), ci permet
 
 D'altra parte ne abbiamo alcuni**requisiti per implementarlo (cercheremo di aggiungere la logica PRINT_START del bundle in futuro attivando questa funzione tramite variabile e creando una macro utente precedente e successiva per poter inserire eventi utente)**:
 
--   l'impiego di\[salva_variabili]Nel nostro caso utilizzeremo ~/variables.cfg per memorizzare le variabili e questo è già all'interno del cfg di queste macro.   
+-   l'uso di\[salva_variabili]Nel nostro caso utilizzeremo ~/variables.cfg per memorizzare le variabili e questo è già all'interno del cfg di queste macro.   
     Questo creerà automaticamente un file di variabili per noi_costruire_fogli.cfg dove salverà le nostre variabili su disco.
 
 {% code title="Esempio di file di configurazione delle variabili" %}
@@ -239,7 +239,7 @@ D'altra parte ne abbiamo alcuni**requisiti per implementarlo (cercheremo di aggi
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-D'altra parte, è interessante poter avere macro per attivare una superficie o un'altra o addirittura passarla come parametro dal nostro laminatore in modo che con diversi profili di stampante o filamento possiamo caricare l'una o l'altra automaticamente:
+D'altra parte, è interessante avere delle macro per attivare questa o quella superficie o addirittura passarla come parametro dal nostro laminatore in modo che con diversi profili di stampante o filamento possiamo caricare l'una o l'altra automaticamente:
 
 {% suggerimento stile="avviso" %}  
 È importante che il valore in NAME="xxxx" corrisponda al nome che abbiamo assegnato durante l'installazione della nostra superficie di stampa  
@@ -292,9 +292,9 @@ Anche nel caso di KlipperScreen possiamo aggiungere un menu specifico per gestir
 | INSTALLARE_COSTRUIRE_FOGLIO                 |             |
 | SPETTACOLO_COSTRUIRE_FOGLIO                 |             |
 | SPETTACOLO_COSTRUIRE_FOGLI                  |             |
-| IMPOSTATO_COSTRUIRE_FOGLIO_COMPENSARE       |             |
-| RIPRISTINA_COSTRUIRE_FOGLIO_COMPENSARE      |             |
-| IMPOSTATO_CODICE G_COMPENSARE               |             |
+| IMPOSTATO_COSTRUIRE_FOGLIO_OFFSET           |             |
+| RESET_COSTRUIRE_FOGLIO_OFFSET               |             |
+| IMPOSTATO_CODICE G_OFFSET                   |             |
 | FARE DOMANDA A_COSTRUIRE_FOGLIO_REGOLAZIONE |             |
 
 ### **Macro di configurazione macchina**
@@ -306,7 +306,7 @@ Anche nel caso di KlipperScreen possiamo aggiungere un menu specifico per gestir
 | **CALCOLARE_LETTO_MAGLIA**                             | Una macro estremamente utile per calcolare l'area della nostra mesh perché a volte può essere un processo complicato.                                                                                                            |
 | **PID_TUTTO**                                          |                                                                                                                                                                                                                                  |
 | **PID_ESTRUSORE**                                      |                                                                                                                                                                                                                                  |
-| **PID_LETTO**                                          | Queste macro, dove potremo passare le temperature al PID sotto forma di parametri, ci permetteranno di eseguire la calibrazione della temperatura in modo estremamente semplice.                                                 |
+| **PID_LETTO**                                          | Queste macro, dove possiamo passare le temperature al PID sotto forma di parametri, ci permetteranno di eseguire la calibrazione della temperatura in modo estremamente semplice.                                                |
 | **TEST_VELOCITÀ**                                      |                                                                                                                                                                                                                                  |
 | **TEST_VELOCITÀ_DELTA**                                | La macro originale del compagno[Ellis](https://github.com/AndrewEllis93)Ci permetteranno in modo abbastanza semplice di testare la velocità con cui possiamo muovere la nostra macchina con precisione e senza perdita di passi. |
 
@@ -322,7 +322,7 @@ Questi script sono preparati per funzionare su un sistema Raspbian con utente pi
 
 I firmware vengono generati per l'utilizzo con una connessione USB, che è sempre ciò che consigliamo. Inoltre, il punto di montaggio USB è sempre lo stesso, quindi la configurazione della connessione MCU non cambierà se vengono generati con la nostra macro/script.
 
-**Affinché Klipper possa eseguire le macro della shell, deve essere installata un'estensione, grazie al compagno**[**Arcasina**](https://github.com/Arksine)**, che lo consente.**
+**Affinché Klipper possa eseguire le macro della shell, è necessario installare un'estensione, grazie al compagno**[**Arcasina**](https://github.com/Arksine)**, che lo consente.**
 
 **A seconda della distribuzione Klipper utilizzata, potrebbero essere già abilitati.**
 
@@ -334,29 +334,29 @@ Il modo più semplice è usare[**Oh**](../instalacion/#instalando-kiauh)dove tro
 
 Possiamo anche eseguire il processo manualmente, copieremo manualmente il plugin per Klipper[**gcode_conchiglia_estensione**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)all'interno della nostra directory`_**~/klipper/klippy/extras**_`utilizzando SSH o SCP e riavviare Klipper.
 
-| Elettronica                         | Nome del parametro da utilizzare nella macro |
-| ----------------------------------- | -------------------------------------------- |
-| Manta E                             | Con orgoglio                                 |
-| Dimentica M4P                       | btt-manta-m4p                                |
-| Manta M4P v2.a                      | btt-manta-m4p-22                             |
-| Manta M8P                           | btt-manta-m8p                                |
-| Manta M8P v1.1                      | btt-manta-m8p-11                             |
-| Polpo Max EZ                        | btt-octopus-max-it                           |
-| Polpo Pro (446)                     | btt-octopus-pro-446                          |
-| Polpo Pro (429)                     | btt-octopus-pro-429                          |
-| Polpo Pro (H723)                    | btt-octopus-pro-h723                         |
-| Polpo v1.1                          | btt-polpo-11                                 |
-| Polpo v1.1 (407)                    | btt-polpo-11-407                             |
-| SKR Pro v1.2                        | scr_pro_12                                   |
-| SKR 3                               | btt_scr_3                                    |
-| Saqr A (Ahah)                       | Lo fai ubriacare                             |
-| SKR 3EZ                             | questo è btt-skr-3                           |
-| Saqr (la pace sia su di lui) (Haha) | btt-skr-3-ez-h723                            |
-| 2 corone svizzere (429)             | btt-skr-2-429                                |
-| 2 corone svizzere (407)             | btt-skr-2-407                                |
-| RATTO SKR                           | btt-risate-10                                |
-| SKR 1.4 Turbo                       | btt-skr-14-turbo                             |
-| SKR Mini Ez vz                      | btt_scr_mini_es_30                           |
+| Elettronica             | Nome del parametro da utilizzare nella macro |
+| ----------------------- | -------------------------------------------- |
+| Manta E                 | Con orgoglio                                 |
+| Dimentica M4P           | btt-manta-m4p                                |
+| Manta M4P v2.a          | btt-manta-m4p-22                             |
+| Manta M8P               | btt-manta-m8p                                |
+| Manta M8P v1.1          | btt-manta-m8p-11                             |
+| Polpo Max EZ            | btt-octopus-max-it                           |
+| Polpo Pro (446)         | btt-octopus-pro-446                          |
+| Polpo Pro (429)         | btt-octopus-pro-429                          |
+| Polpo Pro (H723)        | btt-octopus-pro-h723                         |
+| Polpo v1.1              | btt-polpo-11                                 |
+| Polpo v1.1 (407)        | btt-polpo-11-407                             |
+| SKR Pro v1.2            | scr_pro_12                                   |
+| SKR 3                   | btt_scr_3                                    |
+| Saqr A (Ahah)           | Lo fai ubriacare                             |
+| SKR 3EZ                 | questo è btt-skr-3                           |
+| Saqr A Idha (Haha)      | btt-skr-3-ez-h723                            |
+| 2 corone svizzere (429) | btt-skr-2-429                                |
+| 2 corone svizzere (407) | btt-skr-2-407                                |
+| RATTO SKR               | btt-risate-10                                |
+| SKR 1.4 Turbo           | btt-skr-14-turbo                             |
+| SKR Mini Ez vz          | btt_scr_mini_es_30                           |
 
 | Testa portautensili (CAN) | Nome del parametro da utilizzare nella macro |
 | ------------------------- | -------------------------------------------- |
@@ -378,7 +378,7 @@ Possiamo anche eseguire il processo manualmente, copieremo manualmente il plugin
 | Testa portautensili (CAN) | Nome del parametro da utilizzare nella macro |
 | ------------------------- | -------------------------------------------- |
 | Dolce FLY SHT 42          | dolce_volare_merda_42                        |
-| Mellow FLY SHT 36         | dolce_volare_merda_36                        |
+| Dolce FLY SHT 36          | dolce_volare_merda_36                        |
 
 | Elettronica   | Nome del parametro da utilizzare nella macro |
 | ------------- | -------------------------------------------- |
@@ -403,7 +403,7 @@ Dalla nostra interfaccia, Mainsail/Fluidd, modificheremo il nostro print.cfg e a
 {% suggerimento finale %}
 
 {% suggerimento stile="avviso" %}  
-Le macro normali sono state separate da**shell delle macro**dato che**Per abilitarli è necessario eseguire manualmente ulteriori passaggi, oltre a quelli attualmente in fase di test.**E\*\*Potrebbero richiedere autorizzazioni aggiuntive per assegnare autorizzazioni di esecuzione per le quali non sono state indicate le istruzioni poiché stanno tentando di automatizzare.\*\*  
+Le macro normali sono state separate da**shell delle macro**dato questo**Per abilitarli è necessario eseguire manualmente ulteriori passaggi, oltre a quelli attualmente in fase di test.**E\*\*Potrebbero richiedere autorizzazioni aggiuntive per assegnare autorizzazioni di esecuzione per le quali non sono state indicate le istruzioni poiché stanno tentando di automatizzare.\*\*  
 **Se li usi è a tuo rischio e pericolo.**  
 {% suggerimento finale %}
 
@@ -465,7 +465,7 @@ Riavviamo Cura e andremo a_**Estensioni/Post elaborazione/Modifica G-Code**_e se
 {% tabelle finali %}
 
 {% suggerimento stile="informazioni" %}  
-IL**i placeholder sono "alias" o variabili che i laminatori utilizzano in modo che durante la generazione del gcode vengano sostituiti dai valori configurati nel profilo**di impressione.
+IL**i placeholder sono "alias" o variabili che i laminatori utilizzano in modo che durante la generazione del gcode vengano sostituiti dai valori configurati nel profilo**stampa.
 
 Nei seguenti link è possibile trovarne un elenco per:[**PrusaSlicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(oltre a quelli sopra),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)E[**Cura**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -487,9 +487,9 @@ Per adattarli alla nostra macchina utilizzeremo le variabili che troveremo in ma
 
 Poiché a molti utenti piace avere notifiche macro nella loro lingua, abbiamo ideato un sistema di notifica multilingue, attualmente spagnolo (es) e inglese (en). Nella seguente variabile possiamo regolarlo:
 
-| Variabile        | Descrizione                                                                                                | Valori possibili | Valore di default |
-| ---------------- | ---------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
-| variabile_lingua | Ci permette di selezionare la lingua delle notifiche. Se non è ben definito, verrà utilizzato in (inglese) | è dentro         | È                 |
+| Variabile        | Descrizione                                                                                                | Valori possibili | Valore predefinito |
+| ---------------- | ---------------------------------------------------------------------------------------------------------- | ---------------- | ------------------ |
+| variabile_lingua | Ci permette di selezionare la lingua delle notifiche. Se non è ben definito, verrà utilizzato in (inglese) | è/in             | È                  |
 
 #### Estrusione relativa
 
@@ -499,35 +499,35 @@ Ci permette di controllare quale modalità di estrusione utilizzeremo alla fine 
 È consigliabile configurare la plastificatrice per utilizzare l'estrusione relativa e impostare questa variabile su True.  
 {% suggerimento finale %}
 
-| Variabile                    | Descrizione                                                                                | Valori possibili | Valore di default |
-| ---------------------------- | ------------------------------------------------------------------------------------------ | ---------------- | ----------------- |
-| variabile_parente_estrusione | Ci permette di indicare la modalità di estrusione utilizzata nella nostra plastificatrice. | Vero falso       | VERO              |
+| Variabile                     | Descrizione                                                                                | Valori possibili | Valore predefinito |
+| ----------------------------- | ------------------------------------------------------------------------------------------ | ---------------- | ------------------ |
+| variabile_relativo_estrusione | Ci permette di indicare la modalità di estrusione utilizzata nella nostra plastificatrice. | Vero/falso       | VERO               |
 
 #### Velocità
 
 Per gestire le velocità utilizzate nelle macro.
 
-| Variabile                        | Descrizione                            | Valori possibili | Valore di default |   |
-| -------------------------------- | -------------------------------------- | ---------------- | ----------------- | - |
-| variabile_macro_viaggio_velocità | Velocità di trasferimento              | numerico         | 150               |   |
-| variabile_macro_Con_velocità     | Velocità di trasferimento per l'asse Z | numerico         | 15                |   |
+| Variabile                        | Descrizione                            | Valori possibili | Valore predefinito |   |
+| -------------------------------- | -------------------------------------- | ---------------- | ------------------ | - |
+| variabile_macro_viaggio_velocità | Velocità di trasferimento              | numerico         | 150                |   |
+| variabile_macro_Con_velocità     | Velocità di trasferimento per l'asse Z | numerico         | 15                 |   |
 
 #### Homing
 
 Insieme di variabili relative al processo di homing.
 
-| Variabile | Descrizione | Valori possibili | Valore di default |
-| --------- | ----------- | ---------------- | ----------------- |
+| Variabile | Descrizione | Valori possibili | Valore predefinito |
+| --------- | ----------- | ---------------- | ------------------ |
 
 #### Riscaldamento
 
 Variabili legate al processo di riscaldamento della nostra macchina.
 
-| Variabile                                        | Descrizione                                                                                                     | Valori possibili | Valore di default |
-| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
-| variabile_preriscaldare_estrusore                | Permette il preriscaldamento dell'ugello alla temperatura indicata nella variabile_preriscaldare_estrusore_temp | Vero falso       | VERO              |
-| variabile_preriscaldare_estrusore_temp           | Temperatura di preriscaldamento dell'ugello                                                                     | numerico         | 150               |
-| variabile_inizio_stampa_Calore_Camera_letto_temp | Temperatura del letto durante il processo di riscaldamento del nostro recinto                                   | numerico         | 100               |
+| Variabile                                        | Descrizione                                                                                                     | Valori possibili | Valore predefinito |
+| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------ |
+| variabile_preriscaldare_estrusore                | Permette il preriscaldamento dell'ugello alla temperatura indicata nella variabile_preriscaldare_estrusore_temp | Vero/falso       | VERO               |
+| variabile_preriscaldare_estrusore_temp           | Temperatura di preriscaldamento dell'ugello                                                                     | numerico         | 150                |
+| variabile_inizio_stampa_Calore_camera_letto_temp | Temperatura del letto durante il processo di riscaldamento del nostro recinto                                   | numerico         | 100                |
 
 {% suggerimento stile="successo" %}  
 Vantaggi dell'utilizzo dell'ugello preriscaldato:
@@ -541,15 +541,15 @@ Vantaggi dell'utilizzo dell'ugello preriscaldato:
 
 Per controllare il processo di livellamento abbiamo variabili che possono essere molto utili. Ad esempio, possiamo controllare il tipo di livellamento che vogliamo utilizzare creando sempre una nuova mesh, caricandone una precedentemente memorizzata o utilizzando la mesh adattiva.
 
-| Variabile                                                                                                    | Descrizione                                                                         | Valori possibili | Valore di default |
-| ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- | ---------------- | ----------------- |
-| variabile_calibrare_letto_maglia                                                                             | Ci permette di selezionare quale tipo di mesh utilizzeremo nel nostro START_STAMPA: |                  |                   |
-| -nuova mesh, mesherà ogni stampa                                                                             |                                                                                     |                  |                   |
-| -storedmesh, caricherà una mesh memorizzata e non eseguirà il polling del letto                              |                                                                                     |                  |                   |
-| -adattivo, ci creerà una nuova mesh ma adattata all'area di stampa, spesso migliorando i nostri primi strati |                                                                                     |                  |                   |
-| -nomesh, nel caso in cui non disponiamo di un sensore o utilizziamo la mesh per saltare il processo          | nuova mesh / mesh memorizzata / adattiva /                                          |                  |                   |
-| nomi                                                                                                         | adattivo                                                                            |                  |                   |
-| variabile_letto_maglia_profilo                                                                               | Il nome utilizzato per la nostra mesh archiviata                                    | testo            | predefinito       |
+| Variabile                                                                                                    | Descrizione                                                                         | Valori possibili | Valore predefinito |
+| ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- | ---------------- | ------------------ |
+| variabile_calibrare_letto_maglia                                                                             | Ci permette di selezionare quale tipo di mesh utilizzeremo nel nostro START_STAMPA: |                  |                    |
+| -nuova mesh, mesherà ogni stampa                                                                             |                                                                                     |                  |                    |
+| -storedmesh, caricherà una mesh memorizzata e non eseguirà il polling del letto                              |                                                                                     |                  |                    |
+| -adattivo, ci creerà una nuova mesh ma adattata all'area di stampa, spesso migliorando i nostri primi strati |                                                                                     |                  |                    |
+| -nomesh, nel caso in cui non disponiamo di un sensore o utilizziamo la mesh per saltare il processo          | nuova mesh / mesh memorizzata / adattiva /                                          |                  |                    |
+| nomi                                                                                                         | adattivo                                                                            |                  |                    |
+| variabile_letto_maglia_profilo                                                                               | Il nome utilizzato per la nostra mesh archiviata                                    | testo            | predefinito        |
 
 {% suggerimento stile="avviso" %}  
 Ti consigliamo di utilizzare il livellamento adattivo poiché adatterà sempre la mesh alla dimensione della nostra stampa, consentendoti di avere un'area della mesh regolata.
@@ -561,13 +561,13 @@ Ti consigliamo di utilizzare il livellamento adattivo poiché adatterà sempre l
 
 Una fase importante del nostro inizio stampa è un corretto spurgo dei nostri ugelli per evitare che restino filamenti o che questi possano danneggiare la nostra stampa ad un certo punto. Di seguito sono riportate le variabili che intervengono in questo processo:
 
-| Variabile                                                                                                                                                               | Descrizione                                       | Valori possibili | Valore di default |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------- | ----------------- |
-| variabile_ugello_adescamento                                                                                                                                            | Possiamo scegliere tra diverse opzioni di spurgo: |                  |                   |
-| -primeline disegnerà la tipica linea di eliminazione                                                                                                                    |                                                   |                  |                   |
-| -primelineadaptative genererà una linea di spurgo che si adatta all'area della parte stampata utilizzando la variabile_ugello_adescamento_distanza oggetto come margine |                                                   |                  |                   |
-| -primeblob metterà una goccia di filamento in un angolo del nostro letto, molto efficace per pulire l'ugello e facile da rimuovere                                      |                                                   |                  |                   |
-| linea principale /                                                                                                                                                      |                                                   |                  |                   |
+| Variabile                                                                                                                                                               | Descrizione                                       | Valori possibili | Valore predefinito |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------- | ------------------ |
+| variabile_ugello_adescamento                                                                                                                                            | Possiamo scegliere tra diverse opzioni di spurgo: |                  |                    |
+| -primeline disegnerà la tipica linea di eliminazione                                                                                                                    |                                                   |                  |                    |
+| -primelineadaptative genererà una linea di spurgo che si adatta all'area della parte stampata utilizzando la variabile_ugello_adescamento_distanza oggetto come margine |                                                   |                  |                    |
+| -primeblob metterà una goccia di filamento in un angolo del nostro letto, molto efficace per pulire l'ugello e facile da rimuovere                                      |                                                   |                  |                    |
+| linea principale /                                                                                                                                                      |                                                   |                  |                    |
 
 primelineadaptive /   
 blob principale /   
@@ -596,14 +596,14 @@ all'indietro | automatico |
 
 #### Carico/scarico filamento
 
-In questo caso, questo gruppo di variabili ci faciliterà la gestione del caricamento e dello scaricamento del nostro filamento utilizzato in emulazione dell'M600, ad esempio, o quando si lanciano le macro di caricamento e scaricamento del filamento:
+In questo caso, questo gruppo di variabili faciliterà la gestione del caricamento e dello scaricamento del nostro filamento utilizzato in emulazione dell'M600, ad esempio, o quando si lanciano le macro di caricamento e scaricamento del filamento:
 
-| Variabile                               | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                | Valori possibili | Valore di default |
-| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
-| variabile_filamento_scaricare_lunghezza | Quanto ritirare il filamento in mm, adattalo alla tua macchina, normalmente la misura dal tuo ugello agli ingranaggi del tuo estrusore aggiungendo un margine extra.                                                                                                                                                                                                                                                       | numero           | 130               |
-| variabile_filamento_scaricare_velocità  | Velocità di ritrazione del filamento in mm/sec normalmente viene utilizzata una velocità lenta.                                                                                                                                                                                                                                                                                                                            | numero           | 5                 |
-| variabile_filamento_carico_lunghezza    | Distanza in mm per caricare il nuovo filamento... oltre che in variabile_filamento_scaricare_lunghezza utilizzeremo la misura dal tuo ingranaggio all'estrusore aggiungendo un margine extra, in questo caso questo valore extra dipenderà da quanto vuoi che venga spurgato... normalmente puoi dargli più margine rispetto al valore precedente per assicurarti che il l'estrusione del filamento precedente sia pulita. | numero           | 150               |
-| variabile_filamento_carico_velocità     | Velocità di caricamento del filamento in mm/sec, normalmente viene utilizzata una velocità maggiore rispetto alla velocità di scarico.                                                                                                                                                                                                                                                                                     | numero           | 10                |
+| Variabile                               | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                | Valori possibili | Valore predefinito |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------ |
+| variabile_filamento_scaricare_lunghezza | Quanto ritrarre il filamento in mm, adattalo alla tua macchina, normalmente la misura dal tuo ugello agli ingranaggi del tuo estrusore aggiungendo un margine extra.                                                                                                                                                                                                                                                       | numero           | 130                |
+| variabile_filamento_scaricare_velocità  | Velocità di ritrazione del filamento in mm/sec normalmente viene utilizzata una velocità lenta.                                                                                                                                                                                                                                                                                                                            | numero           | 5                  |
+| variabile_filamento_carico_lunghezza    | Distanza in mm per caricare il nuovo filamento... oltre che in variabile_filamento_scaricare_lunghezza utilizzeremo la misura dal tuo ingranaggio all'estrusore aggiungendo un margine extra, in questo caso questo valore extra dipenderà da quanto vuoi che venga spurgato... normalmente puoi dargli più margine rispetto al valore precedente per assicurarti che il l'estrusione del filamento precedente sia pulita. | numero           | 150                |
+| variabile_filamento_carico_velocità     | Velocità di caricamento del filamento in mm/sec, normalmente viene utilizzata una velocità maggiore rispetto alla velocità di scarico.                                                                                                                                                                                                                                                                                     | numero           | 10                 |
 
 {% suggerimento stile="avviso" %}  
 Un'altra impostazione necessaria per la tua sezione\[estrusore]indicare il[**massimo_estrudere_soltanto_distanza**](https://www.klipper3d.org/Config_Reference.html#extruder)...il valore consigliabile è solitamente >101 (se non definito, utilizzare 50) per consentire, ad esempio, tipici test di calibrazione dell'estrusore.   
@@ -614,38 +614,38 @@ Dovresti modificare il valore in base a quanto menzionato in precedenza sul test
 
 In alcuni processi della nostra stampante, come la pausa, è consigliabile parcheggiare la testa. Le macro nel nostro bundle hanno questa opzione oltre alle seguenti variabili da gestire:
 
-| Variabile                                 | Descrizione                                                                                                                                                                                                                                                                                                           | Valori possibili | Valore di default |
-| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
-| variabile_inizio_stampa_parco_In          | Posizione dove parcheggiare la testa durante il preriscaldamento.                                                                                                                                                                                                                                                     | Indietro /       |                   |
-| centro /                                  |                                                                                                                                                                                                                                                                                                                       |                  |                   |
-| davanti                                   | Indietro                                                                                                                                                                                                                                                                                                              |                  |                   |
-| variabile_inizio_stampa_parco_Con_altezza | Altezza Z durante il preriscaldamento                                                                                                                                                                                                                                                                                 | numero           | 50                |
-| variabile_FINE_stampa_parco_In            | Posizione dove parcheggiare la testa quando si termina o si annulla una stampa.                                                                                                                                                                                                                                       | Indietro /       |                   |
-| centro /                                  |                                                                                                                                                                                                                                                                                                                       |                  |                   |
-| davanti                                   | Indietro                                                                                                                                                                                                                                                                                                              |                  |                   |
-| variabile_FINE_stampa_parco_Con_salto     | Distanza da salire in Z alla fine della stampa.                                                                                                                                                                                                                                                                       | numero           | 20                |
-| variabile_pausa_stampa_parco_In           | Posizione dove parcheggiare la testa quando si mette in pausa la stampa.                                                                                                                                                                                                                                              | Indietro /       |                   |
-| centro /                                  |                                                                                                                                                                                                                                                                                                                       |                  |                   |
-| davanti                                   | Indietro                                                                                                                                                                                                                                                                                                              |                  |                   |
-| variabile_pausa_oziare_tempo scaduto      | Valore, in secondi, dell'attivazione del processo di inattività della macchina che sblocca i motori e provoca la perdita delle coordinate,**È consigliabile un valore alto in modo che quando si attiva la macro PAUSE ci voglia il tempo sufficiente per eseguire qualsiasi azione prima di perdere le coordinate.** | numero           | 43200             |
+| Variabile                                 | Descrizione                                                                                                                                                                                                                                                                                                           | Valori possibili | Valore predefinito |
+| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------ |
+| variabile_inizio_stampa_parco_In          | Posizione dove parcheggiare la testa durante il preriscaldamento.                                                                                                                                                                                                                                                     | Indietro /       |                    |
+| centro /                                  |                                                                                                                                                                                                                                                                                                                       |                  |                    |
+| anteriore                                 | Indietro                                                                                                                                                                                                                                                                                                              |                  |                    |
+| variabile_inizio_stampa_parco_Con_altezza | Altezza Z durante il preriscaldamento                                                                                                                                                                                                                                                                                 | numero           | 50                 |
+| variabile_FINE_stampa_parco_In            | Posizione dove parcheggiare la testa quando si termina o si annulla una stampa.                                                                                                                                                                                                                                       | Indietro /       |                    |
+| centro /                                  |                                                                                                                                                                                                                                                                                                                       |                  |                    |
+| anteriore                                 | Indietro                                                                                                                                                                                                                                                                                                              |                  |                    |
+| variabile_FINE_stampa_parco_Con_salto     | Distanza da salire in Z alla fine della stampa.                                                                                                                                                                                                                                                                       | numero           | 20                 |
+| variabile_pausa_stampa_parco_In           | Posizione dove parcheggiare la testa quando si mette in pausa la stampa.                                                                                                                                                                                                                                              | Indietro /       |                    |
+| centro /                                  |                                                                                                                                                                                                                                                                                                                       |                  |                    |
+| anteriore                                 | Indietro                                                                                                                                                                                                                                                                                                              |                  |                    |
+| variabile_pausa_oziare_tempo scaduto      | Valore, in secondi, dell'attivazione del processo di inattività della macchina che sblocca i motori e provoca la perdita delle coordinate,**È consigliabile un valore alto in modo che quando si attiva la macro PAUSE ci voglia il tempo sufficiente per eseguire qualsiasi azione prima di perdere le coordinate.** | numero           | 43200              |
 
 #### Inclinazione Z
 
 Sfruttare al massimo la nostra macchina affinché si autolivella e garantire che la nostra macchina sia sempre nelle migliori condizioni è fondamentale.
 
-**Z-TILT è fondamentalmente un processo che ci aiuta ad allineare i nostri motori Z rispetto al nostro asse/gantry X (cartesiano) o XY (CoreXY).**. Con questo**ci assicuriamo di avere sempre la nostra Z allineata perfettamente, in modo preciso e automatico**.
+**Z-TILT è fondamentalmente un processo che ci aiuta ad allineare i nostri motori Z rispetto al nostro asse/gantry X (cartesiano) o XY (CoreXY).**. con questo**ci assicuriamo di avere sempre la nostra Z allineata perfettamente, in modo preciso e automatico**.
 
-| Variabile                         | Descrizione                                                                                   | Valori possibili | Valore di default |
-| --------------------------------- | --------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
-| variabile_calibrare_Con_inclinare | Permette, se abilitato nella nostra configurazione Klipper, il processo di regolazione Z-Tilt | Vero falso       | Falso             |
+| Variabile                         | Descrizione                                                                                   | Valori possibili | Valore predefinito |
+| --------------------------------- | --------------------------------------------------------------------------------------------- | ---------------- | ------------------ |
+| variabile_calibrare_Con_inclinare | Permette, se abilitato nella nostra configurazione Klipper, il processo di regolazione Z-Tilt | Vero/falso       | Falso              |
 
-#### Storto
+#### Inclinare
 
-L'impiego di[STORTO](broken-reference)Per la correzione o la regolazione precisa delle nostre stampanti è estremamente consigliabile se riscontriamo deviazioni nelle nostre stampe. Utilizzando la seguente variabile possiamo consentirne l'utilizzo nelle nostre macro:
+L'uso di[INCLINAZIONE](broken-reference)Per la correzione o la regolazione precisa delle nostre stampanti è estremamente consigliabile se riscontriamo deviazioni nelle nostre stampe. Utilizzando la seguente variabile possiamo consentirne l'utilizzo nelle nostre macro:
 
-| Variabile                | Descrizione                                                                                                                                                                                                                                        | Valori possibili | Valore di default  |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------ |
-| variabile_storto_profilo | Ci consente di prendere in considerazione il nostro profilo di inclinazione che verrà caricato nella nostra macro START_STAMPA Per attivarlo dobbiamo decommentare la variabile e utilizzare il nome del profilo skew dalla nostra configurazione. | testo            | Mio_storto_profilo |
+| Variabile                      | Descrizione                                                                                                                                                                                                                                        | Valori possibili | Valore predefinito       |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------ |
+| variabile_inclinazione_profilo | Ci consente di prendere in considerazione il nostro profilo di inclinazione che verrà caricato nella nostra macro START_STAMPA Per attivarlo dobbiamo decommentare la variabile e utilizzare il nome del profilo skew dalla nostra configurazione. | testo            | Mio_inclinazione_profilo |
 
 ### Personalizzazione macro
 
@@ -663,7 +663,7 @@ Normalmente, sarà ciò che dovremo aggiustare, per apportare modifiche alle var
 
 Semplicemente, quello che dobbiamo fare è incollare il contenuto della macro\[gcode_macro GLOBALE_DI CHI]cosa possiamo trovare in macro/macro_era_globals.cfg nel nostro Printer.cfg.
 
-Ti ricordiamo quanto accennato in precedenza su come Klipper elabora le configurazioni in sequenza, quindi è consigliabile incollarlo dopo gli include di cui abbiamo parlato.[Qui](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
+Ti ricordiamo quanto accennato in precedenza riguardo al modo in cui Klipper elabora le configurazioni in sequenza, quindi è consigliabile incollarlo dopo gli include di cui abbiamo parlato.[Qui](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
 Avremo qualcosa del genere (è solo un esempio visivo):
 
@@ -707,22 +707,22 @@ Abbiamo due gruppi di macro:
 
 **INIZIO_STAMPA**
 
-| Nome della macro                                    | Descrizione                                                                                                                               |
-| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| \_UTENTE_INIZIO_STAMPA_CALORE_CAMERA                | Viene eseguito subito dopo che il nostro recinto inizia a riscaldarsi, se CAMERA_TEMP viene passato come parametro al nostro START_STAMPA |
-| \_UTENTE_INIZIO_STAMPA_PRIMA_RICERCA                | Eseguito prima dell'homing iniziale dell'avvio della stampa                                                                               |
-| \_UTENTE_INIZIO_STAMPA_DOPO_RISCALDAMENTO_LETTO     | Viene eseguito quando il nostro letto raggiunge la sua temperatura, prima_INIZIO_STAMPA_DOPO_RISCALDAMENTO_LETTO                          |
-| \_UTENTE_INIZIO_STAMPA_LETTO_MAGLIA                 | Viene rilasciato prima_INIZIO_STAMPA_LETTO_MAGLIA                                                                                         |
-| \_UTENTE_INIZIO_STAMPA_PARCO                        | Viene rilasciato prima_INIZIO_STAMPA_PARCO                                                                                                |
-| \_UTENTE_INIZIO_STAMPA_DOPO_RISCALDAMENTO_ESTRUSORE | Viene rilasciato prima_INIZIO_STAMPA_DOPO_RISCALDAMENTO_ESTRUSORE                                                                         |
+| Nome della macro                                    | Descrizione                                                                                                                              |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| \_UTENTE_INIZIO_STAMPA_CALORE_CAMERA                | Viene eseguito subito dopo che il nostro recinto inizia a riscaldarsi, se CAMERA_TEMP viene passato come parametro al nostro START_PRINT |
+| \_UTENTE_INIZIO_STAMPA_PRIMA_RICERCA                | Eseguito prima dell'homing iniziale dell'avvio della stampa                                                                              |
+| \_UTENTE_INIZIO_STAMPA_DOPO_RISCALDAMENTO_LETTO     | Viene eseguito quando il nostro letto raggiunge la sua temperatura, prima_INIZIO_STAMPA_DOPO_RISCALDAMENTO_LETTO                         |
+| \_UTENTE_INIZIO_STAMPA_LETTO_MAGLIA                 | Viene rilasciato prima_INIZIO_STAMPA_BED_MAGLIA                                                                                          |
+| \_UTENTE_INIZIO_STAMPA_PARCO                        | Viene rilasciato prima_INIZIO_STAMPA_PARCO                                                                                               |
+| \_UTENTE_INIZIO_STAMPA_DOPO_RISCALDAMENTO_ESTRUSORE | Viene rilasciato prima_INIZIO_STAMPA_DOPO_RISCALDAMENTO_ESTRUSORE                                                                        |
 
 **FINE_STAMPA**
 
-| Nome della macro                              | Descrizione                                                                                          |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| \_UTENTE_FINE_STAMPA_PRIMA_RISCALDATORI_OFF   | Viene eseguito prima di spegnere i riscaldatori, prima_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO         |
-| \_UTENTE_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO | Viene eseguito dopo che i riscaldatori sono stati spenti, prima_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO |
-| \_UTENTE_FINE_STAMPA_PARCO                    | Viene eseguito prima che la testa sia parcheggiata, prima_FINE_STAMPA_PARCO                          |
+| Nome della macro                               | Descrizione                                                                                     |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| \_UTENTE_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO | Viene eseguito prima di spegnere i riscaldatori, prima_FINE_STAMPA_PRIMA_RISCALDATORI_SPENTO    |
+| \_UTENTE_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO  | Viene eseguito dopo lo spegnimento dei riscaldatori, prima_FINE_STAMPA_DOPO_RISCALDATORI_SPENTO |
+| \_UTENTE_FINE_STAMPA_PARCO                     | Viene eseguito prima che la testa sia parcheggiata, prima_FINE_STAMPA_PARCO                     |
 
 **STAMPA_BASI**
 
@@ -762,13 +762,13 @@ Se utilizzate come modulo, le configurazioni 3Dwork NON POSSONO essere modificat
 Ecco perché è molto importante capire come funziona Klipper e come personalizzare i nostri moduli sulla tua macchina.
 {% suggerimento finale %}
 
-Come li abbiamo spiegati in "[personalizzazione delle macro](3dwork-klipper-bundle.md#personalizando-macros)"Utilizzeremo lo stesso processo per regolare i parametri o i pin in base alle nostre esigenze.
+Come abbiamo spiegato in "[personalizzazione delle macro](3dwork-klipper-bundle.md#personalizando-macros)"Utilizzeremo lo stesso processo per regolare i parametri o i pin in base alle nostre esigenze.
 
 #### Parametri di personalizzazione
 
 Così come ti consigliamo di creare una sezione nel tuo print.cfg chiamata USER OVERRIDES, posizionata dopo gli include delle nostre configurazioni, per poter regolare e personalizzare qualsiasi parametro utilizzato in esse.
 
-Nell'esempio seguente vedremo come nel nostro caso siamo interessati a personalizzare i parametri del nostro livellamento del letto (bed_mesh) regolando i punti della sonda_count) rispetto alla configurazione che abbiamo di default nelle configurazioni del nostro modulo Klipper:
+Nell'esempio seguente vedremo come nel nostro caso ci interessa personalizzare i parametri del nostro livellamento letto (bed_mesh) regolando i punti della sonda_count) rispetto alla configurazione che abbiamo di default nelle configurazioni del nostro modulo Klipper:
 
 {% titolo codice="printer.cfg" %}
 
@@ -808,7 +808,7 @@ Possiamo utilizzare lo stesso processo con qualsiasi parametro che desideriamo r
 
 Procederemo esattamente come abbiamo fatto in precedenza, nella nostra area USER OVERRIDES aggiungeremo quelle sezioni di pin che vogliamo adattare a nostro piacimento.
 
-Nell'esempio seguente andremo a personalizzare quale sarà il pin della nostra ventola elettronica (controller_fan) per assegnargli uno diverso da quello predefinito:
+Nell'esempio seguente personalizzeremo quale sarà il pin della nostra ventola elettronica (controller_fan) per assegnargli uno diverso da quello predefinito:
 
 {% titolo codice="printer.cfg" %}
 

@@ -8,7 +8,7 @@
 
 [![](../../.gitbook/assets/image%20(1986).png)- Inglese](https://klipper-3dwork-io.translate.goog/klipper/mejoras/3dwork-klipper-bundle?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp)
 
-{% suggerimento stile="pericolo" %}  
+{% stile suggerimento="pericolo" %}  
 **GUIDA IN PROCESSO!!! Sebbene le macro siano completamente funzionali, sono in continuo sviluppo.**
 
 **Usateli a vostro rischio e pericolo!!!**  
@@ -114,7 +114,7 @@ Da Mainsail/Fluidd modificheremo il nostro moonraker.conf (dovrebbe essere alla 
     [include 3dwork-klipper/moonraker.conf]
 
 {% suggerimento stile="avviso" %}  
-**Ricordarsi di eseguire prima la fase di installazione altrimenti Moonraker genererà un errore e non sarà in grado di avviarsi.**
+**Ricordarsi di eseguire prima la fase di installazione, altrimenti Moonraker genererà un errore e non sarà in grado di avviarsi.**
 
 **D'altra parte, se la directory della configurazione di Klipper è personalizzata, ricordati di adattare il percorso in modo appropriato alla tua installazione.**  
 {% suggerimento finale %}
@@ -181,7 +181,7 @@ Insieme di macro che ci permetteranno di gestire diverse azioni con il nostro fi
 
 Non entreremo nei dettagli dell'installazione e della configurazione di questo poiché è relativamente semplice utilizzare il file[**istruzioni dal tuo Github**](https://github.com/Donkie/Spoolman)**,**comunque**Ti consigliamo di utilizzare Docker**per semplicità e ricordo**attivare le impostazioni in Moonraker**necessario:
 
-{% titolo del codice="moonraker.conf" %}
+{% code title="moonraker.conf" %}
 
     [spoolman]
     server: http://192.168.0.123:7912
@@ -197,7 +197,7 @@ Non entreremo nei dettagli dell'installazione e della configurazione di questo p
 | IMPOSTATO_ATTIVO_BOBINA | Ci permette di indicare quale è l'ID della bobina da utilizzare |
 | CHIARO_ATTIVO_BOBINA    | Ci permette di resettare la bobina attiva                       |
 
-L’ideale in ogni caso sarebbe aggiungere alla nostra plastificatrice,**nei gcode del filamento per ogni bobina la chiamata a questo**, e ricorda**cambia il suo ID una volta consumato**per poter tenere traccia di ciò che rimane di filamento al suo interno!!!
+L’ideale in ogni caso sarebbe aggiungere alla nostra plastificatrice,**nei gcode del filamento per ogni bobina la chiamata a questo**, e ricorda**cambiare il suo ID una volta consumato**per poter tenere traccia di ciò che rimane di filamento al suo interno!!!
 
 !\[](../../.gitbook/assets/image (1991).png)
 
@@ -287,15 +287,15 @@ Anche nel caso di KlipperScreen possiamo aggiungere un menu specifico per gestir
 
 {%endcode%}
 
-| Macro                                       | Descrizione |
-| ------------------------------------------- | ----------- |
-| INSTALLARE_COSTRUIRE_FOGLIO                 |             |
-| SPETTACOLO_COSTRUIRE_FOGLIO                 |             |
-| SPETTACOLO_COSTRUIRE_FOGLI                  |             |
-| IMPOSTATO_COSTRUIRE_FOGLIO_OFFSET           |             |
-| RESET_COSTRUIRE_FOGLIO_OFFSET               |             |
-| IMPOSTATO_CODICE G_OFFSET                   |             |
-| FARE DOMANDA A_COSTRUIRE_FOGLIO_REGOLAZIONE |             |
+| Macro                              | Descrizione |
+| ---------------------------------- | ----------- |
+| INSTALLARE_COSTRUIRE_FOGLIO        |             |
+| SPETTACOLO_COSTRUIRE_FOGLIO        |             |
+| SPETTACOLO_COSTRUIRE_FOGLI         |             |
+| IMPOSTATO_COSTRUIRE_FOGLIO_OFFSET  |             |
+| RESET_COSTRUIRE_FOGLIO_OFFSET      |             |
+| IMPOSTATO_CODICE G_OFFSET          |             |
+| APPLY_COSTRUIRE_FOGLIO_REGOLAZIONE |             |
 
 ### **Macro di configurazione macchina**
 
@@ -312,7 +312,7 @@ Anche nel caso di KlipperScreen possiamo aggiungere un menu specifico per gestir
 
 -   **Firmware compilato per l'elettronica supportata**, per facilitare il processo di creazione e manutenzione del firmware Klipper per i nostri MCU abbiamo la macro COMPILE_FIRMWARE che una volta eseguito, possiamo usare la nostra elettronica come parametro per fare solo questo, compilerà Klipper per tutta l'elettronica supportata dal nostro bundle:  
     ![](../../.gitbook/assets/image%20(1540).png)  
-    Li troveremo facilmente accessibili dalla nostra interfaccia utente web nella directory del firmware_binari nella nostra scheda MACCHINA (se utilizziamo la randa):  
+    Li troveremo facilmente accessibili dalla nostra interfaccia utente web nella directory del firmware_binari nella nostra scheda MACCHINA (se usiamo la randa):  
     ![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)  
     Di seguito è riportato l'elenco dei dispositivi elettronici supportati:
 
@@ -322,7 +322,7 @@ Questi script sono preparati per funzionare su un sistema Raspbian con utente pi
 
 I firmware vengono generati per l'utilizzo con una connessione USB, che è sempre ciò che consigliamo. Inoltre, il punto di montaggio USB è sempre lo stesso, quindi la configurazione della connessione MCU non cambierà se vengono generati con la nostra macro/script.
 
-**Affinché Klipper possa eseguire le macro della shell, è necessario installare un'estensione, grazie al compagno**[**Arcasina**](https://github.com/Arksine)**, che lo consente.**
+**Affinché Klipper possa eseguire le macro della shell, deve essere installata un'estensione, grazie al compagno**[**Arcasina**](https://github.com/Arksine)**, che lo consente.**
 
 **A seconda della distribuzione Klipper utilizzata, potrebbero essere già abilitati.**
 
@@ -607,7 +607,7 @@ In questo caso, questo gruppo di variabili faciliterà la gestione del caricamen
 
 {% suggerimento stile="avviso" %}  
 Un'altra impostazione necessaria per la tua sezione\[estrusore]indicare il[**massimo_estrudere_soltanto_distanza**](https://www.klipper3d.org/Config_Reference.html#extruder)...il valore consigliabile è solitamente >101 (se non definito, utilizzare 50) per consentire, ad esempio, tipici test di calibrazione dell'estrusore.   
-Dovresti modificare il valore in base a quanto menzionato in precedenza sul test o sulla configurazione del tuo**variabile_filamento_scaricare_lunghezza**IO**variabile_filamento_carico_lunghezza**.  
+Dovresti regolare il valore in base a quanto menzionato in precedenza sul test o sulla configurazione del tuo**variabile_filamento_scaricare_lunghezza**IO**variabile_filamento_carico_lunghezza**.  
 {% suggerimento finale %}
 
 #### Parcheggio
@@ -633,7 +633,7 @@ In alcuni processi della nostra stampante, come la pausa, è consigliabile parch
 
 Sfruttare al massimo la nostra macchina affinché si autolivella e garantire che la nostra macchina sia sempre nelle migliori condizioni è fondamentale.
 
-**Z-TILT è fondamentalmente un processo che ci aiuta ad allineare i nostri motori Z rispetto al nostro asse/gantry X (cartesiano) o XY (CoreXY).**. con questo**ci assicuriamo di avere sempre la nostra Z allineata perfettamente, in modo preciso e automatico**.
+**Z-TILT è fondamentalmente un processo che ci aiuta ad allineare i nostri motori Z rispetto al nostro asse/gantry X (cartesiano) o XY (CoreXY).**. con questo**ci assicuriamo che la nostra Z sia sempre allineata in modo perfetto, preciso e automatico**.
 
 | Variabile                         | Descrizione                                                                                   | Valori possibili | Valore predefinito |
 | --------------------------------- | --------------------------------------------------------------------------------------------- | ---------------- | ------------------ |
@@ -663,7 +663,7 @@ Normalmente, sarà ciò che dovremo aggiustare, per apportare modifiche alle var
 
 Semplicemente, quello che dobbiamo fare è incollare il contenuto della macro\[gcode_macro GLOBALE_DI CHI]cosa possiamo trovare in macro/macro_era_globals.cfg nel nostro Printer.cfg.
 
-Ti ricordiamo quanto accennato in precedenza riguardo al modo in cui Klipper elabora le configurazioni in sequenza, quindi è consigliabile incollarlo dopo gli include di cui abbiamo parlato.[Qui](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
+Ricordiamo quanto detto in precedenza riguardo a come Klipper elabora le configurazioni in sequenza, quindi è consigliabile incollarlo dopo gli include di cui abbiamo parlato.[Qui](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
 Avremo qualcosa del genere (è solo un esempio visivo):
 
@@ -707,14 +707,14 @@ Abbiamo due gruppi di macro:
 
 **INIZIO_STAMPA**
 
-| Nome della macro                                    | Descrizione                                                                                                                              |
-| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| \_UTENTE_INIZIO_STAMPA_CALORE_CAMERA                | Viene eseguito subito dopo che il nostro recinto inizia a riscaldarsi, se CAMERA_TEMP viene passato come parametro al nostro START_PRINT |
-| \_UTENTE_INIZIO_STAMPA_PRIMA_RICERCA                | Eseguito prima dell'homing iniziale dell'avvio della stampa                                                                              |
-| \_UTENTE_INIZIO_STAMPA_DOPO_RISCALDAMENTO_LETTO     | Viene eseguito quando il nostro letto raggiunge la sua temperatura, prima_INIZIO_STAMPA_DOPO_RISCALDAMENTO_LETTO                         |
-| \_UTENTE_INIZIO_STAMPA_LETTO_MAGLIA                 | Viene rilasciato prima_INIZIO_STAMPA_BED_MAGLIA                                                                                          |
-| \_UTENTE_INIZIO_STAMPA_PARCO                        | Viene rilasciato prima_INIZIO_STAMPA_PARCO                                                                                               |
-| \_UTENTE_INIZIO_STAMPA_DOPO_RISCALDAMENTO_ESTRUSORE | Viene rilasciato prima_INIZIO_STAMPA_DOPO_RISCALDAMENTO_ESTRUSORE                                                                        |
+| Nome della macro                                    | Descrizione                                                                                                                               |
+| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| \_UTENTE_INIZIO_STAMPA_CALORE_CAMERA                | Viene eseguito subito dopo che il nostro recinto inizia a riscaldarsi, se CAMERA_TEMP viene passato come parametro al nostro START_STAMPA |
+| \_UTENTE_INIZIO_STAMPA_PRIMA_RICERCA                | Eseguito prima dell'homing iniziale dell'avvio della stampa                                                                               |
+| \_UTENTE_INIZIO_STAMPA_DOPO_RISCALDAMENTO_LETTO     | Viene eseguito quando il nostro letto raggiunge la sua temperatura, prima_INIZIO_STAMPA_DOPO_RISCALDAMENTO_LETTO                          |
+| \_UTENTE_INIZIO_STAMPA_LETTO_MAGLIA                 | Viene rilasciato prima_INIZIO_STAMPA_LETTO_MAGLIA                                                                                         |
+| \_UTENTE_INIZIO_STAMPA_PARCO                        | Viene rilasciato prima_INIZIO_STAMPA_PARCO                                                                                                |
+| \_UTENTE_INIZIO_STAMPA_DOPO_RISCALDAMENTO_ESTRUSORE | Viene rilasciato prima_INIZIO_STAMPA_DOPO_RISCALDAMENTO_ESTRUSORE                                                                         |
 
 **FINE_STAMPA**
 
@@ -762,7 +762,7 @@ Se utilizzate come modulo, le configurazioni 3Dwork NON POSSONO essere modificat
 Ecco perché è molto importante capire come funziona Klipper e come personalizzare i nostri moduli sulla tua macchina.
 {% suggerimento finale %}
 
-Come abbiamo spiegato in "[personalizzazione delle macro](3dwork-klipper-bundle.md#personalizando-macros)"Utilizzeremo lo stesso processo per regolare i parametri o i pin in base alle nostre esigenze.
+Come li abbiamo spiegati in "[personalizzazione delle macro](3dwork-klipper-bundle.md#personalizando-macros)"Utilizzeremo lo stesso processo per regolare i parametri o i pin in base alle nostre esigenze.
 
 #### Parametri di personalizzazione
 
@@ -808,7 +808,7 @@ Possiamo utilizzare lo stesso processo con qualsiasi parametro che desideriamo r
 
 Procederemo esattamente come abbiamo fatto in precedenza, nella nostra area USER OVERRIDES aggiungeremo quelle sezioni di pin che vogliamo adattare a nostro piacimento.
 
-Nell'esempio seguente personalizzeremo quale sarà il pin della nostra ventola elettronica (controller_fan) per assegnargli uno diverso da quello predefinito:
+Nell'esempio seguente andremo a personalizzare quale sarà il pin della nostra ventola elettronica (controller_fan) per assegnargli uno diverso da quello predefinito:
 
 {% titolo codice="printer.cfg" %}
 

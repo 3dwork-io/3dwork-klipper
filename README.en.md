@@ -114,7 +114,7 @@ From Mainsail/Fluidd we will edit our moonraker.conf (it should be at the same h
     [include 3dwork-klipper/moonraker.conf]
 
 {% hint style="warning" %}  
-**Remember to do the installation step beforehand otherwise Moonraker will generate an error and will not be able to start.**
+**Remember to do the installation step beforehand, otherwise Moonraker will generate an error and will not be able to start.**
 
 **On the other hand, if the directory of your Klipper configuration is customized, remember to adjust the path appropriately for your installation.**  
 {% endhint %}
@@ -567,7 +567,7 @@ An important phase of our start of printing is a correct purging of our nozzle t
 | -primeline is going to draw the typical purge line                                                                                                   |                                                  |                 |               |
 | -primelineadaptative will generate a purge line that adapts to the area of ​​the printed part using variable_nozzle_priming_objectdistance as margin |                                                  |                 |               |
 | -primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove                         |                                                  |                 |               |
-| prime line /                                                                                                                                         |                                                  |                 |               |
+| primeline /                                                                                                                                          |                                                  |                 |               |
 
 primelineadaptive /   
 prime blob /   
@@ -663,7 +663,7 @@ Normally, it will be what we will have to adjust, to make adjustments to the var
 
 Simply, what we have to do is paste the content of the macro\[gcode_macro GLOBAL_VARS]what we can find in macros/macros_was_globals.cfg in our printer.cfg.
 
-We remind you of what we mentioned previously about how Klipper processes the configurations sequentially, so it is advisable to paste it after the includes that we mentioned.[here](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
+We remind you of what was previously mentioned about how Klipper processes the configurations sequentially, so it is advisable to paste it after the includes that we mentioned.[here](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
 We will have something like this (it is just a visual example):
 
@@ -762,7 +762,7 @@ When used as a module, 3Dwork configurations CANNOT be edited directly from the 
 That is why it is very important to understand how Klipper works and how to customize our modules to your machine.
 {% endhint %}
 
-As we explained in "[customizing macros](3dwork-klipper-bundle.md#personalizando-macros)"We will use the same process to adjust parameters or pins to fit our needs.
+As we explained them in "[customizing macros](3dwork-klipper-bundle.md#personalizando-macros)"We will use the same process to adjust parameters or pins to fit our needs.
 
 #### Customizing parameters
 

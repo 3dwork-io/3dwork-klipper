@@ -18,7 +18,7 @@ Changelog
 
 12/07/2023 - Added support to automate the creation of Bigtreetech electronic firmware
 
-From**3Dwork**We have collected and adjusted a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
+From**3Dwork**We have compiled and fine-tuned a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
 
 Much of this package is based on[**Rats**](https://os.ratrig.com/)improving the parts that we think are interesting, as well as other contributions from the community.
 
@@ -130,7 +130,7 @@ Some added macros that will be useful to us:
 | Macro                                                            | Description                                                                                                                                                     |
 | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **MAYBE_HOME**                                                   | It allows us to optimize the homing process only by performing it on those axes that are not homing.                                                            |
-| **PAUSE**                                                        | Using the related variables, it allows us to manage a pause with a more versatile head parking than normal macros.                                              |
+| **PAUSE**                                                        | Through the related variables it allows us to manage a pause with a more versatile head parking than normal macros.                                             |
 | **SET_PAUSE_AT_LAYER**                                           |                                                                                                                                                                 |
 | **SET_PAUSE_AT_NEXT_LAYER**                                      | A very useful macro that Mainsail integrates into its UI to be able to pause on demand in a specific layer... in case we forgot when laminating.                |
 | We also have another one to execute the pause on the next layer. |                                                                                                                                                                 |
@@ -149,12 +149,12 @@ Some added macros that will be useful to us:
 | **START_PRINT**                                                            | It will allow us to start our prints in a safe and Klipper-style way. Within this we will find some interesting functions such as: |
 | -intelligent nozzle preheating in the case of having a probe sensor        |                                                                                                                                    |
 | -possibility of using z-tilt through variable                              |                                                                                                                                    |
-| -Adaptive bed mattress, forced or from a stored bag                        |                                                                                                                                    |
+| -adaptive bed meshing, forced or from a saved mesh                         |                                                                                                                                    |
 | -Customizable purge line between normal, adaptive purge line or purge drop |                                                                                                                                    |
 | -segmented macro to be able to be personalized as we will show you later   |                                                                                                                                    |
 | **END_PRINT**                                                              | End of print macro where we also have segmentation to be able to customize our macro. We also have dynamic head parking.           |
 
--   **Adaptive bed mesh**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations in our bed that allows us to correct these to have perfect adhesion of the first layers.   
+-   **Adaptive bed frame**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations from our bed that allows us to correct these to have perfect adhesion of the first layers.   
     On many occasions we do this meshing before printing to ensure that it works correctly and this is done on the entire surface of our bed.  
     With adaptive bed meshing, this will be done in the printing area, making it much more precise than the traditional method... in the following screenshots we will see the differences between a traditional mesh and an adaptive one.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -179,7 +179,7 @@ Set of macros that will allow us to manage different actions with our filament, 
 
 !\[](../../.gitbook/assets/image (1990).png)
 
-We are not going to go into the installation and configuration of this since it is relatively simple using the[**instructions from your Github**](https://github.com/Donkie/Spoolman)**,**in any case**we advise you to use Docker**for simplicity and remember**activate settings in Moonraker**required:
+We are not going to go into the installation and configuration of this since it is relatively simple using the[**instructions from your Github**](https://github.com/Donkie/Spoolman)**,**in any case**We advise you to use Docker**for simplicity and remember**activate settings in Moonraker**required:
 
 {% code title="moonraker.conf" %}
 
@@ -322,13 +322,13 @@ These scripts are prepared to work on a Raspbian system with pi user, if this is
 
 The firmwares are generated for use with a USB connection, which is always what we recommend. Furthermore, the USB mounting point is always the same, so your MCU connection configuration will not change if they are generated with our macro/script.
 
-**In order for Klipper to execute shell macros, an extension must be installed, thanks to the companion**[**Arksine**](https://github.com/Arksine)**, that allows it.**
+**In order for Klipper to execute shell macros, an extension must be installed, thanks to the companion**[**arcsine**](https://github.com/Arksine)**, that allows it.**
 
 **Depending on the Klipper distro used, they may already be enabled.**
 
 ![](../../.gitbook/assets/image%20(770).png)
 
-The easiest way is to use[**Wow**](../instalacion/#instalando-kiauh)where we will find in one of its options the possibility of installing this extension:
+The easiest way is to use[**keoh**](../instalacion/#instalando-kiauh)where we will find in one of its options the possibility of installing this extension:
 
 ![](../../.gitbook/assets/telegram-cloud-photo-size-4-5837048490604215201-x_partial.jpg)
 
@@ -338,10 +338,10 @@ We can also carry out the process by hand, we will manually copy the plugin for 
 | ------------------ | ------------------------------ |
 | Blanket E3 NO      | With pride                     |
 | Manta M4P          | btt-manta-m4p                  |
-| Manta M4P v2.2     | btt-manta-m4p-22               |
+| Manta M4P v2.a     | btt-manta-m4p-22               |
 | Manta M8P          | btt-manta-m8p                  |
 | Manta M8P v1.1     | btt-manta-m8p-11               |
-| Octopus Max EZ     | btt-octopus-max-it             |
+| Octopus Max IS     | btt-octopus-max-ez             |
 | Octopus Pro (446)  | btt-octopus-pro-446            |
 | Octopus Pro (429)  | btt-octopus-pro-429            |
 | Octopus Pro (H723) | btt-octopus-pro-h723           |
@@ -349,12 +349,12 @@ We can also carry out the process by hand, we will manually copy the plugin for 
 | Octopus v1.1 (407) | btt-octopus-11-407             |
 | SKR Pro v1.2       | skr_pro_12                     |
 | SKR 3              | btt_skr_3                      |
-| SKR 3 (H723)       | btt-skr-3-h723                 |
-| SKR 3 EZ           | this is btt-skr-3              |
-| Saqr A Idha (Haha) | btt-skr-3-ez-h723              |
+| Saqr A (Haha)      | You get him drunk              |
+| SKR 3 EZ           | btt-skr-3-ez                   |
+| SKR 3 EZ (H723)    | She gets very drunk            |
 | SKR 2 (429)        | btt-skr-2-429                  |
 | SKR 2 (407)        | btt-skr-2-407                  |
-| SKR RAT            | btt-laughter-10                |
+| SKR RAT            | btt-skrat-10                   |
 | SKR 1.4 Turbo      | btt-skr-14-turbo               |
 | SKR Mini Ez vz     | btt_skr_mini_ez_30             |
 
@@ -370,7 +370,7 @@ We can also carry out the process by hand, we will manually copy the plugin for 
 | **Electronics**      | **Parameter name to use in macro** |
 | -------------------- | ---------------------------------- |
 | MKS Eagle v1.x       | mks-eagle-10                       |
-| MKS Robin Nano v3    | mks-robin-nano-30                  |
+| ISS Robin Nano vz    | mks-robin-nano-30                  |
 | MKS Robin Nano v2    | mks-robin-nano-20                  |
 | MKS Gen L            | mks-gen-l                          |
 | ZNP Robin Nano DW v2 | zeg_robin_nano_dw_Class            |
@@ -472,7 +472,7 @@ In the following links you can find a list of these for:[**PrusaSlicer**](https:
 The use of these allows our macros to be dynamic.  
 {% endhint %}
 
--   **gcode de final END_PRINT**, in this case by not using placeholders it is common to all laminators
+-   **gcode the final END_PRINT**, in this case by not using placeholders it is common to all laminators
 
 
     END_PRINT
@@ -481,7 +481,7 @@ The use of these allows our macros to be dynamic.
 
 As we have already mentioned, these new macros will allow us to have some very useful functions as we listed above.
 
-To adjust these to our machine we will use the variables that we will find in macros/macros_was_globals.cfg and which we detail below.
+To adjust these to our machine we will use the variables that we will find in macros/macros_our_globals.cfg and which we detail below.
 
 #### Message/notification language
 
@@ -567,10 +567,10 @@ An important phase of our start of printing is a correct purging of our nozzle t
 | -primeline is going to draw the typical purge line                                                                                                   |                                                  |                 |               |
 | -primelineadaptative will generate a purge line that adapts to the area of ​​the printed part using variable_nozzle_priming_objectdistance as margin |                                                  |                 |               |
 | -primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove                         |                                                  |                 |               |
-| primeline /                                                                                                                                          |                                                  |                 |               |
+| prime line /                                                                                                                                         |                                                  |                 |               |
 
 primelineadaptive /   
-prime blob /   
+primeblob /   
 False
 
 | adaptive primeline |  
@@ -596,7 +596,7 @@ backwards | auto |
 
 #### Filament loading/unloading
 
-In this case, this group of variables will facilitate the management of loading and unloading our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
+In this case, this group of variables will make it easier for us to manage the loading and unloading of our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
 
 | Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                        | Possible values | Default value |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |
@@ -659,11 +659,11 @@ That is why it is very important to understand how Klipper works and how to cust
 
 #### **Customizing variables**
 
-Normally, it will be what we will have to adjust, to make adjustments to the variables that we have by default in our module**3Dwork**pair Klipper.
+Normally, it will be what we will have to adjust, to make adjustments to the variables that we have by default in our module**3Dwork**para Cliffs.
 
-Simply, what we have to do is paste the content of the macro\[gcode_macro GLOBAL_VARS]what we can find in macros/macros_was_globals.cfg in our printer.cfg.
+Simply, what we have to do is paste the content of the macro\[gcode_macro GLOBAL_VARS]what we can find in macros/macros_our_globals.cfg in our printer.cfg.
 
-We remind you of what was previously mentioned about how Klipper processes the configurations sequentially, so it is advisable to paste it after the includes that we mentioned.[here](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
+We remind you of what we mentioned previously about how Klipper processes the configurations sequentially, so it is advisable to paste it after the includes that we mentioned.[here](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
 We will have something like this (it is just a visual example):
 
@@ -762,7 +762,7 @@ When used as a module, 3Dwork configurations CANNOT be edited directly from the 
 That is why it is very important to understand how Klipper works and how to customize our modules to your machine.
 {% endhint %}
 
-As we explained them in "[customizing macros](3dwork-klipper-bundle.md#personalizando-macros)"We will use the same process to adjust parameters or pins to fit our needs.
+As we explained in "[customizing macros](3dwork-klipper-bundle.md#personalizando-macros)"We will use the same process to adjust parameters or pins to fit our needs.
 
 #### Customizing parameters
 

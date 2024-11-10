@@ -707,14 +707,14 @@ Wir haben zwei Gruppen von Makros:
 
 **START_DRUCKEN**
 
-| Makroname                                      | Beschreibung                                                                                                                              |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| \_BENUTZER_START_DRUCKEN_HITZE_KAMMER          | Es wird ausgeführt, sobald sich unser Gehäuse zu erwärmen beginnt, wenn KAMMER_TEMP wird als Parameter an unseren START übergeben_DRUCKEN |
-| \_BENUTZER_START_DRUCKEN_VOR_HOMING            | Wird vor der ersten Referenzierung des Druckstarts ausgeführt                                                                             |
-| \_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_BETT     | Es wird ausgeführt, wenn unser Bett vorher seine Temperatur erreicht_START_DRUCKEN_NACH_HEIZUNG_BETT                                      |
-| \_BENUTZER_START_DRUCKEN_BETT_MESH             | Es wird vorher veröffentlicht_START_DRUCKEN_BETT_MESH                                                                                     |
-| \_BENUTZER_START_DRUCKEN_PARK                  | Es wird vorher veröffentlicht_START_DRUCKEN_PARK                                                                                          |
-| \_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_EXTRUDER | Es wird vorher veröffentlicht_START_DRUCKEN_NACH_HEIZUNG_EXTRUDER                                                                         |
+| Makroname                                       | Beschreibung                                                                                                                              |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| \_BENUTZER_START_DRUCKEN_HITZE_KAMMER           | Es wird ausgeführt, sobald sich unser Gehäuse zu erwärmen beginnt, wenn KAMMER_TEMP wird als Parameter an unseren START übergeben_DRUCKEN |
+| \_BENUTZER_START_DRUCKEN_VOR_HOMING             | Wird vor der ersten Referenzierung des Druckstarts ausgeführt                                                                             |
+| \_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_BETT      | Es wird ausgeführt, wenn unser Bett vorher seine Temperatur erreicht_START_DRUCKEN_NACH_HEIZUNG_BETT                                      |
+| \_BENUTZER_START_DRUCKEN_BETT_MESH              | Es wird vorher veröffentlicht_START_DRUCKEN_BETT_MESH                                                                                     |
+| \_BENUTZER_START_DRUCKEN_PARK                   | Es wird vorher veröffentlicht_START_DRUCKEN_PARK                                                                                          |
+| \_BENUTZER_START_DRUCKEN_AFTER_HEIZUNG_EXTRUDER | Es wird vorher veröffentlicht_START_DRUCKEN_NACH_HEIZUNG_EXTRUDER                                                                         |
 
 **ENDE_DRUCKEN**
 

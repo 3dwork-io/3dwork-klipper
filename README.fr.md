@@ -641,7 +641,7 @@ Tirer le meilleur parti de notre machine pour qu'elle s'auto-nivelle et veiller 
 
 #### Fausser
 
-L'utilisation de[FAUSSER](broken-reference)Pour la correction ou l'ajustement précis de nos imprimantes, il est extrêmement conseillé si nous avons des écarts dans nos impressions. En utilisant la variable suivante, nous pouvons autoriser l'utilisation dans nos macros :
+L'utilisation de[FAUSSER](broken-reference) para la corrección o ajuste preciso de nuestras impresoras es extremadamente aconsejable si tenemos desviaciones en nuestras impresiones. Usando la siguiente variable podemos permitir el uso en nuestras macros:
 
 | Variable                | Description                                                                                                                                                                                                                      | Valeurs possibles | Valeur par défaut  |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------ |
@@ -721,7 +721,7 @@ Nous avons deux groupes de macros :
 | Nombre Macro                                          | Description                                                                                   |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | \_UTILISATEUR_FIN_IMPRIMER_AVANT_CHAUFFAGES_DÉSACTIVÉ | Il est exécuté avant d'éteindre les radiateurs, avant_FIN_IMPRIMER_AVANT_CHAUFFAGES_DÉSACTIVÉ |
-| \_UTILISATEUR_FIN_IMPRIMER_APRÈS_CHAUFFAGES_DÉSACTIVÉ | Il est exécuté après l'arrêt des radiateurs, avant_FIN_IMPRIMER_APRÈS_CHAUFFAGES_DÉSACTIVÉ    |
+| \_UTILISATEUR_END_IMPRIMER_APRÈS_CHAUFFAGES_DÉSACTIVÉ | Il est exécuté après l'arrêt des radiateurs, avant_FIN_IMPRIMER_APRÈS_CHAUFFAGES_DÉSACTIVÉ    |
 | \_UTILISATEUR_FIN_IMPRIMER_PARC                       | Il est exécuté avant que la tête ne soit garée, avant_FIN_IMPRIMER_PARC                       |
 
 **IMPRIMER_LES BASES**
@@ -740,7 +740,7 @@ Nous avons deux groupes de macros :
 | Nombre Macro                                    | Description                                                                                                                                                                                                                        |
 | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | \_COMMENCER_IMPRIMER_CHALEUR_CHAMBRE            | Chauffe l'enceinte dans le cas où le paramètre CHAMBRE_TEMP est reçu par notre macro START_IMPRIMER depuis la plastifieuse                                                                                                         |
-| \_COMMENCER_IMPRIMER_APRÈS_CHAUFFAGE_LIT        | Il est exécuté lorsque le lit atteint la température, après_UTILISATEUR_COMMENCER_IMPRIMER_APRÈS_CHAUFFAGE_LIT. Généralement utilisé pour traiter les étalonnages de lit (Z_INCLINAISON_AJUSTEMENT, QUAD_PORTIQUE_NIVELLEMENT,...) |
+| \_COMMENCER_PRINT_APRÈS_CHAUFFAGE_LIT           | Il est exécuté lorsque le lit atteint la température, après_UTILISATEUR_COMMENCER_IMPRIMER_APRÈS_CHAUFFAGE_LIT. Généralement utilisé pour traiter les étalonnages de lit (Z_INCLINAISON_AJUSTEMENT, QUAD_PORTIQUE_NIVELLEMENT,...) |
 | \_COMMENCER_IMPRIMER_LIT_ENGRENER               | Il gère la logique de maillage du lit.                                                                                                                                                                                             |
 | \_COMMENCER_IMPRIMER_PARC                       | Garez la tête d'impression tout en chauffant la buse à la température d'impression.                                                                                                                                                |
 | \_COMMENCER_IMPRIMER_APRÈS_CHAUFFAGE_EXTRUDEUSE | Purger la buse et charger le profil SKEW si celui-ci est défini dans les variables                                                                                                                                                 |

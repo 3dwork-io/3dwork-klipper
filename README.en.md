@@ -239,7 +239,7 @@ On the other hand we have some**requirements to implement it (we will try to add
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-On the other hand, it is interesting to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
+On the other hand, it is interesting to be able to have macros to activate one surface or another or even pass it as a parameter from our laminator so that with different printer or filament profiles we can load one or the other automatically:
 
 {% hint style="warning" %}  
 It is important that the value in NAME="xxxx" matches the name we gave when installing our printing surface  
@@ -514,7 +514,7 @@ To manage the speeds used in macros.
 
 #### Homing
 
-Set of variables related to the homing process.
+Conjunto de variables relacionadas con el proceso de homing.
 
 | Variable | Description | Possible values | Default value |
 | -------- | ----------- | --------------- | ------------- |
@@ -567,7 +567,7 @@ An important phase of our start of printing is a correct purging of our nozzle t
 | -primeline is going to draw the typical purge line                                                                                                   |                                                  |                 |               |
 | -primelineadaptative will generate a purge line that adapts to the area of ​​the printed part using variable_nozzle_priming_objectdistance as margin |                                                  |                 |               |
 | -primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove                         |                                                  |                 |               |
-| prime line /                                                                                                                                         |                                                  |                 |               |
+| primeline /                                                                                                                                          |                                                  |                 |               |
 
 primelineadaptive /   
 primeblob /   

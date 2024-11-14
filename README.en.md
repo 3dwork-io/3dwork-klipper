@@ -42,7 +42,7 @@ In new installations:
 
 Since Klipper does not allow access to macros until it has a correct printer.cfg and connects to an MCU, we can "trick" Klipper with the following steps that will allow us to use the macros in our bundle to, for example, launch the Klipper firmware compilation macro if we use compatible electronics:
 
--   We make sure we have our[host as second MCU](raspberry-como-segunda-mcu.md)
+-   We make sure we have our[host como segunda MCU](raspberry-como-segunda-mcu.md)
 -   Next we will add a printer.cfg, remember that these steps are for a clean installation where you do not have any printer.cfg and you want to launch the macro to create firmware, like the one you can see below:
 
 
@@ -514,7 +514,7 @@ To manage the speeds used in macros.
 
 #### Homing
 
-Conjunto de variables relacionadas con el proceso de homing.
+Set of variables related to the homing process.
 
 | Variable | Description | Possible values | Default value |
 | -------- | ----------- | --------------- | ------------- |
@@ -567,7 +567,7 @@ An important phase of our start of printing is a correct purging of our nozzle t
 | -primeline is going to draw the typical purge line                                                                                                   |                                                  |                 |               |
 | -primelineadaptative will generate a purge line that adapts to the area of ​​the printed part using variable_nozzle_priming_objectdistance as margin |                                                  |                 |               |
 | -primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove                         |                                                  |                 |               |
-| primeline /                                                                                                                                          |                                                  |                 |               |
+| prime line /                                                                                                                                         |                                                  |                 |               |
 
 primelineadaptive /   
 primeblob /   
@@ -596,7 +596,7 @@ backwards | auto |
 
 #### Filament loading/unloading
 
-In this case, this group of variables will make it easier for us to manage the loading and unloading of our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
+In this case, this group of variables will facilitate the management of loading and unloading our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
 
 | Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                        | Possible values | Default value |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |

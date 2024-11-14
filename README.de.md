@@ -40,7 +40,7 @@ Wenn Ihr Klipper-Konfigurationsverzeichnis angepasst ist, denken Sie daran, den 
 {% hint style="info" %}  
 Bei Neuinstallationen:
 
-Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, sodass wir die Makros in unserem Bundle verwenden können, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
+Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, die es uns ermöglichen, die Makros in unserem Bundle zu verwenden, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
 
 -   Wir stellen sicher, dass wir unsere haben[Host als zweite MCU](raspberry-como-segunda-mcu.md)
 -   Als nächstes fügen wir eine Printer.cfg hinzu. Denken Sie daran, dass diese Schritte für eine Neuinstallation gelten, bei der Sie keine Printer.cfg haben und das Makro zum Erstellen von Firmware starten möchten, wie das, das Sie unten sehen können:
@@ -154,7 +154,7 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 | -segmentiertes Makro, um es personalisieren zu können, wie wir Ihnen später zeigen werden |                                                                                                                                                  |
 | **ENDE_DRUCKEN**                                                                          | End-of-Print-Makro, bei dem wir auch eine Segmentierung haben, um unser Makro anpassen zu können. Wir verfügen auch über dynamisches Kopfparken. |
 
--   **Adaptiver Bettrahmen**, gracias a la versatilidad de Klipper podemos hacer cosas que a día de hoy parecen imposibles... un proceso importante para la impresion es tener un mallado de desviaciones de nuestra cama que nos permita corregir estas para tener una adherencia de primeras capas perfecta.   
+-   **Adaptiver Bettrahmen**Dank der Vielseitigkeit von Klipper können wir Dinge tun, die heute unmöglich erscheinen ... Ein wichtiger Prozess beim Drucken besteht darin, ein Netz von Abweichungen in unserem Bett zu haben, das es uns ermöglicht, diese zu korrigieren, um eine perfekte Haftung der ersten Schichten zu erreichen.   
     In vielen Fällen führen wir diese Vernetzung vor dem Drucken durch, um sicherzustellen, dass sie ordnungsgemäß funktioniert, und zwar auf der gesamten Oberfläche unseres Bettes.  
     Bei der adaptiven Bettvernetzung erfolgt dies im Druckbereich und ist damit viel präziser als die herkömmliche Methode. In den folgenden Screenshots sehen wir die Unterschiede zwischen einem herkömmlichen und einem adaptiven Netz.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -197,7 +197,7 @@ Wir werden nicht auf die Installation und Konfiguration eingehen, da die Verwend
 | SATZ_AKTIV_SPULE | Damit können wir die ID der zu verwendenden Spule angeben |
 | KLAR_AKTIV_SPULE | Dadurch können wir die aktive Spule zurücksetzen          |
 
-Ideal wäre in jedem Fall die Ergänzung unseres Laminators,**in den Filament-Gcodes für jede Spule der Aufruf dazu**, und denken Sie daran**Ändern Sie seine ID, sobald es verbraucht ist**um den Überblick darüber behalten zu können, was an Filament darin übrig bleibt!!!
+Ideal wäre in jedem Fall die Ergänzung unseres Laminators,**in den Filament-Gcodes für jede Spule der Aufruf dazu**, und denken Sie daran**Ändern Sie seine ID, sobald es verbraucht ist**um den Überblick über die Filamentreste darin behalten zu können!!!
 
 !\[](../../.gitbook/assets/image (1991).png)
 
@@ -209,7 +209,7 @@ Ideal wäre in jedem Fall die Ergänzung unseres Laminators,**in den Filament-Gc
 
 Normalerweise ist es normal, dass wir je nach gewünschter Oberfläche oder Filamentart unterschiedliche Druckoberflächen haben.
 
-Dieser Satz von Makros, erstellt von[Garethky](https://github.com/garethky), sie ermöglichen uns die Kontrolle über diese und insbesondere die korrekte Einstellung des ZOffset in jedem von ihnen im Stil, den wir bei Prusa-Maschinen haben. Unten sehen Sie einige seiner Funktionen:
+Dieser Satz von Makros, erstellt von[Garethky](https://github.com/garethky)Sie ermöglichen uns die Kontrolle über diese und insbesondere über die korrekte Einstellung von ZOffset in jedem von ihnen in der Art, wie wir es bei Prusa-Maschinen haben. Unten sehen Sie einige seiner Funktionen:
 
 -   Wir können die gewünschte Anzahl von Druckoberflächen speichern, wobei jede einen eindeutigen Namen hat
 -   Jede Druckoberfläche verfügt über einen eigenen ZOffset
@@ -310,7 +310,7 @@ Auch wenn wir über KlipperScreen verfügen, können wir ein spezielles Menü hi
 | **PRÜFEN_GESCHWINDIGKEIT**                                    |                                                                                                                                                                                                                                               |
 | **PRÜFEN_GESCHWINDIGKEIT_DELTA**                              | Das Originalmakro des Companion[Ellis](https://github.com/AndrewEllis93)Sie werden es uns auf relativ einfache Weise ermöglichen, die Geschwindigkeit zu testen, mit der wir unsere Maschine präzise und ohne Schrittverluste bewegen können. |
 
--   **Kompilierte Firmware für unterstützte Elektronik**, um den Prozess der Erstellung und Wartung unserer Klipper-Firmware für unsere MCUs zu erleichtern, haben wir das COMPILE-Makro_Die FIRMWARE, bei deren Ausführung wir unsere Elektronik als Parameter verwenden können, um nur dies zu tun, kompiliert Klipper für die gesamte von unserem Bundle unterstützte Elektronik:  
+-   **Kompilierte Firmware für unterstützte Elektronik**Um den Prozess der Erstellung und Wartung unserer Klipper-Firmware für unsere MCUs zu erleichtern, haben wir das Makro COMPILE_Die FIRMWARE, bei deren Ausführung wir unsere Elektronik als Parameter verwenden können, um nur dies zu tun, kompiliert Klipper für die gesamte von unserem Bundle unterstützte Elektronik:  
     ![](../../.gitbook/assets/image%20(1540).png)  
     Wir finden diese leicht zugänglich über unsere Web-Benutzeroberfläche im Firmware-Verzeichnis_Binärdateien in unserem MASCHINEN-Tab (wenn wir Großsegel verwenden):  
     ![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)  
@@ -398,7 +398,7 @@ Wir können den Vorgang auch manuell durchführen, wir kopieren das Plugin manue
 {%endcode%}
 
 {% hint style="info" %}  
-Es ist wichtig, dass wir diese Zeilen am Ende unserer Konfigurationsdatei hinzufügen ... direkt über dem Abschnitt, damit Makros in unserer CFG oder unseren Includes von unseren überschrieben werden:  
+Es ist wichtig, dass wir diese Zeilen am Ende unserer Konfigurationsdatei hinzufügen ... direkt über dem Abschnitt, damit Makros in unserer CFG oder in unseren Includes von unseren überschrieben werden:  
 #\*# \\&lt;-------- SPEICHERN_KONFIG -------->  
 {% endhint %}
 
@@ -446,7 +446,7 @@ Da unsere Makros dynamisch sind, extrahieren sie bestimmte Informationen aus uns
     START_PRINT EXTRUDER_TEMP={material_print_temperature_layer_0} BED_TEMP={material_bed_temperature_layer_0} PRINT_MIN=%MINX%,%MINY% PRINT_MAX=%MAXX%,%MAXY%
 
 {% hint style="warning" %}  
-Wir müssen das Plugin installieren[**Post Process Plugin (von frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)aus dem Menü_**Hilfe/Anzeigen**_Konfigurationsordner... wir kopieren das Skript vom vorherigen Link in den Skriptordner.   
+Wir müssen das Plugin installieren[**Post Process Plugin (von frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)aus dem Menü_**Hilfe/Anzeigen**_Konfigurationsordner... Wir kopieren das Skript vom vorherigen Link in den Skriptordner.   
 Wir starten Cura neu und gehen zu_**Erweiterungen/Nachbearbeitung/G-Code ändern**_und wir werden auswählen_**Mesh-Druckgröße**_.  
 {% endhint %}  
 {% Endverlust %}
@@ -485,7 +485,7 @@ Um diese an unsere Maschine anzupassen, verwenden wir die Variablen, die wir in 
 
 #### Nachrichten-/Benachrichtigungssprache
 
-Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variable können wir es anpassen:
+Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variablen können wir es anpassen:
 
 | Variable         | Beschreibung                                                                                                                           | Mögliche Werte | Standardwert |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
@@ -514,7 +514,7 @@ Zum Verwalten der in Makros verwendeten Geschwindigkeiten.
 
 #### Heimkehr
 
-Satz von Variablen im Zusammenhang mit dem Referenzierungsprozess.
+Satz von Variablen, die sich auf den Referenzierungsprozess beziehen.
 
 | Variable | Beschreibung | Mögliche Werte | Standardwert |
 | -------- | ------------ | -------------- | ------------ |
@@ -532,7 +532,7 @@ Variablen im Zusammenhang mit dem Heizprozess unserer Maschine.
 {% hint style="success" %}  
 Vorteile der Verwendung einer vorgeheizten Düse:
 
--   Es gibt uns zusätzliche Zeit, damit das Bett seine Temperatur gleichmäßig erreichen kann.
+-   Es verschafft uns zusätzliche Zeit, damit das Bett seine Temperatur gleichmäßig erreichen kann.
 -   Wenn wir einen induktiven Sensor ohne Temperaturkompensation verwenden, können unsere Messungen konsistenter und präziser sein.
 -   Ermöglicht das Aufweichen des restlichen Filaments in der Düse, was bedeutet, dass diese Reste in bestimmten Konfigurationen keinen Einfluss auf die Aktivierung des Sensors haben.  
     {% endhint %}
@@ -567,7 +567,7 @@ Eine wichtige Phase unseres Druckstarts ist das korrekte Spülen unserer Düse, 
 | -primeline zeichnet die typische Löschlinie                                                                                                                            |                                                        |                |              |
 | -primelineadaptative generiert mithilfe einer Variablen eine Spüllinie, die sich an die Fläche des gedruckten Teils anpasst_Düse_Grundierung_Objektentfernung als Rand |                                                        |                |              |
 | -Mit primeblob werfen wir einen Tropfen Filament in eine Ecke unseres Bettes, der sich sehr effektiv zum Reinigen der Düse eignet und leicht zu entfernen ist          |                                                        |                |              |
-| Primeline /                                                                                                                                                            |                                                        |                |              |
+| Hauptlinie /                                                                                                                                                           |                                                        |                |              |
 
 primelineadaptiv /   
 Primeblob /   
@@ -578,7 +578,7 @@ FALSCH
 | Variable_Düse_Primzahl_Start_x | Wo wir unsere Spülleitung platzieren möchten:  
 -min wird es bei X=0 tun (plus einer kleinen Sicherheitsmarge)  
 -max wird dies bei X=max tun (abzüglich einer kleinen Sicherheitsmarge)  
--Die Zahl ist die X-Koordinate, an der die Spülung | lokalisiert werden soll Min. /   
+-Die Zahl ist die X-Koordinate, an der sich die Spülung | befindet Min. /   
 max. /   
 Zahl | max |  
 | Variable_Düse_Primzahl_Start_und | Wo wir unsere Spülleitung platzieren möchten:  
@@ -596,7 +596,7 @@ rückwärts | auto |
 
 #### Laden/Entladen des Filaments
 
-In diesem Fall erleichtert uns diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
+In diesem Fall erleichtert diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
 
 | Variable                                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Mögliche Werte | Standardwert |
 | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
@@ -806,7 +806,7 @@ Wir können denselben Prozess mit jedem Parameter verwenden, den wir anpassen m�
 
 #### Anpassen der Pin-Konfiguration
 
-Wir werden genau wie zuvor vorgehen und in unserem Bereich USER OVERRIDES die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
+Wir werden genauso vorgehen wie zuvor, in unserem Bereich USER OVERRIDES werden wir die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
 
 Im folgenden Beispiel werden wir den Pin unseres elektronischen Lüfters (Controllers) anpassen_Ventilator), um ihn einem anderen als dem Standard-Lüfter zuzuweisen:
 

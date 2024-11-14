@@ -40,7 +40,7 @@ Wenn Ihr Klipper-Konfigurationsverzeichnis angepasst ist, denken Sie daran, den 
 {% hint style="info" %}  
 Bei Neuinstallationen:
 
-Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, sodass wir die Makros in unserem Bundle verwenden können, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
+Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, die es uns ermöglichen, die Makros in unserem Bundle zu verwenden, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
 
 -   Wir stellen sicher, dass wir unsere haben[Host als zweite MCU](raspberry-como-segunda-mcu.md)
 -   Als nächstes fügen wir eine Printer.cfg hinzu. Denken Sie daran, dass diese Schritte für eine Neuinstallation gelten, bei der Sie keine Printer.cfg haben und das Makro zum Erstellen von Firmware starten möchten, wie das, das Sie unten sehen können:
@@ -130,7 +130,7 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 | Makro                                                                         | Beschreibung                                                                                                                                                                                               |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **VIELLEICHT_HEIM**                                                           | Dadurch können wir den Referenzierungsprozess nur optimieren, indem wir ihn auf den Achsen durchführen, die nicht referenziert werden.                                                                     |
-| **PAUSE**                                                                     | Durch die Verwendung der zugehörigen Variablen können wir eine Pause mit einem vielseitigeren Head-Parking verwalten als mit normalen Makros.                                                              |
+| **PAUSE**                                                                     | Durch die zugehörigen Variablen können wir eine Pause mit einem vielseitigeren Kopfparkmodus verwalten als mit normalen Makros.                                                                            |
 | **SATZ_PAUSE_BEI_SCHICHT**                                                    |                                                                                                                                                                                                            |
 | **SATZ_PAUSE_BEI_NÄCHSTE_SCHICHT**                                            | Ein sehr nützliches Makro, das Mainsail in seine Benutzeroberfläche integriert, um bei Bedarf in einer bestimmten Ebene pausieren zu können ... für den Fall, dass wir es beim Laminieren vergessen haben. |
 | Wir haben auch eine weitere, um die Pause auf der nächsten Ebene auszuführen. |                                                                                                                                                                                                            |
@@ -150,11 +150,11 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 | -Intelligente Düsenvorwärmung bei Verwendung eines Sondensensors                          |                                                                                                                                                  |
 | -Möglichkeit der Verwendung der Z-Neigung durch Variable                                  |                                                                                                                                                  |
 | -Adaptive Bettmatratze, gezwungen oder aus einer Aufbewahrungstasche                      |                                                                                                                                                  |
-| -anpassbare Spülleitung zwischen normaler, adaptiver Spülleitung oder Spülabfall          |                                                                                                                                                  |
+| -Anpassbare Spülleitung zwischen normaler, adaptiver Spülleitung oder Spülabfall          |                                                                                                                                                  |
 | -segmentiertes Makro, um es personalisieren zu können, wie wir Ihnen später zeigen werden |                                                                                                                                                  |
 | **ENDE_DRUCKEN**                                                                          | End-of-Print-Makro, bei dem wir auch eine Segmentierung haben, um unser Makro anpassen zu können. Wir verfügen auch über dynamisches Kopfparken. |
 
--   **Adaptiver Bettrahmen**Dank der Vielseitigkeit von Klipper können wir Dinge tun, die heute unmöglich erscheinen ... Ein wichtiger Prozess beim Drucken besteht darin, ein Netz von Abweichungen von unserem Bett zu erstellen, das es uns ermöglicht, diese zu korrigieren, um eine perfekte Haftung der ersten Schichten zu erreichen.   
+-   **Adaptiver Bettrahmen**Dank der Vielseitigkeit von Klipper können wir Dinge tun, die heute unmöglich erscheinen ... Ein wichtiger Prozess beim Drucken besteht darin, ein Netz von Abweichungen in unserem Bett zu haben, das es uns ermöglicht, diese zu korrigieren, um eine perfekte Haftung der ersten Schichten zu erreichen.   
     In vielen Fällen führen wir diese Vernetzung vor dem Drucken durch, um sicherzustellen, dass sie ordnungsgemäß funktioniert, und zwar auf der gesamten Oberfläche unseres Bettes.  
     Bei der adaptiven Bettvernetzung erfolgt dies im Druckbereich und ist damit viel präziser als die herkömmliche Methode. In den folgenden Screenshots sehen wir die Unterschiede zwischen einem herkömmlichen und einem adaptiven Netz.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -197,7 +197,7 @@ Wir werden nicht auf die Installation und Konfiguration eingehen, da die Verwend
 | SATZ_AKTIV_SPULE | Damit können wir die ID der zu verwendenden Spule angeben |
 | KLAR_AKTIV_SPULE | Dadurch können wir die aktive Spule zurücksetzen          |
 
-Ideal wäre in jedem Fall die Ergänzung unseres Laminators,**in den Filament-Gcodes für jede Spule der Aufruf dazu**, und denken Sie daran**Ändern Sie seine ID, sobald es verbraucht ist**um den Überblick darüber behalten zu können, was an Filament darin übrig bleibt!!!
+Ideal wäre in jedem Fall die Ergänzung unseres Laminators,**in den Filament-Gcodes für jede Spule der Aufruf dazu**, und denken Sie daran**Ändern Sie seine ID, sobald es verbraucht ist**um den Überblick über die Filamentreste darin behalten zu können!!!
 
 !\[](../../.gitbook/assets/image (1991).png)
 
@@ -209,7 +209,7 @@ Ideal wäre in jedem Fall die Ergänzung unseres Laminators,**in den Filament-Gc
 
 Normalerweise ist es normal, dass wir je nach gewünschter Oberfläche oder Filamentart unterschiedliche Druckoberflächen haben.
 
-Dieser Satz von Makros, erstellt von[Garethky](https://github.com/garethky), sie ermöglichen uns die Kontrolle über diese und insbesondere die korrekte Einstellung des ZOffset in jedem von ihnen im Stil, den wir bei Prusa-Maschinen haben. Unten sehen Sie einige seiner Funktionen:
+Dieser Satz von Makros, erstellt von[Garethky](https://github.com/garethky)Sie ermöglichen uns die Kontrolle über diese und insbesondere über die korrekte Einstellung von ZOffset in jedem von ihnen in der Art, wie wir es bei Prusa-Maschinen haben. Unten sehen Sie einige seiner Funktionen:
 
 -   Wir können die gewünschte Anzahl von Druckoberflächen speichern, wobei jede einen eindeutigen Namen hat
 -   Jede Druckoberfläche verfügt über einen eigenen ZOffset
@@ -345,7 +345,7 @@ Wir können den Vorgang auch manuell durchführen, wir kopieren das Plugin manue
 | Octopus Pro (446)      | btt-octopus-pro-446                               |
 | Octopus Pro (429)      | btt-octopus-pro-429                               |
 | Octopus Pro (H723)     | btt-octopus-pro-h723                              |
-| Octopus v1.1           | btt-octopus-11                                    |
+| Octopus v1.1           | BTT-Oktopus-11                                    |
 | Octopus v1.1 (407)     | btt-octopus-11-407                                |
 | SKR Pro v1.2           | skr_Profi_12                                      |
 | SKR 3                  | Übrigens_skr_3                                    |
@@ -398,7 +398,7 @@ Wir können den Vorgang auch manuell durchführen, wir kopieren das Plugin manue
 {%endcode%}
 
 {% hint style="info" %}  
-Es ist wichtig, dass wir diese Zeilen am Ende unserer Konfigurationsdatei hinzufügen ... direkt über dem Abschnitt, damit Makros in unserer CFG oder in Includes von unseren überschrieben werden:  
+Es ist wichtig, dass wir diese Zeilen am Ende unserer Konfigurationsdatei hinzufügen ... direkt über dem Abschnitt, damit Makros in unserer CFG oder in unseren Includes von unseren überschrieben werden:  
 #\*# \\&lt;-------- SPEICHERN_KONFIG -------->  
 {% endhint %}
 
@@ -446,7 +446,7 @@ Da unsere Makros dynamisch sind, extrahieren sie bestimmte Informationen aus uns
     START_PRINT EXTRUDER_TEMP={material_print_temperature_layer_0} BED_TEMP={material_bed_temperature_layer_0} PRINT_MIN=%MINX%,%MINY% PRINT_MAX=%MAXX%,%MAXY%
 
 {% hint style="warning" %}  
-Wir müssen das Plugin installieren[**Post Process Plugin (von frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)aus dem Menü_**Hilfe/Anzeigen**_Konfigurationsordner... wir kopieren das Skript vom vorherigen Link in den Skriptordner.   
+Wir müssen das Plugin installieren[**Post Process Plugin (von frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)aus dem Menü_**Hilfe/Anzeigen**_Konfigurationsordner... Wir kopieren das Skript vom vorherigen Link in den Skriptordner.   
 Wir starten Cura neu und gehen zu_**Erweiterungen/Nachbearbeitung/G-Code ändern**_und wir werden auswählen_**Mesh-Druckgröße**_.  
 {% endhint %}  
 {% Endverlust %}
@@ -485,7 +485,7 @@ Um diese an unsere Maschine anzupassen, verwenden wir die Variablen, die wir in 
 
 #### Nachrichten-/Benachrichtigungssprache
 
-Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variable können wir es anpassen:
+Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variablen können wir es anpassen:
 
 | Variable         | Beschreibung                                                                                                                           | Mögliche Werte | Standardwert |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
@@ -532,24 +532,24 @@ Variablen im Zusammenhang mit dem Heizprozess unserer Maschine.
 {% hint style="success" %}  
 Vorteile der Verwendung einer vorgeheizten Düse:
 
--   Es gibt uns zusätzliche Zeit, damit das Bett seine Temperatur gleichmäßig erreichen kann.
+-   Es verschafft uns zusätzliche Zeit, damit das Bett seine Temperatur gleichmäßig erreichen kann.
 -   Wenn wir einen induktiven Sensor ohne Temperaturkompensation verwenden, können unsere Messungen konsistenter und präziser sein.
--   Ermöglicht das Erweichen eventueller Filamentreste in der Düse, was bedeutet, dass diese Reste in bestimmten Konfigurationen keinen Einfluss auf die Aktivierung des Sensors haben  
+-   Ermöglicht das Aufweichen des restlichen Filaments in der Düse, was bedeutet, dass diese Reste in bestimmten Konfigurationen keinen Einfluss auf die Aktivierung des Sensors haben.  
     {% endhint %}
 
 #### Bettgitter
 
 Um den Nivellierungsprozess zu steuern, verfügen wir über Variablen, die sehr nützlich sein können. Beispielsweise können wir die Art der Nivellierung steuern, die wir verwenden möchten, indem wir immer ein neues Netz erstellen, ein zuvor gespeichertes laden oder adaptive Vernetzung verwenden.
 
-| Variable                                                                                                                        | Beschreibung                                                                                   | Mögliche Werte | Standardwert |
-| ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| Variable_kalibrieren_Bett_Netz                                                                                                  | Damit können wir auswählen, welche Art von Netz wir in unserem START verwenden werden_DRUCKEN: |                |              |
-| -Neues Netz, es wird jeden Druck vernetzen                                                                                      |                                                                                                |                |              |
-| -Storedmesh lädt ein gespeichertes Mesh und führt keine Bettabfrage durch                                                       |                                                                                                |                |              |
-| -Adaptiv macht uns zu einem neuen Netz, das jedoch an den Druckbereich angepasst ist und oft unsere ersten Schichten verbessert |                                                                                                |                |              |
-| -Nomesh, falls wir keinen Sensor haben oder Mesh verwenden, um den Vorgang zu überspringen                                      | neues Netz / gespeichertes Netz / adaptiv /                                                    |                |              |
-| Namen                                                                                                                           | adaptiv                                                                                        |                |              |
-| Variable_Bett_Netz_Profil                                                                                                       | Der Name, der für unser gespeichertes Mesh verwendet wird                                      | Text           | Standard     |
+| Variable                                                                                                                        | Beschreibung                                                                                    | Mögliche Werte | Standardwert |
+| ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| Variable_kalibrieren_Bett_Netz                                                                                                  | Damit können wir auswählen, welche Art von Netz wir in unserem START verwenden möchten_DRUCKEN: |                |              |
+| -Neues Netz, es wird jeden Druck vernetzen                                                                                      |                                                                                                 |                |              |
+| -Storedmesh lädt ein gespeichertes Mesh und führt keine Bettabfrage durch                                                       |                                                                                                 |                |              |
+| -Adaptiv macht uns zu einem neuen Netz, das jedoch an den Druckbereich angepasst ist und oft unsere ersten Schichten verbessert |                                                                                                 |                |              |
+| -Nomesh, falls wir keinen Sensor haben oder Mesh verwenden, um den Vorgang zu überspringen                                      | neues Netz / gespeichertes Netz / adaptiv /                                                     |                |              |
+| Namen                                                                                                                           | adaptiv                                                                                         |                |              |
+| Variable_Bett_Netz_Profil                                                                                                       | Der Name, der für unser gespeichertes Mesh verwendet wird                                       | Text           | Standard     |
 
 {% hint style="warning" %}  
 Wir empfehlen Ihnen, die adaptive Nivellierung zu verwenden, da dadurch das Netz immer an die Größe unseres Drucks angepasst wird, sodass Sie über einen angepassten Netzbereich verfügen.
@@ -578,8 +578,8 @@ FALSCH
 | Variable_Düse_Primzahl_Start_x | Wo wir unsere Spülleitung platzieren möchten:  
 -min wird es bei X=0 tun (plus einer kleinen Sicherheitsmarge)  
 -max wird dies bei X=max tun (abzüglich einer kleinen Sicherheitsmarge)  
--Die Zahl ist die X-Koordinate, an der die Spülung | lokalisiert werden soll Min. /   
-max /   
+-Die Zahl ist die X-Koordinate, an der sich die Spülung | befindet Min. /   
+max. /   
 Zahl | max |  
 | Variable_Düse_Primzahl_Start_und | Wo wir unsere Spülleitung platzieren möchten:  
 -min wird dies bei Y=0 tun (plus einer kleinen Sicherheitsmarge)  
@@ -623,7 +623,7 @@ Bei bestimmten Vorgängen unseres Druckers, wie z. B. Pausen, empfiehlt es sich,
 | Variable_Ende_drucken_Park_In        | Position, an der der Kopf geparkt werden soll, wenn ein Druckvorgang beendet oder abgebrochen wird.                                                                                                                                                                                                              | zurück /       |              |
 | Mitte /                              |                                                                                                                                                                                                                                                                                                                  |                |              |
 | Front                                | zurück                                                                                                                                                                                                                                                                                                           |                |              |
-| Variable_Ende_drucken_Park_Mit_Hop   | Steigungsabstand in Z am Ende des Druckvorgangs.                                                                                                                                                                                                                                                                 | Nummer         | 20           |
+| Variable_Ende_drucken_Park_Mit_Hop   | Anhebungsstrecke in Z am Ende des Druckvorgangs.                                                                                                                                                                                                                                                                 | Nummer         | 20           |
 | Variable_pause_drucken_Park_In       | Position, an der der Kopf beim Anhalten des Druckvorgangs geparkt werden soll.                                                                                                                                                                                                                                   | zurück /       |              |
 | Mitte /                              |                                                                                                                                                                                                                                                                                                                  |                |              |
 | Front                                | zurück                                                                                                                                                                                                                                                                                                           |                |              |
@@ -663,7 +663,7 @@ Normalerweise müssen wir das anpassen, um Anpassungen an den Variablen vorzuneh
 
 Wir müssen lediglich den Inhalt des Makros einfügen\[gcode_Makro GLOBAL_WESSEN]was wir in Makros/Makros finden können_unser_globals.cfg in unserer Printer.cfg.
 
-Wir erinnern Sie an das, was zuvor darüber erwähnt wurde, wie Klipper die Konfigurationen nacheinander verarbeitet. Daher ist es ratsam, es nach den von uns erwähnten Includes einzufügen.[Hier](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
+Wir erinnern Sie an das, was wir zuvor darüber erwähnt haben, wie Klipper die Konfigurationen nacheinander verarbeitet. Daher ist es ratsam, es nach den von uns erwähnten Includes einzufügen.[Hier](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
 Wir werden so etwas haben (es ist nur ein visuelles Beispiel):
 
@@ -726,24 +726,24 @@ Wir haben zwei Gruppen von Makros:
 
 **DRUCKEN_GRUNDLAGEN**
 
-| Makroname                         | Beschreibung                          |
-| --------------------------------- | ------------------------------------- |
-| \_BENUTZER_PAUSE_START            | Wird zu Beginn einer PAUSE ausgeführt |
-| \_BENUTZER_PAUSE_ENDE             | Wird am Ende einer PAUSE ausgeführt   |
-| \_BENUTZER_WIEDER AUFNEHMEN_START | Se ejecuta al inicio de un RESUME     |
-| \_BENUTZER_WIEDER AUFNEHMEN_ENDE  | Wird am Ende eines RESUME ausgeführt  |
+| Makroname                         | Beschreibung                           |
+| --------------------------------- | -------------------------------------- |
+| \_BENUTZER_PAUSE_START            | Wird zu Beginn einer PAUSE ausgeführt  |
+| \_BENUTZER_PAUSE_ENDE             | Wird am Ende einer PAUSE ausgeführt    |
+| \_BENUTZER_WIEDER AUFNEHMEN_START | Wird zu Beginn eines RESUME ausgeführt |
+| \_BENUTZER_WIEDER AUFNEHMEN_ENDE  | Wird am Ende eines RESUME ausgeführt   |
 
 -   Interne Makros sind Makros zur Aufteilung des Hauptmakros in Prozesse und sind hierfür wichtig. Wenn Anpassungen erforderlich sind, empfiehlt es sich, diese unverändert zu kopieren.
 
 **START_DRUCKEN**
 
-| Makroname                             | Beschreibung                                                                                                                                                                                                                          |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \_START_DRUCKEN_HITZE_KAMMER          | Erhitzt das Gehäuse, wenn der CHAMBER-Parameter überschritten wird_TEMP wird von unserem START-Makro empfangen_DRUCKEN vom Laminator                                                                                                  |
-| \_START_DRUCKEN_NACH_HEIZUNG_BETT     | Es wird ausgeführt, wenn das Bett die Temperatur erreicht hat_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_BETT. Wird normalerweise zur Verarbeitung von Bettkalibrierungen verwendet (Z_NEIGUNG_EINSTELLEN, VIERFACH_PORTAL_NIVELLIERUNG,...) |
-| \_START_DRUCKEN_BETT_MESH             | Es verwaltet die Bettvernetzungslogik.                                                                                                                                                                                                |
-| \_START_DRUCKEN_PARK                  | Parken Sie den Druckkopf, während Sie die Düse auf Drucktemperatur erwärmen.                                                                                                                                                          |
-| \_START_DRUCKEN_NACH_HEIZUNG_EXTRUDER | Spülen Sie die Düse und laden Sie das SKEW-Profil, wenn dies in den Variablen definiert ist                                                                                                                                           |
+| Makroname                             | Beschreibung                                                                                                                                                                                                                              |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \_START_DRUCKEN_HITZE_KAMMER          | Erhitzt das Gehäuse, wenn der CHAMBER-Parameter überschritten wird_TEMP wird von unserem START-Makro empfangen_DRUCKEN vom Laminator                                                                                                      |
+| \_START_DRUCKEN_NACH_HEIZUNG_BETT     | Es wird ausgeführt, wenn das Bett die Temperatur erreicht hat_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_BETT. Wird normalerweise für die Verarbeitung von Bettkalibrierungen verwendet (Z_NEIGUNG_EINSTELLEN, VIERFACH_PORTAL_NIVELLIERUNG,...) |
+| \_START_DRUCKEN_BETT_MESH             | Es verwaltet die Bettvernetzungslogik.                                                                                                                                                                                                    |
+| \_START_DRUCKEN_PARK                  | Parken Sie den Druckkopf, während Sie die Düse auf Drucktemperatur erwärmen.                                                                                                                                                              |
+| \_START_DRUCKEN_NACH_HEIZUNG_EXTRUDER | Spülen Sie die Düse und laden Sie das SKEW-Profil, wenn dies in den Variablen definiert ist                                                                                                                                               |
 
 ## Drucker und Elektronik
 
@@ -806,7 +806,7 @@ Wir können denselben Prozess mit jedem Parameter verwenden, den wir anpassen m�
 
 #### Anpassen der Pin-Konfiguration
 
-Wir werden genau wie zuvor vorgehen und in unserem Bereich USER OVERRIDES die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
+Wir werden genauso vorgehen wie zuvor, in unserem Bereich USER OVERRIDES werden wir die Pin-Abschnitte hinzufügen, die wir nach unseren Wünschen anpassen möchten.
 
 Im folgenden Beispiel werden wir den Pin unseres elektronischen Lüfters (Controllers) anpassen_Ventilator), um ihn einem anderen als dem Standard-Lüfter zuzuweisen:
 

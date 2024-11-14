@@ -121,7 +121,7 @@ Depuis Mainsail/Fluidd nous éditerons notre moonraker.conf (il doit être à la
 
 ## Macro
 
-Nous avons toujours commenté que RatOS est l'une des meilleures distributions Klipper, avec prise en charge des modules Raspberry et CB1, en grande partie grâce à ses configurations modulaires et à ses excellentes macros.
+Nous avons toujours dit que RatOS est l'une des meilleures distributions Klipper, avec prise en charge des modules Raspberry et CB1, en grande partie grâce à ses configurations modulaires et à ses excellentes macros.
 
 Quelques macros ajoutées qui nous seront utiles :
 
@@ -239,7 +239,7 @@ D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essa
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-Par contre, il est intéressant d'avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
+Par contre, il est intéressant de pouvoir avoir des macros pour activer telle ou telle surface ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
 
 {% indice style="avertissement" %}  
 Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.  
@@ -312,7 +312,7 @@ Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons 
 
 -   **Firmware compilé pour les appareils électroniques pris en charge**, pour faciliter le processus de création et de maintenance de notre firmware Klipper pour nos MCU, nous avons la macro COMPILE_FIRMWARE qui, une fois exécuté, nous pouvons utiliser notre électronique comme paramètre pour faire uniquement cela, compilera Klipper pour toute l'électronique prise en charge par notre bundle :  
     ![](../../.gitbook/assets/image%20(1540).png)  
-    Nous les trouverons facilement accessibles depuis notre interface Web dans le répertoire du firmware.\_binaires dans notre onglet MACHINE (si nous utilisons Grand-Voile) :  
+    Nous les trouverons facilement accessibles depuis notre interface Web dans le répertoire du firmware_binaires dans notre onglet MACHINE (si nous utilisons Grand-voile) :  
     ![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)  
     Vous trouverez ci-dessous la liste des appareils électroniques pris en charge :
 
@@ -328,7 +328,7 @@ Les firmwares sont générés pour être utilisés avec une connexion USB, ce qu
 
 ![](../../.gitbook/assets/image%20(770).png)
 
-Le plus simple est d'utiliser[**keoh**](../instalacion/#instalando-kiauh)où l'on retrouvera dans une de ses options la possibilité d'installer cette extension :
+Le moyen le plus simple est d'utiliser[**keoh**](../instalacion/#instalando-kiauh)où l'on retrouvera dans une de ses options la possibilité d'installer cette extension :
 
 ![](../../.gitbook/assets/telegram-cloud-photo-size-4-5837048490604215201-x_partial.jpg)
 
@@ -388,7 +388,7 @@ Nous pouvons également effectuer le processus à la main, nous copierons manuel
 
 Depuis notre interface, Mainsail/Fluidd, nous allons éditer notre imprimante.cfg et ajouter :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
     ## 3Dwork standard macros
     [include 3dwork-klipper/macros/macros_*.cfg]
@@ -465,14 +465,14 @@ On redémarre Cura et on ira à_**Extensions/Post-traitement/Modifier le G-Code*
 {% onglets de fin %}
 
 {% indice style="info" %}  
-Le**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils soient remplacés par les valeurs configurées dans le profil**impression.
+Le**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils soient remplacés par les valeurs configurées dans le profil** de impresión.
 
 Dans les liens suivants, vous pouvez en trouver une liste pour :[**PrusaSlicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(en plus de ceux ci-dessus),[**Studio Bambou**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)et[**Traitement**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
 L'utilisation de ceux-ci permet à nos macros d'être dynamiques.  
 {% indice de fin %}
 
--   **gcode de final END_IMPRIMER**, dans ce cas, en n'utilisant pas d'espaces réservés, il est commun à toutes les plastifieuses
+-   **gcode de final END_IMPRIMER**, dans ce cas en n'utilisant pas d'espaces réservés, c'est commun à toutes les plastifieuses
 
 
     END_PRINT
@@ -770,7 +770,7 @@ Tout comme nous vous conseillons de créer une section dans votre imprimante.cfg
 
 Dans l'exemple suivant, nous verrons comment dans notre cas nous souhaitons personnaliser les paramètres de notre nivellement de lit (lit_mesh) en ajustant les points de sonde_count) par rapport à la configuration que nous avons par défaut dans les configurations de notre module Klipper :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
 ```
 
@@ -810,7 +810,7 @@ Nous procéderons exactement comme nous l'avons fait précédemment, dans notre 
 
 Dans l'exemple suivant, nous allons personnaliser quelle est la broche de notre ventilateur électronique (contrôleur_ventilateur) pour l'attribuer à un autre que celui par défaut :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
 ```
 

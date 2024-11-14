@@ -40,7 +40,7 @@ Wenn Ihr Klipper-Konfigurationsverzeichnis angepasst ist, denken Sie daran, den 
 {% hint style="info" %}  
 Bei Neuinstallationen:
 
-Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, die es uns ermöglichen, die Makros in unserem Bundle zu verwenden, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
+Da Klipper keinen Zugriff auf Makros zulässt, bis es über eine korrekte Printer.cfg verfügt und eine Verbindung zu einer MCU herstellt, können wir Klipper mit den folgenden Schritten „austricksen“, sodass wir die Makros in unserem Bundle verwenden können, um beispielsweise die zu starten Klipper-Firmware-Kompilierungsmakro, wenn wir kompatible Elektronik verwenden:
 
 -   Wir stellen sicher, dass wir unsere haben[Host als zweite MCU](raspberry-como-segunda-mcu.md)
 -   Als nächstes fügen wir eine Printer.cfg hinzu. Denken Sie daran, dass diese Schritte für eine Neuinstallation gelten, bei der Sie keine Printer.cfg haben und das Makro zum Erstellen von Firmware starten möchten, wie das, das Sie unten sehen können:
@@ -154,7 +154,7 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 | -segmentiertes Makro, um es personalisieren zu können, wie wir Ihnen später zeigen werden |                                                                                                                                                  |
 | **ENDE_DRUCKEN**                                                                          | End-of-Print-Makro, bei dem wir auch eine Segmentierung haben, um unser Makro anpassen zu können. Wir verfügen auch über dynamisches Kopfparken. |
 
--   **Adaptiver Bettrahmen**Dank der Vielseitigkeit von Klipper können wir Dinge tun, die heute unmöglich erscheinen ... Ein wichtiger Prozess beim Drucken besteht darin, ein Netz von Abweichungen von unserem Bett zu erstellen, das es uns ermöglicht, diese zu korrigieren, um eine perfekte Haftung der ersten Schichten zu erreichen.   
+-   **Adaptiver Bettrahmen**, gracias a la versatilidad de Klipper podemos hacer cosas que a día de hoy parecen imposibles... un proceso importante para la impresion es tener un mallado de desviaciones de nuestra cama que nos permita corregir estas para tener una adherencia de primeras capas perfecta.   
     In vielen Fällen führen wir diese Vernetzung vor dem Drucken durch, um sicherzustellen, dass sie ordnungsgemäß funktioniert, und zwar auf der gesamten Oberfläche unseres Bettes.  
     Bei der adaptiven Bettvernetzung erfolgt dies im Druckbereich und ist damit viel präziser als die herkömmliche Methode. In den folgenden Screenshots sehen wir die Unterschiede zwischen einem herkömmlichen und einem adaptiven Netz.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -239,7 +239,7 @@ Andererseits haben wir welche**Anforderungen, um es zu implementieren (wir werde
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-Andererseits ist es interessant, Makros zu haben, um die eine oder andere Oberfläche zu aktivieren oder sie sogar als Parameter von unserem Laminator zu übergeben, damit wir bei unterschiedlichen Drucker- oder Filamentprofilen die eine oder andere automatisch laden können:
+Andererseits ist es interessant, über Makros verfügen zu können, um die eine oder andere Oberfläche zu aktivieren oder sie sogar als Parameter von unserem Laminator zu übergeben, sodass wir bei unterschiedlichen Drucker- oder Filamentprofilen die eine oder andere automatisch laden können:
 
 {% hint style="warning" %}  
 Es ist wichtig, dass der Wert in NAME="xxxx" mit dem Namen übereinstimmt, den wir bei der Installation unserer Druckoberfläche angegeben haben  
@@ -262,7 +262,7 @@ Es ist wichtig, dass der Wert in NAME="xxxx" mit dem Namen übereinstimmt, den w
 
 {%endcode%}
 
-Wenn KlipperScreen vorhanden ist, können wir auch ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in das wir einen Aufruf der Makros einfügen, die zuvor für das Laden jeder Oberfläche erstellt wurden:
+Auch wenn wir über KlipperScreen verfügen, können wir ein spezielles Menü hinzufügen, um das Laden der verschiedenen Oberflächen zu verwalten, in das wir einen Aufruf der zuvor für das Laden jeder Oberfläche erstellten Makros einfügen:
 
 {% code title="~/printer_data/config/KlipperScreen.conf" %}
 
@@ -345,7 +345,7 @@ Wir können den Vorgang auch manuell durchführen, wir kopieren das Plugin manue
 | Octopus Pro (446)      | btt-octopus-pro-446                               |
 | Octopus Pro (429)      | btt-octopus-pro-429                               |
 | Octopus Pro (H723)     | btt-octopus-pro-h723                              |
-| Octopus v1.1           | btt-octopus-11                                    |
+| Octopus v1.1           | BTT-Oktopus-11                                    |
 | Octopus v1.1 (407)     | btt-octopus-11-407                                |
 | SKR Pro v1.2           | skr_Profi_12                                      |
 | SKR 3                  | Übrigens_skr_3                                    |
@@ -398,7 +398,7 @@ Wir können den Vorgang auch manuell durchführen, wir kopieren das Plugin manue
 {%endcode%}
 
 {% hint style="info" %}  
-Es ist wichtig, dass wir diese Zeilen am Ende unserer Konfigurationsdatei hinzufügen ... direkt über dem Abschnitt, damit Makros in unserer CFG oder in unseren Includes von unseren überschrieben werden:  
+Es ist wichtig, dass wir diese Zeilen am Ende unserer Konfigurationsdatei hinzufügen ... direkt über dem Abschnitt, damit Makros in unserer CFG oder unseren Includes von unseren überschrieben werden:  
 #\*# \\&lt;-------- SPEICHERN_KONFIG -------->  
 {% endhint %}
 
@@ -413,7 +413,7 @@ Da unsere Makros dynamisch sind, extrahieren sie bestimmte Informationen aus uns
 
 -   **Starten Sie den Gcode START_DRUCKEN**, unter Verwendung von Platzhaltern, um Filament- und Betttemperaturwerte dynamisch zu übergeben:
 
-{% Tabs %}  
+{% tabs %}  
 {% tab title="PrusaSlicer-SuperSlicer" %}  
 **PrusaSlicer**
 
@@ -446,7 +446,7 @@ Da unsere Makros dynamisch sind, extrahieren sie bestimmte Informationen aus uns
     START_PRINT EXTRUDER_TEMP={material_print_temperature_layer_0} BED_TEMP={material_bed_temperature_layer_0} PRINT_MIN=%MINX%,%MINY% PRINT_MAX=%MAXX%,%MAXY%
 
 {% hint style="warning" %}  
-Wir müssen das Plugin installieren[**Post Process Plugin (von frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)aus dem Menü_**Hilfe/Anzeigen**_Konfigurationsordner... Wir kopieren das Skript vom vorherigen Link in den Skriptordner.   
+Wir müssen das Plugin installieren[**Post Process Plugin (von frankbags)**](https://gist.github.com/frankbags/c85d37d9faff7bce67b6d18ec4e716ff)aus dem Menü_**Hilfe/Anzeigen**_Konfigurationsordner... wir kopieren das Skript vom vorherigen Link in den Skriptordner.   
 Wir starten Cura neu und gehen zu_**Erweiterungen/Nachbearbeitung/G-Code ändern**_und wir werden auswählen_**Mesh-Druckgröße**_.  
 {% endhint %}  
 {% Endverlust %}
@@ -541,15 +541,15 @@ Vorteile der Verwendung einer vorgeheizten Düse:
 
 Um den Nivellierungsprozess zu steuern, verfügen wir über Variablen, die sehr nützlich sein können. Beispielsweise können wir die Art der Nivellierung steuern, die wir verwenden möchten, indem wir immer ein neues Netz erstellen, ein zuvor gespeichertes laden oder adaptive Vernetzung verwenden.
 
-| Variable                                                                                                                        | Beschreibung                                                                                   | Mögliche Werte | Standardwert |
-| ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| Variable_kalibrieren_Bett_Netz                                                                                                  | Damit können wir auswählen, welche Art von Netz wir in unserem START verwenden werden_DRUCKEN: |                |              |
-| -Neues Netz, es wird jeden Druck vernetzen                                                                                      |                                                                                                |                |              |
-| -Storedmesh lädt ein gespeichertes Mesh und führt keine Bettabfrage durch                                                       |                                                                                                |                |              |
-| -Adaptiv macht uns zu einem neuen Netz, das jedoch an den Druckbereich angepasst ist und oft unsere ersten Schichten verbessert |                                                                                                |                |              |
-| -Nomesh, falls wir keinen Sensor haben oder Mesh verwenden, um den Vorgang zu überspringen                                      | neues Netz / gespeichertes Netz / adaptiv /                                                    |                |              |
-| Namen                                                                                                                           | adaptiv                                                                                        |                |              |
-| Variable_Bett_Netz_Profil                                                                                                       | Der Name, der für unser gespeichertes Mesh verwendet wird                                      | Text           | Standard     |
+| Variable                                                                                                                        | Beschreibung                                                                                    | Mögliche Werte | Standardwert |
+| ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| Variable_kalibrieren_Bett_Netz                                                                                                  | Damit können wir auswählen, welche Art von Netz wir in unserem START verwenden möchten_DRUCKEN: |                |              |
+| -Neues Netz, es wird jeden Druck vernetzen                                                                                      |                                                                                                 |                |              |
+| -Storedmesh lädt ein gespeichertes Mesh und führt keine Bettabfrage durch                                                       |                                                                                                 |                |              |
+| -Adaptiv macht uns zu einem neuen Netz, das jedoch an den Druckbereich angepasst ist und oft unsere ersten Schichten verbessert |                                                                                                 |                |              |
+| -Nomesh, falls wir keinen Sensor haben oder Mesh verwenden, um den Vorgang zu überspringen                                      | neues Netz / gespeichertes Netz / adaptiv /                                                     |                |              |
+| Namen                                                                                                                           | adaptiv                                                                                         |                |              |
+| Variable_Bett_Netz_Profil                                                                                                       | Der Name, der für unser gespeichertes Mesh verwendet wird                                       | Text           | Standard     |
 
 {% hint style="warning" %}  
 Wir empfehlen Ihnen, die adaptive Nivellierung zu verwenden, da dadurch das Netz immer an die Größe unseres Drucks angepasst wird, sodass Sie über einen angepassten Netzbereich verfügen.
@@ -567,7 +567,7 @@ Eine wichtige Phase unseres Druckstarts ist das korrekte Spülen unserer Düse, 
 | -primeline zeichnet die typische Löschlinie                                                                                                                            |                                                        |                |              |
 | -primelineadaptative generiert mithilfe einer Variablen eine Spüllinie, die sich an die Fläche des gedruckten Teils anpasst_Düse_Grundierung_Objektentfernung als Rand |                                                        |                |              |
 | -Mit primeblob werfen wir einen Tropfen Filament in eine Ecke unseres Bettes, der sich sehr effektiv zum Reinigen der Düse eignet und leicht zu entfernen ist          |                                                        |                |              |
-| Hauptlinie /                                                                                                                                                           |                                                        |                |              |
+| Primeline /                                                                                                                                                            |                                                        |                |              |
 
 primelineadaptiv /   
 Primeblob /   
@@ -580,13 +580,13 @@ FALSCH
 -max wird dies bei X=max tun (abzüglich einer kleinen Sicherheitsmarge)  
 -Die Zahl ist die X-Koordinate, an der die Spülung | lokalisiert werden soll Min. /   
 max. /   
-Nummer | max |  
+Zahl | max |  
 | Variable_Düse_Primzahl_Start_und | Wo wir unsere Spülleitung platzieren möchten:  
 -min wird dies bei Y=0 tun (plus einer kleinen Sicherheitsmarge)  
 -max wird dies bei Y=max tun (abzüglich einer kleinen Sicherheitsmarge)  
 -Die Zahl ist die Y-Koordinate, an der die Spülung | lokalisiert werden soll Min. /   
 max. /   
-Nummer | min |  
+Zahl | min |  
 | Variable_Düse_Primzahl_Richtung | Die Adresse unserer Leitung oder Zustellung:  
 -Nach hinten bewegt sich der Kopf zur Vorderseite des Druckers  
 -vorwärts bewegt sich nach hinten  
@@ -623,7 +623,7 @@ Bei bestimmten Vorgängen unseres Druckers, wie z. B. Pausen, empfiehlt es sich,
 | Variable_Ende_drucken_Park_In        | Position, an der der Kopf geparkt werden soll, wenn ein Druckvorgang beendet oder abgebrochen wird.                                                                                                                                                                                                              | zurück /       |              |
 | Mitte /                              |                                                                                                                                                                                                                                                                                                                  |                |              |
 | Front                                | zurück                                                                                                                                                                                                                                                                                                           |                |              |
-| Variable_Ende_drucken_Park_Mit_Hop   | Steigungsabstand in Z am Ende des Druckvorgangs.                                                                                                                                                                                                                                                                 | Nummer         | 20           |
+| Variable_Ende_drucken_Park_Mit_Hop   | Anhebungsstrecke in Z am Ende des Druckvorgangs.                                                                                                                                                                                                                                                                 | Nummer         | 20           |
 | Variable_pause_drucken_Park_In       | Position, an der der Kopf beim Anhalten des Druckvorgangs geparkt werden soll.                                                                                                                                                                                                                                   | zurück /       |              |
 | Mitte /                              |                                                                                                                                                                                                                                                                                                                  |                |              |
 | Front                                | zurück                                                                                                                                                                                                                                                                                                           |                |              |
@@ -699,7 +699,7 @@ Die drei Punkte (...) in den vorherigen Beispielen sollen lediglich darauf hinwe
 
 #### Anpassen von Makros
 
-Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie bereits erwähnt, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
+Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie wir bereits erwähnt haben, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
 
 Wir haben zwei Gruppen von Makros:
 

@@ -42,7 +42,7 @@ In new installations:
 
 Since Klipper does not allow access to macros until it has a correct printer.cfg and connects to an MCU, we can "trick" Klipper with the following steps that will allow us to use the macros in our bundle to, for example, launch the Klipper firmware compilation macro if we use compatible electronics:
 
--   We make sure we have our[host como segunda MCU](raspberry-como-segunda-mcu.md)
+-   We make sure we have our[host as second MCU](raspberry-como-segunda-mcu.md)
 -   Next we will add a printer.cfg, remember that these steps are for a clean installation where you do not have any printer.cfg and you want to launch the macro to create firmware, like the one you can see below:
 
 
@@ -130,7 +130,7 @@ Some added macros that will be useful to us:
 | Macro                                                            | Description                                                                                                                                                     |
 | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **MAYBE_HOME**                                                   | It allows us to optimize the homing process only by performing it on those axes that are not homing.                                                            |
-| **PAUSE**                                                        | Through the related variables it allows us to manage a pause with a more versatile head parking than normal macros.                                             |
+| **PAUSE**                                                        | Using the related variables, it allows us to manage a pause with a more versatile head parking than normal macros.                                              |
 | **SET_PAUSE_AT_LAYER**                                           |                                                                                                                                                                 |
 | **SET_PAUSE_AT_NEXT_LAYER**                                      | A very useful macro that Mainsail integrates into its UI to be able to pause on demand in a specific layer... in case we forgot when laminating.                |
 | We also have another one to execute the pause on the next layer. |                                                                                                                                                                 |
@@ -150,7 +150,7 @@ Some added macros that will be useful to us:
 | -intelligent nozzle preheating in the case of having a probe sensor        |                                                                                                                                    |
 | -possibility of using z-tilt through variable                              |                                                                                                                                    |
 | -adaptive bed meshing, forced or from a saved mesh                         |                                                                                                                                    |
-| -Customizable purge line between normal, adaptive purge line or purge drop |                                                                                                                                    |
+| -customizable purge line between normal, adaptive purge line or purge drop |                                                                                                                                    |
 | -segmented macro to be able to be personalized as we will show you later   |                                                                                                                                    |
 | **END_PRINT**                                                              | End of print macro where we also have segmentation to be able to customize our macro. We also have dynamic head parking.           |
 
@@ -332,7 +332,7 @@ The easiest way is to use[**keoh**](../instalacion/#instalando-kiauh)where we wi
 
 ![](../../.gitbook/assets/telegram-cloud-photo-size-4-5837048490604215201-x_partial.jpg)
 
-We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)within our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
+We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)inside our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
 
 | Electronics        | Parameter name to use in macro |
 | ------------------ | ------------------------------ |
@@ -398,7 +398,7 @@ From our interface, Mainsail/Fluidd, we will edit our printer.cfg and add:
 {%endcode%}
 
 {% hint style="info" %}  
-It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes, they will be overwritten by ours:  
+It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours:  
 #\*# \\&lt;---------------------- SAVE_CONFIG ---------------------->  
 {% endhint %}
 
@@ -534,7 +534,7 @@ Benefits of using preheated nozzle:
 
 -   It allows us additional time so that the bed can reach its temperature uniformly.
 -   If we use an inductive sensor that does not have temperature compensation, it will allow our measurements to be more consistent and precise.
--   Allows you to soften any remaining filament in the nozzle, which means that, in certain configurations, these remains do not affect the activation of the sensor.  
+-   allows any remaining filament in the nozzle to be softened, which means that, in certain configurations, these remains do not affect the activation of the sensor  
     {% endhint %}
 
 #### Bed Mesh
@@ -663,7 +663,7 @@ Normally, it will be what we will have to adjust, to make adjustments to the var
 
 Simply, what we have to do is paste the content of the macro\[gcode_macro GLOBAL_VARS]what we can find in macros/macros_our_globals.cfg in our printer.cfg.
 
-We remind you of what we mentioned previously about how Klipper processes the configurations sequentially, so it is advisable to paste it after the includes that we mentioned.[here](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
+We remind you of what was previously mentioned about how Klipper processes the configurations sequentially, so it is advisable to paste it after the includes that we mentioned.[here](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
 We will have something like this (it is just a visual example):
 

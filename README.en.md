@@ -154,7 +154,7 @@ Some added macros that will be useful to us:
 | -segmented macro to be able to be personalized as we will show you later   |                                                                                                                                    |
 | **END_PRINT**                                                              | End of print macro where we also have segmentation to be able to customize our macro. We also have dynamic head parking.           |
 
--   **Adaptive bed frame**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations in our bed that allows us to correct these to have perfect adhesion of the first layers.   
+-   **Adaptive bed frame**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations from our bed that allows us to correct these to have perfect adhesion of the first layers.   
     On many occasions we do this meshing before printing to ensure that it works correctly and this is done on the entire surface of our bed.  
     With adaptive bed meshing, this will be done in the printing area, making it much more precise than the traditional method... in the following screenshots we will see the differences between a traditional mesh and an adaptive one.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -455,7 +455,7 @@ We restart Cura and we will go to_**Extensions/Post processing/Modify G-Code**_a
 
     START_PRINT EXTRUDER_TEMP={temperature_extruder1} BED_TEMP={temperature_heatbed}
 
-{% end loss %}
+{% endtab %}
 
 {% tab title="Simplify3D" %}
 
@@ -567,7 +567,7 @@ An important phase of our start of printing is a correct purging of our nozzle t
 | -primeline is going to draw the typical purge line                                                                                                   |                                                  |                 |               |
 | -primelineadaptative will generate a purge line that adapts to the area of ​​the printed part using variable_nozzle_priming_objectdistance as margin |                                                  |                 |               |
 | -primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove                         |                                                  |                 |               |
-| prime line /                                                                                                                                         |                                                  |                 |               |
+| primeline /                                                                                                                                          |                                                  |                 |               |
 
 primelineadaptive /   
 primeblob /   
@@ -596,7 +596,7 @@ backwards | auto |
 
 #### Filament loading/unloading
 
-In this case, this group of variables will facilitate the management of loading and unloading our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
+In this case, this group of variables will make it easier for us to manage the loading and unloading of our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
 
 | Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                        | Possible values | Default value |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |

@@ -38,7 +38,7 @@ Si votre répertoire de configuration Klipper est personnalisé, n'oubliez pas d
 {% indice de fin %}
 
 {% indice style="info" %}  
-Dans les nouvelles installations :
+En nuevas instalaciones:
 
 Puisque Klipper n'autorise pas l'accès aux macros tant qu'il n'a pas un fichier Printer.cfg correct et qu'il ne se connecte pas à un MCU, nous pouvons "tromper" Klipper avec les étapes suivantes qui nous permettront d'utiliser les macros de notre bundle pour, par exemple, lancer le Macro de compilation du firmware Klipper si nous utilisons des électroniques compatibles :
 
@@ -154,7 +154,7 @@ Quelques macros ajoutées qui nous seront utiles :
 | -macro segmentée pour pouvoir être personnalisée comme nous vous le montrerons plus tard           |                                                                                                                                                                                |
 | **FIN_IMPRIMER**                                                                                   | Macro de fin d'impression où nous avons également une segmentation pour pouvoir personnaliser notre macro. Nous disposons également d'un stationnement de tête dynamique.      |
 
--   **Cadre de lit adaptatif**Grâce à la polyvalence de Klipper, nous pouvons faire des choses qui semblent aujourd'hui impossibles... un processus important pour l'impression est d'avoir un maillage d'écarts dans notre lit qui nous permet de les corriger pour avoir une parfaite adhérence des premières couches.   
+-   **Cadre de lit adaptatif**Grâce à la polyvalence de Klipper, nous pouvons faire des choses qui semblent aujourd'hui impossibles... un processus important pour l'impression est d'avoir un maillage d'écarts par rapport à notre lit qui nous permet de les corriger pour avoir une parfaite adhérence des premières couches.   
     À de nombreuses reprises, nous effectuons ce maillage avant l'impression pour nous assurer qu'il fonctionne correctement et cela se fait sur toute la surface de notre lit.  
     Avec le maillage adaptatif du lit, cela se fera dans la zone d'impression, ce qui le rend beaucoup plus précis que la méthode traditionnelle... dans les captures d'écran suivantes, nous verrons les différences entre un maillage traditionnel et un maillage adaptatif.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -204,7 +204,7 @@ L'idéal dans chaque cas serait d'ajouter à notre plastifieuse,**dans les gcode
 ### **Macros de gestion des surfaces d'impression**
 
 {% indice style="avertissement" %}  
-**SECTION EN COURS !!!**  
+**SECCIÓN EN PROCESO!!!**  
 {% indice de fin %}
 
 Il est généralement normal que nous ayons des surfaces d'impression différentes en fonction de la finition que nous souhaitons avoir ou du type de filament.
@@ -239,7 +239,7 @@ D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essa
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-Par contre, il est intéressant de pouvoir avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
+Par contre, il est intéressant de pouvoir avoir des macros pour activer telle ou telle surface ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
 
 {% indice style="avertissement" %}  
 Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.  
@@ -312,7 +312,7 @@ Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons 
 
 -   **Firmware compilé pour les appareils électroniques pris en charge**, pour faciliter le processus de création et de maintenance de notre firmware Klipper pour nos MCU, nous avons la macro COMPILE_FIRMWARE qui, une fois exécuté, nous pouvons utiliser notre électronique comme paramètre pour faire uniquement cela, compilera Klipper pour toute l'électronique prise en charge par notre bundle :  
     ![](../../.gitbook/assets/image%20(1540).png)  
-    Nous les trouverons facilement accessibles depuis notre interface Web dans le répertoire du firmware_binaires dans notre onglet MACHINE (si nous utilisons Grand-Voile) :  
+    Nous les trouverons facilement accessibles depuis notre interface Web dans le répertoire du firmware_binaires dans notre onglet MACHINE (si nous utilisons Grand-voile) :  
     ![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)  
     Vous trouverez ci-dessous la liste des appareils électroniques pris en charge :
 
@@ -328,7 +328,7 @@ Les firmwares sont générés pour être utilisés avec une connexion USB, ce qu
 
 ![](../../.gitbook/assets/image%20(770).png)
 
-Le plus simple est d'utiliser[**keoh**](../instalacion/#instalando-kiauh)où l'on retrouvera dans une de ses options la possibilité d'installer cette extension :
+Le moyen le plus simple est d'utiliser[**keoh**](../instalacion/#instalando-kiauh)où l'on retrouvera dans une de ses options la possibilité d'installer cette extension :
 
 ![](../../.gitbook/assets/telegram-cloud-photo-size-4-5837048490604215201-x_partial.jpg)
 
@@ -388,7 +388,7 @@ Nous pouvons également effectuer le processus à la main, nous copierons manuel
 
 Depuis notre interface, Mainsail/Fluidd, nous allons éditer notre imprimante.cfg et ajouter :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
     ## 3Dwork standard macros
     [include 3dwork-klipper/macros/macros_*.cfg]
@@ -472,7 +472,7 @@ Dans les liens suivants, vous pouvez en trouver une liste pour :[**PrusaSlicer*
 L'utilisation de ceux-ci permet à nos macros d'être dynamiques.  
 {% indice de fin %}
 
--   **gcode de final END_IMPRIMER**, dans ce cas, en n'utilisant pas d'espaces réservés, il est commun à toutes les plastifieuses
+-   **gcode de final END_IMPRIMER**, dans ce cas en n'utilisant pas d'espaces réservés, c'est commun à toutes les plastifieuses
 
 
     END_PRINT
@@ -596,7 +596,7 @@ en arrière | automobile |
 
 #### Chargement/déchargement de filaments
 
-Dans ce cas, ce groupe de variables facilitera la gestion du chargement et du déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
+Dans ce cas, ce groupe de variables nous permettra de gérer plus facilement le chargement et le déchargement de notre filament utilisé en émulation du M600 par exemple, ou lors du lancement des macros de chargement et déchargement du filament :
 
 | Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        | Valeurs possibles | Valeur par défaut |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
@@ -618,7 +618,7 @@ Dans certains processus de notre imprimante, comme en pause, il est conseillé d
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
 | variable_commencer_imprimer_parc_dans         | Emplacement où garer la tête pendant le préchauffage.                                                                                                                                                                                                                                                                     | dos /             |                   |
 | centre /                                      |                                                                                                                                                                                                                                                                                                                           |                   |                   |
-| devant                                        | dos                                                                                                                                                                                                                                                                                                                       |                   |                   |
+| front                                         | dos                                                                                                                                                                                                                                                                                                                       |                   |                   |
 | variable_commencer_imprimer_parc_Avec_hauteur | Hauteur Z pendant le préchauffage                                                                                                                                                                                                                                                                                         | nombre            | 50                |
 | variable_fin_imprimer_parc_dans               | Emplacement où garer la tête lors de la fin ou de l’annulation d’une impression.                                                                                                                                                                                                                                          | dos /             |                   |
 | centre /                                      |                                                                                                                                                                                                                                                                                                                           |                   |                   |
@@ -661,7 +661,7 @@ C'est pourquoi il est très important de comprendre le fonctionnement de Klipper
 
 Normalement, ce sera ce que nous devrons ajuster, faire des ajustements aux variables que nous avons par défaut dans notre module**Travail 3D**para Falaises.
 
-Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBALE_DONT]ce qu'on peut trouver dans les macros/macros_notre_globals.cfg dans notre imprimante.cfg.
+Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBAL_DONT]ce qu'on peut trouver dans les macros/macros_notre_globals.cfg dans notre imprimante.cfg.
 
 Nous vous rappelons ce que nous avons mentionné précédemment sur la façon dont Klipper traite les configurations de manière séquentielle, il est donc conseillé de le coller après les inclusions que nous avons mentionnées.[ici](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
@@ -695,7 +695,7 @@ Les trois points (...) dans les exemples précédents ont simplement pour but d'
 {% indice style="info" %}
 
 -   Nous vous conseillons d'ajouter des commentaires comme vous le voyez dans le cas précédent pour identifier ce que fait chaque section.
--   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBALE_DONT]{% indice de fin %}
+-   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBAL_DONT]{% indice de fin %}
 
 #### Personnalisation des macros
 
@@ -770,7 +770,7 @@ Tout comme nous vous conseillons de créer une section dans votre imprimante.cfg
 
 Dans l'exemple suivant, nous verrons comment dans notre cas nous souhaitons personnaliser les paramètres de notre nivellement de lit (lit_mesh) en ajustant les points de sonde_count) par rapport à la configuration que nous avons par défaut dans les configurations de notre module Klipper :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
 ```
 
@@ -810,7 +810,7 @@ Nous procéderons exactement comme nous l'avons fait précédemment, dans notre 
 
 Dans l'exemple suivant, nous allons personnaliser quelle est la broche de notre ventilateur électronique (contrôleur_ventilateur) pour l'attribuer à un autre que celui par défaut :
 
-{% code title="imprimante.cfg" %}
+{% code title="printer.cfg" %}
 
 ```
 

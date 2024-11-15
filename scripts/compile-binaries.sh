@@ -412,6 +412,7 @@ pushd $workspace_klipper
 if [ -z "$1" ]; then
     # If no parameter is provided, compile firmware for all boards
     # Run make scripts for the supported boards.
+    # Bigtreetech
     compile_btt-kraken
     compile_btt-manta-e3ez
     compile_btt-manta-m4p

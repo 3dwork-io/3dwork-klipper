@@ -18,7 +18,7 @@ Changelog
 
 12/07/2023 - Added support to automate the creation of Bigtreetech electronic firmware
 
-From**3Dwork**We have compiled and fine-tuned a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
+From**3Dwork**We have collected and adjusted a set of macros, machine and electronic settings, as well as other tools for simple and powerful Klipper management.
 
 Much of this package is based on[**Rats**](https://os.ratrig.com/)improving the parts that we think are interesting, as well as other contributions from the community.
 
@@ -130,7 +130,7 @@ Some added macros that will be useful to us:
 | Macro                                                            | Description                                                                                                                                                     |
 | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **MAYBE_HOME**                                                   | It allows us to optimize the homing process only by performing it on those axes that are not homing.                                                            |
-| **PAUSE**                                                        | Using the related variables, it allows us to manage a pause with a more versatile head parking than normal macros.                                              |
+| **PAUSE**                                                        | Through the related variables it allows us to manage a pause with a more versatile head parking than normal macros.                                             |
 | **SET_PAUSE_AT_LAYER**                                           |                                                                                                                                                                 |
 | **SET_PAUSE_AT_NEXT_LAYER**                                      | A very useful macro that Mainsail integrates into its UI to be able to pause on demand in a specific layer... in case we forgot when laminating.                |
 | We also have another one to execute the pause on the next layer. |                                                                                                                                                                 |
@@ -154,7 +154,7 @@ Some added macros that will be useful to us:
 | -segmented macro to be able to be personalized as we will show you later   |                                                                                                                                    |
 | **END_PRINT**                                                              | End of print macro where we also have segmentation to be able to customize our macro. We also have dynamic head parking.           |
 
--   **Adaptive bed frame**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations from our bed that allows us to correct these to have perfect adhesion of the first layers.   
+-   **Adaptive bed frame**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations in our bed that allows us to correct these to have perfect adhesion of the first layers.   
     On many occasions we do this meshing before printing to ensure that it works correctly and this is done on the entire surface of our bed.  
     With adaptive bed meshing, this will be done in the printing area, making it much more precise than the traditional method... in the following screenshots we will see the differences between a traditional mesh and an adaptive one.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -332,7 +332,7 @@ The easiest way is to use[**keoh**](../instalacion/#instalando-kiauh)where we wi
 
 ![](../../.gitbook/assets/telegram-cloud-photo-size-4-5837048490604215201-x_partial.jpg)
 
-We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)inside our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
+We can also carry out the process by hand, we will manually copy the plugin for Klipper[**gcode_shell_extension**](https://raw.githubusercontent.com/Rat-OS/RatOS/master/src/modules/ratos/filesystem/home/pi/klipper/klippy/extras/gcode_shell_command.py)within our directory`_**~/klipper/klippy/extras**_`using SSH or SCP and restart Klipper.
 
 | Electronics        | Parameter name to use in macro |
 | ------------------ | ------------------------------ |
@@ -465,7 +465,7 @@ We restart Cura and we will go to_**Extensions/Post processing/Modify G-Code**_a
 {% endtabs %}
 
 {% hint style="info" %}  
-Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they replace them with the values ​​configured in the profile**printing.
+Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**printing.
 
 In the following links you can find a list of these for:[**PrusaSlicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -533,8 +533,8 @@ Variables related to the heating process of our machine.
 Benefits of using preheated nozzle:
 
 -   It allows us additional time so that the bed can reach its temperature uniformly.
--   si usamos un sensor indutivo que no tiene compensación de temperatura nos va a permitir que nuestras medidas sean mas consistentes y precisas
--   allows any remaining filament in the nozzle to be softened, which means that, in certain configurations, these remains do not affect the activation of the sensor  
+-   If we use an inductive sensor that does not have temperature compensation, it will allow our measurements to be more consistent and precise.
+-   Allows you to soften any remaining filament in the nozzle, which means that, in certain configurations, these remains do not affect the activation of the sensor.  
     {% endhint %}
 
 #### Bed Mesh
@@ -663,7 +663,7 @@ Normally, it will be what we will have to adjust, to make adjustments to the var
 
 Simply, what we have to do is paste the content of the macro\[gcode_macro GLOBAL_VARS]what we can find in macros/macros_our_globals.cfg in our printer.cfg.
 
-We remind you of what was previously mentioned about how Klipper processes the configurations sequentially, so it is advisable to paste it after the includes that we mentioned.[here](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
+We remind you of what we mentioned previously about how Klipper processes the configurations sequentially, so it is advisable to paste it after the includes that we mentioned.[here](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
 We will have something like this (it is just a visual example):
 

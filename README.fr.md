@@ -18,7 +18,7 @@ Journal des modifications
 
 12/07/2023 - Ajout du support pour automatiser la création du firmware électronique Bigtreetech
 
-Depuis**Travail 3D**Nous avons collecté et ajusté un ensemble de macros, de paramètres machines et électroniques, ainsi que d'autres outils pour une gestion simple et puissante de Klipper.
+Depuis**Travail 3D**Nous avons compilé et affiné un ensemble de macros, de paramètres machines et électroniques, ainsi que d'autres outils pour une gestion simple et puissante de Klipper.
 
 Une grande partie de ce package est basée sur[**Rats**](https://os.ratrig.com/)améliorer les parties que nous jugeons intéressantes, ainsi que d'autres contributions de la communauté.
 
@@ -154,7 +154,7 @@ Quelques macros ajoutées qui nous seront utiles :
 | -macro segmentée pour pouvoir être personnalisée comme nous vous le montrerons plus tard           |                                                                                                                                                                                |
 | **FIN_IMPRIMER**                                                                                   | Macro de fin d'impression où nous avons également une segmentation pour pouvoir personnaliser notre macro. Nous disposons également d'un stationnement de tête dynamique.      |
 
--   **Cadre de lit adaptatif**Grâce à la polyvalence de Klipper, nous pouvons faire des choses qui semblent impossibles aujourd'hui... un processus important pour l'impression est d'avoir un maillage d'écarts dans notre lit qui nous permet de les corriger pour avoir une parfaite adhérence des premières couches.   
+-   **Cadre de lit adaptatif**Grâce à la polyvalence de Klipper, nous pouvons faire des choses qui semblent aujourd'hui impossibles... un processus important pour l'impression est d'avoir un maillage d'écarts par rapport à notre lit qui nous permet de les corriger pour avoir une parfaite adhérence des premières couches.   
     À de nombreuses reprises, nous effectuons ce maillage avant l'impression pour nous assurer qu'il fonctionne correctement et cela se fait sur toute la surface de notre lit.  
     Avec le maillage adaptatif du lit, cela se fera dans la zone d'impression, ce qui le rend beaucoup plus précis que la méthode traditionnelle... dans les captures d'écran suivantes, nous verrons les différences entre un maillage traditionnel et un maillage adaptatif.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -218,7 +218,7 @@ Cet ensemble de macros, créé par[Garethky](https://github.com/garethky), ils n
 D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essaierons d'ajouter dans la logique PRINT_START du bundle dans le futur en activant cette fonction par variable et en créant une macro utilisateur précédente et suivante pour pouvoir saisir les événements utilisateur)**:
 
 -   l'utilisation de\[sauvegarder_variables]Dans notre cas, nous utiliserons ~/variables.cfg pour stocker les variables et cela se trouve déjà dans le cfg de ces macros.   
-    Cela créera automatiquement un fichier de variables pour nous_construire_sheet.cfg où il enregistrera nos variables sur le disque.
+    Cela créera automatiquement un fichier de variables_construire_sheet.cfg où il enregistrera nos variables sur le disque.
 
 {% code title="Exemple de fichier de configuration de variables" %}
 
@@ -242,7 +242,7 @@ D'un autre côté, nous avons quelques**exigences pour l'implémenter (nous essa
 Par contre, il est intéressant de pouvoir avoir des macros pour activer une surface ou une autre ou même la passer en paramètre depuis notre plastifieuse pour qu'avec différents profils d'imprimante ou de filament on puisse charger l'un ou l'autre automatiquement :
 
 {% indice style="avertissement" %}  
-Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.  
+Il est important que la valeur dans NAME="xxxx" corresponde au nom que nous avons donné lors de l'installation de notre surface d'impression.  
 {% indice de fin %}
 
 {% code title="printer.cfg ou inclure cfg" %}
@@ -312,7 +312,7 @@ Il est important que la valeur de NAME="xxxx" corresponde au nom que nous avons 
 
 -   **Firmware compilé pour les appareils électroniques pris en charge**, pour faciliter le processus de création et de maintenance de notre firmware Klipper pour nos MCU, nous avons la macro COMPILE_FIRMWARE qui, une fois exécuté, nous pouvons utiliser notre électronique comme paramètre pour faire uniquement cela, compilera Klipper pour toute l'électronique prise en charge par notre bundle :  
     ![](../../.gitbook/assets/image%20(1540).png)  
-    Nous les trouverons facilement accessibles depuis notre interface Web dans le répertoire du firmware.\_binaires dans notre onglet MACHINE (si nous utilisons Grand-Voile) :  
+    Nous les trouverons facilement accessibles depuis notre interface Web dans le répertoire du firmware_binaires dans notre onglet MACHINE (si nous utilisons Grand-voile) :  
     ![](../../.gitbook/assets/telegram-cloud-photo-size-4-6019366631093943185-y.jpg)  
     Vous trouverez ci-dessous la liste des appareils électroniques pris en charge :
 
@@ -328,7 +328,7 @@ Les firmwares sont générés pour être utilisés avec une connexion USB, ce qu
 
 ![](../../.gitbook/assets/image%20(770).png)
 
-Le plus simple est d'utiliser[**keoh**](../instalacion/#instalando-kiauh)où l'on retrouvera dans une de ses options la possibilité d'installer cette extension :
+Le moyen le plus simple est d'utiliser[**keoh**](../instalacion/#instalando-kiauh)où l'on retrouvera dans une de ses options la possibilité d'installer cette extension :
 
 ![](../../.gitbook/assets/telegram-cloud-photo-size-4-5837048490604215201-x_partial.jpg)
 
@@ -398,7 +398,7 @@ Depuis notre interface, Mainsail/Fluidd, nous allons éditer notre imprimante.cf
 {%endcode%}
 
 {% indice style="info" %}  
-Il est important d'ajouter ces lignes à la fin de notre fichier de configuration... juste au dessus de la section pour que s'il y a des macros dans notre cfg ou include, elles soient écrasées par les nôtres :  
+Il est important d'ajouter ces lignes à la fin de notre fichier de configuration... juste au dessus de la section afin que s'il y a des macros dans notre cfg ou include elles soient écrasées par les nôtres :  
 #\*# \\&lt;------------ SAUVEGARDER_CONFIGURATION ------------>  
 {% indice de fin %}
 
@@ -465,7 +465,7 @@ On redémarre Cura et on ira à_**Extensions/Post-traitement/Modifier le G-Code*
 {% onglets de fin %}
 
 {% indice style="info" %}  
-Le**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils soient remplacés par les valeurs configurées dans le profil**impression.
+Le**les espaces réservés sont des "alias" ou des variables que les plastifieurs utilisent pour que lors de la génération du gcode, ils les remplacent par les valeurs configurées dans le profil**impression.
 
 Dans les liens suivants, vous pouvez en trouver une liste pour :[**PrusaSlicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(en plus de ceux ci-dessus),[**Studio Bambou**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)et[**Traitement**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -569,11 +569,11 @@ Une phase importante de notre démarrage d'impression est une purge correcte de 
 | -primeblob nous fera une goutte de filament dans un coin de notre lit, très efficace pour nettoyer la buse et facile à retirer                                        |                                                           |                   |                   |
 | ligne principale /                                                                                                                                                    |                                                           |                   |                   |
 
-primelineadaptatif /   
+ligne principale adaptative /   
 primeblob /   
 FAUX
 
-| ligne principale adaptative |  
+| primelineadaptatif |  
 | variable_ajutage_amorçage_distance de l'objet | Si nous utilisons une ligne de fond perdu adaptative, ce sera la marge à utiliser entre la ligne de fond perdu et l'objet imprimé | numérique | 5 |  
 | variable_ajutage_prime_commencer_X | Où nous voulons localiser notre ligne de purge :  
 -min le fera à X=0 (plus une petite marge de sécurité)  
@@ -661,7 +661,7 @@ C'est pourquoi il est très important de comprendre le fonctionnement de Klipper
 
 Normalement, ce sera ce que nous devrons ajuster, faire des ajustements aux variables que nous avons par défaut dans notre module**Travail 3D**para Falaises.
 
-Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBALE_DONT]ce qu'on peut trouver dans les macros/macros_notre_globals.cfg dans notre imprimante.cfg.
+Simplement, il suffit de coller le contenu de la macro\[gcode_macroGLOBAL_DONT]ce qu'on peut trouver dans les macros/macros_notre_globals.cfg dans notre imprimante.cfg.
 
 Nous vous rappelons ce que nous avons mentionné précédemment sur la façon dont Klipper traite les configurations de manière séquentielle, il est donc conseillé de le coller après les inclusions que nous avons mentionnées.[ici](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 
@@ -695,11 +695,11 @@ Les trois points (...) dans les exemples précédents ont simplement pour but d'
 {% indice style="info" %}
 
 -   Nous vous conseillons d'ajouter des commentaires comme vous le voyez dans le cas précédent pour identifier ce que fait chaque section.
--   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBALE_DONT]{% indice de fin %}
+-   Bien qu'il ne soit pas nécessaire de toucher à toutes les variables, nous vous conseillons de copier tout le contenu de\[gcode_macroGLOBAL_DONT]{% indice de fin %}
 
 #### Personnalisation des macros
 
-Les macros ont été configurées de manière modulaire afin de pouvoir être facilement ajustées. Comme nous l'avons mentionné précédemment, si nous voulons les ajuster, nous devrons procéder de la même manière que pour les variables, copier la macro en question dans notre imprimante.cfg (ou une autre inclusion de notre choix) et nous assurer qu'elle est après l'inclusion où nous avons ajouté notre module 3Dwork pour Klipper.
+Les macros ont été configurées de manière modulaire afin de pouvoir être facilement ajustées. Comme nous l'avons mentionné précédemment, si nous voulons les ajuster, nous devrons procéder de la même manière que pour les variables, copier la macro en question dans notre imprimante.cfg (ou une autre inclusion de notre choix) et nous assurer qu'elle est bien après l'inclusion où nous avons ajouté notre module 3Dwork pour Klipper.
 
 Nous avons deux groupes de macros :
 

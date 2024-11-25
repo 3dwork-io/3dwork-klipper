@@ -154,7 +154,7 @@ Some added macros that will be useful to us:
 | -segmented macro to be able to be personalized as we will show you later   |                                                                                                                                    |
 | **END_PRINT**                                                              | End of print macro where we also have segmentation to be able to customize our macro. We also have dynamic head parking.           |
 
--   **Adaptive bed frame**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations from our bed that allows us to correct these to have perfect adhesion of the first layers.   
+-   **Adaptive bed frame**Thanks to the versatility of Klipper we can do things that today seem impossible... an important process for printing is having a mesh of deviations in our bed that allows us to correct these to have perfect adhesion of the first layers.   
     On many occasions we do this meshing before printing to ensure that it works correctly and this is done on the entire surface of our bed.  
     With adaptive bed meshing, this will be done in the printing area, making it much more precise than the traditional method... in the following screenshots we will see the differences between a traditional mesh and an adaptive one.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -218,7 +218,7 @@ This set of macros, created by[Garethky](https://github.com/garethky), they will
 On the other hand we have some**requirements to implement it (we will try to add in the PRINT logic_START of the bundle in the future by activating this function by variable and creating a previous and subsequent user macro to be able to enter user events)**:
 
 -   the use of\[save_variables]In our case we will use ~/variables.cfg to store the variables and that is already inside the cfg of these macros.   
-    This will automatically create a variables file_build_sheets.cfg where it will save our variables on disk.
+    This will automatically create a variables file for us_build_sheets.cfg where it will save our variables on disk.
 
 {% code title="Example of variables config file" %}
 
@@ -398,7 +398,7 @@ From our interface, Mainsail/Fluidd, we will edit our printer.cfg and add:
 {%endcode%}
 
 {% hint style="info" %}  
-It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes they will be overwritten by ours:  
+It is important that we add these lines to the end of our configuration file... just above the section so that if there are macros in our cfg or includes, they will be overwritten by ours:  
 #\*# \\&lt;---------------------- SAVE_CONFIG ---------------------->  
 {% endhint %}
 
@@ -465,7 +465,7 @@ We restart Cura and we will go to_**Extensions/Post processing/Modify G-Code**_a
 {% endtabs %}
 
 {% hint style="info" %}  
-Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they replace them with the values ​​configured in the profile**printing.
+Los**placeholders are "aliases" or variables that the laminators use so that when generating the gcode they are replaced by the values ​​configured in the profile**printing.
 
 In the following links you can find a list of these for:[**PrusaSlicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(in addition to those above),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)y[**Treatment**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -569,11 +569,11 @@ An important phase of our start of printing is a correct purging of our nozzle t
 | -primeblob will make us a drop of filament in a corner of our bed, very effective for cleaning the nozzle and easy to remove                         |                                                  |                 |               |
 | prime line /                                                                                                                                         |                                                  |                 |               |
 
-adaptive primeline /   
+primelineadaptive /   
 primeblob /   
 False
 
-| primelineadaptive |  
+| adaptive primeline |  
 | variable_nozzle_priming_objectdistance | If we use adaptive bleed line it will be the margin to be used between the bleed line and the printed object | numeric | 5 |  
 | variable_nozzle_prime_start_x | Where we want to locate our purge line:  
 -min will do it at X=0 (plus a small safety margin)  
@@ -596,7 +596,7 @@ backwards | auto |
 
 #### Filament loading/unloading
 
-In this case, this group of variables will make it easier for us to manage the loading and unloading of our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
+In this case, this group of variables will facilitate the management of loading and unloading our filament used in emulation of the M600, for example, or when launching the filament loading and unloading macros:
 
 | Variable                        | Description                                                                                                                                                                                                                                                                                                                                                                        | Possible values | Default value |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- |

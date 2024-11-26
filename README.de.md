@@ -28,7 +28,7 @@ Um unser Paket für Klipper zu installieren, führen wir die folgenden Schritte 
 
 ### Aus dem Repository herunterladen
 
-Wir werden uns über SSH mit unserem Host verbinden und die folgenden Befehle erteilen:
+Wir verbinden uns über SSH mit unserem Host und geben die folgenden Befehle aus:
 
     cd ~/printer_data/config
     git clone https://github.com/3dwork-io/3dwork-klipper.git
@@ -130,7 +130,7 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 | Makro                                                                         | Beschreibung                                                                                                                                                                                               |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **VIELLEICHT_HEIM**                                                           | Dadurch können wir den Referenzierungsprozess nur optimieren, indem wir ihn auf den Achsen durchführen, die nicht referenziert werden.                                                                     |
-| **PAUSE**                                                                     | Durch die Verwendung der zugehörigen Variablen können wir eine Pause mit einem vielseitigeren Head-Parking verwalten als mit normalen Makros.                                                              |
+| **PAUSE**                                                                     | Durch die zugehörigen Variablen können wir eine Pause mit einem vielseitigeren Kopfparkmodus verwalten als mit normalen Makros.                                                                            |
 | **SATZ_PAUSE_BEI_SCHICHT**                                                    |                                                                                                                                                                                                            |
 | **SATZ_PAUSE_BEI_NÄCHSTE_SCHICHT**                                            | Ein sehr nützliches Makro, das Mainsail in seine Benutzeroberfläche integriert, um bei Bedarf in einer bestimmten Ebene pausieren zu können ... für den Fall, dass wir es beim Laminieren vergessen haben. |
 | Wir haben auch eine weitere, um die Pause auf der nächsten Ebene auszuführen. |                                                                                                                                                                                                            |
@@ -150,11 +150,11 @@ Einige hinzugefügte Makros, die für uns nützlich sein werden:
 | -Intelligente Düsenvorwärmung bei Verwendung eines Sondensensors                          |                                                                                                                                                  |
 | -Möglichkeit der Verwendung der Z-Neigung durch Variable                                  |                                                                                                                                                  |
 | -Adaptive Bettmatratze, gezwungen oder aus einer Aufbewahrungstasche                      |                                                                                                                                                  |
-| -anpassbare Spülleitung zwischen normaler, adaptiver Spülleitung oder Spülabfall          |                                                                                                                                                  |
+| -Anpassbare Spülleitung zwischen normaler, adaptiver Spülleitung oder Spülabfall          |                                                                                                                                                  |
 | -segmentiertes Makro, um es personalisieren zu können, wie wir Ihnen später zeigen werden |                                                                                                                                                  |
-| **ENDE_PRINT**                                                                            | End-of-Print-Makro, bei dem wir auch eine Segmentierung haben, um unser Makro anpassen zu können. Wir verfügen auch über dynamisches Kopfparken. |
+| **ENDE_DRUCKEN**                                                                          | End-of-Print-Makro, bei dem wir auch eine Segmentierung haben, um unser Makro anpassen zu können. Wir verfügen auch über dynamisches Kopfparken. |
 
--   **Adaptiver Bettrahmen**Dank der Vielseitigkeit von Klipper können wir Dinge tun, die heute unmöglich erscheinen ... Ein wichtiger Prozess beim Drucken besteht darin, ein Netz von Abweichungen von unserem Bett zu erstellen, das es uns ermöglicht, diese zu korrigieren, um eine perfekte Haftung der ersten Schichten zu erreichen.   
+-   **Adaptiver Bettrahmen**Dank der Vielseitigkeit von Klipper können wir Dinge tun, die heute unmöglich erscheinen ... Ein wichtiger Prozess beim Drucken besteht darin, ein Netz von Abweichungen in unserem Bett zu haben, das es uns ermöglicht, diese zu korrigieren, um eine perfekte Haftung der ersten Schichten zu erreichen.   
     In vielen Fällen führen wir diese Vernetzung vor dem Drucken durch, um sicherzustellen, dass sie ordnungsgemäß funktioniert, und zwar auf der gesamten Oberfläche unseres Bettes.  
     Bei der adaptiven Bettvernetzung erfolgt dies im Druckbereich und ist damit viel präziser als die herkömmliche Methode. In den folgenden Screenshots sehen wir die Unterschiede zwischen einem herkömmlichen und einem adaptiven Netz.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
@@ -197,7 +197,7 @@ Wir werden nicht auf die Installation und Konfiguration eingehen, da die Verwend
 | SATZ_AKTIV_SPULE | Damit können wir die ID der zu verwendenden Spule angeben |
 | KLAR_AKTIV_SPULE | Dadurch können wir die aktive Spule zurücksetzen          |
 
-Ideal wäre in jedem Fall die Ergänzung unseres Laminators,**in den Filament-Gcodes für jede Spule der Aufruf dazu**, und denken Sie daran**Ändern Sie seine ID, sobald es verbraucht ist**um den Überblick über die Filamentreste darin behalten zu können!!!
+Ideal wäre in jedem Fall die Ergänzung unseres Laminators,**in den Filament-Gcodes für jede Spule der Aufruf dazu**, und denken Sie daran**Ändern Sie seine ID, sobald es verbraucht ist**um den Überblick darüber behalten zu können, was an Filament darin übrig bleibt!!!
 
 !\[](../../.gitbook/assets/image (1991).png)
 
@@ -209,7 +209,7 @@ Ideal wäre in jedem Fall die Ergänzung unseres Laminators,**in den Filament-Gc
 
 Normalerweise ist es normal, dass wir je nach gewünschter Oberfläche oder Filamentart unterschiedliche Druckoberflächen haben.
 
-Dieser Satz von Makros, erstellt von[Garethky](https://github.com/garethky)Sie ermöglichen uns die Kontrolle über diese und insbesondere über die korrekte Einstellung von ZOffset in jedem von ihnen in der Art, wie wir es bei Prusa-Maschinen haben. Unten sehen Sie einige seiner Funktionen:
+Dieser Satz von Makros, erstellt von[Garethky](https://github.com/garethky), sie ermöglichen uns die Kontrolle über diese und insbesondere die korrekte Einstellung des ZOffset in jedem von ihnen im Stil, den wir bei Prusa-Maschinen haben. Unten sehen Sie einige seiner Funktionen:
 
 -   Wir können die gewünschte Anzahl von Druckoberflächen speichern, wobei jede einen eindeutigen Namen hat
 -   Jede Druckoberfläche verfügt über einen eigenen ZOffset
@@ -345,7 +345,7 @@ Wir können den Vorgang auch manuell durchführen, wir kopieren das Plugin manue
 | Octopus Pro (446)      | btt-octopus-pro-446                               |
 | Octopus Pro (429)      | btt-octopus-pro-429                               |
 | Octopus Pro (H723)     | btt-octopus-pro-h723                              |
-| Octopus v1.1           | BTT-Oktopus-11                                    |
+| Octopus v1.1           | btt-octopus-11                                    |
 | Octopus v1.1 (407)     | btt-octopus-11-407                                |
 | SKR Pro v1.2           | skr_Profi_12                                      |
 | SKR 3                  | Übrigens_skr_3                                    |
@@ -398,7 +398,7 @@ Wir können den Vorgang auch manuell durchführen, wir kopieren das Plugin manue
 {%endcode%}
 
 {% hint style="info" %}  
-Es ist wichtig, dass wir diese Zeilen am Ende unserer Konfigurationsdatei hinzufügen ... direkt über dem Abschnitt, damit Makros in unserer CFG oder in Includes von unseren überschrieben werden:  
+Es ist wichtig, dass wir diese Zeilen am Ende unserer Konfigurationsdatei hinzufügen ... direkt über dem Abschnitt, damit Makros in unserer CFG oder unseren Includes von unseren überschrieben werden:  
 #\*# \\&lt;-------- SPEICHERN_KONFIG -------->  
 {% endhint %}
 
@@ -413,7 +413,7 @@ Da unsere Makros dynamisch sind, extrahieren sie bestimmte Informationen aus uns
 
 -   **Starten Sie den Gcode START_DRUCKEN**, unter Verwendung von Platzhaltern, um Filament- und Betttemperaturwerte dynamisch zu übergeben:
 
-{% Tabs %}  
+{% tabs %}  
 {% tab title="PrusaSlicer-SuperSlicer" %}  
 **PrusaSlicer**
 
@@ -465,7 +465,7 @@ Wir starten Cura neu und gehen zu_**Erweiterungen/Nachbearbeitung/G-Code ändern
 {% endtabs %}
 
 {% hint style="info" %}  
-Der**Platzhalter sind „Aliase“ oder Variablen, die die Laminatoren verwenden, damit sie diese bei der Generierung des Gcodes durch die im Profil konfigurierten Werte ersetzen**Drucken.
+Der**Platzhalter sind „Aliase“ oder Variablen, die die Laminatoren verwenden, damit sie bei der Generierung des GCodes durch die im Profil konfigurierten Werte ersetzt werden**Drucken.
 
 Unter den folgenden Links finden Sie eine Liste davon für:[**PrusaSlicer**](https://help.prusa3d.com/es/article/lista-de-placeholders_205643),[**SuperSlicer**](https://github.com/supermerill/SuperSlicer/wiki/Macro-&-Variable-list)(zusätzlich zu den oben genannten),[**Bambu Studio**](https://wiki.bambulab.com/en/software/bambu-studio/placeholder-list)Und[**Behandlung**](http://files.fieldofview.com/cura/Replacement_Patterns.html).
 
@@ -485,7 +485,7 @@ Um diese an unsere Maschine anzupassen, verwenden wir die Variablen, die wir in 
 
 #### Nachrichten-/Benachrichtigungssprache
 
-Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variable können wir es anpassen:
+Da viele Benutzer gerne Makrobenachrichtigungen in ihrer Sprache haben, haben wir ein mehrsprachiges Benachrichtigungssystem entwickelt, derzeit Spanisch (es) und Englisch (en). In der folgenden Variablen können wir es anpassen:
 
 | Variable         | Beschreibung                                                                                                                           | Mögliche Werte | Standardwert |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
@@ -514,7 +514,7 @@ Zum Verwalten der in Makros verwendeten Geschwindigkeiten.
 
 #### Heimkehr
 
-Satz von Variablen im Zusammenhang mit dem Referenzierungsprozess.
+Satz von Variablen, die sich auf den Referenzierungsprozess beziehen.
 
 | Variable | Beschreibung | Mögliche Werte | Standardwert |
 | -------- | ------------ | -------------- | ------------ |
@@ -534,7 +534,7 @@ Vorteile der Verwendung einer vorgeheizten Düse:
 
 -   Es gibt uns zusätzliche Zeit, damit das Bett seine Temperatur gleichmäßig erreichen kann.
 -   Wenn wir einen induktiven Sensor ohne Temperaturkompensation verwenden, können unsere Messungen konsistenter und präziser sein.
--   Ermöglicht das Aufweichen des in der Düse verbliebenen Filaments, was bedeutet, dass diese Reste in bestimmten Konfigurationen keinen Einfluss auf die Aktivierung des Sensors haben  
+-   Ermöglicht das Aufweichen des restlichen Filaments in der Düse, was bedeutet, dass diese Reste in bestimmten Konfigurationen keinen Einfluss auf die Aktivierung des Sensors haben.  
     {% endhint %}
 
 #### Bettgitter
@@ -580,13 +580,13 @@ FALSCH
 -max wird dies bei X=max tun (abzüglich einer kleinen Sicherheitsmarge)  
 -Die Zahl ist die X-Koordinate, an der die Spülung | lokalisiert werden soll Min. /   
 max. /   
-Zahl | max |  
+Nummer | max |  
 | Variable_Düse_Primzahl_Start_und | Wo wir unsere Spülleitung platzieren möchten:  
 -min wird dies bei Y=0 tun (plus einer kleinen Sicherheitsmarge)  
 -max wird dies bei Y=max tun (abzüglich einer kleinen Sicherheitsmarge)  
 -Die Zahl ist die Y-Koordinate, an der die Spülung | lokalisiert werden soll Min. /   
 max. /   
-Zahl | min |  
+Nummer | min |  
 | Variable_Düse_Primzahl_Richtung | Die Adresse unserer Leitung oder Zustellung:  
 -Nach hinten bewegt sich der Kopf zur Vorderseite des Druckers  
 -vorwärts bewegt sich nach hinten  
@@ -596,14 +596,14 @@ rückwärts | auto |
 
 #### Laden/Entladen des Filaments
 
-In diesem Fall erleichtert uns diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
+In diesem Fall erleichtert diese Gruppe von Variablen die Verwaltung des Ladens und Entladens unseres Filaments, das beispielsweise in der M600-Emulation verwendet wird, oder beim Starten der Makros zum Laden und Entladen von Filamenten:
 
-| Variable                                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Mögliche Werte | Standardwert |
-| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| Variable_Filament_entladen_Länge           | Wie viel mm das Filament zurückgezogen werden muss, passen Sie an Ihre Maschine an, normalerweise das Maß von Ihrer Düse bis zu den Zahnrädern Ihres Extruders, wobei ein zusätzlicher Spielraum hinzukommt.                                                                                                                                                                                                                                                          | Nummer         | 130          |
-| Variable_Filament_entladen_Geschwindigkeit | Filamentrückzugsgeschwindigkeit in mm/s. Normalerweise wird eine langsame Geschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                                                  | Nummer         | 5            |
-| Variable_Filament_laden_Länge              | Abstand in mm zum Laden des neuen Filaments... sowie variabel_Filament_entladen_Für die Länge verwenden wir die Messung von Ihrem Getriebe bis zum Extruder und fügen einen zusätzlichen Spielraum hinzu. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel Sie entleeren möchten. Normalerweise können Sie ihm einen größeren Spielraum als den vorherigen Wert geben, um sicherzustellen, dass der Die Extrusion des vorherigen Filaments ist sauber. | Nummer         | 150          |
-| Variable_Filament_laden_Geschwindigkeit    | Filamentladegeschwindigkeit in mm/s, normalerweise wird eine höhere Geschwindigkeit als die Entladegeschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                         | Nummer         | 10           |
+| Variable                                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Mögliche Werte | Standardwert |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| Variable_Filament_entladen_Länge           | Wie viel mm das Filament zurückgezogen werden muss, passen Sie an Ihre Maschine an, normalerweise das Maß von Ihrer Düse bis zu den Zahnrädern Ihres Extruders, wobei ein zusätzlicher Spielraum hinzukommt.                                                                                                                                                                                                                                                        | Nummer         | 130          |
+| Variable_Filament_entladen_Geschwindigkeit | Filamentrückzugsgeschwindigkeit in mm/s. Normalerweise wird eine langsame Geschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                                                | Nummer         | 5            |
+| Variable_Filament_laden_Länge              | Abstand in mm zum Laden des neuen Filaments... sowie variabel_Filament_entladen_Für die Länge verwenden wir die Messung von Ihrem Getriebe bis zum Extruder und fügen einen zusätzlichen Spielraum hinzu. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel gespült werden soll. Normalerweise können Sie ihm einen größeren Spielraum als den vorherigen Wert geben, um sicherzustellen, dass der Die Extrusion des vorherigen Filaments ist sauber. | Nummer         | 150          |
+| Variable_Filament_laden_Geschwindigkeit    | Filamentladegeschwindigkeit in mm/s, normalerweise wird eine höhere Geschwindigkeit als die Entladegeschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                       | Nummer         | 10           |
 
 {% hint style="warning" %}  
 Eine weitere notwendige Einstellung für Ihren Abschnitt\[Extruder]geben Sie an[**max_extrudieren_nur_Distanz**](https://www.klipper3d.org/Config_Reference.html#extruder)...der empfohlene Wert ist normalerweise >101 (falls nicht definiert, verwenden Sie 50), um beispielsweise typische Extruder-Kalibrierungstests zu ermöglichen.   
@@ -623,7 +623,7 @@ Bei bestimmten Vorgängen unseres Druckers, wie z. B. Pausen, empfiehlt es sich,
 | Variable_Ende_drucken_Park_In        | Position, an der der Kopf geparkt werden soll, wenn ein Druckvorgang beendet oder abgebrochen wird.                                                                                                                                                                                                              | zurück /       |              |
 | Mitte /                              |                                                                                                                                                                                                                                                                                                                  |                |              |
 | Front                                | zurück                                                                                                                                                                                                                                                                                                           |                |              |
-| Variable_Ende_drucken_Park_Mit_Hop   | Anhebungsstrecke in Z am Ende des Druckvorgangs.                                                                                                                                                                                                                                                                 | Nummer         | 20           |
+| Variable_Ende_drucken_Park_Mit_Hop   | Steigungsabstand in Z am Ende des Druckvorgangs.                                                                                                                                                                                                                                                                 | Nummer         | 20           |
 | Variable_pause_drucken_Park_In       | Position, an der der Kopf beim Anhalten des Druckvorgangs geparkt werden soll.                                                                                                                                                                                                                                   | zurück /       |              |
 | Mitte /                              |                                                                                                                                                                                                                                                                                                                  |                |              |
 | Front                                | zurück                                                                                                                                                                                                                                                                                                           |                |              |
@@ -699,7 +699,7 @@ Die drei Punkte (...) in den vorherigen Beispielen sollen lediglich darauf hinwe
 
 #### Anpassen von Makros
 
-Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie wir bereits erwähnt haben, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
+Die Makros sind modular aufgebaut, sodass sie leicht angepasst werden können. Wie bereits erwähnt, müssen wir, wenn wir sie anpassen möchten, genauso vorgehen wie bei den Variablen, das betreffende Makro in unsere Printer.cfg (oder ein anderes eigenes Include) kopieren und sicherstellen, dass es so ist nach dem Include, wo wir unser 3Dwork-Modul für Klipper hinzugefügt haben.
 
 Wir haben zwei Gruppen von Makros:
 
@@ -737,13 +737,13 @@ Wir haben zwei Gruppen von Makros:
 
 **START_DRUCKEN**
 
-| Makroname                             | Beschreibung                                                                                                                                                                                                                          |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \_START_DRUCKEN_HITZE_KAMMER          | Erhitzt das Gehäuse, wenn der CHAMBER-Parameter überschritten wird_TEMP wird von unserem START-Makro empfangen_DRUCKEN vom Laminator                                                                                                  |
-| \_START_DRUCKEN_NACH_HEIZUNG_BETT     | Es wird ausgeführt, wenn das Bett die Temperatur erreicht hat_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_BETT. Wird normalerweise zur Verarbeitung von Bettkalibrierungen verwendet (Z_NEIGUNG_EINSTELLEN, VIERFACH_PORTAL_NIVELLIERUNG,...) |
-| \_START_DRUCKEN_BETT_MESH             | Es verwaltet die Bettvernetzungslogik.                                                                                                                                                                                                |
-| \_START_DRUCKEN_PARK                  | Parken Sie den Druckkopf, während Sie die Düse auf Drucktemperatur erwärmen.                                                                                                                                                          |
-| \_START_DRUCKEN_NACH_HEIZUNG_EXTRUDER | Spülen Sie die Düse und laden Sie das SKEW-Profil, wenn dies in den Variablen definiert ist                                                                                                                                           |
+| Makroname                             | Beschreibung                                                                                                                                                                                                                              |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \_START_DRUCKEN_HITZE_KAMMER          | Erhitzt das Gehäuse, wenn der CHAMBER-Parameter überschritten wird_TEMP wird von unserem START-Makro empfangen_DRUCKEN vom Laminator                                                                                                      |
+| \_START_DRUCKEN_NACH_HEIZUNG_BETT     | Es wird ausgeführt, wenn das Bett die Temperatur erreicht hat_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_BETT. Wird normalerweise für die Verarbeitung von Bettkalibrierungen verwendet (Z_NEIGUNG_EINSTELLEN, VIERFACH_PORTAL_NIVELLIERUNG,...) |
+| \_START_DRUCKEN_BETT_MESH             | Es verwaltet die Bettvernetzungslogik.                                                                                                                                                                                                    |
+| \_START_DRUCKEN_PARK                  | Parken Sie den Druckkopf, während Sie die Düse auf Drucktemperatur erwärmen.                                                                                                                                                              |
+| \_START_DRUCKEN_NACH_HEIZUNG_EXTRUDER | Spülen Sie die Düse und laden Sie das SKEW-Profil, wenn dies in den Variablen definiert ist                                                                                                                                               |
 
 ## Drucker und Elektronik
 

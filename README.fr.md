@@ -707,14 +707,14 @@ Nous avons deux groupes de macros :
 
 **COMMENCER_IMPRIMER**
 
-| Nombre Macro                                             | Description                                                                                                                         |
-| -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| \_UTILISATEUR_COMMENCER_IMPRIMER_CHALEUR_CHAMBRE         | Elle est exécutée juste après que notre enceinte commence à chauffer, si CHAMBRE_TEMP est passé en paramètre à notre START_IMPRIMER |
-| \_UTILISATEUR_COMMENCER_IMPRIMER_AVANT_RENDEZ-VOUS       | Exécuté avant la prise d'origine initiale du début de l'impression                                                                  |
-| \_UTILISATEUR_COMMENCER_IMPRIMER_APRÈS_CHAUFFAGE_LIT     | Elle est exécutée lorsque notre lit atteint sa température, avant_COMMENCER_IMPRIMER_APRÈS_CHAUFFAGE_LIT                            |
-| \_UTILISATEUR_COMMENCER_IMPRIMER_LIT_ENGRENER            | Il est publié avant_COMMENCER_IMPRIMER_LIT_ENGRENER                                                                                 |
-| \_UTILISATEUR_COMMENCER_IMPRIMER_PARC                    | Il est publié avant_COMMENCER_IMPRIMER_PARC                                                                                         |
-| \_UTILISATEUR_COMMENCER_PRINT_APRÈS_CHAUFFAGE_EXTRUDEUSE | Il est publié avant_COMMENCER_IMPRIMER_APRÈS_CHAUFFAGE_EXTRUDEUSE                                                                   |
+| Nombre Macro                                                | Description                                                                                                                         |
+| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| \_UTILISATEUR_COMMENCER_IMPRIMER_CHALEUR_CHAMBRE            | Elle est exécutée juste après que notre enceinte commence à chauffer, si CHAMBRE_TEMP est passé en paramètre à notre START_IMPRIMER |
+| \_UTILISATEUR_COMMENCER_IMPRIMER_AVANT_RENDEZ-VOUS          | Exécuté avant la prise d'origine initiale du début de l'impression                                                                  |
+| \_UTILISATEUR_COMMENCER_IMPRIMER_APRÈS_CHAUFFAGE_LIT        | Elle est exécutée lorsque notre lit atteint sa température, avant_COMMENCER_IMPRIMER_APRÈS_CHAUFFAGE_LIT                            |
+| \_UTILISATEUR_COMMENCER_IMPRIMER_LIT_ENGRENER               | Il est publié avant_COMMENCER_IMPRIMER_LIT_ENGRENER                                                                                 |
+| \_UTILISATEUR_COMMENCER_IMPRIMER_PARC                       | Il est publié avant_COMMENCER_IMPRIMER_PARC                                                                                         |
+| \_UTILISATEUR_COMMENCER_IMPRIMER_APRÈS_CHAUFFAGE_EXTRUDEUSE | Il est publié avant_COMMENCER_IMPRIMER_APRÈS_CHAUFFAGE_EXTRUDEUSE                                                                   |
 
 **FIN_IMPRIMER**
 

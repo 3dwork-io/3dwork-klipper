@@ -635,9 +635,9 @@ Take the most of our machine so that it is self -level and facilitate that our m
 
 **Z-Tilt is basically a process that helps us align our Z engines with respect to our/Gantry X (Cartesian) or XY (Corexy) axis (Corexy)**. With this**We assure that we always have our z perfectly and in a precise and automatic way**.
 
-| Variable                  | Description                                                                                             | Possible values | Default value |
-| ------------------------- | ------------------------------------------------------------------------------------------------------- | --------------- | ------------- |
-| variable_calibrate_z_tilt | It allows, in the case of having it enabled in our Klipper configuration, the Z-Tilt adjustment process | True / False    | False         |
+| Variable                  | Description                                                                                             | Possible values | Valor por defecto |
+| ------------------------- | ------------------------------------------------------------------------------------------------------- | --------------- | ----------------- |
+| variable_calibrate_z_tilt | It allows, in the case of having it enabled in our Klipper configuration, the Z-Tilt adjustment process | True / False    | False             |
 
 #### Skew
 
@@ -645,7 +645,7 @@ The use of[SKEW](broken-reference)For the correction or precise adjustment of ou
 
 | Variable              | Description                                                                                                                                                                                            | Possible values | Default value   |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- | --------------- |
-| variable_skew_profile | Allows you to take into account our SKEW profile that will be charged in our Macro Start_Print. To activate it we must discuss the variable and use the name of the SKEW profile of our configuration. | text            | my_skew_profile |
+| variable_skew_profile | Allows you to take into account our SKEW profile that will be charged in our Macro Start_Print. To activate it we must discuss the variable and use the name of the SKEW profile of our configuration. | texto           | my_skew_profile |
 
 ### Customization of macros
 

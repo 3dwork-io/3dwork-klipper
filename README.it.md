@@ -20,7 +20,7 @@ Changelog
 
 Da**3dwork**Abbiamo compilato e regolato un set di macro, macchine e configurazioni elettroniche, nonché altri strumenti per una gestione semplice e potente di Klipper.
 
-Gran parte di questo pacchetto si basa su[**Ratti**](https://os.ratrig.com/)Migliorare le parti che crediamo interessanti e altri contributi della comunità.
+Gran parte di questo pacchetto si basa su[**RatOS**](https://os.ratrig.com/)Migliorare le parti che crediamo interessanti e altri contributi della comunità.
 
 ## Installazione
 

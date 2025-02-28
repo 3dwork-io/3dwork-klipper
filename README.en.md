@@ -209,7 +209,7 @@ The ideal in each case would be to add in our laminator,**In the filament gcodes
 
 It is usually normal for us to have different printing surfaces depending on the finish we want to have or the type of filament.
 
-This set of macros, created by[Garethky](https://github.com/garethky), they will allow us to have a control of these and especially the correct adjustment of Zoffset in each of them in the style that we have in Prussa machines. Below you can see some of your functions:
+This set of macros, created by[Garethky](https://github.com/garethky), they will allow us to have a control of these and especially the correct adjustment of Zoffset in each of them in the style that we have in Pruse machines. Below you can see some of your functions:
 
 -   We can store the number of print surfaces we want, each having a unique name
 -   Each printing surface will have its own zoffset
@@ -340,7 +340,7 @@ We can also perform the process by hand we will manually copy the plugin for kli
 | Manta M4P          | btt-manta-m4p                  |
 | Manta M4P V2.      | btt-manta-m4p-22               |
 | Manta M8P          | btt-manta-m8p                  |
-| Manta m8p v1.1     | btt-manta-m8p-11               |
+| Manta M8p v1.1     | btt-manta-m8p-11               |
 | Octopus max this   | btt-octopus-max-ez             |
 | Octopus Pro (446)  | btt-octopus-pro-446            |
 | Octopus Pro (429)  | btt-octopus-pro-429            |
@@ -569,11 +569,11 @@ An important phase of our beginning of printing is a correct purge of our Nozzle
 | -Primoblob will make us a drop of filament in a corner of our very effective bed to clean the nozzle and easy to withdraw                             |                                                 |                 |               |
 | Primeline /                                                                                                                                           |                                                 |                 |               |
 
-Prime -adaptive /   
+prime adaptive /   
 PrimeBlob /   
 False
 
-| primelineaDaptive |  
+| primelinea adaptive |  
 | variable_nozzle_priming_Objectdistance | If we use adaptive purge line, it will be the margin to be used between the purge line and the printed object | numerical | 5 |  
 | variable_nozzle_prime_start_x | Where we want to locate our purge line:  
 -Min will do it at x = 0 (plus a small safety margin)  
@@ -635,9 +635,9 @@ Take the most of our machine so that it is self -level and facilitate that our m
 
 **Z-Tilt is basically a process that helps us align our Z engines with respect to our/Gantry X (Cartesian) or XY (Corexy) axis (Corexy)**. With this**We assure that we always have our z perfectly and in a precise and automatic way**.
 
-| Variable                  | Description                                                                                             | Possible values | Valor por defecto |
-| ------------------------- | ------------------------------------------------------------------------------------------------------- | --------------- | ----------------- |
-| variable_calibrate_z_tilt | It allows, in the case of having it enabled in our Klipper configuration, the Z-Tilt adjustment process | True / False    | False             |
+| Variable                  | Description                                                                                             | Possible values | Default value |
+| ------------------------- | ------------------------------------------------------------------------------------------------------- | --------------- | ------------- |
+| variable_calibrate_z_tilt | It allows, in the case of having it enabled in our Klipper configuration, the Z-Tilt adjustment process | True / False    | False         |
 
 #### Skew
 

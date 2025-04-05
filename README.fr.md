@@ -18,7 +18,7 @@ Changelog
 
 12/07/2023 - Ajout d'un support pour automatiser la création du firmware électronique BigRetEech
 
-Depuis**Travail 3D**Nous avons compilé et ajusté un ensemble de macros, de configurations de machines et électroniques, ainsi que d'autres outils pour une gestion simple et puissante de Klipper.
+Depuis**Travail 3D**Nous avons compilé et ajusté un ensemble de macros, de configurations machine et électronique, ainsi que d'autres outils pour une gestion simple et puissante de Klipper.
 
 Une grande partie de ce package est basé sur[**Rats**](https://os.ratrig.com/)Améliorer les parties que nous croyons intéressantes, ainsi que d'autres contributions de la communauté.
 
@@ -121,7 +121,7 @@ Depuis MoilSail / FLUIDD, nous modifierons notre Moonraker.conf (il devrait êtr
 
 ## Macros
 
-Nous avons toujours commenté que Times est l'une des meilleures distributions de Klipper, avec des modules de support de framboise et CB1, en grande partie en raison de ses configurations modulaires et de ses grandes macros.
+Nous avons toujours commenté que Times est l'une des meilleures distributions de Klipper, avec le support de framboise et les modules CB1, en grande partie en raison de ses configurations modulaires et de ses grandes macros.
 
 Certaines macros ajoutées qui seront utiles:
 
@@ -163,11 +163,11 @@ Certaines macros ajoutées qui seront utiles:
 
 Ensemble de macros qui nous permettra de gérer différentes actions avec notre filament tel que la charge ou la décharge de cela.
 
-| Macro                  | Description                                                                                                                   |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| **Le M600**            | Il nous permettra de compatibilité avec le GCOD M600 normalement utilisé dans les laminateurs pour le changement de filament. |
-| **DÉCHARGER_FILAMENT** | Configurable via les variables nous permettra de télécharger des filaments assistés.                                          |
-| **CHARGER_FILAMENT**   | Ainsi que le précédent mais lié à la charge du filament.                                                                      |
+| Macro                  | Description                                                                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **M600**               | Il nous permettra de compatibilité avec le M600 GCODE normalement utilisé dans les laminateurs pour le changement de filament. |
+| **DÉCHARGER_FILAMENT** | Configurable via les variables nous permettra de télécharger des filaments assistés.                                           |
+| **CHARGER_FILAMENT**   | Ainsi que le précédent mais lié à la charge du filament.                                                                       |
 
 ### **Filament Coil Management Macros (Spoolman)**
 
@@ -209,7 +209,7 @@ L'idéal dans chaque cas serait d'ajouter notre laminateur,**Dans le filament gc
 
 Il est généralement normal que nous ayons différentes surfaces d'impression en fonction de la finition que nous voulons avoir ou du type de filament.
 
-Cet ensemble de macros, créé par[Garethky](https://github.com/garethky), ils nous permettront d'avoir un contrôle de ceux-ci et surtout le réglage correct de Zoffset dans chacun d'eux dans le style que nous avons dans les machines de prus. Ci-dessous, vous pouvez voir certaines de vos fonctions:
+Cet ensemble de macros, créé par[Garethky](https://github.com/garethky), ils nous permettront d'avoir un contrôle de ceux-ci et surtout le bon ajustement de Zoffset dans chacun d'eux dans le style que nous avons dans les machines Prussa. Ci-dessous, vous pouvez voir certaines de vos fonctions:
 
 -   Nous pouvons stocker le nombre de surfaces d'impression que nous voulons, chacune ayant un nom unique
 -   Chaque surface d'impression aura son propre zoffset
@@ -262,7 +262,7 @@ Il est important que la valeur dans nom = "xxxx" coïncide avec le nom que nous 
 
 {% Endcode%}
 
-En cas de Klipperscreen, nous pouvons également ajouter un menu spécifique pour pouvoir gérer la charge des différentes surfaces, où nous inclurons un appel aux macros précédemment créés pour le chargement de chaque surface:
+Également dans le cas d'avoir Klipperscreen, nous pouvons ajouter un menu spécifique pour pouvoir gérer la charge des différentes surfaces, où nous inclurons un appel aux macros précédemment créés pour le chargement de chaque surface:
 
 {% Code Title = "~ / Imprimante_data / config / klipperscreen.conf "%}
 
@@ -320,7 +320,7 @@ En cas de Klipperscreen, nous pouvons également ajouter un menu spécifique pou
 
 Ces scripts sont prêts à travailler sur un système Raspbian avec l'utilisateur PI, si ce n'est pas votre cas, vous devez l'adapter.
 
-Firmwares est généré pour une utilisation avec une connexion USB qui est toujours ce que nous conseillons, en plus, le point d'assemblage USB est toujours le même par ce que votre configuration de votre connexion MCU ne changera pas si elles sont générées avec notre macro / script
+Firmwares est généré pour une utilisation avec une connexion USB qui est toujours ce que nous conseillons, en outre, le point d'assemblage USB est toujours le même par ce que votre configuration de votre connexion MCU ne changera pas si elles sont générées avec notre macro / script
 
 **Pour que Klipper puisse exécuter des macros de coquille, une extension doit être installée, grâce au partenaire**[**Arksine**](https://github.com/Arksine)**, laissez-le.**
 
@@ -559,7 +559,7 @@ Il est important que nous ayons dans notre[démarrer-up gcode](../empezamos/conf
 
 #### Purgé
 
-Une phase importante de notre début d'impression est une purge correcte de notre buse pour éviter les restes de filament ou qu'ils peuvent endommager notre impression à un moment donné. Ensuite, vous avez les variables impliquées dans ce processus:
+Une phase importante de notre début de l'impression est une purge correcte de notre buse pour éviter les restes de filament ou qu'ils peuvent endommager notre impression à un moment donné. Ensuite, vous avez les variables impliquées dans ce processus:
 
 | Variable                                                                                                                                                          | Description                                               | Valeurs possibles | Valeur par défaut |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----------------- | ----------------- |
@@ -569,11 +569,11 @@ Une phase importante de notre début d'impression est une purge correcte de notr
 | -Primoblob nous fera une goutte de filament dans un coin de notre lit très efficace pour nettoyer la buse et facile à retirer                                     |                                                           |                   |                   |
 | Primeline /                                                                                                                                                       |                                                           |                   |                   |
 
-Prime adaptatif /   
+Prime -Adaptive /   
 Primeblob /   
 FAUX
 
-| Primelinea Adaptive |  
+| PrimelineAdaptive |  
 | variable_ajutage_amorçage_ObjectDistance | Si nous utilisons la ligne de purge adaptative, ce sera la marge à utiliser entre la ligne de purge et l'objet imprimé | Numérique | 5 |  
 | variable_ajutage_prime_commencer_X | Où nous voulons localiser notre ligne de purge:  
 -Min le fera à x = 0 (plus une petite marge de sécurité)  
@@ -598,12 +598,12 @@ en arrière | Auto |
 
 Dans ce cas, ce groupe de variables facilitera la gestion de la charge et de la décharge de notre filament utilisé dans l'émulation du M600 par exemple ou en lançant les macros de filament de chargement et de décharge:
 
-| Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Valeurs possibles | Valeur par défaut |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
-| variable_filament_décharger_longueur | Combien de retrait dans MM le filament, ajustez-le à votre machine, normalement la mesure de votre buse aux engrenages de votre extrudeuse en ajoutant une marge supplémentaire.                                                                                                                                                                                                                                                                                        | nombre            | 130               |
-| variable_filament_décharger_vitesse  | La vitesse de rétraction du filament en mm / sec normalement une vitesse lente est utilisée.                                                                                                                                                                                                                                                                                                                                                                            | nombre            | 5                 |
-| variable_filament_charger_longueur   | Distance en mm pour charger le nouveau filament ... comme en variable_filament_décharger_Longueur, nous utiliserons la mesure de votre équipement à extruder en ajoutant une marge supplémentaire, dans ce cas, cette valeur supplémentaire dépendra de la quantité de purge que vous souhaitez être purgé ... Vous pouvez généralement lui donner plus de marge que la valeur précédente pour vous assurer qu'elle est nettoyée par l'extrusion du filament précédent. | nombre            | 150               |
-| variable_filament_charger_vitesse    | La vitesse de charge du filament en mm / sec normalement, une vitesse plus rapide est utilisée pour décharger.                                                                                                                                                                                                                                                                                                                                                          | nombre            | 10                |
+| Variable                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Valeurs possibles | Valeur par défaut |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
+| variable_filament_décharger_longueur | Combien de retrait dans MM le filament, ajustez-le à votre machine, normalement la mesure de votre buse aux engrenages de votre extrudeuse en ajoutant une marge supplémentaire.                                                                                                                                                                                                                                                                                     | nombre            | 130               |
+| variable_filament_décharger_vitesse  | La vitesse de rétraction du filament en mm / sec normalement une vitesse lente est utilisée.                                                                                                                                                                                                                                                                                                                                                                         | nombre            | 5                 |
+| variable_filament_charger_longueur   | Distance en mm pour charger le nouveau filament ... comme en variable_filament_décharger_Longueur, nous utiliserons la mesure de votre équipement à l'extrudeuse en ajoutant une marge supplémentaire, dans ce cas, cette valeur supplémentaire dépendra de la quantité de purge que vous souhaitez être purgé ... Vous pouvez généralement lui donner plus de marge que la valeur précédente pour vous assurer qu'il est nettoyé l'extrusion du filament précédent. | nombre            | 150               |
+| variable_filament_charger_vitesse    | La vitesse de charge du filament en mm / sec normalement, une vitesse plus rapide est utilisée pour décharger.                                                                                                                                                                                                                                                                                                                                                       | nombre            | 10                |
 
 {% hint style = "avertissement"%}  
 Un autre ajustement nécessaire pour votre section\[extrudeuse]le indiqué[**max_extruder_seulement_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)... La valeur recommandée est généralement> 101 (si elle n'est pas définie utilise 50) pour par exemple, par exemple, permettez les tests d'étalonnage d'extrudeurs typiques.   
@@ -747,7 +747,7 @@ Nous avons deux groupes de macros:
 
 ## Imprimantes et électroniques
 
-Alors que nous travaillons avec différents modèles d'imprimantes et électroniques, nous ajouterons ceux qui ne sont pas directement soutenus par les temps, qu'il s'agisse de contributions ou de la communauté.
+Alors que nous travaillons avec différents modèles d'imprimantes et électroniques, nous ajouterons ceux qui ne sont pas directement soutenus par les moments, qu'il s'agisse de contributions ou de communauté.
 
 -   Imprimantes, dans ce répertoire, nous aurons toutes les configurations d'imprimante
 -   Planches, ici nous trouverons l'électronique
@@ -766,7 +766,7 @@ Comme nous l'avons expliqué dans "[Personnaliser les macros](3dwork-klipper-bun
 
 #### Personnalisation des paramètres
 
-Comme nous vous conseillons de créer une section dans votre imprimante.cfg qui s'appelle les remplacements des utilisateurs, placés après l'inclusion de nos configurations, pour pouvoir ajuster et personnaliser tout paramètre utilisé.
+Comme nous vous conseillons de créer une section dans votre imprimante.cfg qui s'appelle les remplacements des utilisateurs, placés après l'inclusion de nos configurations, pour pouvoir ajuster et personnaliser tout paramètre qui y est utilisé.
 
 Dans l'exemple suivant, nous verrons comment, dans notre cas, nous voulons personnaliser les paramètres de notre nivellement de lit (lit_Mesh) ajuster les points d'enquête (sonde_Count) concernant la configuration que nous avons par défaut dans les configurations de notre module Klipper:
 
@@ -806,7 +806,7 @@ Nous pouvons utiliser ce même processus avec tout paramètre que nous souhaiton
 
 #### Personnalisation de la configuration des pin
 
-Nous procéderons exactement comme nous l'avons fait auparavant, dans notre zone de dépassement des utilisateurs, nous ajouterons les sections des épingles que nous voulons ajuster à notre goût.
+Nous procéderons exactement comme nous l'avons fait auparavant, dans notre zone de remplacements utilisateur, nous ajouterons les sections des épingles que nous voulons ajuster à notre goût.
 
 Dans l'exemple suivant, nous allons personnaliser quelle est la broche de notre ventilateur électronique (contrôleur_ventilateur) pour l'affecter à un différent de la valeur par défaut:
 

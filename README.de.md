@@ -155,8 +155,8 @@ Einige zusätzliche Makros, die nützlich sein werden:
 | **ENDE_DRUCKEN**                                                                         | Makro des Drucks des Drucks, bei dem wir auch eine Segmentierung haben, um unser Makro anzupassen. Wir haben auch einen dynamischen Kopf des Kopfes.    |
 
 -   **Adaptive Bettrolle**Dank der Vielseitigkeit von Klipper können wir Dinge tun, die heute unmöglich erscheinen ... Ein wichtiger Prozess des Eindrucks ist es, eine Mahlzeit von Abweichungen von unserem Bett zu haben, die es uns ermöglichen, diese zu korrigieren, um eine Einhaltung der perfekten ersten Schichten zu haben.   
-    Bei vielen Gelegenheiten machen wir diesen Malley vor den Eindrücken, um sicherzustellen, dass es richtig funktioniert, und dies erfolgt auf der gesamten Oberfläche unseres Bettes.  
-    Mit dem Elend des adaptiven Bettes wird es in der Druckzone durchgeführt, was es viel präziser macht als die traditionelle Methode ... In den folgenden Fängen werden wir die Unterschiede eines traditionellen und adaptiven Netzes sehen.  
+    Bei vielen Gelegenheiten machen wir diesen Malley vor den Eindrücken, um sicherzustellen, dass es richtig funktioniert, und dies wird auf der gesamten Oberfläche unseres Bettes durchgeführt.  
+    Mit dem adaptiven Bettmänse wird es in der Druckzone durchgeführt, sodass es viel präziser ist als die traditionelle Methode ... In den folgenden Fängen werden wir die Unterschiede eines traditionellen und adaptiven Netzes sehen.  
     ![](../../.gitbook/assets/image%20(1220).png)![](../../.gitbook/assets/image%20(348).png)
 
 ### **Filamentverwaltung Makros**
@@ -165,7 +165,7 @@ Makros, die es uns ermöglichen, verschiedene Aktionen mit unserem Filament wie 
 
 | Makro                 | Beschreibung                                                                                                                              |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Der M600**          | Es ermöglicht uns die Kompatibilität mit dem M600 -Gcode, der normalerweise in Laminatoren für die Änderung des Filaments verwendet wird. |
+| **M600**              | Es ermöglicht uns die Kompatibilität mit dem M600 -Gcode, der normalerweise in Laminatoren für die Änderung des Filaments verwendet wird. |
 | **ENTLADEN_Filament** | Konfigurierbar über die Variablen ermöglicht es uns, assistierte Filamente herunterzuladen.                                               |
 | **LADEN_Filament**    | Sowie die vorherige, aber im Zusammenhang mit der Last des Filaments.                                                                     |
 
@@ -209,13 +209,13 @@ Das Ideal in jedem Fall wäre, unseren Laminator hinzuzufügen,**Im Filament -GC
 
 In der Regel ist es normal, dass wir je nach Finish, die wir haben möchten, oder der Art des Filaments unterschiedliche Druckflächen haben.
 
-Dieser Satz von Makros, erstellt von[Garethky](https://github.com/garethky)Sie ermöglichen es uns, diese und insbesondere die korrekte Einstellung von Zoffset in jedem von ihnen in dem Stil zu haben, den wir in Prise -Maschinen haben. Unten können Sie einige Ihrer Funktionen sehen:
+Dieser Satz von Makros, erstellt von[Garethky](https://github.com/garethky)Sie ermöglichen es uns, eine Kontrolle über diese und insbesondere die korrekte Einstellung von Zoffset in jedem von ihnen in dem Stil zu haben, den wir in Prussa -Maschinen haben. Unten können Sie einige Ihrer Funktionen sehen:
 
 -   Wir können die Anzahl der gewünschten Druckoberflächen speichern, die jeweils einen eindeutigen Namen haben
 -   Jede Druckoberfläche hat einen eigenen Zoffset
 -   Wenn wir während eines Eindrucks (Babystepping) von unserem Klipper Z -Einstellungen vornehmen
 
-Andererseits haben wir einige**Anforderungen an die Implementierung (Versuchen Sie, die Logik des Drucks hinzuzufügen_Starten Sie das Bundle in Zukunft, um diese Funktion durch Variable zu aktivieren und ein früheres und posteriores Benutzermakro zu erstellen, um Benutzerereignisse einzulegen).**:
+Andererseits haben wir einige**Anforderungen an die Implementierung (Versuchen Sie, die Logik des Drucks hinzuzufügen_Starten Sie das Bundle in der Zukunft, um diese Funktion durch Variable zu aktivieren und ein früheres und posteriores Benutzermakro zu erstellen, um Benutzerereignisse einzulegen).**:
 
 -   Die Verwendung von\[speichern_Variablen]In unserem Fall werden wir ~/variablen.cfg verwenden, um die Variablen zu speichern, und das liegt bereits innerhalb des CFG dieser Makros.   
     Dadurch wird automatisch eine variable Datei erstellt_bauen_Sheets.cfg Wo werden Sie unsere Scheibenvariablen behalten.
@@ -320,7 +320,7 @@ Auch im Falle von Klipperscreen können wir ein bestimmtes Menü hinzufügen, um
 
 Diese Skripte sind bereit, mit PI -Benutzer an einem Raspbian -System zu arbeiten. Wenn es nicht Ihr Fall ist, müssen Sie es anpassen.
 
-Firmawares werden zur Verwendung mit USB -Verbindung generiert, die immer das ist, was wir empfehlen. Außerdem ist der USB -Montagepunkt immer gleich, indem Ihre Konfiguration Ihrer MCU -Verbindung nicht geändert wird, wenn sie mit unserem Makro/Skript generiert werden
+Firmawares werden zur Verwendung mit USB -Verbindung generiert, die immer das ist, was wir empfehlen. Außerdem ist der USB -Montagepunkt immer gleich, nach welcher Konfiguration Ihrer MCU -Verbindung sich nicht ändert, wenn sie mit unserem Makro/Skript generiert werden
 
 **So dass Klipper Shell -Makros ausführen kann, dank des Partners muss eine Erweiterung installiert werden**[**Arksin**](https://github.com/Arksine)**, lass es.**
 
@@ -534,7 +534,7 @@ Vorteile der Verwendung der vorgeheizten Düse:
 
 -   Es ermöglicht uns zusätzliche Zeit damit, dass das Bett seine Temperatur auf einheitliche Weise erreicht
 -   Wenn wir einen Indizessensor verwenden, der keine Temperaturkompensation hat, können wir unsere Maßnahmen konsistenter und präziser machen
--   Es ermöglicht es, einen Rest des Filaments in der Düse zu mildern, was in bestimmten Konfigurationen zulässt, die übrig nicht die Aktivierung des Sensors beeinflussen  
+-   Es ermöglicht es, einen Rest des Filaments in der Düse zu mildern, was in bestimmten Konfigurationen die Aktivierung des Sensors nicht beeinflussen kann  
     {% von EndHint%}
 
 #### Bett Mali (Bettnetz)
@@ -569,11 +569,11 @@ Eine wichtige Phase unseres Druckenbeginns ist eine korrekte Säuberung unserer 
 | -Primoblob macht uns einen Tropfen Filament in einer Ecke unseres sehr effektiven Bettes, um die Düse zu reinigen und sich leicht zurückzuziehen       |                                                             |                |              |
 | Primeline /                                                                                                                                            |                                                             |                |              |
 
-Prime Adaptive /   
+Prime -adaptive /   
 PrimeBlob /   
 FALSCH
 
-| Primelinea adaptiv |  
+| primelineadaptive |  
 | Variable_Düse_Priming_Objektdistanz | Wenn wir die adaptive Spülleitung verwenden, ist es der Rand zwischen der Säuberungslinie und dem gedruckten Objekt | numerisch | 5 |  
 | Variable_Düse_Prime_Start_x | Wo wir unsere Säuberlinie finden wollen:  
 -Min wird es bei x = 0 tun (plus ein kleiner Sicherheitsmarge)  
@@ -594,16 +594,16 @@ Nummer | min |
 vorwärts /   
 rückwärts | Auto |
 
-#### Dreh-/Entladung/Entladung
+#### Drehbelastung/Entladung
 
-In diesem Fall erleichtert diese Gruppe von Variablen die Verwaltung der Belastung und Entladung unseres Filaments, das beispielsweise die zur Emulation des M600 verwendete Lade- und Entladungsmakros des Filaments starten:
+In diesem Fall erleichtert diese Gruppe von Variablen die Verwaltung der Belastung und Entladung unseres Filaments beispielsweise für die Emulation des M600 oder durch Start der Lade- und Entladungsmakros des Filaments:
 
-| Variable                                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Mögliche Werte | Standardwert |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ------------ |
-| Variable_Filament_entladen_Länge           | Wie viel Abzug in MM das Filament, stellen Sie sich an Ihre Maschine ein, normalerweise die Maßnahme von Ihrer Düse bis zu den Zahnrädern Ihres Extruders, indem Sie einen zusätzlichen Rand hinzufügen.                                                                                                                                                                                                                                                     | Nummer         | 130          |
-| Variable_Filament_entladen_Geschwindigkeit | Die Rückzugsgeschwindigkeit des Filaments in mm/s normalerweise wird eine langsame Geschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                                | Nummer         | 5            |
-| Variable_Filament_laden_Länge              | Entfernung in MM, um das neue Filament zu laden ... wie in der Variablen_Filament_entladen_Länge Wir werden die Maßnahme von Ihrem Gang zum Extruder verwenden, indem wir eine zusätzliche Marge hinzufügen. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel Sie gelöscht werden möchten. Sie können normalerweise mehr Marge als den vorherigen Wert geben, um sicherzustellen, dass die Extrusion des vorherigen Filaments gereinigt wird. | Nummer         | 150          |
-| Variable_Filament_laden_Geschwindigkeit    | Die Filamentlastgeschwindigkeit in mm/s normalerweise wird eine schnellere Geschwindigkeit zur Entlassung verwendet.                                                                                                                                                                                                                                                                                                                                         | Nummer         | 10           |
+| Variable                                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Mögliche Werte | Standardwert |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| Variable_Filament_entladen_Länge           | Wie viel Abzug in MM das Filament, stellen Sie sich an Ihre Maschine ein, normalerweise die Maßnahme von Ihrer Düse bis zu den Zahnrädern Ihres Extruders, indem Sie einen zusätzlichen Rand hinzufügen.                                                                                                                                                                                                                                                      | Nummer         | 130          |
+| Variable_Filament_entladen_Geschwindigkeit | Die Rückzugsgeschwindigkeit des Filaments in mm/s normalerweise wird eine langsame Geschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                                                 | Nummer         | 5            |
+| Variable_Filament_laden_Länge              | Entfernung in MM, um das neue Filament zu laden ... wie in der Variablen_Filament_entladen_Länge Wir werden die Maßnahme von Ihrem Gang zum Extruder verwenden, indem wir einen zusätzlichen Rand hinzufügen. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel Sie gelöscht werden möchten. Sie können normalerweise mehr Marge als den vorherigen Wert geben, um sicherzustellen, dass die Extrusion des vorherigen Filaments gereinigt wird. | Nummer         | 150          |
+| Variable_Filament_laden_Geschwindigkeit    | Die Filamentlastgeschwindigkeit in mm/s normalerweise wird eine schnellere Geschwindigkeit zur Entlassung verwendet.                                                                                                                                                                                                                                                                                                                                          | Nummer         | 10           |
 
 { % Hint style = "Warnung" %}  
 Eine weitere Anpassung, die für Ihren Abschnitt erforderlich ist\[Extruder]das angegeben[**Max_extrudieren_nur_Distanz**](https://www.klipper3d.org/Config_Reference.html#extruder)... Der ratsame Wert beträgt normalerweise> 101 (falls er nicht definiert ist, verwendet 50), um beispielsweise die typischen Extruderkalibrierungstests zuzulassen.   
@@ -652,7 +652,7 @@ Die Verwendung von[Schief](broken-reference)Für die Korrektur oder genaue Anpas
 Unser Klipper -Modul verwendet das in Zeiten verwendete modulare Konfigurationssystem und nutzt die Vorteile von Klipper im Konfigurationsdateiprozess nacheinander. Aus diesem Grund sind die Reihenfolge der Einschlüsse und personalisierten Anpassungen, die wir für diese Module anwenden möchten, unerlässlich.
 
 { % Hint style = "info" %}  
-Bei Verwendung von 3DWork-Einstellungen als Modul können sie nicht direkt aus dem 3DWork-Klipper-Verzeichnis in Ihrem KLIPPER-Konfigurationsverzeichnis bearbeitet werden, da es nur zur Sicherheit in schreibgeschützt ist (nur auf Lesen beschränkt).
+Bei Verwendung von 3DWork-Einstellungen als Modul können sie nicht direkt aus dem Verzeichnis 3DWORK-Klipper in Ihrem KLIPPER-Konfigurationsverzeichnis bearbeitet werden, da es nur zur Sicherheit in schreibgeschützt ist (nur auf Lesen beschränkt).
 
 Aus diesem Grund ist es sehr wichtig, die Funktion von Klipper zu verstehen und wie Sie unsere Module an Ihre Maschine anpassen können.  
 {% von EndHint%}
@@ -737,17 +737,17 @@ Wir haben zwei Gruppen von Makros:
 
 **START_DRUCKEN**
 
-| Makroname                             | Beschreibung                                                                                                                                                                                                                    |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \_START_DRUCKEN_HITZE_KAMMER          | Erhitzt das Gehäuse, falls der Kammerparameter_Früh erfolgt unser Makro -Start_Drucken aus dem Laminator                                                                                                                        |
-| \_START_DRUCKEN_NACH_HEIZUNG_BETT     | Es läuft, wenn das Bett danach bei Temperatur ankommt_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_Bett. Normalerweise wird es für die Verarbeitung der Bettkalibrierung verwendet (z_NEIGUNG_Einstellen, Quad_PORTAL_Nivellierung, ...) |
-| \_START_DRUCKEN_BETT_Netz             | Er ist verantwortlich für die Logik des Bettes Elend.                                                                                                                                                                           |
-| \_START_DRUCKEN_PARK                  | Berufet den Druckkopf beim Erhitzen der Düse bei der Drucktemperatur.                                                                                                                                                           |
-| \_START_DRUCKEN_NACH_HEIZUNG_Extruder | Machen Sie die Nazzle -Säuber                                                                                                                                                                                                   |
+| Makroname                             | Beschreibung                                                                                                                                                                                                               |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \_START_DRUCKEN_HITZE_KAMMER          | Erhitzt das Gehäuse, falls der Kammerparameter_Früh erfolgt unser Makro -Start_Drucken aus dem Laminator                                                                                                                   |
+| \_START_DRUCKEN_NACH_HEIZUNG_BETT     | Es läuft, wenn das Bett danach bei Temperatur ankommt_BENUTZER_START_DRUCKEN_NACH_HEIZUNG_Bett. Normalerweise wird es für die Verarbeitung der Bettkalibrierung verwendet (z_NEIGUNG_Einstellen, Quad_PORTAL_LEVELING,...) |
+| \_START_DRUCKEN_BETT_Netz             | Er ist verantwortlich für die Logik des Bettes Elend.                                                                                                                                                                      |
+| \_START_DRUCKEN_PARK                  | Berufet den Druckkopf beim Erhitzen der Düse bei der Drucktemperatur.                                                                                                                                                      |
+| \_START_DRUCKEN_NACH_HEIZUNG_Extruder | Machen Sie die Nazzle -Säuber                                                                                                                                                                                              |
 
 ## Drucker und elektronisch
 
-Da wir mit verschiedenen Modellen von Druckern und Elektronik arbeiten, werden wir diejenigen hinzufügen, die nicht direkt von Zeiten unterstützt werden, unabhängig davon, ob es sich um Beiträge oder die Gemeinschaft handelt.
+Da wir mit verschiedenen Modellen von Druckern und Elektronik arbeiten, werden wir diejenigen hinzufügen, die nicht direkt von Zeiten unterstützt werden, unabhängig davon, ob sie Beiträge oder die Gemeinschaft sind.
 
 -   Drucker, in diesem Verzeichnis haben wir alle Konfigurationen des Druckers
 -   Boards, hier finden wir Elektronik
@@ -757,7 +757,7 @@ Da wir mit verschiedenen Modellen von Druckern und Elektronik arbeiten, werden w
 Unser Klipper -Modul verwendet das in Zeiten verwendete modulare Konfigurationssystem und nutzt die Vorteile von Klipper im Konfigurationsdateiprozess nacheinander. Aus diesem Grund sind die Reihenfolge der Einschlüsse und personalisierten Anpassungen, die wir für diese Module anwenden möchten, unerlässlich.
 
 { % Hint style = "info" %}
-Bei Verwendung von 3DWork-Einstellungen als Modul können sie nicht direkt aus dem 3DWork-Klipper-Verzeichnis in Ihrem KLIPPER-Konfigurationsverzeichnis bearbeitet werden, da es nur zur Sicherheit in schreibgeschützt ist (nur auf Lesen beschränkt).
+Bei Verwendung von 3DWork-Einstellungen als Modul können sie nicht direkt aus dem Verzeichnis 3DWORK-Klipper in Ihrem KLIPPER-Konfigurationsverzeichnis bearbeitet werden, da es nur zur Sicherheit in schreibgeschützt ist (nur auf Lesen beschränkt).
 
 Aus diesem Grund ist es sehr wichtig, die Funktion von Klipper zu verstehen und wie Sie unsere Module an Ihre Maschine anpassen können.
 { % EndHint %}

@@ -165,7 +165,7 @@ Set of macros that will allow us to manage different actions with our filament s
 
 | Macro               | Description                                                                                                |
 | ------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **The M600**        | It will allow us compatibility with the M600 GCODE normally used in laminators for the change of filament. |
+| **M600**            | It will allow us compatibility with the M600 GCODE normally used in laminators for the change of filament. |
 | **UNLOAD_FILAMENT** | Configurable through the variables will allow us to download assisted filaments.                           |
 | **LOAD_FILAMENT**   | As well as the previous one but related to the load of the filament.                                       |
 
@@ -209,7 +209,7 @@ The ideal in each case would be to add in our laminator,**In the filament gcodes
 
 It is usually normal for us to have different printing surfaces depending on the finish we want to have or the type of filament.
 
-This set of macros, created by[Garethky](https://github.com/garethky), they will allow us to have a control of these and especially the correct adjustment of Zoffset in each of them in the style that we have in Pruse machines. Below you can see some of your functions:
+This set of macros, created by[Garethky](https://github.com/garethky), they will allow us to have a control of these and especially the correct adjustment of Zoffset in each of them in the style that we have in Prussa machines. Below you can see some of your functions:
 
 -   We can store the number of print surfaces we want, each having a unique name
 -   Each printing surface will have its own zoffset
@@ -569,11 +569,11 @@ An important phase of our beginning of printing is a correct purge of our Nozzle
 | -Primoblob will make us a drop of filament in a corner of our very effective bed to clean the nozzle and easy to withdraw                             |                                                 |                 |               |
 | Primeline /                                                                                                                                           |                                                 |                 |               |
 
-prime adaptive /   
+Prime -adaptive /   
 PrimeBlob /   
 False
 
-| primelinea adaptive |  
+| primelineaDaptive |  
 | variable_nozzle_priming_Objectdistance | If we use adaptive purge line, it will be the margin to be used between the purge line and the printed object | numerical | 5 |  
 | variable_nozzle_prime_start_x | Where we want to locate our purge line:  
 -Min will do it at x = 0 (plus a small safety margin)  
@@ -635,9 +635,9 @@ Take the most of our machine so that it is self -level and facilitate that our m
 
 **Z-Tilt is basically a process that helps us align our Z engines with respect to our/Gantry X (Cartesian) or XY (Corexy) axis (Corexy)**. With this**We assure that we always have our z perfectly and in a precise and automatic way**.
 
-| Variable                  | Description                                                                                             | Possible values | Valor por defecto |
-| ------------------------- | ------------------------------------------------------------------------------------------------------- | --------------- | ----------------- |
-| variable_calibrate_z_tilt | It allows, in the case of having it enabled in our Klipper configuration, the Z-Tilt adjustment process | True / False    | False             |
+| Variable                  | Description                                                                                             | Possible values | Default value |
+| ------------------------- | ------------------------------------------------------------------------------------------------------- | --------------- | ------------- |
+| variable_calibrate_z_tilt | It allows, in the case of having it enabled in our Klipper configuration, the Z-Tilt adjustment process | True / False    | False         |
 
 #### Skew
 
@@ -645,7 +645,7 @@ The use of[SKEW](broken-reference)For the correction or precise adjustment of ou
 
 | Variable              | Description                                                                                                                                                                                            | Possible values | Default value   |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- | --------------- |
-| variable_skew_profile | Allows you to take into account our SKEW profile that will be charged in our Macro Start_Print. To activate it we must discuss the variable and use the name of the SKEW profile of our configuration. | texto           | my_skew_profile |
+| variable_skew_profile | Allows you to take into account our SKEW profile that will be charged in our Macro Start_Print. To activate it we must discuss the variable and use the name of the SKEW profile of our configuration. | text            | my_skew_profile |
 
 ### Customization of macros
 

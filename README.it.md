@@ -20,7 +20,7 @@ Changelog
 
 Da**3dwork**Abbiamo compilato e regolato un set di macro, macchine e configurazioni elettroniche, nonché altri strumenti per una gestione semplice e potente di Klipper.
 
-Gran parte di questo pacchetto si basa su[**RatOS**](https://os.ratrig.com/)Migliorare le parti che crediamo interessanti e altri contributi della comunità.
+Gran parte di questo pacchetto si basa su[**Ratti**](https://os.ratrig.com/)Migliorare le parti che crediamo interessanti e altri contributi della comunità.
 
 ## Installazione
 
@@ -165,7 +165,7 @@ Insieme di macro che ci consentiranno di gestire diverse azioni con il nostro fi
 
 | Macro                   | Descrizione                                                                                                        |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **Il M600**             | Ci consentirà la compatibilità con il GCODE M600 normalmente utilizzato nei laminatori per il cambio di filamento. |
+| **M600**                | Ci consentirà la compatibilità con il GCODE M600 normalmente utilizzato nei laminatori per il cambio di filamento. |
 | **SCARICARE_FILAMENTO** | La configurabile tramite le variabili ci consentirà di scaricare filamenti assistiti.                              |
 | **CARICO_FILAMENTO**    | Così come il precedente ma relativo al carico del filamento.                                                       |
 
@@ -209,7 +209,7 @@ L'ideale in ogni caso sarebbe quello di aggiungere il nostro laminatore,**Nei fi
 
 Di solito è normale per noi avere diverse superfici di stampa a seconda della finitura che vogliamo avere o del tipo di filamento.
 
-Questo insieme di macro, creata da[Garethky](https://github.com/garethky), ci permetteranno di avere un controllo di questi e in particolare la corretta regolazione di Zoffset in ciascuno di essi nello stile che abbiamo nelle macchine per i pruse. Di seguito puoi vedere alcune delle tue funzioni:
+Questo insieme di macro, creata da[Garethky](https://github.com/garethky), ci permetteranno di avere un controllo di questi e in particolare la corretta regolazione di Zoffset in ciascuno di essi nello stile che abbiamo nelle macchine Prussa. Di seguito puoi vedere alcune delle tue funzioni:
 
 -   Possiamo archiviare il numero di superfici di stampa che desideriamo, ognuna con un nome univoco
 -   Ogni superficie di stampa avrà il suo zoffset
@@ -239,7 +239,7 @@ D'altra parte ne abbiamo alcuni**Requisiti per implementarlo (prova ad aggiunger
     SET_GCODE_OFFSET Z=0.0          ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT    ; apply build sheet loaded zoffset
 
-D'altra parte è interessante poter avere alcune macro per attivare una superficie o l'altra o addirittura passarla come parametro dal nostro laminatore a diversi profili di stampante o filamento per poter caricare l'uno o l'altro:
+D'altra parte è interessante poter avere alcune macro per attivare una superficie o l'altra o addirittura passarla come parametro dal nostro laminatore a diversi profili di stampante o filamento per poter caricare automaticamente l'uno o l'altro:
 
 { % SIT STYE = "Avviso" %}  
 È importante che il valore in nome = "xxxx" coincida con il nome che abbiamo dato durante l'installazione della nostra superficie di stampa  
@@ -262,7 +262,7 @@ D'altra parte è interessante poter avere alcune macro per attivare una superfic
 
 { % Endcode %}
 
-Anche nel caso di avere klipperscreen possiamo aggiungere un menu specifico per essere in grado di gestire il carico delle diverse superfici, in cui includeremo una chiamata alle macro precedentemente create per il caricamento di ogni superficie:
+Anche nel caso di avere Klipperscreen possiamo aggiungere un menu specifico per poter gestire il carico delle diverse superfici, in cui includeremo una chiamata alle macro precedentemente create per il caricamento di ciascuna superficie:
 
 {% code title = "~/stampante_Data/config/klipperscreen.conf " %}
 
@@ -569,11 +569,11 @@ Una fase importante del nostro inizio della stampa è una corretta spurgo del no
 | -Primoblob ci renderà una goccia di filamento in un angolo del nostro letto molto efficace per pulire l'ugello e facile da ritirare                        |                                                    |                  |                    |
 | PRIMINAZIONE /                                                                                                                                             |                                                    |                  |                    |
 
-Prime Adaptive /   
+Prime -adaptive /   
 Primoblob /   
 Falso
 
-| Primelinea Adaptive |  
+| primelineadaptive |  
 | variabile_ugello_innesco_ObjectDistance | Se utilizziamo la linea di spurgo adattiva, sarà il margine da utilizzare tra la linea di spurgo e l'oggetto stampato | numerico | 5 |  
 | variabile_ugello_Prime_inizio_x | Dove vogliamo individuare la nostra linea di spurgo:  
 -Min lo farà a x = 0 (più un piccolo margine di sicurezza)  
@@ -768,7 +768,7 @@ Come abbiamo spiegato in "[Personalizzazione delle macro](3dwork-klipper-bundle.
 
 Mentre ti consigliamo di creare una sezione nella tua stampante.cfg che si chiama overrides utente, posizionata dopo l'inclusione delle nostre configurazioni, per poter regolare e personalizzare qualsiasi parametro utilizzato in esse.
 
-Nel seguente esempio vedremo come nel nostro caso siamo interessati a personalizzare i parametri del nostro levellaggio del letto (letto_mesh) Regolazione dei punti di rilevamento (sonda_Conteggio) per quanto riguarda la configurazione che abbiamo per impostazione predefinita nelle configurazioni del nostro modulo Klipper:
+Nel seguente esempio vedremo come nel nostro caso siamo interessati a personalizzare i parametri del nostro livellamento (letto_mesh) Regolazione dei punti di rilevamento (sonda_Conteggio) per quanto riguarda la configurazione che abbiamo per impostazione predefinita nelle configurazioni del nostro modulo Klipper:
 
 { % code title = "printer.cfg" %}
 

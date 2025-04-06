@@ -1,4 +1,4 @@
-# Pacchetto clope 3dwork![Italiano](https://flagcdn.com/w40/it.png)
+# Pacchetto clope 3dwork ![Italiano](https://flagcdn.com/w40/it.png)
 
 ## Pacchetto Macros, configurazioni e altre utility per Klipper
 

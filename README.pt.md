@@ -1,8 +1,8 @@
-# Pacote de clape 3dwork ![Português](https://flagcdn.com/w40/pt.png)
+# Pacote de clape 3dwork![Español](https://flagcdn.com/w40/es.png)
 
 ## Pacote de macros, configurações e outros utilitários para Klipper
 
-[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Español](https://flagcdn.com/w40/es.png)](README.md)
+[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
 
 [![Ko-fi Logo](Ko-fi-Logo.png)](https://ko-fi.com/jjr3d)
 
@@ -154,7 +154,7 @@ Conjunto de macros que nos permitirão gerenciar diferentes ações com nosso fi
 
 | Macro               | Descrição                                                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **O M600**          | Isso nos permitirá a compatibilidade com o M600 Gcode normalmente usado em laminadores para a mudança de filamento. |
+| **M600**            | Isso nos permitirá a compatibilidade com o M600 Gcode normalmente usado em laminadores para a mudança de filamento. |
 | **UNLOOLT_FILIRED** | Configurável através das variáveis ​​nos permitirá baixar filamentos assistidos.                                    |
 | **Load_filament**   | Bem como o anterior, mas relacionado à carga do filamento.                                                          |
 
@@ -203,7 +203,7 @@ Este conjunto de macros, creadas por[Garethky](https://github.com/garethky), ele
 Por outro lado, temos alguns**Requisitos para implementá -lo (será tentado adicionar a lógica da impressão do pacote**:
 
 -   O uso de**[save_variables]**, no nosso caso, usaremos ~/variáveis.cfg para armazenar as variáveis ​​e isso já está dentro do CFG dessas macros.  
-    Isso criará automaticamente um arquivo variables_build_sheets.cfg, onde nossas variáveis ​​de disco manterão.
+    Isso criará automaticamente um arquivo variável_build_sheets.cfg, onde você manterá nossas variáveis ​​de disco.
 
 **Exemplo de arquivo de configuração variável**
 
@@ -216,7 +216,7 @@ build_sheet textured_pei = {'name': 'Textured PEI', 'offset': -0.160000000000000
 ```
 
 -   Devemos incluir uma chamada para aplicar_build_sheet_adjustment em nosso print_start para poder aplicar o Zoffset de superfície selecionado
--   É importante que, para a macro anterior, APPL_BUILD_SHEET_ADJUSTment, funcione corretamente, devemos adicionar um set_gcode_offset z = 0.0 antes de ligar
+-   É importante que, para a macro anterior, APPL_BUILD_SHEET_ADJUSTment, funcione corretamente, devemos adicionar um set_gcode_offset z = 0.0 antes de ligar para apply_build_sheet_adjustment
 
 
     # Load build sheet
@@ -612,7 +612,7 @@ Nosso módulo Klipper usa o sistema de configuração modular usado nos tempos e
 
 Normalmente, será o que teremos que ajustar, para fazer ajustes nas variáveis ​​que temos por padrão em nosso módulo**3dwork**para Klipper.
 
-Simplesmente, o que temos que fazer é colar o conteúdo macro**[gcode_macro global_vars]** que podremos encontrar en macros/macros_var_globals.cfg en nuestro printer.cfg.
+Simplesmente, o que temos que fazer é colar o conteúdo macro**[gcode_macro global_vars]**que podemos encontrar no macros/macros var globals.cfg em nossa impressora.cfg.
 
 Lembramos o que foi comentado anteriormente sobre como o Klipper processa as configurações sequencialmente, por isso é aconselhável colá -lo após os inclusões, dizemos a você[aqui](3dwork-klipper-bundle.md#anadiendo-las-macros-3dwork-a-nuestra-instalacion).
 

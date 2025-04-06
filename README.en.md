@@ -1,4 +1,4 @@
-# 3DWORK CLOPE BUNDLE ![English](https://flagcdn.com/w40/gr.png)
+# 3DWORK CLOPE BUNDLE ![English](https://flagcdn.com/w40/en.png)
 
 ## Macros package, configurations and other utilities for klipper
 

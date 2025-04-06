@@ -1,8 +1,8 @@
-# Pacchetto clope 3dwork![Español](https://flagcdn.com/w40/es.png)
+# Pacchetto clope 3dwork![Italiano](https://flagcdn.com/w40/it.png)
 
 ## Pacchetto Macros, configurazioni e altre utility per Klipper
 
-[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
+[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Español](https://flagcdn.com/w40/es.png)](README.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
 
 [![Ko-fi Logo](Ko-fi-Logo.png)](https://ko-fi.com/jjr3d)
 

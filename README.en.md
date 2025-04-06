@@ -154,7 +154,7 @@ Set of macros that will allow us to manage different actions with our filament s
 
 | Macro               | Description                                                                                                |
 | ------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **M600**            | It will allow us compatibility with the M600 GCODE normally used in laminators for the change of filament. |
+| **The M600**        | It will allow us compatibility with the M600 GCODE normally used in laminators for the change of filament. |
 | **UNLOAD_FILAMENT** | Configurable through the variables will allow us to download assisted filaments.                           |
 | **LOAD_FILAMENT**   | As well as the previous one but related to the load of the filament.                                       |
 
@@ -319,7 +319,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | Manta M4P          | btt-manta-m4p                  |
 | Manta M4P V2.      | btt-manta-m4p-22               |
 | Manta M8P          | btt-manta-m8p                  |
-| Manta M8p v1.1     | btt-manta-m8p-11               |
+| Manta m8p v1.1     | btt-manta-m8p-11               |
 | Octopus max this   | btt-octopus-max-ez             |
 | Octopus Pro (446)  | btt-octopus-pro-446            |
 | Octopus Pro (429)  | btt-octopus-pro-429            |
@@ -576,7 +576,7 @@ In certain processes of our printer, such as the leisure, it is advisable to mak
 | variable_end_print_park_in         | Location to park the head at the end or cancel an impression.                                                                                                                                                                                   | back /          |               |
 | center /                           |                                                                                                                                                                                                                                                 |                 |               |
 | front                              | back                                                                                                                                                                                                                                            |                 |               |
-| variable_end_print_park_z_hop      | Distance to go up at the end of the impression.                                                                                                                                                                                                 | number          | 20            |
+| variable_end_print_park_z_hop      | Distancia a subir en Z al finalizar la impresión.                                                                                                                                                                                               | number          | 20            |
 | variable_pause_print_park_in       | Location to park the head by pausar the impression.                                                                                                                                                                                             | back /          |               |
 | center /                           |                                                                                                                                                                                                                                                 |                 |               |
 | front                              | back                                                                                                                                                                                                                                            |                 |               |

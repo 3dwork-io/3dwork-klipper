@@ -31,3 +31,7 @@ jobs:
         uses: dephraiim/translate-readme@main
         with:
           LANG: it
+      - name: Adding README - Portugués
+        uses: dephraiim/translate-readme@main
+        with:
+          LANG: pt

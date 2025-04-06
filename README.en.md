@@ -1,8 +1,8 @@
-# 3DWORK CLOPE BUNDLE![Español](https://flagcdn.com/w40/gb.png)
+# 3DWORK CLOPE BUNDLE![Español](https://flagcdn.com/w40/es.png)
 
 ## Macros package, configurations and other utilities for klipper
 
-[![Español](https://flagcdn.com/w40/es.png)](README.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
+[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
 
 [![Ko-fi Logo](Ko-fi-Logo.png)](https://ko-fi.com/jjr3d)
 
@@ -34,7 +34,7 @@ git clone https://github.com/3dwork-io/3dwork-klipper.git
 > **ℹ️ Information for new facilities**Since Klipper does not allow access to macros without a valid printer.
 >
 > 1.  Be sure to have the[host as second MCU](raspberry-como-segunda-mcu.md)
-> 2.  Añade este printer.cfg básico para habilitar las macros: 
+> 2.  Add this basic printer.cfg to enable macros:
 
 ```ini
 [mcu]
@@ -166,7 +166,7 @@ Set of macros that will allow us to manage different actions with our filament s
 
 ![](https://klipper.3dwork.io/~gitbook/image?url=https%3A%2F%2F276162026-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FH6gCE2fgkkpOScJ72TP7%252Fuploads%252FhiSCtknzBswK3eEWyUKS%252Fimage.png%3Falt%3Dmedia%26token%3D7119c3c4-45da-4baf-a893-614184c68119&width=400&dpr=3&quality=100&sign=f69fd5f6&sv=2)
 
-We are not going to enter the installation and configuration of this since it is relatively simple using the[**Instructions of your github**](https://github.com/Donkie/Spoolman)**,** en cualquier caso **We advise you to use Docker**By simplicity and remembrance**activate the configuration in Moonraker**required:
+We are not going to enter the installation and configuration of this since it is relatively simple using the[**Instructions of your github**](https://github.com/Donkie/Spoolman)**,**In any case**We advise you to use Docker**By simplicity and remembrance**activate the configuration in Moonraker**required:
 
 **moonraker.conf**
 
@@ -342,7 +342,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | EBB42 V1       | BTT EBB42 10                   |
 | Ebb36 v1       | BTT_BB36_10                    |
 | EBB42 V1.1     | BTT EBB42 11                   |
-| Ebb36 v1.1     | BTT_BB36_11                    |
+| Ebb36 v1.1     | btt_ebb36_11                   |
 | EBB42 V1.2     | BTT EBB42 12                   |
 | Ebb36 v1.2     | BTT_BB36_12                    |
 
@@ -668,7 +668,7 @@ We have two groups of macros:
 
 **END_PRINT**
 
-| Macro name                          | Descripción                                                                        |
+| Macro name                          | Description                                                                        |
 | ----------------------------------- | ---------------------------------------------------------------------------------- |
 | \_USER_END_PRINT_BEFORE_HEATERS_OFF | It is executed before performing the heater, before \_end_print_before_heaters_off |
 | \_USER_END_PRINT_AFTER_HEATERS_OFF  | It runs after heating, before \_end_print_after_heaters_off                        |

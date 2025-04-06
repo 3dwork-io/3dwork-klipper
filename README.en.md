@@ -342,7 +342,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | EBB42 V1       | BTT EBB42 10                   |
 | Ebb36 v1       | BTT_BB36_10                    |
 | EBB42 V1.1     | BTT EBB42 11                   |
-| Ebb36 v1.1     | btt_ebb36_11                   |
+| Ebb36 v1.1     | BTT_BB36_11                    |
 | EBB42 V1.2     | BTT EBB42 12                   |
 | Ebb36 v1.2     | BTT_BB36_12                    |
 

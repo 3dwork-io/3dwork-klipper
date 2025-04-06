@@ -34,7 +34,7 @@ git clone https://github.com/3dwork-io/3dwork-klipper.git
 > **ℹ️ Information for new facilities**Since Klipper does not allow access to macros without a valid printer.
 >
 > 1.  Be sure to have the[host as second MCU](raspberry-como-segunda-mcu.md)
-> 2.  Add this basic printer.cfg to enable macros:
+> 2.  Añade este printer.cfg básico para habilitar las macros: 
 
 ```ini
 [mcu]
@@ -166,7 +166,7 @@ Set of macros that will allow us to manage different actions with our filament s
 
 ![](https://klipper.3dwork.io/~gitbook/image?url=https%3A%2F%2F276162026-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FH6gCE2fgkkpOScJ72TP7%252Fuploads%252FhiSCtknzBswK3eEWyUKS%252Fimage.png%3Falt%3Dmedia%26token%3D7119c3c4-45da-4baf-a893-614184c68119&width=400&dpr=3&quality=100&sign=f69fd5f6&sv=2)
 
-We are not going to enter the installation and configuration of this since it is relatively simple using the[**Instructions of your github**](https://github.com/Donkie/Spoolman)**,**In any case**We advise you to use Docker**By simplicity and remembrance**activate the configuration in Moonraker**required:
+We are not going to enter the installation and configuration of this since it is relatively simple using the[**Instructions of your github**](https://github.com/Donkie/Spoolman)**,** en cualquier caso **We advise you to use Docker**By simplicity and remembrance**activate the configuration in Moonraker**required:
 
 **moonraker.conf**
 
@@ -668,7 +668,7 @@ We have two groups of macros:
 
 **END_PRINT**
 
-| Macro name                          | Description                                                                        |
+| Macro name                          | Descripción                                                                        |
 | ----------------------------------- | ---------------------------------------------------------------------------------- |
 | \_USER_END_PRINT_BEFORE_HEATERS_OFF | It is executed before performing the heater, before \_end_print_before_heaters_off |
 | \_USER_END_PRINT_AFTER_HEATERS_OFF  | It runs after heating, before \_end_print_after_heaters_off                        |

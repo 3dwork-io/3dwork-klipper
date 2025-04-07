@@ -1,8 +1,8 @@
-# 3dwork Clope Bündel![Español](https://flagcdn.com/w40/es.png)
+# 3dwork Clope Bündel
 
 ## Makros -Paket, Konfigurationen und andere Dienstprogramme für Klipper
 
-[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
+![Español](https://flagcdn.com/w40/es.png)[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
 
 [![Ko-fi Logo](Ko-fi-Logo.png)](https://ko-fi.com/jjr3d)
 
@@ -122,7 +122,7 @@ Einige zusätzliche Makros, die nützlich sein werden:
 | **PAUSE**                   | Durch verwandte Variablen können wir eine Pause mit einem vielseitigeren Kopfparkplatz mit normalem Makros verwalten.                                                                                     |
 | **SET_PAUSE_AT_LAYER**      |                                                                                                                                                                                                           |
 | **Set_pause_at_next_layer** | Ein sehr nützliches Makro, das Hauptsegel in seine Benutzeroberfläche integriert, um in einer bestimmten Ebene auf Bedarf innehalten zu können ... falls wir beim Ausführen des Laminats vergessen haben. |
-|                             | También contamos con otra para ejecutar el pausado en la capa siguiente.                                                                                                                                  |
+|                             | Wir haben auch einen anderen, um das gemächliche in der nächsten Schicht auszuführen.                                                                                                                     |
 | **WIEDER AUFNEHMEN**        | Verbessert, da es ermöglicht, festzustellen, ob unsere Düse nicht an der Extrusionstemperatur liegt, um sie zu lösen, bevor sie einen Fehler aufweist und unseren Eindruck schädigt.                      |
 | **Cancel_print**            | Dies ermöglicht die Verwendung des Restes der Makros, eine Abdrehungsstörung korrekt durchzuführen.                                                                                                       |
 
@@ -140,9 +140,9 @@ Einige zusätzliche Makros, die nützlich sein werden:
 |                 | • Segmentiertes Makro, um personalisieren zu können, wie wir Ihnen später zeigen werden                                                                 |   |
 | **End_print**   | Makro des Drucks des Drucks, bei dem wir auch eine Segmentierung haben, um unser Makro anzupassen. Wir haben auch einen dynamischen Kopf des Kopfes.    |   |
 
--   **Adaptive Bettrolle**Dank der Vielseitigkeit von Klipper können wir Dinge tun, die heute unmöglich erscheinen ... Ein wichtiger Prozess des Eindrucks ist es, eine Mahlzeit von Abweichungen von unserem Bett zu haben, die es uns ermöglichen, diese zu korrigieren, um eine Einhaltung der perfekten ersten Schichten zu haben.  
-     Bei vielen Gelegenheiten machen wir diesen Malley vor den Eindrücken, um sicherzustellen, dass es richtig funktioniert, und dies wird auf der gesamten Oberfläche unseres Bettes durchgeführt. 
-     Mit dem adaptiven Bettmänse wird es in der Druckzone durchgeführt, sodass es viel präziser ist als die traditionelle Methode ... In den folgenden Fängen werden wir die Unterschiede eines traditionellen und adaptiven Netzes sehen.
+-   **Adaptive Bettrolle**Dank der Vielseitigkeit von Klipper können wir Dinge tun, die heute unmöglich erscheinen ... Ein wichtiger Prozess des Eindrucks ist es, eine Mahlzeit von Abweichungen von unserem Bett zu haben, die es uns ermöglicht, diese zu korrigieren, um eine Einhaltung der perfekten ersten Schichten zu haben.  
+     Bei vielen Gelegenheiten machen wir diesen Malley vor den Eindrücken, um sicherzustellen, dass es richtig funktioniert, und dies erfolgt auf der gesamten Oberfläche unseres Bettes. 
+     Mit dem Elend des adaptiven Bettes wird es in der Druckzone durchgeführt, was es viel präziser macht als die traditionelle Methode ... In den folgenden Fängen werden wir die Unterschiede eines traditionellen und adaptiven Netzes sehen.
     <div style="display: flex; justify-content: space-between;">
      <img src="https://klipper.3dwork.io/~gitbook/image?url=https%3A%2F%2Fcontent.gitbook.com%2Fcontent%2FH6gCE2fgkkpOScJ72TP7%2Fblobs%2FtzhCFrbnNrVj5L2bkdrr%2Fimage.png&width=300&dpr=2&quality=100&sign=ec43d93c&sv=2" width="40%">
      <img src="https://klipper.3dwork.io/~gitbook/image?url=https%3A%2F%2Fcontent.gitbook.com%2Fcontent%2FH6gCE2fgkkpOScJ72TP7%2Fblobs%2FwajqLHhuYm3u68A8Sy4x%2Fimage.png&width=300&dpr=2&quality=100&sign=e5613596&sv=2" width="60%">
@@ -299,7 +299,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 >
 > Diese Skripte sind bereit, mit PI -Benutzer an einem Raspbian -System zu arbeiten. Wenn Sie nicht Ihr Fall sind, müssen Sie es anpassen.
 >
-> Firmawares werden zur Verwendung mit USB -Verbindung generiert, die immer das ist, was wir empfehlen. Außerdem ist der USB -Montagepunkt immer gleich, nach welcher Konfiguration Ihrer MCU -Verbindung sich nicht ändert, wenn sie mit unserem Makro/Skript generiert werden
+> Firmawares werden zur Verwendung mit USB -Verbindung generiert, die immer das ist, was wir empfehlen. Außerdem ist der USB -Montagepunkt immer gleich, indem Ihre Konfiguration Ihrer MCU -Verbindung nicht geändert wird, wenn sie mit unserem Makro/Skript generiert werden
 >
 > **So dass Klipper Shell -Makros ausführen kann, dank des Partners muss eine Erweiterung installiert werden**[**Arksin**](https://github.com/Arksine)**, lass es.**
 >
@@ -457,7 +457,7 @@ START_PRINT EXTRUDER_TEMP=[extruder0_temperature] BED_TEMP=[bed0_temperature]
 >
 > Die Verwendung dieser ermöglicht es unseren Makros, dynamisch zu sein.
 
--   **GCODE DAS ENTLICHE END_PRINT**, en este caso al no usar placeholders es común a todos los laminadores
+-   **GCODE DAS ENTLICHE END_PRINT**In diesem Fall ist es für alle Laminatoren häufig
 
 ```ini
 END_PRINT
@@ -553,12 +553,12 @@ Eine wichtige Phase unseres Druckenbeginns ist eine korrekte Säuberung unserer 
 
 In diesem Fall erleichtert diese Gruppe von Variablen die Verwaltung der Belastung und Entladung unseres Filaments beispielsweise für die Emulation des M600 oder durch Start der Lade- und Entladungsmakros des Filaments:
 
-| Variable                        | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                    | Mögliche Werte | Standardwert |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| variable_filament_unload_length | Wie viel Abzug in MM das Filament, stellen Sie sich an Ihre Maschine ein, normalerweise die Maßnahme von Ihrer Düse bis zu den Zahnrädern Ihres Extruders, indem Sie einen zusätzlichen Rand hinzufügen.                                                                                                                                                                                                                        | Nummer         | 130          |
-| variable_filament_unload_speed  | Die Rückzugsgeschwindigkeit des Filaments in mm/s normalerweise wird eine langsame Geschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                   | Nummer         | 5            |
-| variable_filament_load_length   | Entfernung in MM zum Laden des neuen Filaments ... wie in varable_filament_unload_Length werden wir das Maß aus Ihrem Extruder -Gang verwenden. Hinzufügen eines zusätzlichen Randes. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel Sie reinigen möchten ... Sie können ihm normalerweise mehr Rand als den vorherigen Wert geben, um sicherzustellen, dass die Extrusion des Vorderfilaments gereinigt wird. | Nummer         | 150          |
-| variable_filament_load_speed    | Die Filamentlastgeschwindigkeit in mm/s normalerweise wird eine schnellere Geschwindigkeit zur Entlassung verwendet.                                                                                                                                                                                                                                                                                                            | Nummer         | 10           |
+| Variable                        | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                     | Mögliche Werte | Standardwert |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| variable_filament_unload_length | Wie viel Abzug in MM das Filament, stellen Sie sich an Ihre Maschine ein, normalerweise die Maßnahme von Ihrer Düse bis zu den Zahnrädern Ihres Extruders, indem Sie einen zusätzlichen Rand hinzufügen.                                                                                                                                                                                                                         | Nummer         | 130          |
+| variable_filament_unload_speed  | Die Rückzugsgeschwindigkeit des Filaments in mm/s normalerweise wird eine langsame Geschwindigkeit verwendet.                                                                                                                                                                                                                                                                                                                    | Nummer         | 5            |
+| variable_filament_load_length   | Entfernung in MM zum Laden des neuen Filaments ... wie in varable_filament_unload_Length werden wir das Maß aus Ihrem Extruder -Gang verwenden, was einen zusätzlichen Rand hinzufügt. In diesem Fall hängt dieser zusätzliche Wert davon ab, wie viel Sie reinigen möchten ... Sie können ihm normalerweise mehr Rand als den vorherigen Wert geben, um sicherzustellen, dass die Extrusion des Vorderfilaments gereinigt wird. | Nummer         | 150          |
+| variable_filament_load_speed    | Die Filamentlastgeschwindigkeit in mm/s normalerweise wird eine schnellere Geschwindigkeit zur Entlassung verwendet.                                                                                                                                                                                                                                                                                                             | Nummer         | 10           |
 
 > ⚠️**Beachten!!!**Eine weitere Anpassung, die für Ihren Abschnitt erforderlich ist**[Extruder]**das angegeben[**max_extrode_only_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)... Der ratsame Wert beträgt normalerweise> 101 (falls er nicht definiert ist, verwendet 50), um beispielsweise die typischen Extruderkalibrierungstests zuzulassen.  
 > Sie sollten den Wert basierend auf der oben genannten Test oder der Konfiguration Ihrer anpassen**variable_filament_unload_length**ICH**variable_filament_load_length**.

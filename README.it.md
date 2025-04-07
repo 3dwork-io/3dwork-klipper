@@ -1,8 +1,8 @@
-# Pacchetto clope 3dwork![Español](https://flagcdn.com/w40/es.png)
+# Pacchetto clope 3dwork
 
 ## Pacchetto Macros, configurazioni e altre utility per Klipper
 
-[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
+![Español](https://flagcdn.com/w40/es.png)[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
 
 [![Ko-fi Logo](Ko-fi-Logo.png)](https://ko-fi.com/jjr3d)
 
@@ -216,7 +216,7 @@ build_sheet textured_pei = {'name': 'Textured PEI', 'offset': -0.160000000000000
 ```
 
 -   Dobbiamo includere una chiamata per applicare_build_sheet_adjustment nel nostro print_start per poter applicare la superficie selezionata Zoffset
--   È importante che per la macro anteriore, Applic_Build_Sheet_Adjustment, funziona correttamente dobbiamo aggiungere un set_gcode_offset z = 0.0 poco prima di chiamare Applic_Build_Sheet_Adjustment
+-   È importante che per la macro anteriore, Applic_Build_Sheet_Adjustment, funziona correttamente dobbiamo aggiungere un set_gcode_offset z = 0.0 appena prima di chiamare Applic_Build_Sheet_Adjustment
 
 
     # Load build sheet
@@ -224,7 +224,7 @@ build_sheet textured_pei = {'name': 'Textured PEI', 'offset': -0.160000000000000
     SET_GCODE_OFFSET Z=0.0 ; set zoffset to 0
     APPLY_BUILD_SHEET_ADJUSTMENT ; apply build sheet loaded zoffset
 
-D'altra parte è interessante poter avere alcune macro per attivare una superficie o l'altra o addirittura passarla come parametro dal nostro laminatore a diversi profili di stampante o filamento per poter caricare automaticamente l'uno o l'altro:
+D'altra parte è interessante poter avere alcune macro per attivare una superficie o l'altra o addirittura passarla come parametro dal nostro laminatore a diversi profili di stampante o filamento per poter caricare l'uno o l'altro:
 
 > **⚠️ Avvertenza**È importante che il valore in nome = "xxxx" coincida con il nome che abbiamo dato durante l'installazione della nostra superficie di stampa
 
@@ -245,7 +245,7 @@ gcode:
  INSTALL_BUILD_SHEET NAME="Smooth Garolite"
 ```
 
-Anche nel caso di avere Klipperscreen possiamo aggiungere un menu specifico per poter gestire il carico delle diverse superfici, in cui includeremo una chiamata alle macro precedentemente create per il caricamento di ciascuna superficie:
+Anche nel caso di avere klipperscreen possiamo aggiungere un menu specifico per essere in grado di gestire il carico delle diverse superfici, in cui includeremo una chiamata alle macro precedentemente create per il caricamento di ogni superficie:
 
 **~/printer_data/config/klipperscreen.conf**
 
@@ -389,7 +389,7 @@ Dalla nostra interfaccia, Mainsail/Fluidd, modificheremo la nostra stampante.cfg
 ```
 
 > ℹ️**INFORMAZIONI!!!**È importante aggiungere queste righe alla fine del nostro file di configurazione ... appena sopra la sezione in modo che nel caso delle macro nel nostro CFG o includano queste sono sopraffatte dal nostro: 
-> \#\*# \\ &lt;--- Save_config --->
+> \#\*# \\ &lt;--- Save_Config --->
 
 > ⚠️**IMPORTANTE!!!**Le macro normali sono state separate da**macro shell**dato questo**Per abilitare questi è necessario effettuare ulteriori passaggi manuali che stanno attualmente testando**E\*\*Possono richiedere autorizzazioni extra per attribuire autorizzazioni di esecuzione per le quali le istruzioni non sono state indicate poiché sta cercando di automatizzare.\*\***Se li usi è sotto la tua stessa responsabilità.**
 
@@ -397,7 +397,7 @@ Dalla nostra interfaccia, Mainsail/Fluidd, modificheremo la nostra stampante.cfg
 
 Poiché le nostre macro sono dinamiche, estraggerà alcune informazioni dalla nostra configurazione della stampante e dal laminatore stesso. Per fare ciò ti consigliamo di configurare i tuoi laminatori come segue:
 
--   **Start_print start gcode**, usando i segnaposto per passare in modo dinamico il filamento e la temperatura del letto:
+-   **Start_print start gcode**, usando placeholders para pasar los valores de temperatura de filamento y cama de forma dinámica:
 
 **Prusaslicer**
 
@@ -467,7 +467,7 @@ END_PRINT
 
 Come abbiamo già accennato, queste nuove macro ci consentiranno di avere alcune funzioni molto utili come elenchiamo in precedenza.
 
-Per la regolazione di questi sulla nostra macchina useremo le variabili che troveremo in Macros/Macros_var_Globals.cfg e che dettagliamo di seguito.
+Para el ajuste de estas a nuestra máquina utilizaremos las variables que encontraremos en macros/macros_var_globals.cfg y que os detallamos a continuación.
 
 #### Lingua di messaggio/notifiche
 
@@ -553,12 +553,12 @@ Una fase importante del nostro inizio della stampa è una corretta spurgo del no
 
 In questo caso, questo gruppo di variabili faciliterà la gestione del carico e dello scarico del nostro filamento utilizzato nell'emulazione dell'M600, ad esempio o lanciando le macro del filamento di carico e scarico:
 
-| Variabile                        | Descrizione                                                                                                                                                                                                                                                                                                                                                                                          | Valori possibili | Valore predefinito |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------ |
-| variabile_filament_unload_length | Quanto si ritira in mm il filamento, regola la macchina, normalmente la misura dall'ugello agli ingranaggi del tuo estrusore aggiungendo un margine extra.                                                                                                                                                                                                                                           | numero           | 130                |
-| variabile_filament_unload_speed  | Velocità di ritrattazione del filamento in mm/sec Normalmente viene utilizzata una velocità lenta.                                                                                                                                                                                                                                                                                                   | numero           | 5                  |
-| variabile_filament_load_length   | Distanza in mm per caricare il nuovo filamento ... come in variabile_filament_unload_length useremo la misura dall'ingranaggio estrustore aggiungendo un margine aggiuntivo, in questo caso questo valore extra dipenderà da quanto si desidera essere spurgato ... Di solito puoi dargli più margine del valore precedente per assicurarsi che sia purificata l'estrusione del filamento anteriore. | numero           | 150                |
-| variabile_filament_load_speed    | La velocità di carico del filamento in mm/sec normalmente viene utilizzata una velocità più rapida.                                                                                                                                                                                                                                                                                                  | numero           | 10                 |
+| Variabile                        | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                | Valori possibili | Valore predefinito |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------ |
+| variabile_filament_unload_length | Quanto si ritira in mm il filamento, regola la macchina, normalmente la misura dall'ugello agli ingranaggi del tuo estrusore aggiungendo un margine extra.                                                                                                                                                                                                                                                 | numero           | 130                |
+| variabile_filament_unload_speed  | Velocità di ritrattazione del filamento in mm/sec Normalmente viene utilizzata una velocità lenta.                                                                                                                                                                                                                                                                                                         | numero           | 5                  |
+| variabile_filament_load_length   | Distanza in mm per caricare il nuovo filamento ... come in variabile_filament_unload_length useremo la misura dall'attrezzatura di estrusore aggiungendo un margine extra, in questo caso questo valore extra dipenderà da quanto si desidera essere spurgata ... Di solito puoi dargli più margine rispetto al valore precedente per assicurarsi che sia purificata l'estrusione del filamento anteriore. | numero           | 150                |
+| variabile_filament_load_speed    | La velocità di carico del filamento in mm/sec normalmente viene utilizzata una velocità più rapida.                                                                                                                                                                                                                                                                                                        | numero           | 10                 |
 
 > ⚠️**Avviso!!!**Un'altra regolazione necessaria per la tua sezione**[estrusore]**L'indicato[**max_extrude_only_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)... Il valore consigliabile è generalmente> 101 (se non è definito utilizza 50) per consentire i tipici test di calibrazione degli estrusore.  
 > È necessario regolare il valore in base a quanto sopra del test o sulla configurazione del tuo**variabile_filament_unload_length**IO**variabile_filament_load_length**.

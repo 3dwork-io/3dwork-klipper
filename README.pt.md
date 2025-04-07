@@ -1,8 +1,8 @@
-# Pacote de clape 3dwork![Español](https://flagcdn.com/w40/es.png)
+# Pacote de clape 3dwork
 
 ## Pacote de macros, configurações e outros utilitários para Klipper
 
-[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
+![Español](https://flagcdn.com/w40/es.png)[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
 
 [![Ko-fi Logo](Ko-fi-Logo.png)](https://ko-fi.com/jjr3d)
 
@@ -216,7 +216,7 @@ build_sheet textured_pei = {'name': 'Textured PEI', 'offset': -0.160000000000000
 ```
 
 -   Devemos incluir uma chamada para aplicar_build_sheet_adjustment em nosso print_start para poder aplicar o Zoffset de superfície selecionado
--   É importante que, para a macro anterior, APPL_BUILD_SHEET_ADJUSTment, funcione corretamente, devemos adicionar um set_gcode_offset z = 0.0 antes de ligar para apply_build_sheet_adjustment
+-   É importante que, para a macro anterior, APPL_BUILD_SHEET_ADJUSTment, funcione corretamente, devemos adicionar um set_gcode_offset z = 0.0 antes de ligar
 
 
     # Load build sheet
@@ -553,12 +553,12 @@ Uma fase importante do início da impressão é uma purga correta do nosso bico 
 
 Nesse caso, esse grupo de variáveis ​​facilitará o gerenciamento do carregamento e descarga do nosso filamento usado na emulação do M600, por exemplo ou lançando as macros de carregamento e descarga do filamento:
 
-| Variável                        | Descrição                                                                                                                                                                                                                                                                                                                                                                             | Valores posibles | Valor por defecto |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------- |
-| variable_filament_unload_length | Quanta retirada em mm o filamento, ajuste à sua máquina, normalmente a medida do seu bico para as engrenagens da sua extrusora adicionando uma margem extra.                                                                                                                                                                                                                          | número           | 130               |
-| variable_filament_unload_speed  | Velocidade de retração do filamento em mm/s normalmente é usada uma velocidade lenta.                                                                                                                                                                                                                                                                                                 | número           | 5                 |
-| variable_filament_load_length   | Distância em mm para carregar o novo filamento ... como em variable_filament_unload_length, usaremos a medida da sua engrenagem de extrusora, adicionando uma margem extra, nesse caso, esse valor extra dependerá de quanto você deseja ser purgado ... Geralmente, você pode dar mais margem do que o valor anterior para garantir que seja limpo a extrusão do filamento anterior. | número           | 150               |
-| variable_filament_load_speed    | Velocidade de carga do filamento em mm/s Normalmente, uma velocidade mais rápida é usada para descarregar.                                                                                                                                                                                                                                                                            | número           | 10                |
+| Variável                        | Descrição                                                                                                                                                                                                                                                                                                                                                                            | Valores posibles | Valor por defecto |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- | ----------------- |
+| variable_filament_unload_length | Quanta retirada em mm o filamento, ajuste à sua máquina, normalmente a medida do seu bico para as engrenagens da sua extrusora adicionando uma margem extra.                                                                                                                                                                                                                         | número           | 130               |
+| variable_filament_unload_speed  | Velocidade de retração do filamento em mm/s normalmente é usada uma velocidade lenta.                                                                                                                                                                                                                                                                                                | número           | 5                 |
+| variable_filament_load_length   | Distância em mm para carregar o novo filamento ... como em variable_filament_unload_length, usaremos a medida do seu equipamento de extrusora, adicionando uma margem extra, neste caso esse valor extra dependerá de quanto você deseja ser purgado ... geralmente você pode dar mais margem do que o valor anterior para garantir que seja limpo a extrusão do filamento anterior. | número           | 150               |
+| variable_filament_load_speed    | Velocidade de carga do filamento em mm/s Normalmente, uma velocidade mais rápida é usada para descarregar.                                                                                                                                                                                                                                                                           | número           | 10                |
 
 > ⚠️**Aviso!!!**Outro ajuste necessário para sua seção**[extrusora]**o indicado[**max_extrude_only_distance**](https://www.klipper3d.org/Config_Reference.html#extruder)... O valor aconselhável é geralmente> 101 (se não for definido, usa 50) para, por exemplo, permita os testes de calibração da extrusora típica.  
 > Você deve ajustar o valor com base no acima do teste ou na configuração do seu**variable_filament_unload_length**EU**variable_filament_load_length**.
@@ -640,7 +640,7 @@ variable_language: "es" # Possible values: "en", "es"
 
 ```
 
-> ⚠️**Aviso!!!**Os três pontos (...) dos exemplos anteriores são apenas para indicar que você pode ter mais configurações entre seções ... em nenhum caso elas devem usar.
+> ⚠️**Aviso!!!**Os três pontos (...) dos exemplos anteriores são apenas para indicar que você pode ter mais configurações entre as seções ... em nenhum caso elas devem usar.
 
 > ℹ️**Informação !!!**
 >
@@ -744,7 +744,7 @@ probe_count: 11,11
 #\*#
 ```
 
-> ⚠️**Aviso!!!**Os três pontos (...) dos exemplos anteriores são apenas para indicar que você pode ter mais configurações entre seções ... em nenhum caso elas devem usar.
+> ⚠️**Aviso!!!**Os três pontos (...) dos exemplos anteriores são apenas para indicar que você pode ter mais configurações entre as seções ... em nenhum caso elas devem usar.
 
 Podemos usar esse mesmo processo com qualquer parâmetro que queremos ajustar.
 
@@ -786,4 +786,4 @@ pin: PA8
 
 ```
 
-> ⚠️**Aviso!!!**Os três pontos (...) dos exemplos anteriores são apenas para indicar que você pode ter mais configurações entre seções ... em nenhum caso elas devem usar.
+> ⚠️**Aviso!!!**Os três pontos (...) dos exemplos anteriores são apenas para indicar que você pode ter mais configurações entre as seções ... em nenhum caso elas devem usar.

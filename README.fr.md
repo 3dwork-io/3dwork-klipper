@@ -1,8 +1,8 @@
-# Bundle de clôtures en 3D![Español](https://flagcdn.com/w40/es.png)
+# Bundle de clôtures en 3D
 
 ## Package de macros, configurations et autres services publics pour Klipper
 
-[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
+![Español](https://flagcdn.com/w40/es.png)[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
 
 [![Ko-fi Logo](Ko-fi-Logo.png)](https://ko-fi.com/jjr3d)
 
@@ -467,7 +467,7 @@ END_PRINT
 
 Comme nous l'avons déjà mentionné, ces nouvelles macros nous permettront d'avoir des fonctions très utiles comme nous énumérons précédemment.
 
-Pour l'ajustement de ceux-ci à notre machine, nous utiliserons les variables que nous trouverons dans Macros / Macros_Var_Globals.CFG et que nous détaillez ci-dessous.
+Pour l'ajustement de ceux-ci à notre machine, nous utiliserons les variables que nous trouverons dans Macros / Macros_Var_Globals.cfg et que nous détaillez ci-dessous.
 
 #### Message / notifications Langue
 
@@ -540,7 +540,7 @@ Pour contrôler le processus de mise à niveau, nous avons des variables qui peu
 
 #### Purgé
 
-Une phase importante de notre début de l'impression est une purge correcte de notre buse pour éviter les restes de filament ou qu'ils peuvent endommager notre impression à un moment donné. Ensuite, vous avez les variables impliquées dans ce processus:
+Une phase importante de notre début d'impression est une purge correcte de notre buse pour éviter les restes de filament ou qu'ils peuvent endommager notre impression à un moment donné. Ensuite, vous avez les variables impliquées dans ce processus:
 | Variable | Description | Valeurs possibles | Valeur par défaut |
 \| --- \| --- \| --- \| --- \|
 | Variable_nozzle_priming | Nous pouvons choisir entre différentes options de pureté:<br>- Primelline: tracez la ligne purgée typique<br>- PrimelLineAdaptive: génère une ligne de purge adaptée à la zone d'impression à l'aide de variable_nazzle_priming_objectdistance comme marge<br>- Primoblob: fait une goutte de filament dans un coin du lit | Primelline / PrimellineAdaptive / Primeblob / false | PrimelineAdaptative |
@@ -697,7 +697,7 @@ Nous avons deux groupes de macros:
 
 ## Imprimantes et électroniques
 
-Alors que nous travaillons avec différents modèles d'imprimantes et électroniques, nous ajouterons ceux qui ne sont pas directement soutenus par les moments, qu'il s'agisse de contributions ou de communauté.
+Alors que nous travaillons avec différents modèles d'imprimantes et électroniques, nous ajouterons ceux qui ne sont pas directement soutenus par les temps, qu'il s'agisse de contributions ou de la communauté.
 
 -   Imprimantes, dans ce répertoire, nous aurons toutes les configurations d'imprimante
 -   Planches, ici nous trouverons l'électronique
@@ -750,7 +750,7 @@ Nous pouvons utiliser ce même processus avec tout paramètre que nous souhaiton
 
 #### Personnalisation de la configuration des pin
 
-Nous procéderons exactement comme nous l'avons fait auparavant, dans notre zone de remplacements utilisateur, nous ajouterons les sections des épingles que nous voulons ajuster à notre goût.
+Nous procéderons exactement comme nous l'avons fait auparavant, dans notre zone de dépassement des utilisateurs, nous ajouterons les sections des épingles que nous voulons ajuster à notre goût.
 
 Dans l'exemple suivant, nous personnaliserons quelle est la broche de notre ventilateur d'électronique (Controller_FAN) pour l'attribuer à une autre de la valeur par défaut:
 

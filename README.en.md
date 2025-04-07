@@ -1,8 +1,8 @@
-# 3DWORK CLOPE BUNDLE![Español](https://flagcdn.com/w40/es.png)
+# 3DWORK CLOPE BUNDLE
 
 ## Macros package, configurations and other utilities for klipper
 
-[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
+![Español](https://flagcdn.com/w40/es.png)[![English](https://flagcdn.com/w40/gb.png)](README.en.md)[![Deutsch](https://flagcdn.com/w40/de.png)](README.de.md)[![Italiano](https://flagcdn.com/w40/it.png)](README.it.md)[![Français](https://flagcdn.com/w40/fr.png)](README.fr.md)[![Português](https://flagcdn.com/w40/pt.png)](README.pt.md)
 
 [![Ko-fi Logo](Ko-fi-Logo.png)](https://ko-fi.com/jjr3d)
 
@@ -154,7 +154,7 @@ Set of macros that will allow us to manage different actions with our filament s
 
 | Macro               | Description                                                                                                |
 | ------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **M600**            | It will allow us compatibility with the M600 GCODE normally used in laminators for the change of filament. |
+| **The M600**        | It will allow us compatibility with the M600 GCODE normally used in laminators for the change of filament. |
 | **UNLOAD_FILAMENT** | Configurable through the variables will allow us to download assisted filaments.                           |
 | **LOAD_FILAMENT**   | As well as the previous one but related to the load of the filament.                                       |
 
@@ -320,7 +320,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 | Manta M4P V2.      | btt-manta-m4p-22               |
 | Manta M8P          | btt-manta-m8p                  |
 | Manta M8p v1.1     | btt-manta-m8p-11               |
-| Octopus Max EZ     | btt-octopus-max-ez             |
+| Octopus max this   | btt-octopus-max-ez             |
 | Octopus Pro (446)  | btt-octopus-pro-446            |
 | Octopus Pro (429)  | btt-octopus-pro-429            |
 | Octopus Pro (H723) | btt-octopus-pro-h723           |
@@ -339,7 +339,7 @@ params: {"script":"INSTALL_SMOOTH_GAROLITE_SHEET"}
 
 | Toolhead (CAN) | Parameter name to use in macro |
 | -------------- | ------------------------------ |
-| EBB42 v1       | BTT EBB42 10                   |
+| EBB42 V1       | BTT EBB42 10                   |
 | Ebb36 v1       | BTT_BB36_10                    |
 | EBB42 V1.1     | BTT EBB42 11                   |
 | Ebb36 v1.1     | BTT_BB36_11                    |

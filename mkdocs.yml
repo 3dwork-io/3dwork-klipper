@@ -1,0 +1,34 @@
+site_name: 3Dwork Klipper Wizard
+site_description: El asistente más fácil para configurar Klipper
+site_url: https://3dwork-io.github.io/3dwork-klipper/
+site_author: 3Dwork
+
+theme:
+  name: material
+  language: es
+  palette:
+    primary: deep orange
+    accent: light green
+
+nav:
+  - Home: index.md
+  - Instalación: instalacion.md
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      css_class: highlight
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/3dwork-io
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/3dwork

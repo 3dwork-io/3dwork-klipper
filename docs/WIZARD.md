@@ -1,253 +1,275 @@
-# 3Dwork Klipper Wizard
+# 🎮 3Dwork Klipper Wizard
 
-## Descripción
+<div align="center">
 
-El **3Dwork Klipper Wizard** es un asistente interactivo que facilita la configuración de impresoras 3D con Klipper. Permite seleccionar electrónica, configurar la impresora, generar archivos `printer.cfg` y compilar firmware de forma guiada.
+![Version](https://img.shields.io/badge/version-2.0.0--dev-blue)
+![Klipper](https://img.shields.io/badge/Klipper-v0.12.0-green)
+![License](https://img.shields.io/badge/license-MIT-orange)
 
-Versión: **2.0.0-dev**
+**El asistente más fácil para configurar Klipper en tu impresora 3D**
 
-## Características
+[🚀 Instalación](#instalación) · [🌐 Web Wizard](#web-wizard) · [💻 CLI Wizard](#cli-wizard) · [📚 Guía Completa](#guía-completa)
 
-- **CLI Interactivo** — Menú guiado paso a paso en terminal
-- **Web Wizard** — Interfaz visual en el navegador
-- **+50 Electrónicas** — BigTreeTech, MKS, Fysetc, Creality, Mellow, etc.
-- **Generador de Config** — Crea `printer.cfg` personalizado con templates
-- **Biblioteca de Configs** — Presets de Klipper examples, RatOS, Creality Sonic Pad
-- **Instalación One-liner** — Instalación en un solo comando
+</div>
 
-## Requisitos
+---
 
-- Raspberry Pi (o cualquier host con Linux)
-- Python 3.8+
-- Git
-- Conexión a Internet
-- (Opcional) Flask para Web Wizard
+## 🤔 ¿Qué es el Wizard?
 
-## Instalación
+El **3Dwork Klipper Wizard** es una herramienta que te ayuda a configurar Klipper sin conocer todos los detalles técnicos. Es como un asistente que te guía paso a paso.
 
-### Instalación Rápida (One-liner)
+### ✨ ¿Qué puede hacer?
+
+| Feature | Descripción |
+|---------|-------------|
+| 🌐 **Web Wizard** | Interfaz visual en el navegador |
+| 💻 **CLI Wizard** | Menú interactivo en terminal |
+| 📋 **+50 Electrónicas** | Soporta casi todas las placas del mercado |
+| ⚙️ **Generador de Config** | Crea tu `printer.cfg` automáticamente |
+| 📚 **Biblioteca de Configs** | Acceso a presets de varias fuentes |
+
+---
+
+## 🚀 Instalación
+
+### Opción 1: Un comando (recomendado)
+
+Conecta tu Raspberry por SSH y ejecuta:
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/3dwork-io/3dwork-klipper/dev/install.sh)
 ```
 
-### Instalación Manual
+Esto instalará todo automáticamente.
+
+### Opción 2: Manual
 
 ```bash
-# 1. Clonar el repositorio (rama dev)
+# Conectar por SSH a tu Raspberry
+ssh pi@raspberrypi
+
+# Ir al directorio de configuración
 cd ~/printer_data/config
+
+# Clonar el repositorio
 git clone -b dev https://github.com/3dwork-io/3dwork-klipper.git
-
-# 2. (Opcional) Instalar dependencias para Web Wizard
-pip3 install flask
-
-# 3. Ejecutar el wizard
-python3 3dwork-klipper/wizard/cli.py
 ```
 
-## Uso
+### ⚠️ Requisitos previos
 
-### CLI Interactivo
+- ✅ Raspberry Pi (o cualquier ordenador con Linux)
+- ✅ Python 3.8 o superior
+- ✅ Git
+- ✅ Conexión a internet
+- ✅ (Opcional) Flask para el Web Wizard: `pip3 install flask`
+
+---
+
+## 🌐 Web Wizard (Recomendado)
+
+El Web Wizard es la forma más fácil de usar la herramienta. Tiene una interfaz visual bonita que te guía paso a paso.
+
+### Iniciar el Web Wizard
+
+```bash
+cd ~/printer_data/config/3dwork-klipper
+python3 wizard/web/app.py
+```
+
+### Acceso
+
+Abre tu navegador y escribe:
+
+```
+http://192.168.X.X:5000
+```
+
+*(Cambia X.X por la IP de tu Raspberry)*
+
+### 📱 Paso a paso
+
+El Web Wizard tiene 4 pasos simples:
+
+```
+1️⃣ Seleccionar Electrónica  →  2️⃣ Configurar Impresora  →  3️⃣ Características  →  4️⃣ Generar
+```
+
+#### Paso 1: Elige tu electrónica
+
+Verás tarjetas visuales con todas las placas soportadas. Solo haz clic en la tuya.
+
+**Placas más populares:**
+- 🎯 Manta M8P (la más popular)
+- 🎯 SKR 3
+- 🎯 SKR Mini E3 v3 ( Ender 3 )
+- 🎯 Octopus
+
+#### Paso 2: Configura tu impresora
+
+Rellena los datos básicos:
+- Nombre de tu impresora
+- Tipo de movimiento (Cartesian, CoreXY, Delta)
+- Velocidad y aceleración (los valores por defecto suelen funcionar)
+
+#### Paso 3: Características extra
+
+¿Tienes alguno de estos?
+- 🔘 BLTouch (sensor de nivelación)
+- 📺 Display/Pantalla
+- 📎 Sensor de filamento
+
+Solo marca los que tengas.
+
+#### Paso 4: ¡Generar!
+
+El wizard crea tu archivo de configuración. Puedes:
+- 👁️ Ver el resultado
+- 💾 Guardarlo directamente
+- ⬇️ Descargarlo
+
+---
+
+## 💻 CLI Wizard
+
+Si prefieres usar la terminal, el CLI Wizard ofrece las mismas funciones.
+
+### Iniciar
 
 ```bash
 python3 ~/printer_data/config/3dwork-klipper/wizard/cli.py
 ```
 
-### Web Wizard
-
-```bash
-cd ~/printer_data/config/3dwork-klipper
-python3 wizard/web/app.py
-# Acceder a http://tu-raspberry:5000
-```
-
 ### Menú Principal
 
 ```
-╔════════════════════════════════════════════════╗
-║              MENÚ PRINCIPAL                ║
-╠════════════════════════════════════════════════╣
-║  1. Seleccionar Electrónica                   ║
-║  2. Configurar Impresora                       ║
-║  3. Generar printer.cfg                         ║
-║  4. Compilar Firmware                          ║
-║  5. Instalar 3Dwork-klipper                    ║
-║  6. Actualizar Instalación                     ║
-║  7. Configuración Actual                        ║
-║  8. Biblioteca de Configs                       ║
-║  9. Web Wizard (servidor local)                ║
-║  0. Salir                                       ║
-╚════════════════════════════════════════════════╝
+╔═══════════════════════════════════════╗
+║        MENÚ PRINCIPAL              ║
+╠═══════════════════════════════════════╣
+║  1. Seleccionar Electrónica          ║
+║  2. Configurar Impresora             ║
+║  3. Generar printer.cfg               ║
+║  4. Compilar Firmware                ║
+║  5. Instalar 3Dwork-klipper           ║
+║  6. Actualizar Instalación           ║
+║  7. Ver Configuración Actual         ║
+║  8. Biblioteca de Configs              ║
+║  9. Web Wizard                       ║
+║  0. Salir                             ║
+╚═══════════════════════════════════════╝
 ```
 
-## Flujo de Uso
+### Flujo típico
 
-### 1. Seleccionar Electrónica
+1. **Selecciona tu electrónica** (opción 1)
+   - Elige de la lista
+  
+2. **Configura la impresora** (opción 2)
+   - Cartesian si tienes Ender/Prusa
+   - CoreXY si tienes Voron
+   - Introduce valores o usa los que vienen por defecto
+  
+3. **Genera el archivo** (opción 3)
+   - El wizard crea el `printer.cfg`
 
-Elige tu electrónica de la lista de +50 boards soportados:
+---
 
-- **BigTreeTech**: Manta (E3 EZ, M4P, M8P), Octopus, SKR (Pro, 3, Mini E3)
-- **MKS**: Robin Nano, Eagle, Gen L
+## 📋 Electrónicas Soportadas
+
+### BigTreeTech (las más populares)
+
+| Modelo | Notas |
+|--------|-------|
+| **Manta M8P** | ✅ La mejor opción para casi todo |
+| **Manta M4P** | Para impresoras medianas |
+| **SKR 3** | Nueva, muy potente |
+| **SKR Mini E3 v3** | Perfecta para Ender 3 |
+| **Octopus** | Para impresoras grandes |
+
+### Otras marcas
+
+- **MKS**: Robin Nano, Gen L
 - **Fysetc**: Spider, Cheetah
 - **Creality**: v4.2.x, K1
-- **Mellow**: FLY-GEM, FLY SHT (CAN)
-- **BTT CAN**: EBB42, EBB36
+- **Mellow**: FLY SHT (CAN)
 
-### 2. Configurar Impresora
+### ¿No encuentras la tuya?
 
-Define los parámetros de tu impresora:
+[Solicita soporte aquí →](https://github.com/3dwork-io/3dwork-klipper/issues)
 
-- **Kinematics**: Cartesian, CoreXY, CoreXY (UART), Delta
-- **Velocidad máxima**: mm/s
-- **Aceleración**: mm/s²
-- **Rotation Distance**: para cada eje
-- **Microsteps**: 16, 32, 64
+---
 
-### 3. Características Adicionales
+## 💡 Tips de Uso
 
-Añade features opcionales:
+### 🖱️ Para principiantes
 
-- **Probe**: BLTouch, Inductivo, Capacitivo
-- **Display**: ST7920, SSD1306, HD44780
-- **Sensor de filamento**
+> **Usa el Web Wizard** — Es más visual y difícil equivocarse
 
-### 4. Generar printer.cfg
+### ⌨️ Para usuarios avanzados
 
-El wizard genera un `printer.cfg` completo con:
+> **Usa el CLI** — Más rápido, puedes automatizar tareas
 
-- Configuración de steppers
-- Extruder y heaters
-- Probe y bed_mesh (si está configurado)
-- Display (si está configurado)
-- Includes para macros de 3dwork-klipper
+### 🔧 Después de generar
 
-## Electrónicas Soportadas
+1. **Reinicia Klipper** en Mainsail/Fluidd
+2. **Revisa los valores** en la pestaña "Machine"
+3. **Ejecuta `FIRMWARE_RESTART`** si algo no va
+4. **Calibra** tu impresora:
+   - `PID_BED` y `PID_EXTRUDER`
+   - `BED_MESH_CALIBRATE`
+   - `TEST_SPEED`
 
-### BigTreeTech Manta
-| ID | Nombre | MCU | CAN |
-|-----|--------|-----|-----|
-| btt-manta-e3ez | Manta E3 EZ | stm32g0b1 | ✓ |
-| btt-manta-m4p | Manta M4P | stm32h743 | ✓ |
-| btt-manta-m8p | Manta M8P | stm32h743 | ✓ |
-| btt-manta-m8p-11 | Manta M8P v1.1 | stm32h743 | ✓ |
-| btt-manta-m8p-v2 | Manta M8P v2.0 | stm32h743 | ✓ |
+### 🐛 Problemas comunes
 
-### BigTreeTech Octopus
-| ID | Nombre | MCU |
-|-----|--------|-----|
-| btt-octopus-max-ez | Octopus Max EZ | stm32h723 |
-| btt-octopus-pro-446 | Octopus Pro (446) | stm32f446 |
-| btt-octopus-pro-429 | Octopus Pro (429) | stm32f429 |
-| btt-octopus-pro-h723 | Octopus Pro (H723) | stm32h723 |
-| btt-octopus-11 | Octopus v1.1 | stm32f407 |
+| Problema | Solución |
+|----------|----------|
+| No reconoce la placa | Verifica el cable USB |
+| Error de config | Revisa el serial en `[mcu]` |
+| No mueve los motores | Verifica los pins en el cfg |
+| Error de temperatura | Configura el sensor correcto |
 
-### BigTreeTech SKR
-| ID | Nombre | MCU |
-|-----|--------|-----|
-| skr_pro_12 | SKR Pro v1.2 | stm32f407 |
-| btt-skr-3 | SKR 3 | stm32h743 |
-| btt-skr-3-ez | SKR 3 EZ | stm32h743 |
-| btt-skr-2-407 | SKR 2 (407) | stm32f407 |
-| btt-skrat-10 | SKR RAT | stm32f407 |
-| btt-skr-14-turbo | SKR 1.4 Turbo | stm32f407 |
-| btt_skr_mini_e3_30 | SKR Mini E3 v3.0 | stm32g0b1 |
+---
 
-### MKS Instruments
-| ID | Nombre |
-|-----|--------|
-| mks-robin-nano-v3 | MKS Robin Nano v3 |
-| mks-robin-nano-20 | MKS Robin Nano v2 |
-| mks-eagle-10 | MKS Eagle v1.0 |
-| mks-gen-l | MKS Gen L |
-
-### CAN Toolheads
-| ID | Nombre |
-|-----|--------|
-| btt-ebb42-12 | EBB42 v1.2 (CAN) |
-| btt-ebb36-12 | EBB36 v1.2 (CAN) |
-| mellow-fly-sht-42 | FLY SHT 42 (CAN) |
-| mellow-fly-sht-36 | FLY SHT 36 (CAN) |
-
-## Solución de Problemas
-
-### El wizard no inicia
+## 🔄 Actualización
 
 ```bash
-# Verificar Python
-python3 --version
-
-# Si hay errores de permisos
-chmod +x ~/printer_data/config/3dwork-klipper/wizard/cli.py
-```
-
-### Error al generar config
-
-```bash
-# Verificar permisos del directorio
-ls -la ~/printer_data/config/
-
-# Crear directorio si no existe
-mkdir -p ~/printer_data/config
-```
-
-### Web Wizard no funciona
-
-```bash
-# Instalar Flask
-pip3 install flask
-
-# Verificar que el puerto 5000 está libre
-netstat -tuln | grep 5000
-```
-
-### La compilación de firmware falla
-
-Asegúrate de tener instalado:
-
-```bash
-# Debian/Ubuntu
-sudo apt install build-essential libncurses-dev
-
-# Verificar Klipper instalado
-ls ~/klipper/
-```
-
-## Bibliotecas de Configuración
-
-El wizard puede acceder a configs de múltiples fuentes:
-
-- **3Dwork-klipper** — Configuraciones propias
-- **Klipper Examples** — Ejemplos oficiales de Klipper
-- **RatOS** — Configuraciones de RatOS
-- **Creality Sonic Pad** — Presets de Sonic Pad
-
-## Actualización
-
-```bash
-# Opción 1: Desde el wizard
+# Desde el wizard
 python3 3dwork-klipper/wizard/cli.py
-# Seleccionar "Actualizar Instalación"
+# Opción 6: Actualizar
 
-# Opción 2: Manual
+# O manualmente
 cd ~/printer_data/config/3dwork-klipper
 git pull origin dev
 ```
 
-## Contribuir
+---
 
-¿Encontraste un bug? ¿Tienes sugerencias?
+## ❓ Ayuda
 
-1. Crea un issue en GitHub
-2. Haz fork y PR a la rama `dev`
+### ¿Dónde consigo ayuda?
 
-## Licencia
+1. 📖 [Wiki del proyecto](https://github.com/3dwork-io/3dwork-klipper/wiki)
+2. 💬 [Discord de 3Dwork](https://discord.gg/3dwork)
+3. 🐛 [Reportar problemas](https://github.com/3dwork-io/3dwork-klipper/issues)
 
-MIT License - libre como un mammoth en la pradera.
+### ¿Cómo contribuir?
+
+1. Haz Fork del proyecto
+2. Crea una rama (`git checkout -b mi-mejora`)
+3. Haz tus cambios
+4. Envía un Pull Request
 
 ---
 
-**3Dwork** — El referente en español sobre impresión 3D
+## 📜 Licencia
 
-- Web: https://3dwork.io
-- GitHub: https://github.com/3dwork-io
-- Tools: https://3dwork.io/tools/
+MIT — Puedes usarlo libre y gratuitamente.
+
+---
+
+<div align="center">
+
+**3Dwork** — Tu comunidad de impresión 3D en español
+
+🌐 [3dwork.io](https://3dwork.io) · 🛠️ [Herramientas](https://3dwork.io/tools/) · 💻 [GitHub](https://github.com/3dwork-io)
+
+</div>

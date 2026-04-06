@@ -1,12 +1,13 @@
-site_name: 3Dwork Klipper Wizard
-site_description: El asistente más fácil para configurar Klipper en tu impresora 3D
+site_name: 3Dwork Klipper
+site_description: Paquete de macros y configuraciones para Klipper
 site_url: https://3dwork-io.github.io/3dwork-klipper/
 site_author: 3Dwork
-copyright: © 2024 3Dwork
 
 theme:
   name: material
   language: es
+  logo: assets/logo.png
+  favicon: assets/favicon.png
   palette:
     - scheme: default
       primary: teal
@@ -25,6 +26,7 @@ theme:
     - navigation.top
     - search.highlight
     - content.code.annotate
+  custom_dir: overrides
 
 nav:
   - Home: index.md
@@ -42,3 +44,6 @@ markdown_extensions:
 plugins:
   - search:
       lang: es
+
+extra:
+  generator: false

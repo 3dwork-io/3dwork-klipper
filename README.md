@@ -4,25 +4,32 @@
 
 <div align="center">
 
-![Español](https://flagcdn.com/w40/es.png)[![English](https://flagcdn.com/w40/gb.png)](README.en.md) 
-[![Ko-fi](Ko-fi-Logo.png)](https://ko-fi.com/jjr3d)
+[![Klipper](https://img.shields.io/badge/Klipper-v0.12.0-green)](https://www.klipper3d.org/)
+[![Version](https://img.shields.io/badge/Wizard-v2.0--dev-blue)](https://github.com/3dwork-io/3dwork-klipper/tree/dev)
+[![Placas](https://img.shields.io/badge/50+-electrónicas-orange)](docs/)
+[![License](https://img.shields.io/badge/license-MIT-yellow)](LICENSE)
 
-> ⚠️ **Esta es la rama `dev`** con el nuevo Wizard. Para uso estable, usa la rama `master`.
+[📖 **Wiki / Documentación**](https://github.com/3dwork-io/3dwork-klipper/wiki) ·
+[🚀 **Instalación**](docs/instalacion.md) ·
+[🌐 **Web Wizard**](docs/index.md) ·
+[💬 **Ayuda**](https://github.com/3dwork-io/3dwork-klipper/issues)
 
 </div>
 
 ---
 
-## 🎮 Nuevo: 3Dwork Klipper Wizard
+## 🎮 3Dwork Klipper Wizard
 
-**El asistente más fácil para configurar Klipper**
+El asistente más fácil para configurar Klipper en tu impresora 3D.
+
+### Características
 
 | | |
 |---|---|
 | 🌐 **Web Wizard** | Interfaz visual en el navegador |
 | 💻 **CLI Wizard** | Menú interactivo en terminal |
-| 📋 **+50 Placas** | Soporta casi todas las electrónicas |
-| ⚙️ **Generador Auto** | Crea tu printer.cfg automáticamente |
+| 📋 **50+ Placas** | BigTreeTech, MKS, Fysetc, Creality... |
+| ⚙️ **Generador Auto** | Crea tu `printer.cfg` automáticamente |
 
 ### Quick Start
 
@@ -31,78 +38,77 @@
 bash <(curl -s https://raw.githubusercontent.com/3dwork-io/3dwork-klipper/dev/install.sh)
 ```
 
-### ¿Necesitas ayuda?
+---
 
-👉 **[Guía completa del Wizard](docs/WIZARD.md)**
+## 📖 Documentación
+
+La documentación completa está en la carpeta [`docs/`](docs/):
+
+- 📘 [**Guía Principal**](docs/index.md) — Todo lo que necesitas saber
+- 🚀 [**Instalación**](docs/instalacion.md) — Cómo instalar paso a paso
+- 🖥️ [**Web Wizard**](docs/web-wizard.md) — Usar la interfaz visual
+- ⌨️ [**CLI Wizard**](docs/cli-wizard.md) — Usar la terminal
+
+### Wiki de GitHub
+
+La documentación más extensa está disponible en el **[Wiki del proyecto](https://github.com/3dwork-io/3dwork-klipper/wiki)**.
 
 ---
 
-## Instalación Rápida
+## 🛠️ Estructura
 
-```bash
-# SSH a tu Raspberry
-ssh pi@192.168.X.X
-
-# Instalar
-cd ~/printer_data/config
-git clone -b dev https://github.com/3dwork-io/3dwork-klipper.git
+```
+3dwork-klipper/
+├── wizard/
+│   ├── cli.py              # CLI interactivo
+│   ├── config_library.py   # Parser de configs
+│   └── web/
+│       ├── app.py          # Servidor Flask
+│       └── templates/      # Interfaz web
+├── docs/                   # Documentación MkDocs
+├── boards/                 # Configs de electrónica
+├── printers/              # Configs de impresoras
+├── macros/                 # Macros principales
+└── scripts/               # Scripts de compilación
 ```
 
 ---
 
-## Usar el Wizard
+## 📋 Placas Soportadas
 
-### 🌐 Web (Recomendado)
+### BigTreeTech (más populares)
+- **Manta M8P** — La más versátil ✅
+- **Manta M4P** — Para impresoras medianas
+- **SKR 3** — Muy potente
+- **SKR Mini E3 v3** — Ideal para Ender 3
+- **Octopus** — Para impresoras grandes
 
-```bash
-pip3 install flask
-python3 3dwork-klipper/wizard/web/app.py
-
-# Abre: http://IP-DE-TU-RASPBERRY:5000
-```
-
-### 💻 Terminal
-
-```bash
-python3 3dwork-klipper/wizard/cli.py
-```
+### Otras
+- **MKS**: Robin Nano, Gen L
+- **Fysetc**: Spider, Cheetah
+- **Creality**: v4.2.x, K1
+- **Mellow**: FLY SHT (CAN)
 
 ---
 
-## ¿Qué incluye el paquete?
+## ❓ Ayuda
 
-### Macros Principales
-- `START_PRINT` — Inicio de impresión inteligente
-- `END_PRINT` — Finalización con parking
-- `PAUSE` / `RESUME` — Control de impresión
-- `PID_ALL` — Calibración de temperatura
-- `TEST_SPEED` — Test de velocidad
-
-### Placas Soportadas
-- BigTreeTech: Manta M8P, SKR 3, SKR Mini E3, Octopus
-- MKS: Robin Nano, Gen L
-- Fysetc: Spider
-- Y muchas más...
-
----
-
-## Actualización
-
-```bash
-cd ~/printer_data/config/3dwork-klipper
-git pull origin dev
-```
-
----
-
-## Más ayuda
-
-- 📖 [Wiki del Wizard](docs/WIZARD.md)
+- 📖 [Wiki del proyecto](https://github.com/3dwork-io/3dwork-klipper/wiki)
 - 🐛 [Reportar problemas](https://github.com/3dwork-io/3dwork-klipper/issues)
 - 💬 [Discord 3Dwork](https://discord.gg/3dwork)
 
 ---
 
+## 📜 Licencia
+
+MIT — Libre como un mammoth en la pradera.
+
+---
+
+<div align="center">
+
 **3Dwork** — Tu comunidad de impresión 3D en español
 
-🌐 [3dwork.io](https://3dwork.io) · 🛠️ [Herramientas](https://3dwork.io/tools/)
+🌐 [3dwork.io](https://3dwork.io) · 🛠️ [Herramientas](https://3dwork.io/tools/) · 💻 [GitHub](https://github.com/3dwork-io)
+
+</div>

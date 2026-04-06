@@ -5,6 +5,8 @@ description: El asistente más fácil para configurar Klipper en tu impresora 3D
 
 # 🎮 3Dwork Klipper Wizard
 
+> ⚠️ **Esta es la versión de desarrollo (v2.0-dev). Para uso estable, usa la rama `master`.**
+
 <!-- markdownlint-disable MD033 -->
 <style>
   .hero {

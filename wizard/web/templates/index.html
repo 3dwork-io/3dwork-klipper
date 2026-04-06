@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3Dwork Klipper Wizard</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid #4a9c6d;
+        }
+        h1 { color: #4a9c6d; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #888; font-size: 1.1em; }
+        .progress {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            gap: 10px;
+        }
+        .step {
+            background: #2a2a4a;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .step.active { background: #4a9c6d; color: #fff; }
+        .step.completed { background: #2d5a3d; }
+        .card {
+            background: #1e1e3a;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .card h2 { color: #4a9c6d; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; color: #aaa; }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #3a3a5a;
+            border-radius: 8px;
+            background: #2a2a4a;
+            color: #fff;
+            font-size: 1em;
+        }
+        input:focus, select:focus { outline: none; border-color: #4a9c6d; }
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .board-card {
+            background: #2a2a4a;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .board-card:hover { border-color: #4a9c6d; }
+        .board-card.selected { border-color: #4a9c6d; background: #2d5a3d; }
+        .board-card h3 { color: #4a9c6d; margin-bottom: 5px; }
+        .board-card p { color: #888; font-size: 0.9em; }
+        .board-card .badge {
+            display: inline-block;
+            background: #4a9c6d;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7em;
+            margin-top: 5px;
+        }
+        .btn {
+            background: #4a9c6d;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-right: 10px;
+        }
+        .btn:hover { background: #3d8a5d; }
+        .btn:disabled { background: #555; cursor: not-allowed; }
+        .btn-secondary { background: #3a3a5a; }
+        .btn-secondary:hover { background: #4a4a6a; }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #2a2a4a;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .checkbox-item input { width: auto; }
+        .config-preview {
+            background: #0a0a15;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            color: #aaa;
+        }
+        .status {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .status.success { background: #2d5a3d; color: #4a9c6d; }
+        .status.error { background: #5a2d2d; color: #ff6b6b; }
+        .status.info { background: #2d3a5a; color: #6b9bff; }
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .info-box {
+            background: #2a3a4a;
+            border-left: 4px solid #4a9c6d;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>3Dwork Klipper Wizard</h1>
+            <p class="subtitle">Asistente de configuración para impresoras 3D con Klipper</p>
+        </header>
+
+        <div class="progress">
+            <div class="step active" data-step="1">1. Electrónica</div>
+            <div class="step" data-step="2">2. Impresora</div>
+            <div class="step" data-step="3">3. Características</div>
+            <div class="step" data-step="4">4. Generar</div>
+        </div>
+
+        <!-- Step 1: Board Selection -->
+        <div id="step-1" class="card">
+            <h2>Selecciona tu Electrónica</h2>
+            <div id="install-status" class="hidden">
+                <div class="info-box">
+                    3Dwork-klipper no está instalado. 
+                    <button class="btn" onclick="installKlipper()">Instalar ahora</button>
+                </div>
+            </div>
+            
+            <div id="board-container"></div>
+        </div>
+
+        <!-- Step 2: Printer Configuration -->
+        <div id="step-2" class="card hidden">
+            <h2>Configuración de la Impresora</h2>
+            
+            <div class="form-group">
+                <label>Nombre de la impresora</label>
+                <input type="text" id="printer-name" placeholder="My Printer" value="My Printer">
+            </div>
+            
+            <div class="form-group">
+                <label>Tipo de kinematics</label>
+                <select id="kinematics">
+                    <option value="cartesian">Cartesian ( Ender 3, Prusa)</option>
+                    <option value="corexy">CoreXY ( Voron, Ender 5)</option>
+                    <option value="delta">Delta ( Kossel)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Velocidad máxima (mm/s)</label>
+                <input type="number" id="max-velocity" value="300">
+            </div>
+            
+            <div class="form-group">
+                <label>Aceleración máxima (mm/s²)</label>
+                <input type="number" id="max-accel" value="3000">
+            </div>
+            
+            <div class="form-group">
+                <label>Rotation Distance X (mm)</label>
+                <input type="number" id="x-rotation" value="40">
+            </div>
+            
+            <div class="form-group">
+                <label>Rotation Distance Y (mm)</label>
+                <input type="number" id="y-rotation" value="40">
+            </div>
+            
+            <div class="form-group">
+                <label>Rotation Distance Z (mm)</label>
+                <input type="number" id="z-rotation" value="8">
+            </div>
+            
+            <div class="form-group">
+                <label>Microsteps</label>
+                <select id="microsteps">
+                    <option value="16" selected>16</option>
+                    <option value="32">32</option>
+                    <option value="64">64</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Step 3: Features -->
+        <div id="step-3" class="card hidden">
+            <h2>Características Adicionales</h2>
+            
+            <div class="form-group">
+                <label>Sensor de nivelación</label>
+                <select id="probe-type">
+                    <option value="">Ninguno</option>
+                    <option value="bltouch">BLTouch</option>
+                    <option value="inductive">Sensor Inductivo</option>
+                    <option value="capacitive">Sensor Capacitivo</option>
+                </select>
+            </div>
+            
+            <div id="probe-options" class="hidden">
+                <div class="form-group">
+                    <label>Pin del Probe</label>
+                    <input type="text" id="probe-pin" value="PC15">
+                </div>
+                <div class="form-group">
+                    <label>Offset X del Probe</label>
+                    <input type="number" id="probe-x-offset" value="0" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label>Offset Y del Probe</label>
+                    <input type="number" id="probe-y-offset" value="0" step="0.1">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Tipo de Display</label>
+                <select id="display-type">
+                    <option value="">Ninguno</option>
+                    <option value="st7920">ST7920 (LCD 128x64)</option>
+                    <option value="ssd1306">SSD1306 (OLED I2C)</option>
+                    <option value="hd44780">HD44780 (LCD 20x4)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Sensor de filamento</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="filament-sensor">
+                        <span>Activar sensor de filamento</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Generate -->
+        <div id="step-4" class="card hidden">
+            <h2>Generar Configuración</h2>
+            
+            <div id="summary">
+                <div class="info-box">
+                    <strong>Resumen de configuración:</strong>
+                    <div id="config-summary"></div>
+                </div>
+            </div>
+            
+            <button class="btn" onclick="generateConfig()">Generar printer.cfg</button>
+            
+            <div id="generated-config" class="hidden">
+                <h3>Vista previa</h3>
+                <pre class="config-preview" id="config-preview"></pre>
+                
+                <div class="actions">
+                    <button class="btn btn-secondary" onclick="downloadConfig()">Descargar</button>
+                    <button class="btn" onclick="saveConfig()">Guardar en ~/printer_data/config/printer.cfg</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions" style="margin-top: 30px;">
+            <button class="btn btn-secondary" id="prev-btn" onclick="prevStep()">Anterior</button>
+            <button class="btn" id="next-btn" onclick="nextStep()">Siguiente</button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        let selectedBoard = null;
+        let boards = {};
+
+        // Load boards on init
+        fetch('/api/boards')
+            .then(r => r.json())
+            .then(data => {
+                boards = data;
+                renderBoards();
+            });
+
+        // Check if 3dwork-klipper is installed
+        fetch('/api/config')
+            .then(r => r.json())
+            .then(data => {
+                if (!data.board) {
+                    document.getElementById('install-status').classList.remove('hidden');
+                }
+            });
+
+        function renderBoards() {
+            const container = document.getElementById('board-container');
+            let html = '';
+            
+            for (const [manufacturer, categories] of Object.entries(boards)) {
+                html += `<h3 style="color:#888; margin:20px 0 10px;">${manufacturer}</h3>`;
+                
+                for (const [category, boardList] of Object.entries(categories)) {
+                    html += `<p style="color:#666; font-size:0.9em;">${category}</p>`;
+                    
+                    for (const board of boardList) {
+                        const canBadge = board.can ? '<span class="badge">CAN</span>' : '';
+                        html += `
+                            <div class="board-card" onclick="selectBoard('${board.id}')" data-board="${board.id}">
+                                <h3>${board.name}</h3>
+                                <p>MCU: ${board.mcu}</p>
+                                ${canBadge}
+                            </div>
+                        `;
+                    }
+                }
+            }
+            
+            container.innerHTML = html;
+        }
+
+        function selectBoard(boardId) {
+            document.querySelectorAll('.board-card').forEach(c => c.classList.remove('selected'));
+            document.querySelector(`[data-board="${boardId}"]`).classList.add('selected');
+            
+            // Find full board data
+            for (const categories of Object.values(boards)) {
+                for (const boardList of Object.values(categories)) {
+                    const board = boardList.find(b => b.id === boardId);
+                    if (board) {
+                        selectedBoard = board;
+                        break;
+                    }
+                }
+            }
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
+            document.getElementById(`step-${step}`).classList.remove('hidden');
+            document.querySelectorAll('.step').forEach(s => {
+                s.classList.remove('active', 'completed');
+                if (parseInt(s.dataset.step) < step) s.classList.add('completed');
+                if (parseInt(s.dataset.step) === step) s.classList.add('active');
+            });
+            
+            document.getElementById('prev-btn').disabled = step === 1;
+            document.getElementById('next-btn').textContent = step === 4 ? 'Finalizar' : 'Siguiente';
+        }
+
+        function nextStep() {
+            if (currentStep === 1 && !selectedBoard) {
+                alert('Selecciona una electrónica');
+                return;
+            }
+            
+            if (currentStep < 4) {
+                currentStep++;
+                showStep(currentStep);
+            } else {
+                alert('Configuración completada!');
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        // Step click navigation
+        document.querySelectorAll('.step').forEach(step => {
+            step.addEventListener('click', () => {
+                const targetStep = parseInt(step.dataset.step);
+                if (targetStep <= currentStep || (targetStep === 2 && selectedBoard)) {
+                    currentStep = targetStep;
+                    showStep(currentStep);
+                }
+            });
+        });
+
+        // Probe type change
+        document.getElementById('probe-type').addEventListener('change', (e) => {
+            document.getElementById('probe-options').classList.toggle('hidden', !e.target.value);
+        });
+
+        function installKlipper() {
+            fetch('/api/install')
+                .then(r => r.json())
+                .then(data => {
+                    if (data.status === 'installed') {
+                        document.getElementById('install-status').classList.add('hidden');
+                        alert('3Dwork-klipper instalado correctamente!');
+                    }
+                });
+        }
+
+        function generateConfig() {
+            const printer = {
+                name: document.getElementById('printer-name').value,
+                kinematics: document.getElementById('kinematics').value,
+                max_velocity: parseInt(document.getElementById('max-velocity').value),
+                max_accel: parseInt(document.getElementById('max-accel').value),
+                x_rotation_distance: parseFloat(document.getElementById('x-rotation').value),
+                y_rotation_distance: parseFloat(document.getElementById('y-rotation').value),
+                z_rotation_distance: parseFloat(document.getElementById('z-rotation').value),
+                microsteps: parseInt(document.getElementById('microsteps').value),
+            };
+            
+            const features = {
+                probe_type: document.getElementById('probe-type').value,
+                probe_pin: document.getElementById('probe-pin').value,
+                probe_x_offset: parseFloat(document.getElementById('probe-x-offset').value),
+                probe_y_offset: parseFloat(document.getElementById('probe-y-offset').value),
+                display_type: document.getElementById('display-type').value,
+            };
+            
+            fetch('/api/generate', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({board: selectedBoard, printer, features})
+            })
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById('config-preview').textContent = data.config;
+                document.getElementById('generated-config').classList.remove('hidden');
+                
+                document.getElementById('config-summary').innerHTML = `
+                    <p>Board: ${selectedBoard.name}</p>
+                    <p>Impresora: ${printer.name}</p>
+                    <p>Kinematics: ${printer.kinematics}</p>
+                `;
+            });
+        }
+
+        function saveConfig() {
+            const config = document.getElementById('config-preview').textContent;
+            fetch('/api/save', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({config})
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.status === 'saved') {
+                    alert('Configuración guardada en: ' + data.file);
+                }
+            });
+        }
+
+        function downloadConfig() {
+            window.location.href = '/api/download';
+        }
+
+        showStep(1);
+    </script>
+</body>
+</html>

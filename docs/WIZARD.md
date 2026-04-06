@@ -4,13 +4,16 @@
 
 El **3Dwork Klipper Wizard** es un asistente interactivo que facilita la configuración de impresoras 3D con Klipper. Permite seleccionar electrónica, configurar la impresora, generar archivos `printer.cfg` y compilar firmware de forma guiada.
 
+Versión: **2.0.0-dev**
+
 ## Características
 
-- **CLI Interactivo**: Menú guiado paso a paso en terminal
-- **Selección de Electrónica**: +40 boards soportados (BigTreeTech, MKS, Fysetc, etc.)
-- **Generador de Config**: Crea `printer.cfg` personalizado
-- **Biblioteca de Configs**: Integración con múltiples fuentes de configuraciones (próximamente)
-- **Actualización Automática**: Mantiene 3dwork-klipper actualizado
+- **CLI Interactivo** — Menú guiado paso a paso en terminal
+- **Web Wizard** — Interfaz visual en el navegador
+- **+50 Electrónicas** — BigTreeTech, MKS, Fysetc, Creality, Mellow, etc.
+- **Generador de Config** — Crea `printer.cfg` personalizado con templates
+- **Biblioteca de Configs** — Presets de Klipper examples, RatOS, Creality Sonic Pad
+- **Instalación One-liner** — Instalación en un solo comando
 
 ## Requisitos
 
@@ -18,6 +21,7 @@ El **3Dwork Klipper Wizard** es un asistente interactivo que facilita la configu
 - Python 3.8+
 - Git
 - Conexión a Internet
+- (Opcional) Flask para Web Wizard
 
 ## Instalación
 
@@ -34,131 +38,135 @@ bash <(curl -s https://raw.githubusercontent.com/3dwork-io/3dwork-klipper/dev/in
 cd ~/printer_data/config
 git clone -b dev https://github.com/3dwork-io/3dwork-klipper.git
 
-# 2. Ejecutar el wizard
-cd 3dwork-klipper
-python3 wizard/cli.py
+# 2. (Opcional) Instalar dependencias para Web Wizard
+pip3 install flask
+
+# 3. Ejecutar el wizard
+python3 3dwork-klipper/wizard/cli.py
 ```
 
 ## Uso
 
-### Iniciar el Wizard
+### CLI Interactivo
 
 ```bash
 python3 ~/printer_data/config/3dwork-klipper/wizard/cli.py
 ```
 
-O si has usado el instalador:
+### Web Wizard
 
 ```bash
-3dwork-klipper
+cd ~/printer_data/config/3dwork-klipper
+python3 wizard/web/app.py
+# Acceder a http://tu-raspberry:5000
 ```
 
 ### Menú Principal
 
 ```
-╔═══════════════════════════════════════╗
-║        MENÚ PRINCIPAL              ║
-╠═══════════════════════════════════════╣
-║  1. Seleccionar Electrónica       ║
-║  2. Configurar Impresora           ║
-║  3. Generar printer.cfg            ║
-║  4. Compilar Firmware             ║
-║  5. Actualizar Instalación        ║
-║  6. Ver Configuración Actual      ║
-║  7. Biblioteca de Configs         ║
-║  0. Salir                          ║
-╚═══════════════════════════════════════╝
+╔════════════════════════════════════════════════╗
+║              MENÚ PRINCIPAL                ║
+╠════════════════════════════════════════════════╣
+║  1. Seleccionar Electrónica                   ║
+║  2. Configurar Impresora                       ║
+║  3. Generar printer.cfg                         ║
+║  4. Compilar Firmware                          ║
+║  5. Instalar 3Dwork-klipper                    ║
+║  6. Actualizar Instalación                     ║
+║  7. Configuración Actual                        ║
+║  8. Biblioteca de Configs                       ║
+║  9. Web Wizard (servidor local)                ║
+║  0. Salir                                       ║
+╚════════════════════════════════════════════════╝
 ```
 
-### Flujo de Uso Recomendado
+## Flujo de Uso
 
-1. **Seleccionar Electrónica** (Opción 1)
-   - Elegir tu board de la lista
-   - Verificar que está soportada
+### 1. Seleccionar Electrónica
 
-2. **Configurar Impresora** (Opción 2)
-   - Seleccionar tipo de kinematics (Cartesian, CoreXY, Delta)
-   - Configurar límites de velocidad/aceleración
-   - Añadir características (BLTouch, display, sensor filamento)
+Elige tu electrónica de la lista de +50 boards soportados:
 
-3. **Generar printer.cfg** (Opción 3)
-   - El wizard crea el archivo de configuración
-   - Se guarda en `~/printer_data/config/printer.cfg`
+- **BigTreeTech**: Manta (E3 EZ, M4P, M8P), Octopus, SKR (Pro, 3, Mini E3)
+- **MKS**: Robin Nano, Eagle, Gen L
+- **Fysetc**: Spider, Cheetah
+- **Creality**: v4.2.x, K1
+- **Mellow**: FLY-GEM, FLY SHT (CAN)
+- **BTT CAN**: EBB42, EBB36
 
-4. **Compilar Firmware** (Opción 4)
-   - Genera el binario para tu electronics
-   - También puedes usar la macro `COMPILE_FIRMWARE` desde Klipper
+### 2. Configurar Impresora
+
+Define los parámetros de tu impresora:
+
+- **Kinematics**: Cartesian, CoreXY, CoreXY (UART), Delta
+- **Velocidad máxima**: mm/s
+- **Aceleración**: mm/s²
+- **Rotation Distance**: para cada eje
+- **Microsteps**: 16, 32, 64
+
+### 3. Características Adicionales
+
+Añade features opcionales:
+
+- **Probe**: BLTouch, Inductivo, Capacitivo
+- **Display**: ST7920, SSD1306, HD44780
+- **Sensor de filamento**
+
+### 4. Generar printer.cfg
+
+El wizard genera un `printer.cfg` completo con:
+
+- Configuración de steppers
+- Extruder y heaters
+- Probe y bed_mesh (si está configurado)
+- Display (si está configurado)
+- Includes para macros de 3dwork-klipper
 
 ## Electrónicas Soportadas
 
-### BigTreeTech
+### BigTreeTech Manta
+| ID | Nombre | MCU | CAN |
+|-----|--------|-----|-----|
+| btt-manta-e3ez | Manta E3 EZ | stm32g0b1 | ✓ |
+| btt-manta-m4p | Manta M4P | stm32h743 | ✓ |
+| btt-manta-m8p | Manta M8P | stm32h743 | ✓ |
+| btt-manta-m8p-11 | Manta M8P v1.1 | stm32h743 | ✓ |
+| btt-manta-m8p-v2 | Manta M8P v2.0 | stm32h743 | ✓ |
 
-**Manta:**
-- Manta E3 EZ
-- Manta M4P / M4P v2.2
-- Manta M8P / M8P v1.1
+### BigTreeTech Octopus
+| ID | Nombre | MCU |
+|-----|--------|-----|
+| btt-octopus-max-ez | Octopus Max EZ | stm32h723 |
+| btt-octopus-pro-446 | Octopus Pro (446) | stm32f446 |
+| btt-octopus-pro-429 | Octopus Pro (429) | stm32f429 |
+| btt-octopus-pro-h723 | Octopus Pro (H723) | stm32h723 |
+| btt-octopus-11 | Octopus v1.1 | stm32f407 |
 
-**Octopus:**
-- Octopus Max EZ
-- Octopus Pro (446, 429, H723)
-- Octopus v1.1
+### BigTreeTech SKR
+| ID | Nombre | MCU |
+|-----|--------|-----|
+| skr_pro_12 | SKR Pro v1.2 | stm32f407 |
+| btt-skr-3 | SKR 3 | stm32h743 |
+| btt-skr-3-ez | SKR 3 EZ | stm32h743 |
+| btt-skr-2-407 | SKR 2 (407) | stm32f407 |
+| btt-skrat-10 | SKR RAT | stm32f407 |
+| btt-skr-14-turbo | SKR 1.4 Turbo | stm32f407 |
+| btt_skr_mini_e3_30 | SKR Mini E3 v3.0 | stm32g0b1 |
 
-**SKR:**
-- SKR Pro v1.2
-- SKR 3 / SKR 3 (H723)
-- SKR 3 EZ / SKR 3 EZ (H723)
-- SKR 2 (429, 407)
-- SKR RAT
-- SKR 1.4 Turbo
-- SKR Mini E3 v3
+### MKS Instruments
+| ID | Nombre |
+|-----|--------|
+| mks-robin-nano-v3 | MKS Robin Nano v3 |
+| mks-robin-nano-20 | MKS Robin Nano v2 |
+| mks-eagle-10 | MKS Eagle v1.0 |
+| mks-gen-l | MKS Gen L |
 
-### MKS
-
-- MKS Eagle v1.x
-- MKS Robin Nano v3 / v2
-- MKS Gen L
-
-### Otras
-
-- Fysetc Spider
-- Artillery Ruby
-- Raspberry RP2040
-- Leviathan v1.2
-- Mellow FLY SHT (CAN toolhead)
-- EBB42 / EBB36 (CAN toolhead)
-
-## Configuración Manual
-
-Si prefieres configurar manualmente, puedes incluir las macros de 3dwork-klipper en tu `printer.cfg`:
-
-```ini
-# 3Dwork standard macros
-[include 3dwork-klipper/macros/macros_*.cfg]
-
-# 3Dwork shell macros (requiere gcode_shell_extension)
-[include 3dwork-klipper/shell-macros.cfg]
-```
-
-## Macros Disponibles
-
-### Macros de Impresión
-- `START_PRINT` - Inicio de impresión con precalentamiento inteligente
-- `END_PRINT` - Finalización con parking dinámico
-- `PAUSE` / `RESUME` / `CANCEL_PRINT` - Gestión de impresión
-
-### Macros de Filamento
-- `M600` - Cambio de filamento
-- `LOAD_FILAMENT` - Carga de filamento
-- `UNLOAD_FILAMENT` - Descarga de filamento
-
-### Macros de Calibración
-- `PID_ALL` - Calibración PID completa
-- `PID_EXTRUDER` / `PID_BED` - Calibración individual
-- `BED_MESH_CALIBRATE` - Mallado de cama
-- `TEST_SPEED` - Test de velocidad
-
-### Macros de Firmware
-- `COMPILE_FIRMWARE BOARD=<board_id>` - Compilar firmware
+### CAN Toolheads
+| ID | Nombre |
+|-----|--------|
+| btt-ebb42-12 | EBB42 v1.2 (CAN) |
+| btt-ebb36-12 | EBB36 v1.2 (CAN) |
+| mellow-fly-sht-42 | FLY SHT 42 (CAN) |
+| mellow-fly-sht-36 | FLY SHT 36 (CAN) |
 
 ## Solución de Problemas
 
@@ -168,40 +176,56 @@ Si prefieres configurar manualmente, puedes incluir las macros de 3dwork-klipper
 # Verificar Python
 python3 --version
 
-# Instalar dependencias si es necesario
-pip3 install requests
+# Si hay errores de permisos
+chmod +x ~/printer_data/config/3dwork-klipper/wizard/cli.py
 ```
 
 ### Error al generar config
 
 ```bash
-# Verificar permisos
+# Verificar permisos del directorio
 ls -la ~/printer_data/config/
 
 # Crear directorio si no existe
 mkdir -p ~/printer_data/config
 ```
 
-### La compilación de firmware falla
-
-Asegúrate de tener installed:
-1. Git
-2. make
-3. gcc
-4. libncurses-dev
+### Web Wizard no funciona
 
 ```bash
-# En Debian/Ubuntu
-sudo apt install build-essential libncurses-dev
+# Instalar Flask
+pip3 install flask
+
+# Verificar que el puerto 5000 está libre
+netstat -tuln | grep 5000
 ```
+
+### La compilación de firmware falla
+
+Asegúrate de tener instalado:
+
+```bash
+# Debian/Ubuntu
+sudo apt install build-essential libncurses-dev
+
+# Verificar Klipper instalado
+ls ~/klipper/
+```
+
+## Bibliotecas de Configuración
+
+El wizard puede acceder a configs de múltiples fuentes:
+
+- **3Dwork-klipper** — Configuraciones propias
+- **Klipper Examples** — Ejemplos oficiales de Klipper
+- **RatOS** — Configuraciones de RatOS
+- **Creality Sonic Pad** — Presets de Sonic Pad
 
 ## Actualización
 
-Para actualizar 3dwork-klipper:
-
 ```bash
-# Opción 1: Desde el wizard (opción 5)
-3dwork-klipper
+# Opción 1: Desde el wizard
+python3 3dwork-klipper/wizard/cli.py
 # Seleccionar "Actualizar Instalación"
 
 # Opción 2: Manual
@@ -214,12 +238,16 @@ git pull origin dev
 ¿Encontraste un bug? ¿Tienes sugerencias?
 
 1. Crea un issue en GitHub
-2. O haz un fork y PR
+2. Haz fork y PR a la rama `dev`
 
 ## Licencia
 
-MIT License - consulta el archivo LICENSE en el repositorio.
+MIT License - libre como un mammoth en la pradera.
 
 ---
 
-Para más información, visita: https://github.com/3dwork-io/3dwork-klipper
+**3Dwork** — El referente en español sobre impresión 3D
+
+- Web: https://3dwork.io
+- GitHub: https://github.com/3dwork-io
+- Tools: https://3dwork.io/tools/

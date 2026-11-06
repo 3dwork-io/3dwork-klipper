@@ -1,8 +1,0 @@
-{
-	"$schema": "../board-definition.schema.json",
-	"name": "BTT E3 RRF",
-	"manufacturer": "BIGTREETECH",
-	"serialPath": "/dev/btt-skr-e3-rrf-11",
-	"firmwareBinaryName": "firmware-btt-skr-e3-rrf-11.bin",
-	"compileScript": "compile.sh"
-}

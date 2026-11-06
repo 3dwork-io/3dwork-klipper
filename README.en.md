@@ -1,4 +1,4 @@
-# 3Dwork Klipper
+# 3Dwork Clipper
 
 > Klipper Macro, Settings and Tools Pack
 
@@ -9,6 +9,12 @@
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/3dwork-io/3dwork-klipper/dev/install.sh)
 ```
+
+## Migration (Nov 2026)
+
+The bundle only loads`macros/macros_*.cfg`. Old files without prefix
+(`start_print.cfg`,`end_print.cfg`,`pause.cfg`,`resume.cfg`,`cancel_print.cfg`,`change_filament.cfg`,`move_park.cfg`,`test_speed.cfg`,`test_kinematics.cfg`,`var_globals.cfg`) were removed: their
+active content lives in files`macros_*`(`CHANGE_FILAMENT`,`M600`,`M601`,`NOTIFY`,`BEEP`y`_CLEAR_DISPLAY`are now in`macros/macros_change_filament.cfg`). If you included any on hand in your`printer.cfg`, delete that line: it already comes in the bundle.
 
 ## What is this?
 
@@ -27,7 +33,7 @@ bash <(curl -s https://raw.githubusercontent.com/3dwork-io/3dwork-klipper/dev/in
 
 Documentation includes:
 
--   Instalación paso a paso
+-   Step by step installation
 -   How to use the Web Wizard
 -   How to use the CLI Wizard
 -   Supported plates

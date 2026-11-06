@@ -1,4 +1,4 @@
-# 3Dwork Clipper
+# 3Dwork Klipper
 
 > Klipper Macro, Settings and Tools Pack
 
@@ -31,12 +31,12 @@ Documentation includes:
 -   How to use the Web Wizard
 -   How to use the CLI Wizard
 -   Supported plates
--   Solución de problemas
+-   Troubleshooting
 
 ## Medium
 
 -   [Issues](https://github.com/3dwork-io/3dwork-klipper/issues)— Report problems
--   [Discord 3Dwork](https://discord.gg/3dwork) — Comunidad
+-   [Discord 3Dwork](https://discord.gg/3dwork)- Community
 
 * * *
 

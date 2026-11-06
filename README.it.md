@@ -10,15 +10,21 @@
 bash <(curl -s https://raw.githubusercontent.com/3dwork-io/3dwork-klipper/dev/install.sh)
 ```
 
+## Migrazione (novembre 2026)
+
+El bundle solo carga`macros/macros_*.cfg`. Vecchi file senza prefisso
+(`start_print.cfg`,`end_print.cfg`,`pause.cfg`,`resume.cfg`,`cancel_print.cfg`,`change_filament.cfg`,`move_park.cfg`,`test_speed.cfg`,`test_kinematics.cfg`,`var_globals.cfg`) sono stati rimossi: loro
+il contenuto attivo risiede nei file`macros_*`(`CHANGE_FILAMENT`,`M600`,`M601`,`NOTIFY`,`BEEP`E`_CLEAR_DISPLAY`sono adesso dentro`macros/macros_change_filament.cfg`). Se ne hai incluso qualcuno a portata di mano nel tuo`printer.cfg`, elimina quella riga: è già inclusa nel pacchetto.
+
 ## Cos'è questo?
 
-**Tagliatore di lavoro 3D**è un insieme di macro e impostazioni che semplificano l'utilizzo di Klipper sulla tua stampante 3D.
+**3Dwork Klipper**è un insieme di macro e impostazioni che semplificano l'utilizzo di Klipper sulla tua stampante 3D.
 
 ### Caratteristiche
 
 -   **+50 piatti supportati**— BigTreeTech, MKS, Fysetc, Creality, Mellow...
 -   **Procedura guidata interattiva**— CLI e Web per configurare la stampante
--   **Macro avanzate**- START_PRINT, PID, rete letto adattiva, test di velocità
+-   **Macro avanzate**- START_PRINT, PID, rete adattiva del letto, test di velocità
 -   **Aggiornamento automatico**— Mantieni tutto aggiornato con un comando
 
 ## Documentazione

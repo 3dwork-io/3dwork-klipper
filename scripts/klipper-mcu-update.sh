@@ -77,7 +77,7 @@ update_btt_ebb36_10() {
     if [[ -h "/dev/btt-ebb36-10" ]]
     then
         echo "BTT EBB36 v1.0 detected"
-        /home/pi/printer_data/config/3dwork-klipper/boards/btt-ebb42-10/make-and-flash-mcu.sh
+        /home/pi/printer_data/config/3dwork-klipper/boards/btt-ebb36-10/make-and-flash-mcu.sh
     fi
 }
 
@@ -122,9 +122,9 @@ update_mellow_fly_sht_42() {
 }
 
 update_mellow_fly_sht_36() {
-    if [[ -h "/dev/mellow-fly-sht-42" ]]
+    if [[ -h "/dev/mellow-fly-sht-36" ]]
     then
-        echo "Mellow FLY-SHT42 detected"
+        echo "Mellow FLY-SHT36 detected"
         /home/pi/printer_data/config/3dwork-klipper/boards/mellow-fly-sht-36/make-and-flash-mcu.sh
     fi
 }
@@ -146,7 +146,7 @@ update_btt_skr_3() {
 }
 
 update_znp_robin_nano_dw_v2() {
-    if [[ -h "/dev/znp_robin_nano_dw_v2" ]]
+    if [[ -h "/dev/znp-robin-nano-dw-v2" ]]
     then
         echo "ZNP Robin Nano DW v2 detected"
         /home/pi/printer_data/config/3dwork-klipper/boards/znp-robin-nano-dw-v2/make-and-flash-mcu.sh

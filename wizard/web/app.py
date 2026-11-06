@@ -13,7 +13,7 @@ import json
 VERSION = "2.0.0-dev"
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "3dwork-klipper-wizard-secret-key"
+app.config["SECRET_KEY"] = os.environ.get("WIZARD_SECRET_KEY") or os.urandom(24).hex()
 
 # Get config directory
 WIZARD_DIR = Path(__file__).parent.parent
@@ -391,4 +391,4 @@ Nota: Si es la primera vez, instala las dependencias:
   pip3 install flask
 """)
 
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="127.0.0.1", port=int(os.environ.get("PORT", 5000)), debug=False)

@@ -4,7 +4,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-source /home/pi/printer_data/config/3dwork-klipper/scripts/3dwork-klipper-common.sh
+source /home/pi/printer_data/config/3dwork-klipper/scripts/3dwork-common.sh
 source /home/pi/printer_data/config/3dwork-klipper/scripts/moonraker-ensure-policykit-rules.sh
 
 ensure_ownership() {

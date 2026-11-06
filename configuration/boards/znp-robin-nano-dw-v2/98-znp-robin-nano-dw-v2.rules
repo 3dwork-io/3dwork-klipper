@@ -1,0 +1,4 @@
+# ZNP ROBIN NANO DW v2 w/ STM32H743
+SUBSYSTEMS=="usb", ATTRS{idProduct}=="614e",  ATTRS{idVendor}=="1d50", ATTRS{serial}=="znp-robin-nano-dw-v2", ACTION=="add", SYMLINK+="znp-robin-nano-dw-v2", RUN+="/home/pi/printer_data/config/3dwork-klipper/scripts/klipper-mcu-added.sh"
+
+ACTION=="remove", ENV{DEVLINKS}=="/dev/znp-robin-nano-dw-v2"

@@ -53,7 +53,6 @@ create_directories() {
     log_info "Creando directorios..."
     
     mkdir -p "${INSTALL_DIR}"
-    mkdir -p "${KLIPPER_CONFIG_DIR}/3dwork-klipper"
     
     log_success "Directorios creados"
 }

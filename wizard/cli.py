@@ -698,6 +698,21 @@ class BoardManager:
             ],
         },
     }
+    @staticmethod
+    def _prune_boards(boards, boards_dir):
+        """Quita del catalogo las placas cuyo directorio no existe en boards/."""
+        available = {d.name for d in boards_dir.iterdir() if d.is_dir()}
+        out = {}
+        for brand, groups in boards.items():
+            kept = {}
+            for group, items in groups.items():
+                ok = [b for b in items if b.get("id") in available]
+                if ok:
+                    kept[group] = ok
+            if kept:
+                out[brand] = kept
+        return out
+
 
     def get_all_boards(self) -> List[Dict]:
         boards = []
@@ -1367,6 +1382,10 @@ class Wizard:
 def main():
     wizard = Wizard()
     wizard.run()
+
+
+# El catalogo se poda contra boards/ real para no ofrecer placas inexistentes
+BoardManager.BOARDS = BoardManager._prune_boards(BoardManager.BOARDS, Path(__file__).parent.parent / "boards")
 
 
 if __name__ == "__main__":

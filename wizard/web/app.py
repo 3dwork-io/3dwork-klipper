@@ -278,6 +278,23 @@ def index():
     return render_template("index.html", version=VERSION)
 
 
+
+def _prune_boards(boards: dict, boards_dir) -> dict:
+    """Quita del catalogo las placas cuyo directorio no existe en boards/."""
+    available = {d.name for d in boards_dir.iterdir() if d.is_dir()}
+    out = {}
+    for brand, groups in boards.items():
+        kept = {}
+        for group, items in groups.items():
+            ok = [b for b in items if b.get("id") in available]
+            if ok:
+                kept[group] = ok
+        if kept:
+            out[brand] = kept
+    return out
+
+BOARDS = _prune_boards(BOARDS, WIZARD_DIR.parent / "boards")
+
 @app.route("/api/boards")
 def get_boards():
     """Get all available boards"""

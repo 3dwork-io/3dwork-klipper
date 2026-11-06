@@ -65,6 +65,16 @@ clone_repository() {
     if [ -d "3dwork-klipper" ]; then
         log_warn "3dwork-klipper ya existe, actualizando..."
         cd 3dwork-klipper
+        # El repo vive en printer_data/config: los usuarios lo editan. Un pull
+        # con cambios locales falla a mitad o deja merges a medias: abortamos
+        # con instrucciones claras en vez de perder trabajo.
+        if [ -n "$(git status --porcelain)" ]; then
+            log_error "Tienes cambios locales en 3dwork-klipper:"
+            git status --short
+            log_error "Copia tus cambios, o commitéalos (git commit -am 'mis cambios')"
+            log_error "o descartalos (git checkout -- .) antes de actualizar."
+            exit 1
+        fi
         git fetch origin
         git checkout dev
         git pull origin dev

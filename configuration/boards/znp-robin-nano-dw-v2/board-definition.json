@@ -1,0 +1,10 @@
+{
+	"$schema": "../board-definition.schema.json",
+	"name": "ZNP ROBIN NANO DW v2",
+	"manufacturer": "ZNP",
+	"serialPath": "/dev/znp-robin-nano-dw-v2",
+	"firmwareBinaryName": "firmware-znp-robin-nano-dw-v2.bin",
+	"compileScript": "compile.sh",
+	"flashScript": "flash.sh",
+	"documentationLink": ""
+}

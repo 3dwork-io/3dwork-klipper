@@ -1,0 +1,42 @@
+{% extends "base/header.html" %}
+
+{% block header %}
+<header class="md-header md-header--shadow" data-md-level="0">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="{{ config.extra.homepage | default('#') }}" title="{{ config.site_name | e }}" class="md-header__button md-logo" aria-label="{{ config.site_name }}">
+      {% if config.theme.logo %}
+        <img src="{{ config.theme.logo | url }}" alt="logo" width="40" height="40" />
+      {% endif %}
+    </a>
+    <label class="md-header__title" for="__drawer">
+      <div class="md-header__ellipsis">
+        <span class="md-header__topic">{{ config.site_name }}</span>
+      </div>
+    </label>
+    <div class="md-header__optionnal">
+      {% include "partials/nav-item.html" %}
+    </div>
+    {% if config.theme.palette %}
+      {% include "partials/palette.html" %}
+    {% endif %}
+    {% include "partials/search.html" %}
+  </nav>
+</header>
+<style>
+.md-header {
+  background-color: #000 !important;
+}
+.md-header__inner {
+  color: #fff !important;
+}
+.md-header__topic, .md-header__ellipsis {
+  color: #fff !important;
+}
+.md-header__button {
+  color: #fff !important;
+}
+.md-header .md-search__input {
+  color: #fff !important;
+}
+</style>
+{% endblock %}

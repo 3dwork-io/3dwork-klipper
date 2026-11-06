@@ -172,7 +172,7 @@ Nous n'allons pas entrer dans l'installation et la configuration de cela car il 
 
 ```ini
 [spoolman]
-server: http://192.168.0.123:7912
+server: http://192.168.1.100:7912
 # URL to the Spoolman instance. This parameter must be provided.
 sync_rate: 5
 # The interval, in seconds, between sync requests with the

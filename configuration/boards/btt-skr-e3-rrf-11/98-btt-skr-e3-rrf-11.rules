@@ -1,0 +1,4 @@
+# BTT E3 RRF w/ STM32F407
+SUBSYSTEMS=="usb", ATTRS{idProduct}=="614e",  ATTRS{idVendor}=="1d50", ATTRS{serial}=="btt-skr-e3-rrf-11", ACTION=="add", SYMLINK+="btt-skr-e3-rrf-11", RUN+="/home/pi/printer_data/config/3dwork-klipper/scripts/klipper-mcu-added.sh"
+
+ACTION=="remove", ENV{DEVLINKS}=="/dev/btt-skr-e3-rrf-11"

@@ -7,7 +7,7 @@ fi
 
 pushd /home/pi/klipper || exit
 echo "flashing rpi-mcu"
-cp -f /home/pi/printer_data/config/RatOS/boards/rpi/firmware.config /home/pi/klipper/.config
+cp -f /home/pi/printer_data/config/3dwork-klipper/boards/rpi/firmware.config /home/pi/klipper/.config
 make olddefconfig
 make clean
 # Reset ownership

@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-cp -f /home/pi/printer_data/config/RatOS/boards/prusa-buddy/firmware.config /home/pi/klipper/.config
+cp -f /home/pi/printer_data/config/3dwork-klipper/boards/prusa-buddy/firmware.config /home/pi/klipper/.config
 pushd /home/pi/klipper || exit
 make olddefconfig
 make clean

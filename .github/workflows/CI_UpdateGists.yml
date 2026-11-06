@@ -1,15 +1,16 @@
 name: CI - Update Gists from Repository
-on: push
+on:
+  push:
+    branches: [master]
+    paths: ["macros/**"]
 permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+  contents: read
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code for 3dwork-klipper
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
 ##      - name: Remove print_area_bed_mesh.cfg
 ##        uses: JesseTG/rm@v1.0.3
@@ -29,14 +30,14 @@ jobs:
           
 ##      - name: Commit changes
 ##        run: |
-##          git config --global user.name "alienboyxp"
-##          git config --global user.email "jrodriguez@qitec.net"
+##          git config --global user.name "Tu Usuario"
+##          git config --global user.email "tu@email.com"
 ##          git add .
 ##          git commit -m "Added timestamp to files"
 ##          git push "https://${{ github.actor }}:${{ secrets.COMMIT_TOKEN }}@github.com/${{ github.repository }}.git"
           
       - name: Checkout code for Gist
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Creating start_print.cfg Gist
         uses: exuanbo/actions-deploy-gist@v1
@@ -62,13 +63,16 @@ jobs:
           file_path: macros/macros_config_test_kinematics.cfg
           file_type: binary
           
-      - name: Creating macros_config_test_speed.cfg Gist
-        uses: exuanbo/actions-deploy-gist@v1
-        with:
-          token: ${{ secrets.TOKEN }}
-          gist_id: 194649a9314f8adfceb51ae8b2e80b7b
-          file_path: macros/macros_config_test_speed.cfg
-          file_type: binary
+      # DESACTIVADO: compartia gist_id con macros_config_test_kinematics.cfg
+      # y lo sobreescribia. Para reactivarlo hay que crear un gist nuevo y
+      # poner aqui su id.
+      # - name: Creating macros_config_test_speed.cfg Gist
+      #   uses: exuanbo/actions-deploy-gist@v1
+      #   with:
+      #     token: ${{ secrets.TOKEN }}
+      #     gist_id: <NUEVO_GIST_ID>
+      #     file_path: macros/macros_config_test_speed.cfg
+      #     file_type: binary
 
       - name: Creating var_globals.cfg Gist
         uses: exuanbo/actions-deploy-gist@v1

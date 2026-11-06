@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # Klipper Virtual Printer (simulado) - puerto estándar 7125
+  klipper:
+    image: ghcr.io/mainsail-crew/virtual-klipper-printer:latest
+    container_name: 3dwork-klipper
+    ports:
+      - "7125:7125"    # Moonraker API (estándar)
+      - "8110:8110"    # Webcam stream (estándar)
+    volumes:
+      - ./klipper_config:/home/klipper/klipper_config
+    restart: unless-stopped
+    networks:
+      - klipper-net
+
+  # Mainsail Web UI - puerto estándar 80
+  mainsail:
+    image: ghcr.io/mainsail-crew/mainsail:latest
+    container_name: 3dwork-mainsail
+    ports:
+      - "80:80"        # Mainsail web (estándar)
+    volumes:
+      - ./mainsail_config:/data
+    environment:
+      - KLIPPER_HOST=klipper
+      - KLIPPER_PORT=7125
+    restart: unless-stopped
+    networks:
+      - klipper-net
+    depends_on:
+      - klipper
+
+  # SSH server - puerto estándar 22
+  ssh:
+    image: lscr.io/linuxserver/openssh-server:latest
+    container_name: 3dwork-klipper-ssh
+    ports:
+      - "2222:22"      # SSH (mapea host 2222 → container 22)
+    volumes:
+      - ./ssh_config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - PASSWORD=klipper
+      - PUBLIC_KEY=    # Dejar vacío para password auth
+    restart: unless-stopped
+    networks:
+      - klipper-net
+    depends_on:
+      - klipper
+
+networks:
+  klipper-net:
+    driver: bridge

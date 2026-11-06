@@ -1,0 +1,49 @@
+site_name: 3Dwork Klipper
+site_description: Paquete de macros y configuraciones para Klipper
+site_url: https://3dwork-io.github.io/3dwork-klipper/
+site_author: 3Dwork
+
+theme:
+  name: material
+  language: es
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  palette:
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Modo oscuro
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Modo claro
+  features:
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+    - content.code.annotate
+  custom_dir: overrides
+
+nav:
+  - Home: index.md
+  - Instalación: instalacion.md
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.details
+  - pymdownx.superfences
+
+plugins:
+  - search:
+      lang: es
+
+extra:
+  generator: false

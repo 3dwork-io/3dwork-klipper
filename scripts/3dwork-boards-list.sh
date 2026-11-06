@@ -1,15 +1,18 @@
 #!/bin/bash
 
-# Store the names of all folders in the /boards directory
-folders=$(ls -d /home/pi/printer_data/config/3dwork-klipper/boards/*/)
+# Lista las placas disponibles en boards/ como JSON (para el wizard/moonraker).
+BOARDS_DIR="${1:-/home/pi/printer_data/config/3dwork-klipper/boards}"
+OUT="${2:-/tmp/boards.json}"
 
-# Create a JSON object with the folder names
-json_data='{"boards":['
-for boards in $boards; do
-  json_data+='"'$boards'",'
+json='{"boards":['
+first=1
+for board in "$BOARDS_DIR"/*/; do
+  [ -d "$board" ] || continue
+  name=$(basename "$board")
+  if [ "$first" -eq 1 ]; then first=0; else json+=','; fi
+  json+="\"$name\""
 done
-json_data=${json_data%,}
-json_data+=']}'
+json+=']}'
 
-# Write the JSON object to a file
-echo $json_data > boards_list.json
+echo "$json" > "$OUT"
+cat "$OUT"
